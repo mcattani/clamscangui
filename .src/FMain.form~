@@ -1,0 +1,235 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,81,90)
+  Text = ("// ClamAV GUI //")
+  Icon = Picture["icon:/48/security"]
+  Resizable = False
+  AutoResize = True
+  { mnOpciones Menu
+    Text = ("Opciones")
+    { MnuEnreg Menu
+      Text = ("Log")
+      Picture = Picture["icon:/32/info"]
+      { mnErrores Menu
+        Text = ("Mostrar solo Salida de Errores")
+        Picture = Picture["icon:/22/important"]
+        Toggle = True
+      }
+      { mnInfectados Menu
+        Text = ("Mostrar solo Archivos Infectados")
+        Picture = Picture["icon:/22/open-recent"]
+        Toggle = True
+      }
+      { mnNoSummary Menu
+        Text = ("Salida sin Resumen")
+        Picture = Picture["icon:/22/open-recent"]
+        Toggle = True
+      }
+      { mnSupressOK Menu
+        Text = ("No mostrar comprobaciones \"OK\"")
+        Picture = Picture["icon:/22/unindent"]
+        Toggle = True
+      }
+      { mnBell Menu
+        Text = ("Sonido de Campana si se encuentra algo")
+        Picture = Picture["icon:/22/zoom-normal"]
+        Toggle = True
+      }
+    }
+    { separador Menu
+    }
+    { mnSalir Menu
+      Text = ("Salir")
+      Picture = Picture["icon:/22/cancel"]
+    }
+  }
+  { mnOpcionesAvanzadas Menu
+    Text = ("Opciones Avanzadas")
+    { Escaneo Menu
+      Text = ("Más Opciones")
+      Picture = Picture["icon:/22/add"]
+      { mnHWP3 Menu
+        Text = ("Escanear HWP3")
+        Picture = Picture["icon:/22/file"]
+        Checked = True
+      }
+      { mnXML Menu
+        Text = ("Escanear XML/HTML")
+        Picture = Picture["icon:/22/html"]
+        Checked = True
+      }
+      { mnSWF Menu
+        Text = ("Escanear SWF")
+        Picture = Picture["icon:/22/file"]
+        Checked = True
+      }
+      { mnPdf Menu
+        Text = ("Escanear PDF")
+        Picture = Picture["icon:/22/file"]
+        Checked = True
+      }
+      { mnMail Menu
+        Text = ("Escanear archivos de Correo")
+        Picture = Picture["icon:/22/mail"]
+        Checked = True
+      }
+    }
+    { Menu6 Menu
+    }
+    { mnRecursivo Menu
+      Text = ("Escaneo Recursivo")
+      Picture = Picture["icon:/22/rotate-left"]
+      Toggle = True
+      Checked = True
+    }
+    { mnRemover Menu
+      Text = ("Remover archivo/s (Cuidado!)")
+      Picture = Picture["icon:/22/delete"]
+      Toggle = True
+    }
+    { mnDetectar Menu
+      Text = ("Detectar Aplicaciones Indeseadas")
+      Picture = Picture["icon:/22/filter"]
+      Toggle = True
+    }
+    { MnuDeplacer Menu
+      Text = ("poner en cuarentena archivos infectados")
+      Picture = Picture["icon:/48/download"]
+      Toggle = True
+    }
+    { Menu5 Menu
+    }
+    { MnuBase Menu
+      Text = ("Actualización de la base de datos")
+      Picture = Picture["chukablue2.png"]
+      { mnFreshclam Menu
+        Text = ("Ver Log Freshclam")
+        Picture = Picture["icon:/22/book"]
+      }
+      { Menu1 Menu
+      }
+      { MnuAuto Menu mnu
+        Name = "MnuAuto"
+        Text = ("Actualización automática")
+        Picture = Picture["icon:/48/database"]
+        Radio = True
+        Checked = True
+      }
+      { MnuManuelle Menu mnu
+        Name = "MnuManuelle"
+        Text = ("Actualización manual")
+        Picture = Picture["icon:/48/server"]
+        Radio = True
+      }
+      { Menu2 Menu
+      }
+      { MnuImmediate Menu
+        Text = ("Actualización inmediata")
+        Picture = Picture["icon:/48/refresh"]
+      }
+    }
+  }
+  { MnuAction Menu
+    Text = ("comportamiento")
+    { MnuVirus Menu
+      Text = ("Archivos potencialmente infectados")
+      Picture = Picture["icon:/48/flag"]
+    }
+    { Menu3 Menu
+    }
+    { MnuLog Menu
+      Text = ("Lectura del Log")
+      Picture = Picture["icon:/48/book"]
+    }
+    { MnuHistoric Menu
+      Text = ("Historial de lectura")
+      Picture = Picture["icon:/48/archive"]
+    }
+  }
+  { MnuLangues Menu
+    Text = ("+")
+    Picture = Picture["icon:/32/add"]
+    { Menu4 Menu
+      Text = ("Idiomas")
+      Picture = Picture["icon:/48/people"]
+      { MnuEspagnol Menu
+        Text = ("Español")
+        Radio = True
+      }
+      { MnuFrancais Menu
+        Text = ("francés")
+        Radio = True
+      }
+      { MnuAnglais Menu
+        Text = ("Inglés")
+        Radio = True
+      }
+    }
+  }
+  { mnAbout Menu
+    Text = ("?")
+    { mnAcerca Menu
+      Text = ("Acerca de") & "..."
+      Picture = Picture["icon:/22/find"]
+    }
+    { MnuAide Menu
+      Text = ("Ayuda")
+      Picture = Picture["icon:/48/help"]
+    }
+  }
+  { TP TabPanel
+    MoveScaled(1,0,79,60)
+    Count = 2
+    Index = 0
+    Text = ("Analizar un Archivo")
+    { FC FileChooser
+      MoveScaled(1,1,77,54)
+      Expand = True
+      Border = False
+      Root = "/"
+      ReadOnly = True
+    }
+    Index = 1
+    Text = ("Analizar Directorios")
+    { DC DirChooser
+      MoveScaled(1,1,77,53)
+      Border = False
+      Root = "/"
+      ShowHidden = True
+    }
+    Index = 0
+  }
+  { !txSalida TextArea
+    MoveScaled(1,61,79,24)
+    #Public = True
+    ToolTip = ("Salida del escaneo")
+    ReadOnly = True
+    Wrap = True
+  }
+  { Panel1 Panel
+    MoveScaled(44,0,36,5)
+    { TBKill ToolButton
+      MoveScaled(20,0,4.5714,4)
+      ToolTip = ("¡Mata el proceso en curso!")
+      Picture = Picture["icon:/32/halt"]
+    }
+    { TBhProc ToolButton
+      MoveScaled(15,0,4.5714,4)
+      ToolTip = ("¡Ejecute el proceso!")
+      Picture = Picture["icon:/32/exec"]
+    }
+    { TBeffacer ToolButton
+      MoveScaled(30,0,5,4)
+      ToolTip = ("Salida de texto claro")
+      Picture = Picture["icon:/32/clear"]
+    }
+    { TBSudo ToolButton
+      MoveScaled(0,0,11,4)
+      ToolTip = ("Sudo")
+      Text = ("Sudo")
+      Picture = Picture["icon:/32/linux"]
+      Toggle = True
+    }
+  }
+}

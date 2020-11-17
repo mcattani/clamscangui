@@ -1,0 +1,17 @@
+Module1
+ClamScanGui
+0
+0
+1.1.45
+
+gb.image
+gb.qt5
+gb.form
+gb.dbus
+gb.desktop
+gb.form.dialog
+gb.util
+gb.settings
+gb.form.stock
+gb.qt5.ext
+
