@@ -12,4 +12,6 @@ Y por qué no?
 
 Ver el archivo ChangeLog para ver los cambios realizados. 
 
+Gracias a Philippe Valarcher por los aportes realizados.
+
 
