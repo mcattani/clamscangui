@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-17 18:40 UTC\n"
+"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgid "Opciones"
 msgstr ""
 
 #: FMain.form:67
-msgid "Log"
+msgid "Grabación de sesiones"
 msgstr ""
 
 #: FMain.form:71
@@ -87,7 +87,7 @@ msgid "Detectar Aplicaciones Indeseadas"
 msgstr ""
 
 #: FMain.form:171
-msgid "Poner en cuarentena archivos infectados"
+msgid "poner en cuarentena archivos infectados"
 msgstr ""
 
 #: FMain.form:180
@@ -111,7 +111,7 @@ msgid "Actualización inmediata"
 msgstr ""
 
 #: FMain.form:217
-msgid "Comportamiento"
+msgid "comportamiento"
 msgstr ""
 
 #: FMain.form:220
@@ -139,7 +139,7 @@ msgid "Español"
 msgstr ""
 
 #: FMain.form:252
-msgid "Francés"
+msgid "francés"
 msgstr ""
 
 #: FMain.form:257
@@ -210,35 +210,43 @@ msgstr ""
 msgid "Seleccione \n an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:338
+#: FMain.class:336
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: FMain.class:338
+#: FMain.class:336
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: FMain.class:341
+#: FMain.class:339
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:505
+#: FMain.class:503
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:507
+#: FMain.class:505
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:507
+#: FMain.class:505
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:507
+#: FMain.class:505
 msgid "Si"
 msgstr ""
 
-#: FMain.class:507
+#: FMain.class:505
 msgid "No"
+msgstr ""
+
+#: FMain.class:527
+msgid "¡Atención!"
+msgstr ""
+
+#: FMain.class:528
+msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr ""
 

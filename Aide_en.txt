@@ -1,0 +1,53 @@
+An antivirus, clamav, under Linux:
+- When we install an antivirus under Linux it is to use it in another way. What is the interest?
+- Clamav allows, above all, to verify that one does not transmit or retransmit a contaminated file, either as an attachment in an email or through a USB memory.
+
+Software menus:
+
+The options :
+Recursive scan:
+- The most important option because it allows you to follow the full path of the file being analyzed. Slow down the analysis (a bit).
+
+The other options:
+- They are to display the results of the analysis in the text area of ​​the main window.
+
+Advanced Options:
+More options:
+- To choose whether or not certain types of files are scanned. (By default, all scanners)
+
+Delete contaminated files:
+- Relatively dangerous option if we take into account the number of false positives that the antivirus can generate.
+
+Detect potentially unwanted applications (PUAs):
+- The antivirus is more aggressive with this option but generates more false positives (it depends on you)
+
+Move potentially infected files to quarantine:
+- Activate the menu: Actions file potentially infected
+- Provides faster access to potentially infected files; either to destroy or restore them in case of false positives.
+- Here again, be careful with its use, the deletion of a file happens quickly.
+
+Upgrade of data base:
+- Clamav comes with an updater called freshclam that can (by default) perform updates automatically or manually.
+- You can check its status by reading the log file.
+
+Behavior:
+Potentially infected files:
+- If active, allows you to view and then act on the files that were actually moved to Quarantine (destruction, restoration or no action)
+
+Log in:
+- Allows you to view the analyzes performed during the session.
+
+History:
+- Allows you to see all the analyzes performed as long as you do not delete them.
+
+Languages ​​:
+- You can currently choose between three languages ​​in which the software has been translated (English, Spanish or French)
+
+A point about the analysis:
+- As stated in the FAQ, clamav antivirus does not repair infected files.
+- some viruses in Linux can act without authorization.
+- authorization is the important word in Linux because whatever your distribution, you know that until you give authorization, a file cannot act on its own.
+- What to scan?
+essentially the "things" that you record on your machine or some other medium.
+eg your entire home directory (home / user) with hidden files (/.something).
+To put your mind at ease, you can run a scan of your entire machine, but you can go get coffee and take the dog out as it will take a while for it to finish.

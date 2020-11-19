@@ -1,0 +1,147 @@
+' Gambas module file
+
+'' ' *********************************************************************************************************
+'' ' Ce programme est un logiciel libre; vous pouvez le redistribuer ou le modifier suivant
+'' ' les termes de la GNU General Public License telle que publiée par la Free Software Foundation ;
+'' ' soit la version 3 de la licence, soit( à votre gré) toute version ultérieure.
+'' ' Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ;
+'' ' sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER.
+'' ' Consultez la GNU General Public License pour plus de détails.
+'' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
+'' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
+'' ' *********************************************************************************************************
+
+Public hProc As Process
+
+Public Function Version() As String
+
+     Dim Salida As String
+
+     Shell ("clamscan --version") To Salida
+     Return Salida
+
+End Function
+
+Public Sub TournProc()
+
+     While hProc.state = hProc.Running
+          Wait 1
+          FMain.Mouse = Mouse.Wait
+          FMain.txSalida.Mouse = Mouse.Wait
+     Wend
+
+End
+
+Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, Quarant As Boolean, bSudo As Boolean)
+
+     Dim Comm As String
+
+     FMain.txSalida.Text = ""
+     Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options
+     If SalidaError = True Then Comm = Comm & " --quiet"
+     If SinINF = True Then comm = comm & " --no-summary"
+     If SuprimirOK = True Then Comm = comm & " -o"
+     If SoloINF = True Then comm = comm & " -i"
+     If bell = True Then comm = comm & " --bell"
+     If RemoverArch = True Then comm = comm & " --remove=yes"
+     If PDF = True Then comm = comm & " --scan-pdf=True"
+     If Mail = True Then comm = comm & " --scan-Mail=True"
+     If SWF = True Then comm = comm & " --scan-SWF=True"
+     If HTML = True Then comm = comm & " --scan-html=True --scan-xmldocs=True"
+     If HWP3 = True Then comm = comm & " --scan-HWP3=True"
+     If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine
+
+     If bSudo = True Then
+          Authenticate.Command("sudo " & Comm)
+          If FMain.bFlag = True Then
+               hProc = Shell (FMain.monTexte) For Read As "Scan"
+               TournProc()
+          Endif
+     Else If bsudo = False
+          hProc = Shell (Comm) For Read As "Scan"
+          TournProc()
+     Endif
+
+     FichierLog()
+     Wait
+     FMain.Mouse = Mouse.Default
+     FMain.txSalida.Mouse = Mouse.Default
+
+End
+
+Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Recursive As Boolean, Bell As Boolean, RemoverArch As Boolean, AppsIndeseadas As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, Quarant As Boolean, bSudo As Boolean)
+
+     Dim Comm As String
+
+     FMain.txSalida.Text = ""
+     Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options modifiables ici
+     If SalidaError = True Then Comm = Comm & " --quiet"
+     If SinINF = True Then comm = comm & " --no-summary"
+     If SuprimirOK = True Then Comm = comm & " -o"
+     If SoloINF = True Then comm = comm & " -i"
+     If Recursive = True Then comm = comm & " -r"
+     If bell = True Then comm = comm & " --bell"
+     If RemoverArch = True Then comm = comm & " --remove=yes"
+     If AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
+     If PDF = True Then comm = comm & " --scan-pdf=True"
+     If Mail = True Then comm = comm & " --scan-Mail=True"
+     If SWF = True Then comm = comm & " --scan-SWF=True"
+     If HTML = True Then comm = comm & " --scan-html=True --scan-xmldocs=True"
+     If HWP3 = True Then comm = comm & " --scan-HWP3=True"
+     If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine        'déplacement des fichiers virus en quarantaine
+
+     If bSudo = True Then
+          Authenticate.Command("sudo " & Comm)
+          If FMain.bFlag = True Then
+               hProc = Shell (FMain.monTexte) For Read As "Scan"
+               TournProc
+          Endif
+     Else If bsudo = False
+          hProc = Shell (Comm) For Read As "Scan"
+          TournProc
+     Endif
+
+     FichierLog()
+     Wait
+     FMain.Mouse = Mouse.Default
+     FMain.txSalida.Mouse = Mouse.Default
+
+End
+
+Public Sub Scan_read()
+
+     Dim sLine As String
+
+     sline = Read #Last, Lof(Last)
+     FMain.txSalida.Text &= sLine
+     FMain.txSalida.EnsureVisible()
+
+End
+
+Public Sub FichierLog()                                                         'sauvegarde des Logs et de l'Historique
+
+     Dim monTexte As String
+     Dim leFichier As File
+     Dim histo As File
+     Dim histoText As String
+     Dim TextDate As String
+
+     monTexte = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
+     histoText = User.Home &/ ".clamscangui/Historique.txt"
+     TextDate = " ---------| " & (" Escaneo realizado : ") & Now() & " |--------- "
+
+     If Not Exist(monTexte) Then
+          leFichier = Open monTexte For Create
+     Else
+          leFichier = Open monTexte For Input
+     Endif
+     If Not Exist(histoText) Then
+          histo = Open histoText For Create
+     Else
+          histo = Open histoText For Input
+     Endif
+
+     File.Save(monTexte, leFichier.Load(monTexte) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)   'Logs
+     File.Save(histoText, histo.Load(histoText) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)     'Historique
+
+End

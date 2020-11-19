@@ -1,0 +1,27 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  Move(0,0,406,476)
+  #Scaled = False
+  Resizable = False
+  Border = False
+  Stacking = Window.Above
+  SkipTaskbar = True
+  Transparent = True
+  { PictureBox1 PictureBox
+    Move(35,14,329,420)
+    Picture = Picture["pil2.png"]
+    Stretch = True
+  }
+  { Label9 Label
+    Move(35,434,329,35)
+    Font = Font["Bold,+6"]
+    Foreground = &H0F6380&
+    Text = ("Unus Ex Altera")
+    Alignment = Align.Center
+  }
+  { Timer1 #Timer
+    #Move(0,420)
+    Delay = 2000
+  }
+}

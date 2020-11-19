@@ -1,0 +1,440 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ClamScanGui 3.15.2\n"
+"PO-Revision-Date: 2020-11-19 11:21 UTC\n"
+"Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "ClamScanGui"
+msgstr "ClamScanGui"
+
+#: .project:2
+msgid "Un sencillo GUI para el antivirus ClamAV.\nLégèrement modifié par PilValaquarus"
+msgstr "Une interface graphique simple pour l'antivirus ClamAV.\nLégèrement modifié par PilValaquarus"
+
+#: Authenticate.class:56
+msgid "POR FAVOR ESPERA. Procesando..."
+msgstr "S'IL VOUS PLAÎT ATTENDEZ. En traitement ..."
+
+#: Authenticate.class:67
+msgid "atrás"
+msgstr "retour"
+
+#: Authenticate.class:74
+msgid "¡Se ha producido un error!"
+msgstr "Une erreur s'est produite!"
+
+#: Authenticate.class:127
+msgid "Bloqueo de mayúsculas está activado"
+msgstr "Touche Maj activée"
+
+#: Authenticate.form:52
+msgid "Una aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para ejecutar esta acción."
+msgstr "Une application tente d'effectuer une action qui nécessite des privilèges.\nUne authentification est requise pour effectuer cette action."
+
+#: Authenticate.form:63
+msgid "Contraseña:"
+msgstr "Mot de passe : "
+
+#: Authenticate.form:93
+msgid "Cancelar"
+msgstr "Annuler"
+
+#: Authenticate.form:103
+msgid "Autenticar"
+msgstr "Authentifier"
+
+# gb-ignore
+#: Cerf.form:26
+msgid "Unus Ex Altera"
+msgstr ""
+
+#: ClamScan.module:20
+msgid "clamscan --version"
+msgstr "clamscan --version"
+
+#: ClamScan.module:131
+msgid " Escaneo realizado : "
+msgstr " Analyse effectuée : "
+
+#: FMain.class:46
+msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
+msgstr "Vous devez avoir installé l'antivirus ClamAv pour pouvoir utiliser cette application"
+
+#: FMain.class:48
+msgid "Versión instalada: "
+msgstr "Version installée : "
+
+#: FMain.class:183
+msgid "Por favor, espere unos segundos mientras inicia el antivirus"
+msgstr "Veuillez patienter quelques secondes\npendant le démarrage de l'antivirus"
+
+#: FMain.class:245
+msgid "Elija el directorio para escanear"
+msgstr "Choisissez le répertoire à analyser"
+
+#: FMain.class:246
+msgid "Elija el archivo para analizar"
+msgstr "Choisissez le fichier à analyser"
+
+#: FMain.class:279
+msgid "Seleccione \n an objeto para escanear!"
+msgstr "Veuillez sélectionner\nun objet à scanner!"
+
+#: FMain.class:336
+msgid "El proceso actual ha sido eliminado"
+msgstr "Le processus actuel a été tué"
+
+#: FMain.class:336
+msgid "¡Puedes volver!"
+msgstr "Vous pouvez revenir!"
+
+#: FMain.class:339
+msgid "¡El proceso ya se detuvo!"
+msgstr "Le processus est déjà arrêté!"
+
+#: FMain.class:503
+msgid "El idioma elegido se aplicará después del reinicio"
+msgstr "La langue choisie sera appliquée après le redémarrage"
+
+#: FMain.class:505
+msgid "El idioma elegido se aplicará después de reiniciar el programa."
+msgstr "La langue choisie sera appliquée après le redémarrage du programme."
+
+#: FMain.class:505 Virus.class:54
+msgid "No"
+msgstr "Non"
+
+#: FMain.class:505 Virus.class:54
+msgid "Si"
+msgstr "Oui"
+
+#: FMain.class:505
+msgid "¿Quieres renunciar?"
+msgstr "Voulez-vous quitter?"
+
+#: FMain.class:527 Module1.module:22
+msgid "¡Atención!"
+msgstr "Attention!"
+
+#: FMain.class:528
+msgid "¡Todos sus pedidos son \n del SuperUsuario!"
+msgstr "Toutes vos commandes sont\ndu SuperUser!"
+
+# gb-ignore
+#: FMain.form:58
+msgid "// ClamAV GUI //"
+msgstr ""
+
+#: FMain.form:64
+msgid "Opciones"
+msgstr "Les choix"
+
+#: FMain.form:67
+msgid "Grabación de sesiones"
+msgstr "Enregistrement de session"
+
+#: FMain.form:71
+msgid "Mostrar solo Salida de Errores"
+msgstr "Afficher uniquement la sortie d'erreur"
+
+#: FMain.form:77
+msgid "Mostrar solo Archivos Infectados"
+msgstr "Afficher uniquement les fichiers infectés"
+
+#: FMain.form:83
+msgid "Salida sin Resumen"
+msgstr "Quitter sans résumé"
+
+#: FMain.form:89
+msgid "No mostrar comprobaciones \"OK\""
+msgstr "Ne pas afficher les chèques  \"OK \""
+
+#: FMain.form:95
+msgid "Sonido de Campana si se encuentra algo"
+msgstr "La cloche sonne si quelque chose est trouvé"
+
+#: FMain.form:105
+msgid "Salir"
+msgstr "Sortir"
+
+#: FMain.form:111
+msgid "Opciones Avanzadas"
+msgstr "Options avancées"
+
+#: FMain.form:114
+msgid "Más Opciones"
+msgstr "Plus d'options"
+
+#: FMain.form:118
+msgid "Escanear HWP3"
+msgstr "Scanner HWP3"
+
+#: FMain.form:124
+msgid "Escanear XML/HTML"
+msgstr "Analyser XML / HTML"
+
+#: FMain.form:130
+msgid "Escanear SWF"
+msgstr "Analyser SWF"
+
+#: FMain.form:136
+msgid "Escanear PDF"
+msgstr "Scanner le PDF"
+
+#: FMain.form:142
+msgid "Escanear archivos de Correo"
+msgstr "Analyser les fichiers de courrier"
+
+#: FMain.form:152
+msgid "Escaneo Recursivo"
+msgstr "Scan récursif"
+
+#: FMain.form:159
+msgid "Remover archivo/s (Cuidado!)"
+msgstr "Supprimer le fichier / s (attention!)"
+
+#: FMain.form:165
+msgid "Detectar Aplicaciones Indeseadas"
+msgstr "Détecter les applications indésirables"
+
+#: FMain.form:171
+msgid "poner en cuarentena archivos infectados"
+msgstr "mise en quarantaine des fichiers infectés"
+
+#: FMain.form:180
+msgid "Actualización de la base de datos"
+msgstr "Mise à niveau de la base de données"
+
+#: FMain.form:184
+msgid "Ver Log Freshclam"
+msgstr "Voir Log Freshclam"
+
+#: FMain.form:193
+msgid "Actualización automática"
+msgstr "Mise à jour automatique"
+
+#: FMain.form:201
+msgid "Actualización manual"
+msgstr "Mise à jour manuelle"
+
+#: FMain.form:210
+msgid "Actualización inmediata"
+msgstr "Mise à jour immédiate"
+
+#: FMain.form:217
+msgid "comportamiento"
+msgstr "Actions"
+
+#: FMain.form:220
+msgid "Archivos potencialmente infectados"
+msgstr "Fichiers potentiellement infectés"
+
+#: FMain.form:228
+msgid "Lectura del Log"
+msgstr "Lecture du journal"
+
+#: FMain.form:233
+msgid "Historial de lectura"
+msgstr "Lecture de l'Historique"
+
+# gb-ignore
+#: FMain.form:239
+msgid "+"
+msgstr ""
+
+#: FMain.form:243
+msgid "Idiomas"
+msgstr "Langues"
+
+#: FMain.form:247
+msgid "Español"
+msgstr "Espagnol"
+
+#: FMain.form:252
+msgid "francés"
+msgstr "français"
+
+#: FMain.form:257
+msgid "Inglés"
+msgstr "Anglais"
+
+# gb-ignore
+#: FMain.form:264
+msgid "?"
+msgstr ""
+
+#: FMain.form:267 frmAbout.form:14
+msgid "Acerca de"
+msgstr "À propos de"
+
+#: FMain.form:272
+msgid "Ayuda"
+msgstr "Aide"
+
+#: FMain.form:281
+msgid "Analizar un Archivo"
+msgstr "Analyser un fichier"
+
+#: FMain.form:291
+msgid "Analizar Directorios"
+msgstr "Analyser les répertoires"
+
+#: FMain.form:304
+msgid "Salida del escaneo"
+msgstr "Sortie de numérisation"
+
+#: FMain.form:314
+msgid "¡Mata el proceso en curso!"
+msgstr "Tuez le processus en cours!"
+
+#: FMain.form:320
+msgid "¡Ejecute el proceso!"
+msgstr "Exécutez le processus!"
+
+#: FMain.form:326
+msgid "Salida de texto claro"
+msgstr "Effacer la sortie de texte"
+
+# gb-ignore
+#: FMain.form:332
+msgid "Sudo"
+msgstr ""
+
+#: FrmAide.class:29
+msgid " Inicio de archivo "
+msgstr "Début du fichier"
+
+# gb-ignore
+#: FrmAide.class:31
+msgid " FAQ : http://www.clamav.net"
+msgstr ""
+
+#: FrmAide.class:41
+msgid " Ayuda de ClamScanGui "
+msgstr "Aide ClamScanGui"
+
+#: FrmAide.class:51
+msgid " Fin del documento "
+msgstr "Fin du document"
+
+#: FrmAide.form:11
+msgid "Ayuda de ClamScanGui"
+msgstr "Aide de ClamScanGui"
+
+#: FrmAide.form:35 FrmHistoric.form:45 FrmLog.form:40 Virus.form:53 frmAbout.form:44 frmFresh.form:34
+msgid "Cerrar"
+msgstr "Fermer"
+
+#: FrmHistoric.class:19
+msgid "Historia de ClamScanGui : "
+msgstr "Historique de ClamScanGui : "
+
+#: FrmHistoric.class:31 FrmLog.class:42
+msgid "El archivo o directorio no existe"
+msgstr "Le fichier ou le répertoire n'existe pas"
+
+#: FrmHistoric.form:25
+msgid "Perderás todo tu historial si haces clic en Borrar"
+msgstr "Vous perdrez tout votre historique si vous cliquez sur Supprimer"
+
+#: FrmHistoric.form:30
+msgid "Borrar"
+msgstr "Supprimer"
+
+#: FrmHistoric.form:35 FrmLog.form:30
+msgid "Imprimir"
+msgstr "Imprimer"
+
+#: FrmLog.class:30
+msgid " Registro de ClamScanGui "
+msgstr "Log de ClamScanGui : "
+
+#: Module1.module:22
+msgid "para ClamScanGui"
+msgstr "pour ClamScanGui"
+
+#: Module1.module:23
+msgid "Solo es posible una instancia del Programa."
+msgstr "Une seule instance du programme est possible."
+
+#: Virus.class:44
+msgid "Cuarentena de ClamScanGui"
+msgstr "ClamScanGui Quarantaine"
+
+#: Virus.class:54
+msgid "¿Quieres borrar la selección?"
+msgstr "Voulez-vous supprimer la sélection?"
+
+#: Virus.class:74
+msgid "¿Quieres restaurar la selección?"
+msgstr "Voulez-vous restaurer la sélection?"
+
+#: Virus.class:79
+msgid "¡Seleccione dónde restaurar el archivo!"
+msgstr "Sélectionnez où restaurer le fichier!"
+
+#: Virus.class:81
+msgid "¡El archivo no fue restaurado!"
+msgstr "Le fichier n'a pas été restauré!"
+
+#: Virus.class:87
+msgid "su archivo ha sido restaurado a la siguiente carpeta: \n"
+msgstr "Votre fichier a été restauré dans le dossier suivant:\n"
+
+#: Virus.class:89
+msgid "Restaurar error"
+msgstr "Erreur de restauration"
+
+#: Virus.form:20
+msgid "Seleccione los archivos que desee eliminar"
+msgstr "Sélectionner les fichiers à effacer"
+
+#: Virus.form:34
+msgid "Restaurar"
+msgstr "Restaurer"
+
+#: Virus.form:41
+msgid "Eliminar"
+msgstr "Éliminer"
+
+#: frmAbout.form:28
+msgid "Acerca de mí"
+msgstr "À propos de moi"
+
+#: frmAbout.form:29
+msgid "Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que\nme hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! "
+msgstr "Amateur et nerd, j'aime expérimenter et apprendre en créant des applications qui\nrendre les choses plus faciles pour moi.\nJ'ai un blog sur lequel je télécharge mes projets (y compris les sources de ce programme) et des informations supplémentaires:\n\nhttps://translate.google.com/translate?hl=fr&sl=es-AR&tl=fr&u=https://thenerdyapprentice.blogspot.com/\n\nSi vous avez trouvé ce programme utile: visitez le blog! Laissez un commentaire et faites passer le mot!\n\nCe programme est distribué gratuitement.\n\nSalutations!"
+
+#: frmAbout.form:37
+msgid "Click para acceder al blog"
+msgstr "Cliquez pour accéder au blog"
+
+# gb-ignore
+#: frmAbout.form:38
+msgid "https://thenerdyapprentice.blogspot.com/"
+msgstr ""
+
+#: frmAbout.form:49
+msgid "Programa ligeramente modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com"
+msgstr "programme légèrement modifié par Pil Valaquarus.\nOctobre 2020\nvalaquarus@gmail.com"
+
+# gb-ignore
+#: frmAbout.form:60
+msgid "mail to : valaquarus@gmail.com"
+msgstr ""
+
+# gb-ignore
+#: frmFresh.form:11
+msgid "// Freshclam Log // "
+msgstr ""
+
+#: frmFresh.form:17
+msgid "Muestra el log de Freshclam, el programa de actualización del Antivirus"
+msgstr "Affiche le journal de Freshclam, le programme de mise à jour antivirus"
+

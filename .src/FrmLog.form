@@ -1,0 +1,31 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,115,89)
+  Icon = Picture["icon:/48/book"]
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { TextArea1 TextArea
+    MoveScaled(5,5,81,47)
+    Expand = True
+    ReadOnly = True
+    Wrap = True
+  }
+  { HBox2 HBox
+    MoveScaled(0,83,111,4)
+    Spacing = True
+    { btnImpr Button
+      MoveScaled(3,0,16,4)
+      Text = ("Imprimir")
+    }
+    { Panel2 Panel
+      MoveScaled(56,0,4,4)
+      Expand = True
+    }
+    { btnCerrar Button
+      MoveScaled(62,0,16,4)
+      Text = ("Cerrar")
+    }
+  }
+}

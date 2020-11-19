@@ -1,0 +1,55 @@
+' Gambas class file
+
+'' ' *********************************************************************************************************
+'' ' Ce programme est un logiciel libre; vous pouvez le redistribuer ou le modifier suivant
+'' ' les termes de la GNU General Public License telle que publiée par la Free Software Foundation ;
+'' ' soit la version 3 de la licence, soit( à votre gré) toute version ultérieure.
+'' ' Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ;
+'' ' sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER.
+'' ' Consultez la GNU General Public License pour plus de détails.
+'' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
+'' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
+'' ' *********************************************************************************************************
+
+Public Sub Run() As Boolean
+
+     Return Not Me.ShowModal()
+
+End
+
+Public Sub btnOK_Click()
+
+     Me.Close(True)
+
+End
+
+Public Sub Form_Open()
+
+     TextArea1.Text = gb.CrLf
+     TextArea1.Text = TextArea1.Text & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & (" Inicio de archivo ") & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & gb.CrLf
+     TextArea1.Text = TextArea1.Text & File.Load("clamscan.txt")
+     TextArea1.Text = TextArea1.Text & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & (" FAQ : http://www.clamav.net") & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & gb.CrLf & gb.CrLf
+
+     If Settings["General/LangInit"] = "fr" Then
+          TextArea1.Text = TextArea1.Text & File.Load("FAQ_fr.txt")
+     Else If Settings["General/LangInit"] = "en" Then
+          TextArea1.Text = TextArea1.Text & File.Load("FAQ_en.txt")
+     Else If Settings["General/LangInit"] = "es" Then
+          TextArea1.Text = TextArea1.Text & File.Load("FAQ_es.txt")
+     Endif
+
+     TextArea1.Text = TextArea1.Text & gb.CrLf & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & (" Ayuda de ClamScanGui ") & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & gb.CrLf & gb.CrLf
+
+     If Settings["General/LangInit"] = "fr" Then
+          TextArea1.Text = TextArea1.Text & File.Load("Aide_fr.txt")
+     Else If Settings["General/LangInit"] = "en" Then
+          TextArea1.Text = TextArea1.Text & File.Load("Aide_en.txt")
+     Else If Settings["General/LangInit"] = "es" Then
+          TextArea1.Text = TextArea1.Text & File.Load("Aide_es.txt")
+     Endif
+
+     TextArea1.Text = TextArea1.Text & gb.CrLf & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & (" Fin del documento ") & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & gb.CrLf
+
+     TextArea1.Pos = 0
+
+End

@@ -1,0 +1,46 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,96,87)
+  Icon = Picture["icon:/32/security"]
+  Resizable = False
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { TextArea1 TextArea
+    MoveScaled(9,6,81,59)
+    Expand = True
+    ReadOnly = True
+    Wrap = True
+  }
+  { HBox1 HBox
+    MoveScaled(4,78,90,4)
+    Spacing = True
+    { btnRestaurar Button
+      MoveScaled(5,0,19,4)
+      Visible = False
+      Text = ("Restaurar")
+      Picture = Picture["icon:/24/cancel"]
+      Cancel = True
+    }
+    { Panel2 Panel
+      MoveScaled(25,0,4,4)
+      Expand = True
+    }
+    { btnSauve Button
+      MoveScaled(32,0,19,4)
+      Visible = False
+      Text = ("Salvar")
+      Picture = Picture["icon:/24/floppy"]
+    }
+    { Panel1 Panel
+      MoveScaled(56,0,4,4)
+      Expand = True
+    }
+    { btnCerrar Button
+      MoveScaled(64,0,19,4)
+      Text = ("Cerrar")
+      Picture = Picture["icon:/24/close"]
+    }
+  }
+}

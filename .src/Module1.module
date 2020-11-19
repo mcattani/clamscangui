@@ -1,0 +1,67 @@
+' Gambas module file
+
+'' ' *********************************************************************************************************
+'' ' Ce programme est un logiciel libre; vous pouvez le redistribuer ou le modifier suivant
+'' ' les termes de la GNU General Public License telle que publiée par la Free Software Foundation ;
+'' ' soit la version 3 de la licence, soit( à votre gré) toute version ultérieure.
+'' ' Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ;
+'' ' sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER.
+'' ' Consultez la GNU General Public License pour plus de détails.
+'' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
+'' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
+'' ' *********************************************************************************************************
+Fast                                                                            'appel Fast du compilateur
+
+Public hLock As Stream                                                          'pour locker un fichier de contrôle
+Public cloture As Boolean                                                       'cloture voulue ou non
+
+Public Sub Main()
+
+     Try hLock = Lock User.home & "/.ClamScanGui-lock"                           'pour éviter plusieurs instance du programme
+     If Error Then
+          Message.Title = (("¡Atención!") & ("para ClamScanGui"))
+          Message(("Solo es posible una instancia del Programa."))
+          Quit
+     Endif
+     langues
+     FMain.Show()                                                               'démarrage formulaire principal, pour démarrage par module.
+
+End
+
+Public Sub langues()
+
+     Dim cLangues As String[] = ["en", "fr", "es"] ', "it", "pt", "de", "ru"]
+
+     If Not cLangues.Exist(Left(System.Language, 2)) Then
+          Settings["General/LangInit"] = "en"
+          '*********************************************************************'sélection de la langue
+     Else If System.Language = "en_US.UTF-8" Then
+          Settings["General/LangInit"] = "en"
+     Else If System.Language = "fr_FR.UTF-8" Then
+          Settings["General/LangInit"] = "fr"
+     Else If System.Language = "es_ES.UTF-8" Then
+          Settings["General/LangInit"] = "es"
+          ' Else If Settings["General/LangInit"] = "it" Then
+          '      System.Language = "it_IT.UTF-8"
+          ' Else If Settings["General/LangInit"] = "pt" Then
+          '      System.Language = "pt_PT.UTF-8"
+          ' Else If Settings["General/LangInit"] = "de" Then
+          '      System.Language = "de_DE.UTF-8"
+          ' Else If Settings["General/LangInit"] = "ru" Then
+          '      System.Language = "ru_RU.UTF-8"
+     Endif
+     Settings.Save()
+
+End
+
+Public Sub quitAppli()   '                                                      'procédure de fin et de cloture de programme
+
+     If Not IsNull(Module1.hLock) Then  '                                       'libération du fichier de contrôle hLock
+          Try Unlock Module1.hLock
+          Try Kill (User.home & "/.ClamScanGui-lock")
+     Endif
+
+     cloture = True
+     Cerf.ShowModal()                                                           'splashform
+
+End

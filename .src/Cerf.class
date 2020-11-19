@@ -1,0 +1,54 @@
+' Gambas class file
+
+'' ' *********************************************************************************************************
+'' ' Ce programme est un logiciel libre; vous pouvez le redistribuer ou le modifier suivant
+'' ' les termes de la GNU General Public License telle que publiée par la Free Software Foundation ;
+'' ' soit la version 3 de la licence, soit( à votre gré) toute version ultérieure.
+'' ' Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ;
+'' ' sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER.
+'' ' Consultez la GNU General Public License pour plus de détails.
+'' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
+'' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
+'' ' *********************************************************************************************************
+
+Private PH As Integer
+Private PW As Integer
+
+Public Sub Timer1_Timer() '                                                     'timer controlant la durée de l'animation du splash form
+
+     Dim i, p As Single
+
+     For p = 1 To 6 Step 1
+          For i = 1 To 100 Step 2
+               PictureBox1.Refresh()
+               Wait
+               If Module1.cloture Then
+                    PictureBox1.H = CInt(PH / p)
+                    PictureBox1.W = CInt(PW / p)
+               Else
+                    PictureBox1.H = CInt(PH * p)
+                    PictureBox1.W = CInt(PW * p)
+                    PictureBox1.Visible = True
+               Endif
+          Next
+     Next
+     Wait
+     Me.Close
+
+End
+
+Public Sub Form_Open() '                                                        'ouverture du splash form avec animation
+
+     If Module1.cloture Then
+          PH = PictureBox1.H
+          PW = PictureBox1.W
+     Else
+          PictureBox1.Visible = False
+          PH = PictureBox1.H / 6
+          PW = PictureBox1.W / 6
+          PictureBox1.H = PH
+          PictureBox1.W = PW
+     Endif
+     Timer1.Start
+
+End

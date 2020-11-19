@@ -1,0 +1,101 @@
+* Thu Nov 19 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
+- Message sur bouton Sudo
+
+* Thu Nov 19 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
+- bug sur commande -o
+- Impression Log
+
+* Mon Nov 16 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
+- Version allégée de la précédente
+- Changements dans les menus
+- Ajout de sudo en ToolButton
+- Titre d'Authenticate
+- Correction bug sur application langues
+- bug sur TBKill
+- Déplacement des boutons
+
+* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.43
+- Version finale pour l'instant...
+
+* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
+- Traduction améliorée sous la houlette d'Ozymandias pour l'espagnol
+
+* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
+- Fichiers à restaurer envoyés dans un répertoire au choix de l'utilisateur.
+
+* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
+- Fichiers à restaurer envoyés dans un répertoire du home
+
+* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
+- Modification de l'aide et traductions
+
+* Fri Nov 13 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.41
+- Aide
+
+* Fri Nov 13 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.41
+- Arrangement différent de l'aide
+- préparation du texte d'une future aide
+
+* Fri Nov 13 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.40
+- Quasi Final
+- Menu "Fichiers potentiellement infectés" accessible uniquement quand "Déplacement virus" est activé
+- Fichiers Log et Historique déplacer en génération.
+
+* Thu Nov 12 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.39
+- Test de restauration
+
+* Wed Nov 11 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.38
+- bug corrigé sur clamscan
+
+* Wed Nov 11 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.38
+- Traduction anglais espagnol français
+
+* Mon Nov 09 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.37
+- Resize des Formulaires possible
+
+* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
+- Correction bug sur Quarant
+
+* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
+- Suppression Historique
+
+* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
+- ShowModal pour toutes les Frm
+
+* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
+- Création de l'historique
+
+* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.35
+- Test de Restauration
+
+* Sat Nov 07 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.34
+- Correction bug sur toggle
+
+* Sat Nov 07 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.33
+- Correction Quitter sur scan ou sans scan
+
+* Sat Nov 07 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.32
+- Quitter sur scan
+
+* Fri Nov 06 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.31
+- log automatique avec effacement possible
+
+* Tue Oct 20 2020 Ozymandias <manu@fibertel.com.ar> 1.1.30
+-traduction en français et en espagnol
+-création de l'aide de base
+-Choix de l'actualisation de la base de données, auto ou manuelle
+-action sur les virus, éliminer ou restaurer
+-settings pour les réglages
+-déplacement des fichiers potentiellement contaminés vers répertoire caché /.clamscangui/virus
+
+* Wed Mar 22 2017 Ozymandias <manu@fibertel.com.ar> 1.1.5
+-Agregado el visor del LOG de Freshclam
+-Agregado Icono en la barra (todavía en desarrollo)
+
+* Sun Feb 12 2017 Ozymandias <manu@fibertel.com.ar> 1.1.3
+-Corrección de errores
+-Agregado menu "?"
+-Agregadas más opciones de escaneo.
+
+* Fri Feb 03 2017 Ozymandias <manu@fibertel.com.ar> 1.1.2
+- Lanzamiento inicial

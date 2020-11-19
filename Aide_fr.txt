@@ -1,0 +1,55 @@
+Un antivirus, clamav, sous Linux:
+- Quand on installe un antivirus sous Linux c'est pour l'utiliser d'une manière ou d'une autre, quel en est l'intérêt?
+- clamav permet, avant tout, de vérifier que l'on ne transmet ni ne retransmet à des amis, un fichier contaminé, que ce soit sous forme de pièce jointe d'email ou via clé USB.
+
+Menus du logiciel:
+
+Les options :
+Balayage récursif:
+- L'option la plus importante car elle permet de suivre le chemin complet du fichier en cours d'analyse. Ce qui ralentit (un peu) l'analyse.
+
+Les autres options:
+- permettent d'afficher les résultats de l'analyse dans la zone de texte de la fenêtre principale avec certains choix.
+
+Options avancées:
+Plus d'options:
+- Pour choisir si certains types de fichiers sont analysés ou non. (Par défaut, tous les scanners)
+
+Supprimer les fichiers contaminés:
+- Option relativement dangereuse si l'on prend en compte le nombre de faux positifs que l'antivirus peut générer.
+
+Détectez les applications potentiellement indésirables (PUA):
+- L'antivirus est plus agressif avec cette option mais génère plus de faux positifs (cela dépend de vous)
+
+Déplacer les fichiers potentiellement infectés vers la quarantaine:
+- Active le menu: <Actions> Fichiers potentiellement infectés
+- Fournit un accès plus rapide aux fichiers potentiellement infectés; soit pour les détruire, soit pour les restaurer en cas de faux positifs.
+- Là encore, soyez prudent avec son utilisation, la suppression d'un fichier se fait rapidement et définitivement.
+
+Mise à niveau de la base de données:
+- clamav est livré avec un programme de mise à jour appelé freshclam qui peut (par défaut) effectuer des mises à jour automatiquement ou manuellement, vous pouvez modifier l'option.
+- Vous pouvez vérifier son état en lisant le fichier journal (en anglais).
+- Vous pouvez vérifier les réglages de freshclam dans son fichier de configuration, à l'adresse : /etc/clamav/freshclam.conf
+- Vous pouvez augmenter légèrement le temps de récupération des mises à jour qui est par défaut de 30 secondes si vous obtenez systématiquement des erreurs de téléchargement. Avec une connexion ADSL un temps de 150 secondes est plus que suffisant.
+
+Comportement:
+Fichiers potentiellement infectés:
+- Si le menu est actif, il vous permet de visualiser puis d'agir sur les fichiers qui ont été réellement déplacés en quarantaine (destruction, restauration ou aucune action)
+
+Log de la session:
+- Permet de visualiser les analyses effectuées lors de la session.
+
+Histoire:
+- Permet de voir toutes les analyses effectuées auparavant tant que vous ne les supprimez pas.
+
+Les langues:
+- Vous pouvez actuellement choisir entre trois langues dans lesquelles le logiciel a été traduit (anglais, espagnol ou français)
+
+Un point sur l'analyse:
+- Comme indiqué dans la FAQ, l'antivirus clamav ne corrige pas les fichiers infectés.
+- certains virus sous Linux peuvent agir sans autorisation.
+- autorisation, c'est le mot important sous Linux car quelle que soit votre distribution, vous savez que tant que vous n'avez pas donné l'autorisation, un fichier ne peut pas agir seul.
+- Que faut il scanner?
+	essentiellement les "choses" qu'on enregistre sur sa machine ou sur un autre support.
+	par exemple, tout son répertoire personnel (home/utilisateur) avec les fichiers cachés (/.quelquechose).
+	Pour vous rassurer, vous pouvez lancer un scan de toute votre machine mais vous pouvez allez prendre un café et sortir le chien car il va falloir un certain temps pour que cela se termine.

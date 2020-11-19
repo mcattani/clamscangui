@@ -9,7 +9,28 @@ DoNotIncrementVersion=False
 Path="/home/ozymandias/Escritorio/ClamScan.gambas"
 
 [OpenFile]
-Count=0
+Count=20
+File[1]=".hidden/CHANGELOG:0.0"
+File[2]=".src/Authenticate.form"
+File[3]=".src/Authenticate.class:5.141"
+File[4]=".src/Cerf.form"
+File[5]=".src/Cerf.class:5.41"
+File[6]=".src/ClamScan.module:0.0"
+File[7]=".src/FMain.form"
+File[8]=".src/FMain.class:5.43"
+File[9]=".src/frmAbout.form"
+File[10]=".src/frmAbout.class:5.46"
+File[11]=".src/FrmAide.form"
+File[12]=".src/FrmAide.class:5.27"
+File[13]=".src/FrmConf.form"
+File[14]=".src/FrmConf.class:54.26"
+File[15]=".src/frmFresh.form"
+File[16]=".src/frmFresh.class:5.34"
+File[17]=".src/FrmHistoric.form"
+File[18]=".src/FrmHistoric.class:5.16"
+File[19]=".src/FrmLog.form"
+Active=20
+File[20]=".src/FrmLog.class:1.24"
 
 [Watches]
 Count=0

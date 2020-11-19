@@ -9,7 +9,7 @@
   { mnOpciones Menu
     Text = ("Opciones")
     { MnuEnreg Menu
-      Text = ("Log")
+      Text = ("Grabación de sesiones")
       Picture = Picture["icon:/32/info"]
       { mnErrores Menu
         Text = ("Mostrar solo Salida de Errores")
@@ -210,25 +210,25 @@
   { Panel1 Panel
     MoveScaled(44,0,36,5)
     { TBKill ToolButton
-      MoveScaled(20,0,4.5714,4)
+      MoveScaled(18,0,4.5714,4)
       ToolTip = ("¡Mata el proceso en curso!")
       Picture = Picture["icon:/32/halt"]
     }
     { TBhProc ToolButton
-      MoveScaled(15,0,4.5714,4)
+      MoveScaled(13,0,4.5714,4)
       ToolTip = ("¡Ejecute el proceso!")
       Picture = Picture["icon:/32/exec"]
     }
     { TBeffacer ToolButton
-      MoveScaled(30,0,5,4)
+      MoveScaled(0,0,5,4)
       ToolTip = ("Salida de texto claro")
-      Picture = Picture["icon:/32/clear"]
+      Picture = Picture["icon:/24/clear"]
     }
     { TBSudo ToolButton
-      MoveScaled(0,0,11,4)
+      MoveScaled(25,0,11,4)
       ToolTip = ("Sudo")
       Text = ("Sudo")
-      Picture = Picture["icon:/32/linux"]
+      Picture = Picture["icon:/24/linux"]
       Toggle = True
     }
   }

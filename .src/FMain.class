@@ -1,0 +1,534 @@
+' Gambas class file
+
+'' ' *********************************************************************************************************
+'' ' Ce programme est un logiciel libre; vous pouvez le redistribuer ou le modifier suivant
+'' ' les termes de la GNU General Public License telle que publiée par la Free Software Foundation ;
+'' ' soit la version 3 de la licence, soit( à votre gré) toute version ultérieure.
+'' ' Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ;
+'' ' sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER.
+'' ' Consultez la GNU General Public License pour plus de détails.
+'' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
+'' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
+'' ' *********************************************************************************************************
+
+Public SalidaERR As Boolean
+Public SinINF As Boolean
+Public Recursive As Boolean
+Public SuprimirOK As Boolean
+Public Infect As Boolean
+Public Bell As Boolean
+Public Remover As Boolean
+Public AppsIndeseadas As Boolean
+Public Mail As Boolean
+Public PDF As Boolean
+Public SFW As Boolean
+Public HTML As Boolean
+Public HWP3 As Boolean
+Public maCle As Integer
+Public Ruta As String
+Public sMot As String
+Public bSortie As Boolean
+Public bFlag As Boolean
+Public quarantaine As String
+Public historic As String
+Public clamLog As String
+Public Quarant As Boolean
+Public langue As String
+Public bSudo As Boolean
+Public monTexte As String
+
+Public Sub Form_Open()                                                          'Form prinipale appelée par le Module1
+
+     Dim leFichier As File
+     Dim histo As File
+
+     If Not Exist("/usr/bin/clamscan") Then
+          Message.Warning(("Debe tener instalado el antivirus ClamAv para poder utilizar esta App"))
+     Else
+          txSalida.text = ("Versión instalada: ") & ClamScan.Version()
+     Endif
+
+     quarantaine = User.Home &/ ".clamscangui/viruses"                          'dossier de quarantaine des virus
+     clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"                  'fichier Log
+     historic = User.Home &/ ".clamscangui/Historique.txt"                      'fichier historique
+
+     If Not Exist(quarantaine) Then                                             'création du dossier de quarantaine des virus
+          Try Mkdir User.Home &/ ".clamscangui"
+          Try Mkdir quarantaine
+     Endif
+
+     If Not Exist(clamLog) Then                                                 'fichier Log
+          leFichier = Open clamLog For Create
+     Endif
+
+     If Not Exist(historic) Then                                                'fichier historique
+          histo = Open historic For Create
+     Endif
+
+     quarantaine = Shell$(quarantaine)
+     clamLog = Shell$(clamLog)
+     historic = Shell$(historic)
+
+     FMain.Text = Application.Name & " " & Application.Version
+
+     If Settings["First_Time", True] = True Then                                 'démarrage première fois
+          Settings["First_Time"] = False
+          premiereFois
+     Endif
+     LoadSettings()                                                             'réglages enregistrés
+     Cerf.ShowModal()                                                           'splash form
+
+End
+
+Public Sub MnuDeplacer_Click()
+
+     If MnuDeplacer.Checked = True Then MnuVirus.Enabled = True
+     If MnuDeplacer.Checked = False Then MnuVirus.Enabled = False
+
+End
+
+Public Sub premiereFois()                                                       'réglages pour une première fois
+
+     MnuAuto.Checked = True
+     Settings["Menu/Auto"] = MnuAuto.Checked
+     MnuManuelle.Checked = False
+     Settings["Menu/Manuel"] = MnuManuelle.Checked
+     MnuImmediate.Enabled = False
+     Settings["Menu/Immediat"] = MnuImmediate.Enabled
+     MnuDeplacer.Checked = False
+     Settings["Menu/deplacer"] = MnuDeplacer.Checked
+     MnuVirus.Enabled = False
+     Settings["Menu/Virus"] = MnuVirus.Enabled
+
+End
+
+Public Sub LoadSettings()                                                       'réglages enregistrés
+
+     mnRecursivo.Checked = Settings["Menu/Recursif"]
+     mnErrores.Checked = Settings["Menu/Errores"]
+     mnInfectados.Checked = Settings["Menu/Infectes"]
+     mnNoSummary.Checked = Settings["Menu/NoSummary"]
+     mnSupressOK.Checked = Settings["Menu/SupprOK"]
+     mnBell.Checked = Settings["Menu/Bell"]
+     mnRemover.Checked = Settings["Menu/Remover"]
+     mnDetectar.Checked = Settings["Menu/Detectar"]
+     MnuDeplacer.Checked = Settings["Menu/Deplacer"]
+     MnuAuto.Checked = Settings["Menu/Auto"]
+     MnuManuelle.Checked = Settings["Menu/Manuel"]
+     MnuImmediate.Enabled = Settings["Menu/Immediat"]
+     MnuDeplacer.Checked = Settings["Menu/deplacer"]
+     MnuVirus.Enabled = Settings["Menu/Virus"]
+     langue = Settings["General/LangInit"]
+
+     If langue = "fr" Then
+          MnuFrancais.Value = True
+     Else If langue = "en" Then
+          MnuAnglais.Value = True
+     Else If langue = "es" Then
+          MnuEspagnol.Value = True
+          ' Else If langue = "ru" Then
+          '      MenuRu.Value = True
+          ' Else If langue = "pt" Then
+          '      MenuPt.Value = True
+          ' Else If langue = "de" Then
+          '      MenuDe.Value = True
+          ' Else If langue = "it" Then
+          '      MenuIt.Value = True
+     Endif
+
+     If TBSudo.Value = True Then
+          bSudo = True
+     Endif
+     If TBSudo.Value = False Then
+          bSudo = False
+     Endif
+
+End
+
+Public Sub SaveSettings()                                                       'sauvegarde des réglages
+
+     Settings["Menu/Recursif"] = mnRecursivo.Checked
+     Settings["Menu/Errores"] = mnErrores.Checked
+     Settings["Menu/Infectes"] = mnInfectados.Checked
+     Settings["Menu/NoSummary"] = mnNoSummary.Checked
+     Settings["Menu/SupprOK"] = mnSupressOK.Checked
+     Settings["Menu/Bell"] = mnBell.Checked
+     Settings["Menu/Remover"] = mnRemover.Checked
+     Settings["Menu/Detectar"] = mnDetectar.Checked
+     Settings["Menu/Deplacer"] = MnuDeplacer.Checked
+     Settings["Menu/Auto"] = MnuAuto.Checked
+     Settings["Menu/Manuel"] = MnuManuelle.Checked
+     Settings["Menu/Immediat"] = MnuImmediate.Enabled
+     Settings["Menu/deplacer"] = MnuDeplacer.Checked
+     Settings["Menu/Virus"] = MnuVirus.Enabled
+     Settings["General/LangInit"] = langue
+
+End
+
+Public Sub mnSalir_Click()
+
+     Me.Close
+
+End
+
+Public Sub Form_KeyPress()
+
+     If Key.code = Key.Esc Then Me.Close
+
+End
+
+Public Sub FC_Activate()
+
+     menuFaux()
+     Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
+
+     Ruta = Shell$(FC.SelectedPath)
+
+     If mnErrores.Value = True Then SalidaERR = True
+     If mnInfectados.value = True Then infect = True
+     If mnSupressOK.value = True Then SuprimirOK = True
+     If mnNoSummary.value = True Then SinINF = True
+     If mnBell.value = True Then Bell = True
+     If mnRemover.Value = True Then Remover = True
+     If mnMail.Value = True Then mail = True
+     If mnPdf.value = True Then pdf = True
+     If mnSWF.Value = True Then Sfw = True
+     If mnXML.Value = True Then html = True
+     If mnHWP3.Value = True Then HWP3 = True
+     If MnuDeplacer.Value = True Then Quarant = True
+     If TBSudo.Value = True Then bSudo = True
+
+     ClamScan.ScanFile(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Mail, PDF, SFW, HTML, HWP3, Quarant, bSudo)
+
+     ' If clamscan.hProc.State = clamscan.hProc.Stopped Then
+     menuVraix()
+     ' Endif
+
+End
+
+Public Sub DC_Activate()
+
+     menuFaux()
+     Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
+
+     Ruta = Shell$(DC.SelectedPath)
+
+     If mnErrores.Value = True Then SalidaERR = True
+     If mnInfectados.value = True Then infect = True
+     If mnSupressOK.value = True Then SuprimirOK = True
+     If mnNoSummary.value = True Then SinINF = True
+     If mnRecursivo.value = True Then Recursive = True
+     If mnBell.value = True Then Bell = True
+     If mnRemover.Value = True Then Remover = True
+     If mnDetectar.value = True Then AppsIndeseadas = True
+     If mnMail.Value = True Then mail = True
+     If mnPdf.value = True Then pdf = True
+     If mnSWF.Value = True Then Sfw = True
+     If mnXML.Value = True Then html = True
+     If mnHWP3.Value = True Then HWP3 = True
+     If MnuDeplacer.Value = True Then Quarant = True
+     If TBSudo.Value = True Then bSudo = True
+
+     ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Recursive, Bell, Remover, AppsIndeseadas, Mail, PDF, SFW, HTML, HWP3, Quarant, bSudo)
+
+     ' If clamscan.hProc.State = clamscan.hProc.Stopped Then
+     menuVraix()
+     ' Endif
+
+End
+
+Public Sub _new()
+
+     If Not IsNull(fc) Or Not IsNull(dc) Then
+          maCle = 0
+          Wait
+          dc.Tooltip = ("Elija el directorio para escanear")
+          fc.Tooltip = ("Elija el archivo para analizar")
+     Endif
+     menuVraix()
+
+End
+
+Public Sub FC_Change()
+
+     If fc.SelectedPath = "" Then
+          _new()
+     Else
+          maCle = 1
+          dc.Tooltip = ("")
+          fc.Tooltip = ("")
+     Endif
+
+End
+
+Public Sub DC_Change()
+
+     If dc.SelectedPath = "" Then
+          _new()
+     Else
+          maCle = 2
+          dc.Tooltip = ("")
+          fc.Tooltip = ("")
+     Endif
+
+End
+
+Public Sub TBhProc_Click()                                                  'execute hproc
+
+     If maCle = 0 Then
+          Message.Info(("Seleccione \n an objeto para escanear!"))
+     Else If maCle = 1 Then
+          FC_Activate
+     Else If maCle = 2 Then
+          DC_Activate
+     Endif
+
+     _new()
+
+End
+
+Public Sub menuFaux()                                                           'menus inactivés
+
+     mnOpciones.Enabled = False
+     mnOpcionesAvanzadas.Enabled = False
+     MnuBase.Enabled = False
+     MnuAction.Enabled = False
+     mnAbout.Enabled = False
+     fc.Enabled = False
+     dc.Enabled = False
+     tp.Enabled = False
+     TBhProc.Enabled = False
+     TBeffacer.Enabled = False
+     TBSudo.Enabled = False
+     Wait
+
+End
+
+Public Sub menuVraix()                                                          'menus activés
+
+     mnOpciones.Enabled = True
+     mnOpcionesAvanzadas.Enabled = True
+     MnuBase.Enabled = True
+     MnuAction.Enabled = True
+     mnAbout.Enabled = True
+     fc.Enabled = True
+     dc.Enabled = True
+     tp.Enabled = True
+     DC.Reload
+     FC.Reload
+     TBhProc.Enabled = True
+     TBeffacer.Enabled = True
+     TBSudo.Enabled = True
+     Wait
+
+End
+
+Public Sub TBKill_Click()                                                       'Bouton kill hproc
+
+     Wait
+     If IsNull(ClamScan.hProc) Then
+          _new()
+          Message.Info(("Seleccione \n an objeto para escanear!"))
+          Return
+     Endif
+     If ClamScan.hProc.State = ClamScan.hProc.Running Then
+          ClamScan.hProc.Kill                                                   'on tue le processus
+          Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
+          _new()
+     Else
+          Message(("¡El proceso ya se detuvo!"))
+     Endif
+
+End
+
+Public Sub MnuHistoric_Click()                                                  'montre l'historique global
+
+     FMain.Mouse = Mouse.Wait                                                   'au cas où le fichier serait gros
+     Wait
+     FrmHistoric.ShowModal()
+     Me.Hide
+     FMain.Mouse = Mouse.Default
+     Me.Show
+
+End
+
+Public Sub MnuLog_Click()                                                       'montre les Logs
+
+     FMain.Mouse = Mouse.Wait
+     Wait
+     Me.Hide
+     FrmLog.ShowModal()
+     FMain.Mouse = Mouse.Default
+     Me.Show
+
+End
+
+Public Sub mnAcerca_Click()
+
+     Me.Hide
+     frmAbout.ShowModal()
+     Me.Show
+
+End
+
+Public Sub mnFreshclam_Click()                                                  'montre le fichier freshclam Log
+
+     FMain.Mouse = Mouse.Wait
+     Wait
+     Me.Hide
+     frmFresh.ShowModal()
+     FMain.Mouse = Mouse.Default
+     Me.Show
+
+End
+
+Public Sub MnuVirus_Click()                                                     'Affichage du fichier des virus découverts
+
+     FMain.Mouse = Mouse.Wait
+     Wait
+     Me.Hide
+     Virus.ShowModal()
+     FMain.Mouse = Mouse.Default
+     Me.Show
+     DC.Reload
+     FC.Reload
+
+End
+
+Public Sub mnu_click()                                                          'group mnu
+
+     If MnuManuelle.Checked = False Then
+          sMot = "/etc/init.d/clamav-freshclam start"
+          Authenticate.Command("sudo " & sMot)
+          Wait
+          If bFlag = True Then                                                  'bFlag=True si Auto validée dans Authenticate
+               MnuAuto.Checked = True
+               MnuManuelle.Checked = False
+               MnuImmediate.Enabled = False
+          Else
+               MnuManuelle.Checked = True
+               MnuImmediate.Enabled = True
+               MnuAuto.Checked = False
+               mnu_click
+          Endif
+
+     Else If MnuAuto.Checked = False Then
+          sMot = "/etc/init.d/clamav-freshclam stop"
+          Authenticate.Command("sudo " & sMot)
+          Wait
+          If bFlag = True Then
+               MnuManuelle.Checked = True
+               MnuImmediate.Enabled = True
+               MnuAuto.Checked = False
+          Else
+               MnuAuto.Checked = True
+               MnuManuelle.Checked = False
+               MnuImmediate.Enabled = False
+               mnu_click
+          Endif
+
+     Else If MnuAuto.Checked = True Then
+          MnuManuelle.Checked = False
+          MnuImmediate.Enabled = False
+
+     Else If MnuManuelle.Checked = True Then
+          MnuImmediate.Enabled = True
+          MnuAuto.Checked = False
+
+     Endif
+
+End
+
+Public Sub MnuImmediate_Click()                                                 'Mise à jour Freshclam manuelle et immédiate
+
+     If MnuManuelle.Checked = True Then
+          sMot = "sudo freshclam"
+          Authenticate.Command(sMot)
+          Wait
+     Endif
+
+End
+
+Public Sub Form_Close()                                                         'fermeture de la Form principale
+
+     If Not IsNull(clamscan.hProc) Then
+          If clamscan.hProc.State = clamscan.hProc.Running Then
+               clamscan.hProc.Kill
+               Wait 1                                                           'attente d'une seconde pour kill process
+               clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
+          Endif
+     Endif
+
+     If Exist(User.Home &/ ".clamscangui/ClamScanGui_Log.txt") Then             'effacement du fichier Log à la fermeture
+          File.Save(User.Home &/ ".clamscangui/ClamScanGui_Log.txt", "")        'par enregistrement d'un fichier vide
+     Endif
+
+     SaveSettings()                                                             'sauvegarde des réglages avant sortie programme
+     Me.Hide()
+     Module1.quitAppli()                                                        'fermeture par le Module1
+
+End
+
+Public Sub MnuAide_Click()
+
+     Me.Hide
+     FrmAide.ShowModal()
+     Me.Show
+
+End
+
+Public Sub MnuFrancais_Click()
+
+     langue = "fr"
+     AppliLangues()
+
+End
+
+Public Sub MnuEspagnol_Click()
+
+     langue = "es"
+     AppliLangues()
+
+End
+
+Public Sub MnuAnglais_Click()
+
+     langue = "en"
+     AppliLangues()
+
+End
+
+Public Sub AppliLangues()                                                       'application du choix de langue
+
+     Message.Title = ("El idioma elegido se aplicará después del reinicio")
+     If Message.Question(("¿Quieres renunciar?") & gb.CrLf &
+               ("El idioma elegido se aplicará después de reiniciar el programa."), ("Si"), ("No")) = 2 Then
+          loadSettings()
+     Else
+          Settings["General/LangInit"] = langue
+          Settings.Save
+          ' Shell "gbx3 " & Application.Path                                    ' ATTENTION Cette ligne doit etre Décommenté lors du travail dans l'IDE  et etre commenter avant de générer l'executable
+          Shell "kill -9 " & Application.id
+          Exec [Application.Path & "/" & Application.Name]                      ' ATTENTION ligne à décommenter avant de générer l'executable
+     Endif
+
+End
+
+Public Sub TBeffacer_Click()
+
+     FMain.txSalida.Text = ""
+
+End
+
+Public Sub TBSudo_Click()
+
+     If TBSudo.Value = True Then
+          bSudo = True
+          Message.Title = (("¡Atención!"))
+          Message.Info(("¡Todos sus pedidos son \n del SuperUsuario!"))
+     Endif
+     If TBSudo.Value = False Then
+          bSudo = False
+     Endif
+
+End
