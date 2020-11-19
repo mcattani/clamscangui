@@ -35,12 +35,12 @@ Public Sub langues()
      If Not cLangues.Exist(Left(System.Language, 2)) Then
           Settings["General/LangInit"] = "en"
           '*********************************************************************'sélection de la langue
-     Else If System.Language = "en_US.UTF-8" Then
-          Settings["General/LangInit"] = "en"
-     Else If System.Language = "fr_FR.UTF-8" Then
-          Settings["General/LangInit"] = "fr"
-     Else If System.Language = "es_ES.UTF-8" Then
-          Settings["General/LangInit"] = "es"
+     Else If Settings["General/LangInit"] = "en" Then
+          System.Language = "en_US.UTF-8"
+     Else If Settings["General/LangInit"] = "fr" Then
+          System.Language = "fr_FR.UTF-8"
+     Else If Settings["General/LangInit"] = "es" Then
+          System.Language = "es_ES.UTF-8"
           ' Else If Settings["General/LangInit"] = "it" Then
           '      System.Language = "it_IT.UTF-8"
           ' Else If Settings["General/LangInit"] = "pt" Then

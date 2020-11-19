@@ -153,15 +153,18 @@
     { Menu4 Menu
       Text = ("Idiomas")
       Picture = Picture["icon:/48/people"]
-      { MnuEspagnol Menu
+      { MnuEspagnol Menu langue
+        Name = "MnuEspagnol"
         Text = ("Español")
         Radio = True
       }
-      { MnuFrancais Menu
+      { MnuFrancais Menu langue
+        Name = "MnuFrancais"
         Text = ("Francés")
         Radio = True
       }
-      { MnuAnglais Menu
+      { MnuAnglais Menu langue
+        Name = "MnuAnglais"
         Text = ("Inglés")
         Radio = True
       }
@@ -210,12 +213,12 @@
   { Panel1 Panel
     MoveScaled(44,0,36,5)
     { TBKill ToolButton
-      MoveScaled(18,0,4.625,4)
+      MoveScaled(18,0,4.5714,4)
       ToolTip = ("¡Mata el proceso en curso!")
       Picture = Picture["icon:/32/halt"]
     }
     { TBhProc ToolButton
-      MoveScaled(13,0,4.625,4)
+      MoveScaled(13,0,4.5714,4)
       ToolTip = ("¡Ejecute el proceso!")
       Picture = Picture["icon:/32/exec"]
     }

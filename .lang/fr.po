@@ -1,8 +1,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ClamScanGui 3.15.2\n"
-"PO-Revision-Date: 2020-11-19 11:21 UTC\n"
+"Project-Id-Version: clamscangui-master 3.15.2\n"
+"PO-Revision-Date: 2020-11-19 19:53 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -70,59 +70,59 @@ msgstr "Vous devez avoir installé l'antivirus ClamAv pour pouvoir utiliser cett
 msgid "Versión instalada: "
 msgstr "Version installée : "
 
-#: FMain.class:183
+#: FMain.class:184
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr "Veuillez patienter quelques secondes\npendant le démarrage de l'antivirus"
 
-#: FMain.class:245
+#: FMain.class:246
 msgid "Elija el directorio para escanear"
 msgstr "Choisissez le répertoire à analyser"
 
-#: FMain.class:246
+#: FMain.class:247
 msgid "Elija el archivo para analizar"
 msgstr "Choisissez le fichier à analyser"
 
-#: FMain.class:279
+#: FMain.class:280
 msgid "Seleccione \n an objeto para escanear!"
 msgstr "Veuillez sélectionner\nun objet à scanner!"
 
-#: FMain.class:336
+#: FMain.class:337
 msgid "El proceso actual ha sido eliminado"
 msgstr "Le processus actuel a été tué"
 
-#: FMain.class:336
+#: FMain.class:337
 msgid "¡Puedes volver!"
 msgstr "Vous pouvez revenir!"
 
-#: FMain.class:339
+#: FMain.class:340
 msgid "¡El proceso ya se detuvo!"
 msgstr "Le processus est déjà arrêté!"
 
-#: FMain.class:503
+#: FMain.class:511
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "La langue choisie sera appliquée après le redémarrage"
 
-#: FMain.class:505
+#: FMain.class:513
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "La langue choisie sera appliquée après le redémarrage du programme."
 
-#: FMain.class:505 Virus.class:54
+#: FMain.class:513 FrmConf.class:21 Virus.class:54
 msgid "No"
 msgstr "Non"
 
-#: FMain.class:505 Virus.class:54
+#: FMain.class:513 FrmConf.class:21 Virus.class:54
 msgid "Si"
 msgstr "Oui"
 
-#: FMain.class:505
+#: FMain.class:513
 msgid "¿Quieres renunciar?"
 msgstr "Voulez-vous quitter?"
 
-#: FMain.class:527 Module1.module:22
+#: FMain.class:535 Module1.module:22
 msgid "¡Atención!"
 msgstr "Attention!"
 
-#: FMain.class:528
+#: FMain.class:536
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr "Toutes vos commandes sont\ndu SuperUser!"
 
@@ -204,8 +204,8 @@ msgid "Detectar Aplicaciones Indeseadas"
 msgstr "Détecter les applications indésirables"
 
 #: FMain.form:171
-msgid "poner en cuarentena archivos infectados"
-msgstr "mise en quarantaine des fichiers infectés"
+msgid "Poner en cuarentena archivos infectados"
+msgstr "Mettre en quarantaine les fichiers infectés"
 
 #: FMain.form:180
 msgid "Actualización de la base de datos"
@@ -228,8 +228,8 @@ msgid "Actualización inmediata"
 msgstr "Mise à jour immédiate"
 
 #: FMain.form:217
-msgid "comportamiento"
-msgstr "Actions"
+msgid "Comportamiento"
+msgstr "Comportement"
 
 #: FMain.form:220
 msgid "Archivos potencialmente infectados"
@@ -252,57 +252,57 @@ msgstr ""
 msgid "Idiomas"
 msgstr "Langues"
 
-#: FMain.form:247
+#: FMain.form:248
 msgid "Español"
 msgstr "Espagnol"
 
-#: FMain.form:252
-msgid "francés"
-msgstr "français"
+#: FMain.form:254
+msgid "Francés"
+msgstr "Français"
 
-#: FMain.form:257
+#: FMain.form:260
 msgid "Inglés"
 msgstr "Anglais"
 
 # gb-ignore
-#: FMain.form:264
+#: FMain.form:267
 msgid "?"
 msgstr ""
 
-#: FMain.form:267 frmAbout.form:14
+#: FMain.form:270 frmAbout.form:14
 msgid "Acerca de"
 msgstr "À propos de"
 
-#: FMain.form:272
+#: FMain.form:275
 msgid "Ayuda"
 msgstr "Aide"
 
-#: FMain.form:281
+#: FMain.form:284
 msgid "Analizar un Archivo"
 msgstr "Analyser un fichier"
 
-#: FMain.form:291
+#: FMain.form:294
 msgid "Analizar Directorios"
 msgstr "Analyser les répertoires"
 
-#: FMain.form:304
+#: FMain.form:307
 msgid "Salida del escaneo"
 msgstr "Sortie de numérisation"
 
-#: FMain.form:314
+#: FMain.form:317
 msgid "¡Mata el proceso en curso!"
 msgstr "Tuez le processus en cours!"
 
-#: FMain.form:320
+#: FMain.form:323
 msgid "¡Ejecute el proceso!"
 msgstr "Exécutez le processus!"
 
-#: FMain.form:326
+#: FMain.form:329
 msgid "Salida de texto claro"
 msgstr "Effacer la sortie de texte"
 
 # gb-ignore
-#: FMain.form:332
+#: FMain.form:335
 msgid "Sudo"
 msgstr ""
 
@@ -327,9 +327,61 @@ msgstr "Fin du document"
 msgid "Ayuda de ClamScanGui"
 msgstr "Aide de ClamScanGui"
 
-#: FrmAide.form:35 FrmHistoric.form:45 FrmLog.form:40 Virus.form:53 frmAbout.form:44 frmFresh.form:34
+#: FrmAide.form:35 FrmConf.form:58 FrmHistoric.form:45 FrmLog.form:40 Virus.form:53 frmAbout.form:44 frmFresh.form:34
 msgid "Cerrar"
 msgstr "Fermer"
+
+#: FrmConf.class:20
+msgid "¡Proceda con cuidado!"
+msgstr "Procédez avec précaution!"
+
+#: FrmConf.class:21
+msgid "¿Quieres guardar tus cambios?"
+msgstr "Voulez-vous enregistrer vos modifications?"
+
+#: FrmConf.class:42
+msgid "Copia de seguridad realizada"
+msgstr "Sauvegarde effectuée"
+
+#: FrmConf.class:43
+msgid "Copia de seguridad no realizada"
+msgstr "Sauvegarde non effectuée"
+
+#: FrmConf.class:60
+msgid "¿Quiere restaurar el archivo respaldado?"
+msgstr "Voulez-vous restaurer le fichier sauvegardé?"
+
+#: FrmConf.class:81
+msgid "Restauración realizada"
+msgstr "Restauration terminée"
+
+#: FrmConf.class:82
+msgid "Restauración no realizada"
+msgstr "Restauration non effectuée"
+
+#: FrmConf.class:101
+msgid " Configuración de: "
+msgstr "Configuration de : "
+
+#: FrmConf.class:101
+msgid "# Modo de edición # "
+msgstr "# Mode édition #"
+
+#: FrmConf.class:107
+msgid "# Modo de consulta # "
+msgstr "# Mode de Consultation #"
+
+#: FrmConf.class:131
+msgid "Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla"
+msgstr "une sauvegarde vient d'être prise\nen cas d'erreur, vous pouvez le restaurer"
+
+#: FrmConf.form:34 Virus.form:34
+msgid "Restaurar"
+msgstr "Restaurer"
+
+#: FrmConf.form:47
+msgid "Salvar"
+msgstr "Sauvegarder"
 
 #: FrmHistoric.class:19
 msgid "Historia de ClamScanGui : "
@@ -394,10 +446,6 @@ msgstr "Erreur de restauration"
 #: Virus.form:20
 msgid "Seleccione los archivos que desee eliminar"
 msgstr "Sélectionner les fichiers à effacer"
-
-#: Virus.form:34
-msgid "Restaurar"
-msgstr "Restaurer"
 
 #: Virus.form:41
 msgid "Eliminar"

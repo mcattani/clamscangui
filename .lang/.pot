@@ -3,85 +3,85 @@ msgid ""
 msgstr ""
 "#-#-#-#-#  #project.pot (ClamScanGui_nueva_version 3.14.3)  #-#-#-#-#\n"
 "Project-Id-Version: ClamScanGui_nueva_version 3.14.3\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:12 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Authenticate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Cerf.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ClamScan.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FMain.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:12 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmAide.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmConf.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmHistoric.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmLog.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Impr1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Module1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:12 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Virus.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmAbout.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmFresh.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-19 18:04 UTC\n"
+"POT-Creation-Date: 2020-11-19 20:08 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -220,7 +220,7 @@ msgid "Detectar Aplicaciones Indeseadas"
 msgstr ""
 
 #: FMain.form:171
-msgid "poner en cuarentena archivos infectados"
+msgid "Poner en cuarentena archivos infectados"
 msgstr ""
 
 #: FMain.form:180
@@ -244,7 +244,7 @@ msgid "Actualización inmediata"
 msgstr ""
 
 #: FMain.form:217
-msgid "comportamiento"
+msgid "Comportamiento"
 msgstr ""
 
 #: FMain.form:220
@@ -267,55 +267,55 @@ msgstr ""
 msgid "Idiomas"
 msgstr ""
 
-#: FMain.form:247
+#: FMain.form:248
 msgid "Español"
 msgstr ""
 
-#: FMain.form:252
-msgid "francés"
+#: FMain.form:254
+msgid "Francés"
 msgstr ""
 
-#: FMain.form:257
+#: FMain.form:260
 msgid "Inglés"
 msgstr ""
 
-#: FMain.form:264
+#: FMain.form:267
 msgid "?"
 msgstr ""
 
-#: FMain.form:267 frmAbout.form:14
+#: FMain.form:270 frmAbout.form:14
 msgid "Acerca de"
 msgstr ""
 
-#: FMain.form:272
+#: FMain.form:275
 msgid "Ayuda"
 msgstr ""
 
-#: FMain.form:281
+#: FMain.form:284
 msgid "Analizar un Archivo"
 msgstr ""
 
-#: FMain.form:291
+#: FMain.form:294
 msgid "Analizar Directorios"
 msgstr ""
 
-#: FMain.form:304
+#: FMain.form:307
 msgid "Salida del escaneo"
 msgstr ""
 
-#: FMain.form:314
+#: FMain.form:317
 msgid "¡Mata el proceso en curso!"
 msgstr ""
 
-#: FMain.form:320
+#: FMain.form:323
 msgid "¡Ejecute el proceso!"
 msgstr ""
 
-#: FMain.form:326
+#: FMain.form:329
 msgid "Salida de texto claro"
 msgstr ""
 
-#: FMain.form:332
+#: FMain.form:335
 msgid "Sudo"
 msgstr ""
 
@@ -327,61 +327,61 @@ msgstr ""
 msgid "Versión instalada: "
 msgstr ""
 
-#: FMain.class:183
+#: FMain.class:184
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 
-#: FMain.class:245
+#: FMain.class:246
 msgid "Elija el directorio para escanear"
 msgstr ""
 
-#: FMain.class:246
+#: FMain.class:247
 msgid "Elija el archivo para analizar"
 msgstr ""
 
-#: FMain.class:279
+#: FMain.class:280
 msgid ""
 "Seleccione \n"
 " an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:337
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:337
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: FMain.class:339
+#: FMain.class:340
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:503
+#: FMain.class:511
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:505
+#: FMain.class:513
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:505
+#: FMain.class:513
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:505 FrmConf.class:21 Virus.class:54
+#: FMain.class:513 FrmConf.class:21 Virus.class:54
 msgid "Si"
 msgstr ""
 
-#: FMain.class:505 FrmConf.class:21 Virus.class:54
+#: FMain.class:513 FrmConf.class:21 Virus.class:54
 msgid "No"
 msgstr ""
 
-#: FMain.class:527 Module1.module:22
+#: FMain.class:535 Module1.module:22
 msgid "¡Atención!"
 msgstr ""
 
-#: FMain.class:528
+#: FMain.class:536
 msgid ""
 "¡Todos sus pedidos son \n"
 " del SuperUsuario!"

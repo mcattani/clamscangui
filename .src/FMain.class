@@ -99,6 +99,7 @@ Public Sub premiereFois()                                                       
      Settings["Menu/deplacer"] = MnuDeplacer.Checked
      MnuVirus.Enabled = False
      Settings["Menu/Virus"] = MnuVirus.Enabled
+     Settings["General/LangInit"] = Left(System.Language, 2)
 
 End
 
@@ -477,27 +478,34 @@ Public Sub MnuAide_Click()
 
 End
 
-Public Sub MnuFrancais_Click()
+' Public Sub MnuFrancais_Click()
+'
+'      langue = "fr"
+'      AppliLangues()
+'
+' End
+'
+' Public Sub MnuEspagnol_Click()
+'
+'      langue = "es"
+'      AppliLangues()
+'
+' End
+'
+' Public Sub MnuAnglais_Click()
+'
+'      langue = "en"
+'      AppliLangues()
+'
+' End
+Public Sub langue_Click()                                                       'choix de la langue
 
-     langue = "fr"
+     If MnuEspagnol.Checked = True Then langue = "es"
+     If MnuFrancais.Checked = True Then langue = "fr"
+     If MnuAnglais.Checked = True Then langue = "en"
      AppliLangues()
 
 End
-
-Public Sub MnuEspagnol_Click()
-
-     langue = "es"
-     AppliLangues()
-
-End
-
-Public Sub MnuAnglais_Click()
-
-     langue = "en"
-     AppliLangues()
-
-End
-
 Public Sub AppliLangues()                                                       'application du choix de langue
 
      Message.Title = ("El idioma elegido se aplicará después del reinicio")
