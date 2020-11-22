@@ -125,21 +125,21 @@
       }
       { MnuAuto Menu mnu
         Name = "MnuAuto"
-        Text = ("Actualización automática")
+        Text = ("Actualización Automática")
         Picture = Picture["icon:/48/database"]
         Radio = True
         Checked = True
       }
       { MnuManuelle Menu mnu
         Name = "MnuManuelle"
-        Text = ("Actualización manual")
+        Text = ("Actualización Manual")
         Picture = Picture["icon:/48/server"]
         Radio = True
       }
       { Menu2 Menu
       }
       { MnuImmediate Menu
-        Text = ("Actualización inmediata")
+        Text = ("Actualización Inmediata")
         Picture = Picture["icon:/48/refresh"]
       }
     }
@@ -147,7 +147,7 @@
   { MnuAction Menu
     Text = ("Comportamiento")
     { MnuVirus Menu
-      Text = ("Archivos potencialmente infectados")
+      Text = ("Archivos Potencialmente Infectados")
       Picture = Picture["icon:/48/flag"]
     }
     { Menu3 Menu
@@ -157,7 +157,7 @@
       Picture = Picture["icon:/48/book"]
     }
     { MnuHistoric Menu
-      Text = ("Historial de lectura")
+      Text = ("Historial de Lectura")
       Picture = Picture["icon:/48/archive"]
     }
   }

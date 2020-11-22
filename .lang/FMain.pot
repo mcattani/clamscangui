@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 19:58 UTC\n"
+"POT-Creation-Date: 2020-11-22 20:10 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,15 +99,15 @@ msgid "Ver Log Freshclam"
 msgstr ""
 
 #: FMain.form:207
-msgid "Actualización automática"
+msgid "Actualización Automática"
 msgstr ""
 
 #: FMain.form:215
-msgid "Actualización manual"
+msgid "Actualización Manual"
 msgstr ""
 
 #: FMain.form:224
-msgid "Actualización inmediata"
+msgid "Actualización Inmediata"
 msgstr ""
 
 #: FMain.form:231
@@ -115,7 +115,7 @@ msgid "Comportamiento"
 msgstr ""
 
 #: FMain.form:234
-msgid "Archivos potencialmente infectados"
+msgid "Archivos Potencialmente Infectados"
 msgstr ""
 
 #: FMain.form:242
@@ -123,7 +123,7 @@ msgid "Lectura del Log"
 msgstr ""
 
 #: FMain.form:247
-msgid "Historial de lectura"
+msgid "Historial de Lectura"
 msgstr ""
 
 #: FMain.form:253
