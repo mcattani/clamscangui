@@ -24,6 +24,7 @@ Public PDF As Boolean
 Public SFW As Boolean
 Public HTML As Boolean
 Public HWP3 As Boolean
+
 Public maCle As Integer
 Public Ruta As String
 Public sMot As String
@@ -101,25 +102,45 @@ Public Sub premiereFois()                                                       
      Settings["Menu/Virus"] = MnuVirus.Enabled
      Settings["General/LangInit"] = Left(System.Language, 2)
 
+     mnuHWP3.Value = True
+     mnuXML.Value = True
+     mnuSWF.Value = True
+     mnuPdf.Value = True
+     mnuMail.Value = True
+
+     Settings["Menu/pHWP3"] = mnuHWP3.Value
+     Settings["Menu/pXML"] = mnuXML.Value
+     Settings["Menu/pSWF"] = mnuSWF.Value
+     Settings["Menu/pPDF"] = mnuPdf.Value
+     Settings["Menu/pMail"] = mnuMail.Value
+
 End
 
 Public Sub LoadSettings()                                                       'réglages enregistrés
 
-     mnRecursivo.Checked = Settings["Menu/Recursif"]
-     mnErrores.Checked = Settings["Menu/Errores"]
-     mnInfectados.Checked = Settings["Menu/Infectes"]
-     mnNoSummary.Checked = Settings["Menu/NoSummary"]
-     mnSupressOK.Checked = Settings["Menu/SupprOK"]
-     mnBell.Checked = Settings["Menu/Bell"]
-     mnRemover.Checked = Settings["Menu/Remover"]
-     mnDetectar.Checked = Settings["Menu/Detectar"]
-     MnuDeplacer.Checked = Settings["Menu/Deplacer"]
-     MnuAuto.Checked = Settings["Menu/Auto"]
-     MnuManuelle.Checked = Settings["Menu/Manuel"]
+     '************* Group Log1 *******************
+     mnErrores.Value = Settings["Menu/Errores"]
+     mnInfectados.Value = Settings["Menu/Infectes"]
+     mnNoSummary.Value = Settings["Menu/NoSummary"]
+     mnSupressOK.Value = Settings["Menu/SupprOK"]
+     mnBell.Value = Settings["Menu/Bell"]
+     '************* Group optionAvance **************
+     mnRemover.Value = Settings["Menu/Remover"]
+     mnDetectar.Value = Settings["Menu/Detectar"]
+     MnuDeplacer.Value = Settings["Menu/Deplacer"]
+     mnRecursivo.Value = Settings["Menu/Recursif"]
+     '************************************************
+     MnuAuto.Value = Settings["Menu/Auto"]
+     MnuManuelle.Value = Settings["Menu/Manuel"]
      MnuImmediate.Enabled = Settings["Menu/Immediat"]
-     MnuDeplacer.Checked = Settings["Menu/deplacer"]
      MnuVirus.Enabled = Settings["Menu/Virus"]
      langue = Settings["General/LangInit"]
+     '************* Group option1 ********************
+     mnuHWP3.Value = Settings["Menu/pHWP3"]
+     mnuXML.Value = Settings["Menu/pXML"]
+     mnuSWF.Value = Settings["Menu/pSWF"]
+     mnuPdf.Value = Settings["Menu/pPDF"]
+     mnuMail.Value = Settings["Menu/pMail"]
 
      If langue = "fr" Then
           MnuFrancais.Value = True
@@ -146,23 +167,45 @@ Public Sub LoadSettings()                                                       
 
 End
 
+Public Sub TBSudo_Click()
+
+     If TBSudo.Value = True Then
+          bSudo = True
+          Message.Title = (("¡Atención!"))
+          Message.Info(("¡Todos sus pedidos son \n del SuperUsuario!"))
+     Endif
+     If TBSudo.Value = False Then
+          bSudo = False
+     Endif
+
+End
+
 Public Sub SaveSettings()                                                       'sauvegarde des réglages
 
-     Settings["Menu/Recursif"] = mnRecursivo.Checked
-     Settings["Menu/Errores"] = mnErrores.Checked
-     Settings["Menu/Infectes"] = mnInfectados.Checked
-     Settings["Menu/NoSummary"] = mnNoSummary.Checked
-     Settings["Menu/SupprOK"] = mnSupressOK.Checked
-     Settings["Menu/Bell"] = mnBell.Checked
-     Settings["Menu/Remover"] = mnRemover.Checked
-     Settings["Menu/Detectar"] = mnDetectar.Checked
-     Settings["Menu/Deplacer"] = MnuDeplacer.Checked
-     Settings["Menu/Auto"] = MnuAuto.Checked
-     Settings["Menu/Manuel"] = MnuManuelle.Checked
+     '********** Group log1 *****************************
+     Settings["Menu/Errores"] = mnErrores.Value
+     Settings["Menu/Infectes"] = mnInfectados.Value
+     Settings["Menu/NoSummary"] = mnNoSummary.Value
+     Settings["Menu/SupprOK"] = mnSupressOK.Value
+     Settings["Menu/Bell"] = mnBell.Value
+     '******** Group optionAvance ***********************
+     Settings["Menu/Recursif"] = mnRecursivo.Value
+     Settings["Menu/Remover"] = mnRemover.Value
+     Settings["Menu/Detectar"] = mnDetectar.Value
+     Settings["Menu/Deplacer"] = MnuDeplacer.Value
+     '******** recherche virus ********************
+     Settings["Menu/Auto"] = MnuAuto.Value
+     Settings["Menu/Manuel"] = MnuManuelle.Value
      Settings["Menu/Immediat"] = MnuImmediate.Enabled
-     Settings["Menu/deplacer"] = MnuDeplacer.Checked
      Settings["Menu/Virus"] = MnuVirus.Enabled
+
      Settings["General/LangInit"] = langue
+     '********* Group option1 ****************************
+     Settings["Menu/pHWP3"] = mnuHWP3.Value
+     Settings["Menu/pXML"] = mnuXML.Value
+     Settings["Menu/pSWF"] = mnuSWF.Value
+     Settings["Menu/pPDF"] = mnuPdf.Value
+     Settings["Menu/pMail"] = mnuMail.Value
 
 End
 
@@ -191,11 +234,11 @@ Public Sub FC_Activate()
      If mnNoSummary.value = True Then SinINF = True
      If mnBell.value = True Then Bell = True
      If mnRemover.Value = True Then Remover = True
-     If mnMail.Value = True Then mail = True
-     If mnPdf.value = True Then pdf = True
-     If mnSWF.Value = True Then Sfw = True
-     If mnXML.Value = True Then html = True
-     If mnHWP3.Value = True Then HWP3 = True
+     If mnuMail.Value = True Then mail = True
+     If mnuPdf.value = True Then pdf = True
+     If mnuSWF.Value = True Then Sfw = True
+     If mnuXML.Value = True Then html = True
+     If mnuHWP3.Value = True Then HWP3 = True
      If MnuDeplacer.Value = True Then Quarant = True
      If TBSudo.Value = True Then bSudo = True
 
@@ -222,11 +265,11 @@ Public Sub DC_Activate()
      If mnBell.value = True Then Bell = True
      If mnRemover.Value = True Then Remover = True
      If mnDetectar.value = True Then AppsIndeseadas = True
-     If mnMail.Value = True Then mail = True
-     If mnPdf.value = True Then pdf = True
-     If mnSWF.Value = True Then Sfw = True
-     If mnXML.Value = True Then html = True
-     If mnHWP3.Value = True Then HWP3 = True
+     If mnuMail.Value = True Then mail = True
+     If mnuPdf.value = True Then pdf = True
+     If mnuSWF.Value = True Then Sfw = True
+     If mnuXML.Value = True Then html = True
+     If mnuHWP3.Value = True Then HWP3 = True
      If MnuDeplacer.Value = True Then Quarant = True
      If TBSudo.Value = True Then bSudo = True
 
@@ -332,8 +375,21 @@ Public Sub TBKill_Click()                                                       
           Message.Info(("Seleccione \n an objeto para escanear!"))
           Return
      Endif
+
      If ClamScan.hProc.State = ClamScan.hProc.Running Then
-          ClamScan.hProc.Kill                                                   'on tue le processus
+          If FMain.bSudo = True Then
+               Authenticate.Command("sudo killall -u root -9 clamscan")              'montexte est affecté à la commande du process
+               If FMain.bFlag = True Then
+                    Shell FMain.monTexte
+               Else
+                    Shell "killall -u root -9 clamscan" & Application.Id
+                    Message.Title = ("¡Atención!")
+                    Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
+               Endif
+          Else
+               ClamScan.hProc.Kill                                                 'on tue le processus
+          Endif
+
           Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
           _new()
      Else
@@ -452,19 +508,22 @@ End
 
 Public Sub Form_Close()                                                         'fermeture de la Form principale
 
-     If Not IsNull(clamscan.hProc) Then
-          If clamscan.hProc.State = clamscan.hProc.Running Then
-               clamscan.hProc.Kill
-               Wait 1                                                           'attente d'une seconde pour kill process
-               clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
-          Endif
-     Endif
-
      If Exist(User.Home &/ ".clamscangui/ClamScanGui_Log.txt") Then             'effacement du fichier Log à la fermeture
           File.Save(User.Home &/ ".clamscangui/ClamScanGui_Log.txt", "")        'par enregistrement d'un fichier vide
      Endif
 
      SaveSettings()                                                             'sauvegarde des réglages avant sortie programme
+
+     If Not IsNull(clamscan.hProc) Then
+          If ClamScan.hProc.State = ClamScan.hProc.Running Then
+               ClamScan.hProc.Kill
+               Wait 1                                                           'attente d'une seconde pour kill process
+               ClamScan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
+               Module1.cloture = True
+               Module1.sortie()
+          Endif
+     Endif
+
      Me.Hide()
      Module1.quitAppli()                                                        'fermeture par le Module1
 
@@ -478,34 +537,15 @@ Public Sub MnuAide_Click()
 
 End
 
-' Public Sub MnuFrancais_Click()
-'
-'      langue = "fr"
-'      AppliLangues()
-'
-' End
-'
-' Public Sub MnuEspagnol_Click()
-'
-'      langue = "es"
-'      AppliLangues()
-'
-' End
-'
-' Public Sub MnuAnglais_Click()
-'
-'      langue = "en"
-'      AppliLangues()
-'
-' End
-Public Sub langue_Click()                                                       'choix de la langue
+Public Sub langue_Click()
 
-     If MnuEspagnol.Checked = True Then langue = "es"
-     If MnuFrancais.Checked = True Then langue = "fr"
      If MnuAnglais.Checked = True Then langue = "en"
+     If MnuFrancais.Checked = True Then langue = "fr"
+     If MnuEspagnol.Checked = True Then langue = "es"
      AppliLangues()
 
 End
+
 Public Sub AppliLangues()                                                       'application du choix de langue
 
      Message.Title = ("El idioma elegido se aplicará después del reinicio")
@@ -528,15 +568,51 @@ Public Sub TBeffacer_Click()
 
 End
 
-Public Sub TBSudo_Click()
+Public Sub option1_Click()
 
-     If TBSudo.Value = True Then
-          bSudo = True
-          Message.Title = (("¡Atención!"))
-          Message.Info(("¡Todos sus pedidos son \n del SuperUsuario!"))
-     Endif
-     If TBSudo.Value = False Then
-          bSudo = False
-     Endif
+     Settings["Menu/pHWP3"] = mnuHWP3.Value
+     Settings["Menu/pXML"] = mnuXML.Value
+     Settings["Menu/pSWF"] = mnuSWF.Value
+     Settings["Menu/pPDF"] = mnuPdf.Value
+     Settings["Menu/pMail"] = mnuMail.Value
+
+     If mnuMail.Value = True Then mail = True
+     If mnuPdf.value = True Then pdf = True
+     If mnuSWF.Value = True Then Sfw = True
+     If mnuXML.Value = True Then html = True
+     If mnuHWP3.Value = True Then HWP3 = True
+
+End
+
+Public Sub Log1_Click()                                                         'menu des enregistrements
+
+     Settings["Menu/Errores"] = mnErrores.Value
+     Settings["Menu/Infectes"] = mnInfectados.Value
+     Settings["Menu/NoSummary"] = mnNoSummary.Value
+     Settings["Menu/SupprOK"] = mnSupressOK.Value
+     Settings["Menu/Bell"] = mnBell.Value
+
+     If mnErrores.Value = True Then SalidaERR = True
+     If mnInfectados.value = True Then infect = True
+     If mnSupressOK.value = True Then SuprimirOK = True
+     If mnNoSummary.value = True Then SinINF = True
+     If mnBell.value = True Then Bell = True
+
+End
+
+Public Sub optionAvance_Click()                                                 'menu des options avancées
+
+     If MnuDeplacer.Value = True Then MnuVirus.Enabled = True
+     If MnuDeplacer.Value = False Then MnuVirus.Enabled = False
+
+     Settings["Menu/Recursif"] = mnRecursivo.Value
+     Settings["Menu/Remover"] = mnRemover.Value
+     Settings["Menu/Detectar"] = mnDetectar.Value
+     Settings["Menu/Deplacer"] = MnuDeplacer.Value
+
+     If mnRemover.Value = True Then Remover = True
+     If MnuDeplacer.Value = True Then Quarant = True
+     If mnRecursivo.value = True Then Recursive = True
+     If mnDetectar.value = True Then AppsIndeseadas = True
 
 End

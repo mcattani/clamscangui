@@ -2,7 +2,7 @@
 Title=ClamScanGui
 Startup=Module1
 Icon=chukablue2.png
-Version=1.1.46
+Version=1.1.44
 Component=gb.image
 Component=gb.qt5
 Component=gb.form
@@ -37,3 +37,4 @@ ExtraDependencies=ubuntu:"clamav\t0.99\t"
 Tags=GUIDesigner,FileTools,Qt,Utility
 Dependencies=clamav 0.99
 WebSite=https://thenerdyapprentice.blogspot.com/
+CreateMenu=1

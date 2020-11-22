@@ -44,11 +44,11 @@ Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boole
      If SoloINF = True Then comm = comm & " -i"
      If bell = True Then comm = comm & " --bell"
      If RemoverArch = True Then comm = comm & " --remove=yes"
-     If PDF = True Then comm = comm & " --scan-pdf=True"
-     If Mail = True Then comm = comm & " --scan-Mail=True"
-     If SWF = True Then comm = comm & " --scan-SWF=True"
-     If HTML = True Then comm = comm & " --scan-html=True --scan-xmldocs=True"
-     If HWP3 = True Then comm = comm & " --scan-HWP3=True"
+     If PDF = True Then comm = comm & " --scan-pdf=yes"
+     If Mail = True Then comm = comm & " --scan-mail=yes"
+     If SWF = True Then comm = comm & " --scan-swf=yes"
+     If HTML = True Then comm = comm & " --scan-html=yes --scan-xmldocs=yes"
+     If HWP3 = True Then comm = comm & " --scan-hwp3=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine
 
      If bSudo = True Then
@@ -83,11 +83,11 @@ Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolea
      If bell = True Then comm = comm & " --bell"
      If RemoverArch = True Then comm = comm & " --remove=yes"
      If AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
-     If PDF = True Then comm = comm & " --scan-pdf=True"
-     If Mail = True Then comm = comm & " --scan-Mail=True"
-     If SWF = True Then comm = comm & " --scan-SWF=True"
-     If HTML = True Then comm = comm & " --scan-html=True --scan-xmldocs=True"
-     If HWP3 = True Then comm = comm & " --scan-HWP3=True"
+     If PDF = True Then comm = comm & " --scan-pdf=yes"
+     If Mail = True Then comm = comm & " --scan-mail=yes"
+     If SWF = True Then comm = comm & " --scan-swf=yes"
+     If HTML = True Then comm = comm & " --scan-html=yes --scan-xmldocs=yes"
+     If HWP3 = True Then comm = comm & " --scan-hwp3=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine        'déplacement des fichiers virus en quarantaine
 
      If bSudo = True Then

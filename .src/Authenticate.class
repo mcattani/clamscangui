@@ -11,26 +11,36 @@
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
 
-Create Static                                                                  'Store Class in memory
+Create Static                                                                   'Store Class in memory
 
-siCount As Short                                                               'Counter
-sOutput As String                                                              'To return the output of a command
-sCommand As String                                                             'Command to run
-Static sPassword As String                                                     'Stores the password
+siCount As Short                                                                'Counter
+sOutput As String                                                               'To return the output of a command
+sCommand As String                                                              'Command to run
+Static sPassword As String                                                      'Stores the password
 
-Public Sub Command(CommandLine As String) As String                            'Takes the Command and returns the output of the command
+Public Sub Command(CommandLine As String) As String                             'Takes the Command and returns the output of the command
 
-     If Not CommandLine Then Return                                            'If there is no Command then get out of here!
+     If Not CommandLine Then Return                                             'If there is no Command then get out of here!
      FMain.bFlag = False
-     sCommand = CommandLine                                                    'Move the Command to a global variable
+     sCommand = CommandLine                                                     'Move the Command to a global variable
 
-     ' If sPassword Then                                                         'If the password has been stored then..
+     ' If sPassword Then                                                        'If the password has been stored then..
      '      Message("Mot de passe déjà enregistré\n" & FMain.sMot & "\nAction effectuée")
-     '      ButtonAuthenticate_Click                                             'Click the 'Authenticate' button
-     '      Return sOutput                                                       'Return the Command's output
+     '      ButtonAuthenticate_Click                                            'Click the 'Authenticate' button
+     '      Return sOutput                                                      'Return the Command's output
      ' End If
+
      Me.Text = sCommand
+     If FMain.bSudo = True Then
+          VBox2.Visible = False
+     Else
+          VBox2.Visible = True
+     Endif
      CheckCapsLock                                                             'Check if the Caps Lock is on
+     If Module1.cloture = True Then
+          ' ButtonCancel.Visible = False
+          Me.Title = ("ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!")
+     Endif
      Me.ShowModal()                                                            'Show the Authentication Form
      Return sOutput                                                            'Return the Command's output
 
@@ -48,24 +58,24 @@ Public Sub ButtonAuthenticate_Click()                                          '
      Try Shell "sudo -K;echo " & sPass & "|sudo -S -k whoami 2>&1" To sChkOutput ' fonctionne pour toutes les langues
      TextAreaTerminal.Clear
      If Not InStr(sChkOutput, "root") Then
-          sPassword = ""                                                       'Clear sPassword
-          TextBoxPassword.text = ""                                            'Clear the TextBox
-          TextBoxPassword.SetFocus                                             'Put the cursor in the TexBox
-          Timer1.Start                                                         'Start the Timer
-     Else                                                                      'Else..
-          Me.Title = ("POR FAVOR ESPERA. Procesando...")                       'Add message..
-          If FMain.bSudo = True Then
-               FMain.monTexte = "echo " & sPass & " | sudo -S " & sCommand & " "
+          sPassword = ""                                                        'Clear sPassword
+          TextBoxPassword.text = ""                                             'Clear the TextBox
+          TextBoxPassword.SetFocus                                              'Put the cursor in the TexBox
+          Timer1.Start                                                          'Start the Timer
+     Else                                                                       'Else..
+          Me.Title = ("POR FAVOR ESPERA. Procesando...")                        'Add message..
+          If FMain.bSudo = True Then                                            'si TBSudo enfoncé
+               FMain.monTexte = "echo " & sPass & " | sudo -S " & sCommand      'montexte sert pour transférer la commande
                FMain.bFlag = True
                Me.Close
           Else
                Try Shell "echo " & sPass & " | sudo -S " & sCommand & " 2>&1" Wait For Read As "Terminal"
-          Endif
-
-          If Not Error Then
-               FMain.bFlag = True                                               'validation du mot de passe effectuée
-               ButtonCancel.Text = ("atrás")
-               ButtonAuthenticate.Enabled = False
+               If Not Error Then
+                    FMain.bFlag = True                                          'validation du mot de passe effectuée
+                    ButtonCancel.Text = ("atrás")
+                    ButtonAuthenticate.Enabled = False
+                    Me.Title = ("¡Acción completada!")
+               Endif
           Endif
      End If
 
@@ -133,6 +143,12 @@ End
 
 Public Sub Form_Close()
 
-     If FMain.bFlag = False Then Return
+     If FMain.bFlag = False Then Return                                         'retour si le drapeau est à faux
+
+End
+
+Public Sub Panel6_MouseDown()
+
+     
 
 End

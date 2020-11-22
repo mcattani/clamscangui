@@ -1,9 +1,8 @@
-* Thu Nov 19 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
-- Message sur bouton Sudo
+* Sun Nov 22 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
+- Détails
 
-* Thu Nov 19 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
-- bug sur commande -o
-- Impression Log
+* Sun Nov 22 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
+- Détails
 
 * Mon Nov 16 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
 - Version allégée de la précédente
@@ -13,6 +12,13 @@
 - Correction bug sur application langues
 - bug sur TBKill
 - Déplacement des boutons
+- bug sur commande -o
+- Impression Log
+- Message sur bouton Sudo
+- Correction bug sur kill clamscan
+- Bug sur langue
+- Correction d'un bug sur menu option+
+- Modification cloture programme pour tuer tout process clamscan en mémoire.
 
 * Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.43
 - Version finale pour l'instant...
