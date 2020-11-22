@@ -4,15 +4,26 @@ Count=0
 [DebugWindow]
 Count=0
 
+[Executable]
+DoNotIncrementVersion=False
+NoTestModule=False
+Path="/home/ozymandias/Escritorio/ClamScan.gambas"
+
 [OpenFile]
 File[1]=".src/Authenticate.form"
 File[2]=".src/Authenticate.class:5.151"
 File[3]=".src/Cerf.form"
 File[4]=".src/ClamScan.module:0.0"
 File[5]=".src/FMain.form"
-Active=6
+Active=11
 File[6]=".hidden/CHANGELOG:0.0"
-Count=6
+Count=12
+File[7]=".src/frmAbout.form"
+File[8]=".src/FrmAide.form"
+File[9]=".src/frmFresh.form"
+File[10]=".src/FrmLog.form"
+File[11]=".src/Module1.module:5.19"
+File[12]=".src/frmAbout.class:0.44"
 
 [Watches]
 Count=0

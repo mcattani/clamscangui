@@ -3,79 +3,85 @@ msgid ""
 msgstr ""
 "#-#-#-#-#  #project.pot (ClamScanGui 3.15.2)  #-#-#-#-#\n"
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"POT-Creation-Date: 2020-11-22 14:38 UTC\n"
+"POT-Creation-Date: 2020-11-22 19:58 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Authenticate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:38 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Cerf.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ClamScan.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FMain.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:38 UTC\n"
+"POT-Creation-Date: 2020-11-22 19:58 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmAide.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FrmConf.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmHistoric.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmLog.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Impr1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Module1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Virus.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmAbout.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmFresh.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-11-22 14:35 UTC\n"
+"POT-Creation-Date: 2020-11-22 14:44 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -223,7 +229,7 @@ msgid "Detectar Aplicaciones Indeseadas"
 msgstr ""
 
 #: FMain.form:185
-msgid "poner en cuarentena archivos infectados"
+msgid "Poner en Cuarentena Archivos Infectados"
 msgstr ""
 
 #: FMain.form:194
@@ -388,11 +394,11 @@ msgstr ""
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:553 Virus.class:54
+#: FMain.class:553 FrmConf.class:21 Virus.class:54
 msgid "Si"
 msgstr ""
 
-#: FMain.class:553 Virus.class:54
+#: FMain.class:553 FrmConf.class:21 Virus.class:54
 msgid "No"
 msgstr ""
 
@@ -400,8 +406,8 @@ msgstr ""
 msgid "Ayuda de ClamScanGui"
 msgstr ""
 
-#: FrmAide.form:35 FrmHistoric.form:45 FrmLog.form:40 Virus.form:53
-#: frmAbout.form:44 frmFresh.form:34
+#: FrmAide.form:35 FrmConf.form:58 FrmHistoric.form:45 FrmLog.form:40
+#: Virus.form:53 frmAbout.form:44 frmFresh.form:34
 msgid "Cerrar"
 msgstr ""
 
@@ -419,6 +425,60 @@ msgstr ""
 
 #: FrmAide.class:51
 msgid " Fin del documento "
+msgstr ""
+
+#: FrmConf.form:34 Virus.form:34
+msgid "Restaurar"
+msgstr ""
+
+#: FrmConf.form:47
+msgid "Salvar"
+msgstr ""
+
+#: FrmConf.class:20
+msgid "¡Proceda con cuidado!"
+msgstr ""
+
+#: FrmConf.class:21
+msgid "¿Quieres guardar tus cambios?"
+msgstr ""
+
+#: FrmConf.class:42
+msgid "Copia de seguridad realizada"
+msgstr ""
+
+#: FrmConf.class:43
+msgid "Copia de seguridad no realizada"
+msgstr ""
+
+#: FrmConf.class:60
+msgid "¿Quiere restaurar el archivo respaldado?"
+msgstr ""
+
+#: FrmConf.class:81
+msgid "Restauración realizada"
+msgstr ""
+
+#: FrmConf.class:82
+msgid "Restauración no realizada"
+msgstr ""
+
+#: FrmConf.class:101
+msgid "# Modo de edición # "
+msgstr ""
+
+#: FrmConf.class:101
+msgid " Configuración de: "
+msgstr ""
+
+#: FrmConf.class:107
+msgid "# Modo de consulta # "
+msgstr ""
+
+#: FrmConf.class:131
+msgid ""
+"Se acaba de realizar una copia de seguridad \n"
+"en caso de error, puede restaurarla"
 msgstr ""
 
 #: FrmHistoric.form:25
@@ -455,10 +515,6 @@ msgstr ""
 
 #: Virus.form:20
 msgid "Seleccione los archivos que desee eliminar"
-msgstr ""
-
-#: Virus.form:34
-msgid "Restaurar"
 msgstr ""
 
 #: Virus.form:41

@@ -108,7 +108,7 @@
     }
     { MnuDeplacer Menu optionAvance
       Name = "MnuDeplacer"
-      Text = ("poner en cuarentena archivos infectados")
+      Text = ("Poner en Cuarentena Archivos Infectados")
       Picture = Picture["icon:/48/download"]
       Toggle = True
     }

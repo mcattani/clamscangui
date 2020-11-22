@@ -2,7 +2,7 @@
 Title=ClamScanGui
 Startup=Module1
 Icon=chukablue2.png
-Version=1.1.44
+Version=1.1.45
 Component=gb.image
 Component=gb.qt5
 Component=gb.form

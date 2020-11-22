@@ -37,7 +37,7 @@
       }
       { mnBell Menu Log1
         Name = "mnBell"
-        Text = ("Sonido de Campana si se encuentra algo")
+        Text = ("Sonido de Campana si se Encuentra Algo")
         Picture = Picture["icon:/22/zoom-normal"]
         Toggle = True
       }
@@ -145,7 +145,7 @@
     }
   }
   { MnuAction Menu
-    Text = ("comportamiento")
+    Text = ("Comportamiento")
     { MnuVirus Menu
       Text = ("Archivos potencialmente infectados")
       Picture = Picture["icon:/48/flag"]
@@ -174,7 +174,7 @@
       }
       { MnuFrancais Menu langue
         Name = "MnuFrancais"
-        Text = ("francés")
+        Text = ("Francés")
         Radio = True
       }
       { MnuAnglais Menu langue
@@ -227,12 +227,12 @@
   { Panel1 Panel
     MoveScaled(44,0,36,5)
     { TBKill ToolButton
-      MoveScaled(18,0,4.5714,4)
+      MoveScaled(18,0,4.625,4)
       ToolTip = ("¡Mata el proceso en curso!")
       Picture = Picture["icon:/32/halt"]
     }
     { TBhProc ToolButton
-      MoveScaled(13,0,4.5714,4)
+      MoveScaled(13,0,4.625,4)
       ToolTip = ("¡Ejecute el proceso!")
       Picture = Picture["icon:/32/exec"]
     }

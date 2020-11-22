@@ -41,3 +41,4 @@ Public Sub PictureBox2_MouseUp()
      Desktop.Open("mailto:valaquarus@gmail.com")
 
 End
+
