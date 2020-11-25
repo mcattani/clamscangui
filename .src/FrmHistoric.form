@@ -11,16 +11,22 @@
     ReadOnly = True
   }
   { HBox2 HBox
-    MoveScaled(-1,85,111,4)
+    MoveScaled(1,85,111,4)
     ToolTip = ("Perderás todo tu historial si haces clic en Borrar")
     Spacing = True
     { btnBorrar Button
       MoveScaled(0,0,22,4)
       Text = ("Borrar")
+      Picture = Picture["icon:/24/clear"]
+    }
+    { Panel1 Panel
+      MoveScaled(26,0,4,4)
+      Expand = True
     }
     { btnImpr Button
-      MoveScaled(29,0,21,4)
+      MoveScaled(33,0,21,4)
       Text = ("Imprimir")
+      Picture = Picture["icon:/24/print"]
     }
     { Panel2 Panel
       MoveScaled(56,0,4,4)
@@ -29,6 +35,7 @@
     { btnCerrar Button
       MoveScaled(62,0,21,4)
       Text = ("Cerrar")
+      Picture = Picture["icon:/24/close"]
     }
   }
 }

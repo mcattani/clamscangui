@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"PO-Revision-Date: 2020-11-21 23:40 UTC\n"
+"PO-Revision-Date: 2020-11-25 19:32 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -17,43 +17,51 @@ msgstr "ClamScanGui"
 msgid "Un sencillo GUI para el antivirus ClamAV.\nLégèrement modifié par PilValaquarus"
 msgstr "Une interface graphique simple pour l'antivirus ClamAV.\nLégèrement modifié par PilValaquarus"
 
-#: Authenticate.class:42
+#: Authenticate.class:46
 msgid "ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!"
 msgstr "ClamScanGui devrait effacer la mémoire du processus en cours, détenue par sudo!"
 
-#: Authenticate.class:66
+#: Authenticate.class:70
 msgid "POR FAVOR ESPERA. Procesando..."
 msgstr "S'IL VOUS PLAÎT ATTENDEZ. En traitement ..."
 
-#: Authenticate.class:75
+#: Authenticate.class:79
 msgid "atrás"
 msgstr "retour"
 
-#: Authenticate.class:77
+#: Authenticate.class:81
 msgid "¡Acción completada!"
 msgstr "Action terminée!"
 
-#: Authenticate.class:84
+#: Authenticate.class:88
 msgid "¡Se ha producido un error!"
 msgstr "Une erreur s'est produite!"
 
-#: Authenticate.class:137
+#: Authenticate.class:108
+msgid "Acción cancelada."
+msgstr "Action annulée."
+
+#: Authenticate.class:115
+msgid "¡Inténtalo de nuevo!"
+msgstr "Essayez à nouveau!"
+
+#: Authenticate.class:143
 msgid "Bloqueo de mayúsculas está activado"
 msgstr "Touche Maj activée"
 
-#: Authenticate.form:53
-msgid "Una aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para ejecutar esta acción."
-msgstr "Une application tente d'effectuer une action qui nécessite des privilèges.\nUne authentification est requise pour effectuer cette action."
+#: Authenticate.form:67
+msgid "Un comando o aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para realizar esta acción."
+msgstr "Une commande ou une application tente d'exécuter une action qui nécessite des privilèges.\nUne authentification est requise pour effectuer cette action."
 
-#: Authenticate.form:64
+#: Authenticate.form:78
 msgid "Contraseña:"
 msgstr "Mot de passe : "
 
-#: Authenticate.form:94
+#: Authenticate.form:108
 msgid "Cancelar"
 msgstr "Annuler"
 
-#: Authenticate.form:104
+#: Authenticate.form:118
 msgid "Autenticar"
 msgstr "Authentifier"
 
@@ -62,47 +70,47 @@ msgstr "Authentifier"
 msgid "Unus Ex Altera"
 msgstr ""
 
-#: ClamScan.module:20
+#: ClamScan.module:21
 msgid "clamscan --version"
 msgstr "clamscan --version"
 
-#: ClamScan.module:131
+#: ClamScan.module:140
 msgid " Escaneo realizado : "
 msgstr " Analyse effectuée : "
 
-#: FMain.class:47
+#: FMain.class:53
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr "Vous devez avoir installé l'antivirus ClamAv pour pouvoir utiliser cette application"
 
-#: FMain.class:49
+#: FMain.class:55
 msgid "Versión instalada: "
 msgstr "Version installée : "
 
-#: FMain.class:174 Module1.module:22
+#: FMain.class:211 Module1.module:22
 msgid "¡Atención!"
 msgstr "Attention!"
 
-#: FMain.class:175
+#: FMain.class:212
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr "Toutes vos commandes sont\ndu SuperUser!"
 
-#: FMain.class:227
+#: FMain.class:268
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr "Veuillez patienter quelques secondes\npendant le démarrage de l'antivirus"
 
-#: FMain.class:289
+#: FMain.class:290
 msgid "Elija el directorio para escanear"
 msgstr "Choisissez le répertoire à analyser"
 
-#: FMain.class:290
+#: FMain.class:291
 msgid "Elija el archivo para analizar"
 msgstr "Choisissez le fichier à analyser"
 
-#: FMain.class:323
+#: FMain.class:324
 msgid "Seleccione \n an objeto para escanear!"
 msgstr "Veuillez sélectionner\nun objet à scanner!"
 
-#: FMain.class:387 Module1.module:69
+#: FMain.class:387 Module1.module:88
 msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr "Clamscan, fonctionne toujours, en arrière-plan.\nVous devrez effacer la mémoire vous-même."
 
@@ -118,203 +126,243 @@ msgstr "Vous pouvez revenir!"
 msgid "¡El proceso ya se detuvo!"
 msgstr "Le processus est déjà arrêté!"
 
-#: FMain.class:551
+#: FMain.class:553
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "La langue choisie sera appliquée après le redémarrage"
 
-#: FMain.class:553
+#: FMain.class:555
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "La langue choisie sera appliquée après le redémarrage du programme."
 
-#: FMain.class:553 Virus.class:54
+#: FMain.class:555 FrmConf.class:21 Virus.class:54
 msgid "No"
 msgstr "Non"
 
-#: FMain.class:553 Virus.class:54
+#: FMain.class:555 FrmConf.class:21 Virus.class:54
 msgid "Si"
 msgstr "Oui"
 
-#: FMain.class:553
+#: FMain.class:555
 msgid "¿Quieres renunciar?"
 msgstr "Voulez-vous quitter?"
 
 # gb-ignore
-#: FMain.form:58
+#: FMain.form:70
 msgid "// ClamAV GUI //"
 msgstr ""
 
-#: FMain.form:64
+#: FMain.form:76
 msgid "Opciones"
 msgstr "Les choix"
 
-#: FMain.form:67
+#: FMain.form:79
 msgid "Grabación de sesiones"
 msgstr "Enregistrement de session"
 
-#: FMain.form:72
+#: FMain.form:84
 msgid "Mostrar solo Salida de Errores"
 msgstr "Afficher uniquement la sortie d'erreur"
 
-#: FMain.form:79
+#: FMain.form:91
 msgid "Mostrar solo Archivos Infectados"
 msgstr "Afficher uniquement les fichiers infectés"
 
-#: FMain.form:86
+#: FMain.form:98
 msgid "Salida sin Resumen"
 msgstr "Quitter sans résumé"
 
-#: FMain.form:93
+#: FMain.form:105
 msgid "No mostrar comprobaciones \"OK\""
 msgstr "Ne pas afficher les chèques  \"OK \""
 
-#: FMain.form:100
+#: FMain.form:112
 msgid "Sonido de Campana si se encuentra algo"
 msgstr "La cloche sonne si quelque chose est trouvé"
 
-#: FMain.form:110
+#: FMain.form:122
 msgid "Salir"
 msgstr "Sortir"
 
-#: FMain.form:116
+#: FMain.form:128
 msgid "Opciones Avanzadas"
 msgstr "Options avancées"
 
-#: FMain.form:119
+#: FMain.form:131
 msgid "Más Opciones"
 msgstr "Plus d'options"
 
-#: FMain.form:124
+#: FMain.form:136
 msgid "Escanear HWP3"
 msgstr "Scanner HWP3"
 
-#: FMain.form:131
+#: FMain.form:143
 msgid "Escanear XML/HTML"
 msgstr "Analyser XML / HTML"
 
-#: FMain.form:138
+#: FMain.form:150
 msgid "Escanear SWF"
 msgstr "Analyser SWF"
 
-#: FMain.form:145
+#: FMain.form:157
 msgid "Escanear PDF"
 msgstr "Scanner le PDF"
 
-#: FMain.form:152
+#: FMain.form:164
+msgid "Escanear PE"
+msgstr "Scan PE"
+
+#: FMain.form:171
+msgid "Escanear ELF"
+msgstr "Scanner ELF"
+
+#: FMain.form:178
+msgid "Escanear OLE2"
+msgstr "Analyser OLE2"
+
+#: FMain.form:185
 msgid "Escanear archivos de Correo"
 msgstr "Analyser les fichiers de courrier"
 
-#: FMain.form:163
+#: FMain.form:196
 msgid "Escaneo Recursivo"
 msgstr "Scan récursif"
 
-#: FMain.form:171
+#: FMain.form:203
 msgid "Remover archivo/s (Cuidado!)"
 msgstr "Supprimer le fichier / s (attention!)"
 
-#: FMain.form:178
+#: FMain.form:210
 msgid "Detectar Aplicaciones Indeseadas"
 msgstr "Détecter les applications indésirables"
 
-#: FMain.form:185
+#: FMain.form:217
 msgid "poner en cuarentena archivos infectados"
 msgstr "mise en quarantaine des fichiers infectés"
 
-#: FMain.form:194
+#: FMain.form:226
 msgid "Actualización de la base de datos"
 msgstr "Mise à niveau de la base de données"
 
-#: FMain.form:198
+#: FMain.form:230
 msgid "Ver Log Freshclam"
 msgstr "Voir Log Freshclam"
 
-#: FMain.form:207
+#: FMain.form:239
 msgid "Actualización automática"
 msgstr "Mise à jour automatique"
 
-#: FMain.form:215
+#: FMain.form:247
 msgid "Actualización manual"
 msgstr "Mise à jour manuelle"
 
-#: FMain.form:224
+#: FMain.form:256
 msgid "Actualización inmediata"
 msgstr "Mise à jour immédiate"
 
-#: FMain.form:231
+#: FMain.form:263
 msgid "comportamiento"
 msgstr "Actions"
 
-#: FMain.form:234
+#: FMain.form:266
 msgid "Archivos potencialmente infectados"
 msgstr "Fichiers potentiellement infectés"
 
-#: FMain.form:242
+#: FMain.form:274
 msgid "Lectura del Log"
 msgstr "Lecture du journal"
 
-#: FMain.form:247
+#: FMain.form:279
 msgid "Historial de lectura"
 msgstr "Lecture de l'Historique"
 
-# gb-ignore
-#: FMain.form:253
-msgid "+"
-msgstr ""
-
-#: FMain.form:257
+#: FMain.form:287
 msgid "Idiomas"
 msgstr "Langues"
 
-#: FMain.form:262
+#: FMain.form:292
 msgid "Español"
 msgstr "Espagnol"
 
-#: FMain.form:268
+#: FMain.form:298
 msgid "francés"
 msgstr "français"
 
-#: FMain.form:274
+#: FMain.form:304
 msgid "Inglés"
 msgstr "Anglais"
 
+#: FMain.form:313
+msgid "Archivos de configuración"
+msgstr "Fichiers de configuration"
+
 # gb-ignore
-#: FMain.form:281
+#: FMain.form:318
+msgid "Clamd.conf"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:326
+msgid "Freshclam.conf"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:333
+msgid "milter.conf"
+msgstr ""
+
+#: FMain.form:340
+msgid "Ejemplos de configuraciones"
+msgstr "Exemples de configuration"
+
+# gb-ignore
+#: FMain.form:345
+msgid "clamd.conf"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:353
+msgid "freshclam.conf"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:368
 msgid "?"
 msgstr ""
 
-#: FMain.form:284 frmAbout.form:14
+#: FMain.form:371 frmAbout.form:14
 msgid "Acerca de"
 msgstr "À propos de"
 
-#: FMain.form:289
+#: FMain.form:376
 msgid "Ayuda"
 msgstr "Aide"
 
-#: FMain.form:298
+#: FMain.form:385
 msgid "Analizar un Archivo"
 msgstr "Analyser un fichier"
 
-#: FMain.form:308
+#: FMain.form:395
 msgid "Analizar Directorios"
 msgstr "Analyser les répertoires"
 
-#: FMain.form:321
+#: FMain.form:408
 msgid "Salida del escaneo"
 msgstr "Sortie de numérisation"
 
-#: FMain.form:331
+#: FMain.form:418
 msgid "¡Mata el proceso en curso!"
 msgstr "Tuez le processus en cours!"
 
-#: FMain.form:337
+#: FMain.form:424
 msgid "¡Ejecute el proceso!"
 msgstr "Exécutez le processus!"
 
-#: FMain.form:343
+#: FMain.form:430
 msgid "Salida de texto claro"
 msgstr "Effacer la sortie de texte"
 
 # gb-ignore
-#: FMain.form:349
+#: FMain.form:436
 msgid "Sudo"
 msgstr ""
 
@@ -339,9 +387,109 @@ msgstr "Fin du document"
 msgid "Ayuda de ClamScanGui"
 msgstr "Aide de ClamScanGui"
 
-#: FrmAide.form:35 FrmHistoric.form:45 FrmLog.form:40 Virus.form:53 frmAbout.form:44 frmFresh.form:34
+#: FrmAide.form:35 FrmConf.form:96 FrmHistoric.form:53 FrmLog.form:47 Virus.form:53 frmAbout.form:44 frmFresh.form:34
 msgid "Cerrar"
 msgstr "Fermer"
+
+#: FrmConf.class:20
+msgid "¡Proceda con cuidado!"
+msgstr "Procédez avec précaution!"
+
+#: FrmConf.class:21
+msgid "¿Quieres guardar tus cambios?"
+msgstr "Voulez-vous enregistrer vos modifications?"
+
+#: FrmConf.class:57
+msgid "Copia de seguridad realizada"
+msgstr "Sauvegarde effectuée"
+
+#: FrmConf.class:58
+msgid "Copia de seguridad no realizada"
+msgstr "Sauvegarde non effectuée"
+
+#: FrmConf.class:75
+msgid "¿Quiere restaurar el archivo respaldado?"
+msgstr "Voulez-vous restaurer le fichier sauvegardé?"
+
+#: FrmConf.class:114
+msgid "Restauración realizada"
+msgstr "Restauration terminée"
+
+#: FrmConf.class:115
+msgid "Restauración no realizada"
+msgstr "Restauration non effectuée"
+
+#: FrmConf.class:134
+msgid " Configuración de: "
+msgstr " Configuration de : "
+
+#: FrmConf.class:134
+msgid "# Modo de edición # "
+msgstr "# Mode Édition # "
+
+#: FrmConf.class:136
+msgid "Edición:"
+msgstr "Édition :"
+
+#: FrmConf.class:141
+msgid "# Modo de consulta # "
+msgstr "# Mode Consultation # "
+
+#: FrmConf.class:143
+msgid "Consulta:"
+msgstr "Consultation :"
+
+#: FrmConf.class:152
+msgid "Su archivo de configuración clamd.conf"
+msgstr "Votre fichier de configuration clamd.conf"
+
+#: FrmConf.class:158
+msgid "Su archivo de configuración Freshclam.conf"
+msgstr "Votre fichier de configuration Freshclam.conf"
+
+#: FrmConf.class:164
+msgid "Su archivo de configuración clamav-milter.conf"
+msgstr "Votre fichier de configuration clamav-milter.conf"
+
+#: FrmConf.class:169
+msgid " Ejemplo de clamd.conf "
+msgstr "Exemple de clamd.conf"
+
+#: FrmConf.class:170
+msgid "Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n"
+msgstr "Un exemple de fichier de configuration avec des commentaires\nque vous pouvez trouver sur votre disque à:\n"
+
+#: FrmConf.class:176
+msgid " Ejemplo de freshclam.conf "
+msgstr "Exemple de Freshclam.conf"
+
+#: FrmConf.class:183
+msgid " Ejemplo de clamav-milter.conf "
+msgstr "Exemple de clamav-milter.conf"
+
+#: FrmConf.class:192
+msgid "Es la primera vez !"
+msgstr "C'est la première fois !"
+
+#: FrmConf.class:193
+msgid "Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla"
+msgstr "Une sauvegarde de sécurité vient d'être faite\nen cas d'erreur, vous pourrez la restaurer"
+
+#: FrmConf.class:199
+msgid "Se acaba de guardar un archivo de ejemplo \n en el siguiente directorio: \n "
+msgstr "Un fichier d'exemple vient d'être enregistré\ndans le répertoire suivant :\n "
+
+#: FrmConf.form:60 FrmHistoric.form:42 FrmLog.form:36
+msgid "Imprimir"
+msgstr "Imprimer"
+
+#: FrmConf.form:72 Virus.form:34
+msgid "Restaurar"
+msgstr "Restaurer"
+
+#: FrmConf.form:85
+msgid "Salvar"
+msgstr "Sauvegarder"
 
 #: FrmHistoric.class:19
 msgid "Historia de ClamScanGui : "
@@ -351,17 +499,13 @@ msgstr "Historique de ClamScanGui : "
 msgid "El archivo o directorio no existe"
 msgstr "Le fichier ou le répertoire n'existe pas"
 
-#: FrmHistoric.form:25
+#: FrmHistoric.form:26
 msgid "Perderás todo tu historial si haces clic en Borrar"
 msgstr "Vous perdrez tout votre historique si vous cliquez sur Supprimer"
 
-#: FrmHistoric.form:30
+#: FrmHistoric.form:31
 msgid "Borrar"
 msgstr "Supprimer"
-
-#: FrmHistoric.form:35 FrmLog.form:30
-msgid "Imprimir"
-msgstr "Imprimer"
 
 #: FrmLog.class:30
 msgid " Registro de ClamScanGui "
@@ -407,10 +551,6 @@ msgstr "Erreur de restauration"
 msgid "Seleccione los archivos que desee eliminar"
 msgstr "Sélectionner les fichiers à effacer"
 
-#: Virus.form:34
-msgid "Restaurar"
-msgstr "Restaurer"
-
 #: Virus.form:41
 msgid "Eliminar"
 msgstr "Éliminer"
@@ -432,12 +572,12 @@ msgstr "Cliquez pour accéder au blog"
 msgid "https://thenerdyapprentice.blogspot.com/"
 msgstr ""
 
-#: frmAbout.form:49
+#: frmAbout.form:50
 msgid "Programa ligeramente modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com"
 msgstr "programme légèrement modifié par Pil Valaquarus.\nOctobre 2020\nvalaquarus@gmail.com"
 
 # gb-ignore
-#: frmAbout.form:60
+#: frmAbout.form:61
 msgid "mail to : valaquarus@gmail.com"
 msgstr ""
 

@@ -45,6 +45,15 @@ Histoire:
 Les langues:
 - Vous pouvez actuellement choisir entre trois langues dans lesquelles le logiciel a été traduit (anglais, espagnol ou français)
 
+Le bouton Sudo :
+- permet d'exécuter vos commandes en tant que super utilisateur.
+
+Fichiers de configuration :
+- Les fichiers suivant peuvent être consultés ou modifiés si le bouton sudo est enfoncé :
+	clamd.conf
+	freshclam.conf
+	milter-clamav.conf
+
 Un point sur l'analyse:
 - Comme indiqué dans la FAQ, l'antivirus clamav ne corrige pas les fichiers infectés.
 - certains virus sous Linux peuvent agir sans autorisation.

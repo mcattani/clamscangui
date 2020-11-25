@@ -1,45 +1,56 @@
-* Tue Nov 24 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.47
--Corregidos alguos algunos errores en la traducción del español.
+* Wed Nov 25 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.49
+- Pequeños arreglos estéticos
+- Ahora se pueden ver/cambiar las configuraciones de ClamAv
 
-* Sun Nov 22 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
-- Détails
+* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.49
 
-* Sun Nov 22 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
-- Détails
+* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.49
+- Réduction de plusieurs bugs
+
+* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.48
+- Traductions
+
+* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.48
+- Détails d'affichage
+
+* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.48
+- Fichiers exemple en lecture
+-Copie des exemples dans ~/Clamav/
+
+* Sat Nov 21 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.47
+- réduction du bug sur fermeture
+- message sur fermeture non validée
+- correction TBKill en sudo
+- Affichage Authenticate modifié
+
+* Fri Nov 20 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.46
+- Bug non corrigé sur menu option +
+- correction kill clamscan
+- Correction du bug sur menu option+
+- Correction affichage authenticate
+
+* Wed Nov 18 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.45
+- Ajout des fichiers de configuration clamav en lecture et modification
+- correction bug sur application langues
+- bug sur TBKill
+- Commentaires lignes de programmation
+- déplacement boutons
+- Impression Log et Historique
+- bug sur langue corrigé
 
 * Mon Nov 16 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
 - Version allégée de la précédente
 - Changements dans les menus
 - Ajout de sudo en ToolButton
-- Titre d'Authenticate
-- Correction bug sur application langues
-- bug sur TBKill
-- Déplacement des boutons
-- bug sur commande -o
-- Impression Log
-- Message sur bouton Sudo
-- Correction bug sur kill clamscan
-- Bug sur langue
-- Correction d'un bug sur menu option+
-- Modification cloture programme pour tuer tout process clamscan en mémoire.
 
 * Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.43
 - Version finale pour l'instant...
 
 * Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
-- Traduction améliorée sous la houlette d'Ozymandias pour l'espagnol
-
-* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
-- Fichiers à restaurer envoyés dans un répertoire au choix de l'utilisateur.
-
-* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
-- Fichiers à restaurer envoyés dans un répertoire du home
-
-* Sat Nov 14 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.42
 - Modification de l'aide et traductions
-
-* Fri Nov 13 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.41
-- Aide
+- Fichiers à restaurer envoyés dans un répertoire du home
+- Fichiers à restaurer envoyés dans un répertoire au choix de l'utilisateur.
+ Traduction améliorée sous la houlette d'Ozymandias pour l'espagnol
 
 * Fri Nov 13 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.41
 - Arrangement différent de l'aide
@@ -54,25 +65,17 @@
 - Test de restauration
 
 * Wed Nov 11 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.38
-- bug corrigé sur clamscan
-
-* Wed Nov 11 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.38
 - Traduction anglais espagnol français
+- bug corrigé sur clamscan
 
 * Mon Nov 09 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.37
 - Resize des Formulaires possible
 
 * Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
-- Correction bug sur Quarant
-
-* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
-- Suppression Historique
-
-* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
-- ShowModal pour toutes les Frm
-
-* Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.36
 - Création de l'historique
+- ShowModal pour toutes les Frm
+- Suppression Historique
+- Correction bug sur Quarant
 
 * Sun Nov 08 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.35
 - Test de Restauration

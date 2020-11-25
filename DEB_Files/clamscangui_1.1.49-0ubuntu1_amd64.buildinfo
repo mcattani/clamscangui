@@ -2,19 +2,19 @@ Format: 1.0
 Source: clamscangui
 Binary: clamscangui
 Architecture: all source
-Version: 1.1.47-0ubuntu1
+Version: 1.1.49-0ubuntu1
 Checksums-Md5:
- e5d54bc49536397c31d14c51f7c998c3 1598 clamscangui_1.1.47-0ubuntu1.dsc
- 8c672b4dda673004b105c3f8e5772e13 370600 clamscangui_1.1.47-0ubuntu1_all.deb
+ 29ec2e919b93ecccfdf33691e41c54df 1665 clamscangui_1.1.49-0ubuntu1.dsc
+ c8ca4af1a695a9ab1f9baac718949b05 361956 clamscangui_1.1.49-0ubuntu1_all.deb
 Checksums-Sha1:
- 92035e08107d83419ec62bc17b9a50f5dc51baa3 1598 clamscangui_1.1.47-0ubuntu1.dsc
- 70a9f44b537638ab0f472c6e78fbfa6966c739d2 370600 clamscangui_1.1.47-0ubuntu1_all.deb
+ 99f76aa103ffff87a1b83294bcbef117ddb48883 1665 clamscangui_1.1.49-0ubuntu1.dsc
+ dba13a8940d8db4cd66acdbea511553a4cbe81dd 361956 clamscangui_1.1.49-0ubuntu1_all.deb
 Checksums-Sha256:
- 48c52b5aa160bfd5ae6a62e588779aa1634ac14505368b59a014a82ca817f2a1 1598 clamscangui_1.1.47-0ubuntu1.dsc
- 0e4ccd590bc73d14df55103ec98b993eb1917c4e73869de350b0e09cb7ee5ef3 370600 clamscangui_1.1.47-0ubuntu1_all.deb
+ a5aafacc7ff7554cdd5ab3e1fc0832c14cb3e5c560c2370cf01cdc3c524e29db 1665 clamscangui_1.1.49-0ubuntu1.dsc
+ 055c8a6cb0993ab7e90116930ad51c74c75b89f472ce8017f8dc2b86a132b741 361956 clamscangui_1.1.49-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Tue, 24 Nov 2020 15:19:38 -0300
+Build-Date: Wed, 25 Nov 2020 19:33:57 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs
@@ -53,6 +53,7 @@ Installed-Build-Depends:
  dpkg (= 1.20.5ubuntu2),
  dpkg-dev (= 1.20.5ubuntu2),
  dwz (= 0.13-5),
+ fakeroot (= 1.25.2-1),
  file (= 1:5.38-5),
  findutils (= 4.7.0-1ubuntu2),
  fontconfig (= 2.13.1-2ubuntu3),
@@ -145,6 +146,7 @@ Installed-Build-Depends:
  libelf1 (= 0.181-1),
  libevdev2 (= 1.9.1+dfsg-1),
  libexpat1 (= 2.2.9-1build1),
+ libfakeroot (= 1.25.2-1),
  libffi8ubuntu1 (= 3.4~20200819gead65ca871-0ubuntu3),
  libfile-stripnondeterminism-perl (= 1.9.0-1),
  libfontconfig1 (= 2.13.1-2ubuntu3),
@@ -354,4 +356,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_AR.UTF-8"
  LC_ALL="es_AR.UTF-8"
- SOURCE_DATE_EPOCH="1606219200"
+ SOURCE_DATE_EPOCH="1606305600"

@@ -1,9 +1,9 @@
 # Gambas Form File 3.0
 
 { Report Report
-  #MoveScaled(0,0,104,91)
+  #MoveScaled(0,0,107,91)
   { RVBox ReportVBox
-    #MoveScaled(1,1,102,84)
+    #MoveScaled(1,1,105,84)
     Border = ReportBorder["Top:10mm #FFFFFF;Bottom:10mm #FFFFFF;Left:10mm #FFFFFF;Right:10mm #FFFFFF"]
   }
 }

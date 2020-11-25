@@ -25,7 +25,7 @@ Public Sub btnCerrar_Click()                                                    
 
 End
 
-Public Sub rePert()
+Public Sub rePert()                                                             'réglages d'affichage
 
      If sDir.Count <= 0 Then
           btnEliminar.Enabled = False
@@ -37,7 +37,7 @@ Public Sub rePert()
 
 End
 
-Public Sub Form_Open()
+Public Sub Form_Open()                                                          'ouverture de la quarantaine
 
      sDir = Dir(User.Home & "/.clamscangui/viruses/")
      FV1.Dir = User.Home & "/.clamscangui/viruses/"
@@ -73,16 +73,16 @@ Public Sub btnRestaurar_Click()                                                 
      If FV1.Selection.Count > 0 Then
           If Message.Question(("¿Quieres restaurar la selección?"), ("Si"), ("No")) = 2 Then
                Return
-          Else
+          Else                                                                  'il faudrait afficher un tableau des fichiers déplacer
                For i = 0 To FV1.Selection.Max
                     ' Dialog.Path = User.Home & "/.clamscangui/viruses/" &/ FV1.Selection.First
                     Dialog.Title = ("¡Seleccione dónde restaurar el archivo!")
-                    If Dialog.SelectDirectory() Then
+                    If Dialog.SelectDirectory() Then                            'dossier à choisir pour la restauration
                          Message(("¡El archivo no fue restaurado!"))
                          Return
-                    Else
+                    Else                                                        'on restaure le fichier à l'endroit choisi
                          Try Copy User.Home & "/.clamscangui/viruses/" &/ FV1.Selection.First To Dialog.Path &/ FV1.Selection.First
-                         If Not Error Then
+                         If Not Error Then                                      'et on tue le fichier origine
                               Try Kill User.Home & "/.clamscangui/viruses/" &/ FV1.Selection.First
                               Message(("su archivo ha sido restaurado a la siguiente carpeta: \n") & Dialog.Path)
                          Else

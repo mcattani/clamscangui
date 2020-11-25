@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,623,287)
+  Move(0,0,665,385)
   #Scaled = False
   Font = Font["Noto Sans,10"]
   Icon = Picture["icon:/48/security"]
@@ -9,28 +9,38 @@
   Arrangement = Arrange.Horizontal
   AutoResize = True
   { VBox1 VBox
-    Move(7,7,56,77)
+    Move(0,7,56,77)
     { PictureBox1 PictureBox
       Move(7,7,42,63)
       Picture = Picture["icon:/48/lock"]
     }
   }
   { Panel6 VBox
-    Move(70,0,553,287)
+    Move(56,0,553,364)
     Expand = True
     AutoResize = True
+    { HBox1 HBox
+      Move(14,7,525,42)
+      AutoResize = True
+      { LabelHeader TextLabel
+        Move(7,7,406,21)
+        Font = Font["Bold,+1"]
+        Expand = True
+        AutoResize = True
+      }
+    }
     { HBox2 HBox
-      Move(0,0,553,49)
+      Move(0,56,553,49)
       Font = Font["Noto Sans,10"]
       { Label2 Label
         Move(14,0,511,42)
         Font = Font["Noto Sans,10"]
         Expand = True
-        Text = ("Una aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para ejecutar esta acción.")
+        Text = ("Un comando o aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para realizar esta acción.")
       }
     }
     { Panel1 HBox
-      Move(0,56,553,35)
+      Move(0,112,553,35)
       Font = Font["Noto Sans,10"]
       { Label3 Label
         Move(0,7,217,21)
@@ -49,11 +59,11 @@
       }
     }
     { Panel2 HBox
-      Move(0,105,553,35)
+      Move(0,161,553,35)
       Font = Font["Noto Sans,10"]
       { LabelCaps Label
         Move(7,6,189,28)
-        Font = Font["Noto Sans,Bold,13"]
+        Font = Font["Bold,11"]
         Foreground = Color.Red
         Expand = True
       }
@@ -75,7 +85,7 @@
       }
     }
     { VBox2 HBox
-      Move(0,161,553,119)
+      Move(0,217,553,119)
       Font = Font["Noto Sans,10"]
       Padding = 5
       { TextAreaTerminal TextArea
@@ -88,7 +98,7 @@
     }
   }
   { Timer1 #Timer
-    #Move(14,98)
+    #Move(7,98)
     Delay = 10
   }
 }

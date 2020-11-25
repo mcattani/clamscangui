@@ -30,11 +30,15 @@ Public Sub Command(CommandLine As String) As String                             
      '      Return sOutput                                                      'Return the Command's output
      ' End If
 
+     LabelHeader.Text = sCommand
      Me.Text = sCommand
+
      If FMain.bSudo = True Then
           VBox2.Visible = False
+          ' HBox1.Visible = False
      Else
           VBox2.Visible = True
+          ' HBox1.Visible = True
      Endif
      CheckCapsLock                                                             'Check if the Caps Lock is on
      If Module1.cloture = True Then
@@ -101,12 +105,14 @@ End
 
 Public Sub ButtonCancel_Click()                                                'If the Cancel button is clicked..
 
+     Me.Text = ("Acción cancelada.")
      Me.Close
 
 End
 
 Public Sub Timer1_Timer()                                                      'Timer to 'Shake' the Form when an incorrect password is entered
 
+     Me.Text = ("¡Inténtalo de nuevo!")
      If Even(Me.X) Then Me.x += 9 Else Me.x -= 9                               'If the Form's X value is even then add 9 to it Else subtract 9 from the X value
      Wait                                                                      'Once around the Event Loop
      Inc siCount                                                               'Increase the counter
@@ -143,12 +149,6 @@ End
 
 Public Sub Form_Close()
 
-     If FMain.bFlag = False Then Return                                         'retour si le drapeau est à faux
-
-End
-
-Public Sub Panel6_MouseDown()
-
-     
+     If FMain.bFlag = False Then Return                                                                'retour si le drapeau est à faux
 
 End

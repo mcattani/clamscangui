@@ -7,38 +7,64 @@
   Arrangement = Arrange.Vertical
   Spacing = True
   Margin = True
-  { TextArea1 TextArea
-    MoveScaled(9,6,81,59)
+  { HBox2 HBox
+    MoveScaled(1,0,94,5)
+    AutoResize = True
+    { Label1 Label
+      MoveScaled(2,1,73,3)
+      Font = Font["Bold"]
+      AutoResize = True
+    }
+    { Panel4 Panel
+      MoveScaled(82,1,11,3)
+    }
+  }
+  { Panel3 Panel
+    MoveScaled(1,6,94,76)
     Expand = True
-    ReadOnly = True
-    Wrap = True
+    Arrangement = Arrange.Horizontal
+    { TextArea1 TextArea
+      MoveScaled(2,2,88,52)
+      Expand = True
+      ReadOnly = True
+      Wrap = True
+    }
   }
   { HBox1 HBox
-    MoveScaled(4,78,90,4)
+    MoveScaled(1,82.4286,94,4)
     Spacing = True
+    { btnImpr Button
+      MoveScaled(0,0,19,4)
+      Text = ("Imprimir")
+      Picture = Picture["icon:/24/print"]
+    }
+    { Panel5 Panel
+      MoveScaled(19,0,3,4)
+      Expand = True
+    }
     { btnRestaurar Button
-      MoveScaled(5,0,19,4)
+      MoveScaled(22.2857,0,19,4)
       Visible = False
       Text = ("Restaurar")
-      Picture = Picture["icon:/24/cancel"]
+      Picture = Picture["icon:/24/redo"]
       Cancel = True
     }
     { Panel2 Panel
-      MoveScaled(25,0,4,4)
+      MoveScaled(42.2857,0,4,4)
       Expand = True
     }
     { btnSauve Button
-      MoveScaled(32,0,19,4)
+      MoveScaled(47.2857,0,19,4)
       Visible = False
       Text = ("Salvar")
       Picture = Picture["icon:/24/floppy"]
     }
     { Panel1 Panel
-      MoveScaled(56,0,4,4)
+      MoveScaled(68.2857,0,4,4)
       Expand = True
     }
     { btnCerrar Button
-      MoveScaled(64,0,19,4)
+      MoveScaled(73.2857,0,19,4)
       Text = ("Cerrar")
       Picture = Picture["icon:/24/close"]
     }

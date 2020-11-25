@@ -23,7 +23,7 @@ Public Sub btnOK_Click()
 
 End
 
-Public Sub Form_Open()
+Public Sub Form_Open()                                                          'affichage de l'aide avec tous les fichiers utilisés
 
      TextArea1.Text = gb.CrLf
      TextArea1.Text = TextArea1.Text & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & (" Inicio de archivo ") & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & gb.CrLf

@@ -29,6 +29,7 @@
   { btCerrar Button
     MoveScaled(103,37.5714,22,5)
     Text = ("Cerrar")
+    Picture = Picture["icon:/24/close"]
   }
   { txtAbout2 TextArea
     MoveScaled(47,27,67,10)
@@ -37,10 +38,10 @@
     Wrap = True
   }
   { Panel1 Panel
-    MoveScaled(115.7143,27,9,10.5714)
+    MoveScaled(114,26.4286,11,11)
     Border = Border.Raised
     { PictureBox2 PictureBox
-      MoveScaled(0,0,9,10)
+      MoveScaled(0,1,11,9)
       ToolTip = ("mail to : valaquarus@gmail.com")
       Picture = Picture["pil2.png"]
       Alignment = Align.Center

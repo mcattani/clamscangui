@@ -15,9 +15,14 @@
   { HBox2 HBox
     MoveScaled(0,83,111,4)
     Spacing = True
+    { Panel1 Panel
+      MoveScaled(0,0,4,4)
+      Expand = True
+    }
     { btnImpr Button
-      MoveScaled(3,0,16,4)
+      MoveScaled(9,0,16,4)
       Text = ("Imprimir")
+      Picture = Picture["icon:/24/print"]
     }
     { Panel2 Panel
       MoveScaled(56,0,4,4)
@@ -26,6 +31,7 @@
     { btnCerrar Button
       MoveScaled(62,0,16,4)
       Text = ("Cerrar")
+      Picture = Picture["icon:/24/close"]
     }
   }
 }

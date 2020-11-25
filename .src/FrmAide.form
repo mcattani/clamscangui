@@ -23,6 +23,7 @@
     { btnOK Button
       MoveScaled(29,0,16,4)
       Text = ("Cerrar")
+      Picture = Picture["icon:/24/close"]
       Default = True
     }
   }

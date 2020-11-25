@@ -21,22 +21,28 @@ Public Remover As Boolean
 Public AppsIndeseadas As Boolean
 Public Mail As Boolean
 Public PDF As Boolean
-Public SFW As Boolean
+Public SWF As Boolean
 Public HTML As Boolean
 Public HWP3 As Boolean
+Public PE As Boolean
+Public ELF As Boolean
+Public OLE2 As Boolean
 
 Public maCle As Integer
-Public Ruta As String
+Public Ruta As String                                                           'endroit ou fichier à scanner
 Public sMot As String
-Public bSortie As Boolean
-Public bFlag As Boolean
-Public quarantaine As String
-Public historic As String
-Public clamLog As String
-Public Quarant As Boolean
-Public langue As String
-Public bSudo As Boolean
-Public monTexte As String
+Public bSortie As Boolean                                                       'drapeau de sortie de programme
+Public bFlag As Boolean                                                         'drapeau boolean
+Public quarantaine As String                                                    'nom du dossier de quarantaine
+Public historic As String                                                       'nom du fichier historque
+Public clamLog As String                                                        'nom du ficier log de session
+Public Quarant As Boolean                                                       'drapeau pour quarantaine
+Public antivir As String
+Public langue As String                                                         'langue
+Public bSudo As Boolean                                                         'sudo appliqué
+Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
+Public monTexte As String                                                       'texte de commande pour transfert
+Public iFlag As Integer                                                         'drapeau integer
 
 Public Sub Form_Open()                                                          'Form prinipale appelée par le Module1
 
@@ -49,6 +55,7 @@ Public Sub Form_Open()                                                          
           txSalida.text = ("Versión instalada: ") & ClamScan.Version()
      Endif
 
+     antivir = User.Home &/ "Clamav"
      quarantaine = User.Home &/ ".clamscangui/viruses"                          'dossier de quarantaine des virus
      clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"                  'fichier Log
      historic = User.Home &/ ".clamscangui/Historique.txt"                      'fichier historique
@@ -56,6 +63,10 @@ Public Sub Form_Open()                                                          
      If Not Exist(quarantaine) Then                                             'création du dossier de quarantaine des virus
           Try Mkdir User.Home &/ ".clamscangui"
           Try Mkdir quarantaine
+     Endif
+
+     If Not Exist(antivir) Then
+          Try Mkdir antivir
      Endif
 
      If Not Exist(clamLog) Then                                                 'fichier Log
@@ -81,24 +92,18 @@ Public Sub Form_Open()                                                          
 
 End
 
-Public Sub MnuDeplacer_Click()
-
-     If MnuDeplacer.Checked = True Then MnuVirus.Enabled = True
-     If MnuDeplacer.Checked = False Then MnuVirus.Enabled = False
-
-End
-
 Public Sub premiereFois()                                                       'réglages pour une première fois
 
-     MnuAuto.Checked = True
-     Settings["Menu/Auto"] = MnuAuto.Checked
-     MnuManuelle.Checked = False
-     Settings["Menu/Manuel"] = MnuManuelle.Checked
+     MnuAuto.Value = True
+     MnuManuelle.Value = False
      MnuImmediate.Enabled = False
-     Settings["Menu/Immediat"] = MnuImmediate.Enabled
-     MnuDeplacer.Checked = False
-     Settings["Menu/deplacer"] = MnuDeplacer.Checked
+     MnuDeplacer.Value = False
      MnuVirus.Enabled = False
+
+     Settings["Menu/Auto"] = MnuAuto.Value
+     Settings["Menu/Manuel"] = MnuManuelle.Value
+     Settings["Menu/Immediat"] = MnuImmediate.Enabled
+     Settings["Menu/Deplacer"] = MnuDeplacer.Value
      Settings["Menu/Virus"] = MnuVirus.Enabled
      Settings["General/LangInit"] = Left(System.Language, 2)
 
@@ -107,12 +112,18 @@ Public Sub premiereFois()                                                       
      mnuSWF.Value = True
      mnuPdf.Value = True
      mnuMail.Value = True
+     mnuPE.Value = True
+     mnuELF.Value = True
+     MnuOLE2.Value = True
 
      Settings["Menu/pHWP3"] = mnuHWP3.Value
      Settings["Menu/pXML"] = mnuXML.Value
      Settings["Menu/pSWF"] = mnuSWF.Value
      Settings["Menu/pPDF"] = mnuPdf.Value
      Settings["Menu/pMail"] = mnuMail.Value
+     Settings["Menu/pPE"] = mnuPE.Value
+     Settings["Menu/pELF"] = mnuELF.Value
+     Settings["Menu/pOLE2"] = MnuOLE2.Value
 
 End
 
@@ -141,6 +152,30 @@ Public Sub LoadSettings()                                                       
      mnuSWF.Value = Settings["Menu/pSWF"]
      mnuPdf.Value = Settings["Menu/pPDF"]
      mnuMail.Value = Settings["Menu/pMail"]
+     mnuPE.Value = Settings["Menu/pPE"]
+     mnuELF.Value = Settings["Menu/pELF"]
+     MnuOLE2.Value = Settings["Menu/pOLE2"]
+     '********** Toutes options transmises **********************
+     SalidaERR = mnErrores.Value
+     infect = mnInfectados.Value
+     SuprimirOK = mnSupressOK.Value
+     SinINF = mnNoSummary.Value
+     Bell = mnBell.Value
+
+     mail = mnuMail.Value
+     pdf = mnuPdf.Value
+     Swf = mnuSWF.Value
+     html = mnuXML.Value
+     HWP3 = mnuHWP3.Value
+     PE = mnuPE.Value
+     ELF = mnuELF.Value
+     OLE2 = MnuOLE2.Value
+
+     Remover = mnRemover.Value
+     Quarant = MnuDeplacer.Value
+     Recursive = mnRecursivo.Value
+     AppsIndeseadas = mnDetectar.Value
+     '********************************************************
 
      If langue = "fr" Then
           MnuFrancais.Value = True
@@ -158,24 +193,28 @@ Public Sub LoadSettings()                                                       
           '      MenuIt.Value = True
      Endif
 
-     If TBSudo.Value = True Then
+     If TBSudo.Value = True Then                                                'idem à TBSudo_Click
           bSudo = True
+          bTBSudo = True
      Endif
      If TBSudo.Value = False Then
           bSudo = False
+          bTBSudo = False
      Endif
 
 End
 
-Public Sub TBSudo_Click()
+Public Sub TBSudo_Click()                                                       'bouton sudo enfoncé
 
-     If TBSudo.Value = True Then
+     If TBSudo.Value = True Then                                                'le bouton est enfoncé
           bSudo = True
+          bTBSudo = True
           Message.Title = (("¡Atención!"))
           Message.Info(("¡Todos sus pedidos son \n del SuperUsuario!"))
      Endif
-     If TBSudo.Value = False Then
+     If TBSudo.Value = False Then                                               'le bouton n'est pas enfoncé
           bSudo = False
+          bTBSudo = False
      Endif
 
 End
@@ -206,6 +245,9 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/pSWF"] = mnuSWF.Value
      Settings["Menu/pPDF"] = mnuPdf.Value
      Settings["Menu/pMail"] = mnuMail.Value
+     Settings["Menu/pPE"] = mnuPE.Value
+     Settings["Menu/pELF"] = mnuELF.Value
+     Settings["Menu/pOLE2"] = MnuOLE2.Value
 
 End
 
@@ -225,28 +267,9 @@ Public Sub FC_Activate()
 
      menuFaux()
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
-
      Ruta = Shell$(FC.SelectedPath)
-
-     If mnErrores.Value = True Then SalidaERR = True
-     If mnInfectados.value = True Then infect = True
-     If mnSupressOK.value = True Then SuprimirOK = True
-     If mnNoSummary.value = True Then SinINF = True
-     If mnBell.value = True Then Bell = True
-     If mnRemover.Value = True Then Remover = True
-     If mnuMail.Value = True Then mail = True
-     If mnuPdf.value = True Then pdf = True
-     If mnuSWF.Value = True Then Sfw = True
-     If mnuXML.Value = True Then html = True
-     If mnuHWP3.Value = True Then HWP3 = True
-     If MnuDeplacer.Value = True Then Quarant = True
-     If TBSudo.Value = True Then bSudo = True
-
-     ClamScan.ScanFile(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Mail, PDF, SFW, HTML, HWP3, Quarant, bSudo)
-
-     ' If clamscan.hProc.State = clamscan.hProc.Stopped Then
-     menuVraix()
-     ' Endif
+     ClamScan.ScanFile(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo)
+     menuVraix()                                                                'menus activés
 
 End
 
@@ -254,34 +277,13 @@ Public Sub DC_Activate()
 
      menuFaux()
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
-
      Ruta = Shell$(DC.SelectedPath)
-
-     If mnErrores.Value = True Then SalidaERR = True
-     If mnInfectados.value = True Then infect = True
-     If mnSupressOK.value = True Then SuprimirOK = True
-     If mnNoSummary.value = True Then SinINF = True
-     If mnRecursivo.value = True Then Recursive = True
-     If mnBell.value = True Then Bell = True
-     If mnRemover.Value = True Then Remover = True
-     If mnDetectar.value = True Then AppsIndeseadas = True
-     If mnuMail.Value = True Then mail = True
-     If mnuPdf.value = True Then pdf = True
-     If mnuSWF.Value = True Then Sfw = True
-     If mnuXML.Value = True Then html = True
-     If mnuHWP3.Value = True Then HWP3 = True
-     If MnuDeplacer.Value = True Then Quarant = True
-     If TBSudo.Value = True Then bSudo = True
-
-     ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Recursive, Bell, Remover, AppsIndeseadas, Mail, PDF, SFW, HTML, HWP3, Quarant, bSudo)
-
-     ' If clamscan.hProc.State = clamscan.hProc.Stopped Then
-     menuVraix()
-     ' Endif
+     ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Recursive, AppsIndeseadas, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo)
+     menuVraix()                                                                'menus désactivés
 
 End
 
-Public Sub _new()
+Public Sub _new()                                                               'pour remise à jour de certains éléments
 
      If Not IsNull(fc) Or Not IsNull(dc) Then
           maCle = 0
@@ -293,7 +295,7 @@ Public Sub _new()
 
 End
 
-Public Sub FC_Change()
+Public Sub FC_Change()                                                          'le file chooser a changé
 
      If fc.SelectedPath = "" Then
           _new()
@@ -305,7 +307,7 @@ Public Sub FC_Change()
 
 End
 
-Public Sub DC_Change()
+Public Sub DC_Change()                                                          'le dir chooser a changé
 
      If dc.SelectedPath = "" Then
           _new()
@@ -331,7 +333,7 @@ Public Sub TBhProc_Click()                                                  'exe
 
 End
 
-Public Sub menuFaux()                                                           'menus inactivés
+Public Sub menuFaux()                                                           'menus et boutons inactivés
 
      mnOpciones.Enabled = False
      mnOpcionesAvanzadas.Enabled = False
@@ -348,7 +350,7 @@ Public Sub menuFaux()                                                           
 
 End
 
-Public Sub menuVraix()                                                          'menus activés
+Public Sub menuVraix()                                                          'menus et boutons activés
 
      mnOpciones.Enabled = True
      mnOpcionesAvanzadas.Enabled = True
@@ -375,7 +377,6 @@ Public Sub TBKill_Click()                                                       
           Message.Info(("Seleccione \n an objeto para escanear!"))
           Return
      Endif
-
      If ClamScan.hProc.State = ClamScan.hProc.Running Then
           If FMain.bSudo = True Then
                Authenticate.Command("sudo killall -u root -9 clamscan")              'montexte est affecté à la commande du process
@@ -420,7 +421,7 @@ Public Sub MnuLog_Click()                                                       
 
 End
 
-Public Sub mnAcerca_Click()
+Public Sub mnAcerca_Click()                                                     'menu à propos
 
      Me.Hide
      frmAbout.ShowModal()
@@ -515,21 +516,23 @@ Public Sub Form_Close()                                                         
      SaveSettings()                                                             'sauvegarde des réglages avant sortie programme
 
      If Not IsNull(clamscan.hProc) Then
-          If ClamScan.hProc.State = ClamScan.hProc.Running Then
-               ClamScan.hProc.Kill
+          If clamscan.hProc.State = clamscan.hProc.Running Then
+               clamscan.hProc.Kill
+               ' Shell "kill -9 " & clamscan.hProc.Handle                       'semble plus efficace que ligne au dessus
                Wait 1                                                           'attente d'une seconde pour kill process
-               ClamScan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
+               clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
                Module1.cloture = True
                Module1.sortie()
           Endif
      Endif
 
      Me.Hide()
+
      Module1.quitAppli()                                                        'fermeture par le Module1
 
 End
 
-Public Sub MnuAide_Click()
+Public Sub MnuAide_Click()                                                      'affichage de l'aide
 
      Me.Hide
      FrmAide.ShowModal()
@@ -537,11 +540,11 @@ Public Sub MnuAide_Click()
 
 End
 
-Public Sub langue_Click()
+Public Sub langue_Click()                                                       'choix de la langue
 
-     If MnuAnglais.Checked = True Then langue = "en"
-     If MnuFrancais.Checked = True Then langue = "fr"
      If MnuEspagnol.Checked = True Then langue = "es"
+     If MnuFrancais.Checked = True Then langue = "fr"
+     If MnuAnglais.Checked = True Then langue = "en"
      AppliLangues()
 
 End
@@ -562,25 +565,33 @@ Public Sub AppliLangues()                                                       
 
 End
 
-Public Sub TBeffacer_Click()
+Public Sub TBeffacer_Click()                                                    'bouton effacer le texte du textarea1
 
      FMain.txSalida.Text = ""
 
 End
 
-Public Sub option1_Click()
+Public Sub Config_Click()                                                       'lecture ou édition des fichiers de config
 
-     Settings["Menu/pHWP3"] = mnuHWP3.Value
-     Settings["Menu/pXML"] = mnuXML.Value
-     Settings["Menu/pSWF"] = mnuSWF.Value
-     Settings["Menu/pPDF"] = mnuPdf.Value
-     Settings["Menu/pMail"] = mnuMail.Value
+     If MnuConfClamd.Value = True Then iFlag = 0
+     If MnuConfFresh.Value = True Then iFlag = 1
+     If MnuConfMilter.Value = True Then iFlag = 2
 
-     If mnuMail.Value = True Then mail = True
-     If mnuPdf.value = True Then pdf = True
-     If mnuSWF.Value = True Then Sfw = True
-     If mnuXML.Value = True Then html = True
-     If mnuHWP3.Value = True Then HWP3 = True
+     FMain.Hide()
+     FrmConf.ShowModal()
+     FMain.Show()
+
+End
+
+Public Sub Exemples_Click()
+
+     If MnuExempleClamd.Value = True Then iFlag = 3
+     If MnuExempleFreshclam.Value = True Then iFlag = 4
+     If MnuExempleMilter.Value = True Then iFlag = 5
+
+     FMain.Hide()
+     FrmConf.ShowModal()
+     FMain.Show()
 
 End
 
@@ -592,11 +603,37 @@ Public Sub Log1_Click()                                                         
      Settings["Menu/SupprOK"] = mnSupressOK.Value
      Settings["Menu/Bell"] = mnBell.Value
 
-     If mnErrores.Value = True Then SalidaERR = True
-     If mnInfectados.value = True Then infect = True
-     If mnSupressOK.value = True Then SuprimirOK = True
-     If mnNoSummary.value = True Then SinINF = True
-     If mnBell.value = True Then Bell = True
+     SalidaERR = mnErrores.Value                                                'valeurs transmises
+     infect = mnInfectados.Value
+     SuprimirOK = mnSupressOK.Value
+     SinINF = mnNoSummary.Value
+     Bell = mnBell.Value
+
+     SaveSettings()
+
+End
+
+Public Sub option1_Click()                                                      'menu des options +
+
+     Settings["Menu/pHWP3"] = mnuHWP3.Value
+     Settings["Menu/pXML"] = mnuXML.Value
+     Settings["Menu/pSWF"] = mnuSWF.Value
+     Settings["Menu/pPDF"] = mnuPdf.Value
+     Settings["Menu/pMail"] = mnuMail.Value
+     Settings["Menu/pPE"] = mnuPE.Value
+     Settings["Menu/pELF"] = mnuELF.Value
+     Settings["Menu/pOLE2"] = MnuOLE2.Value
+
+     mail = mnuMail.Value                                                       'valeurs transmises
+     pdf = mnuPdf.Value
+     Swf = mnuSWF.Value
+     html = mnuXML.Value
+     HWP3 = mnuHWP3.Value
+     PE = mnuPE.Value
+     ELF = mnuELF.Value
+     OLE2 = MnuOLE2.Value
+
+     SaveSettings()
 
 End
 
@@ -610,9 +647,11 @@ Public Sub optionAvance_Click()                                                 
      Settings["Menu/Detectar"] = mnDetectar.Value
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
 
-     If mnRemover.Value = True Then Remover = True
-     If MnuDeplacer.Value = True Then Quarant = True
-     If mnRecursivo.value = True Then Recursive = True
-     If mnDetectar.value = True Then AppsIndeseadas = True
+     Remover = mnRemover.Value                                                  'valeurs transmises
+     Quarant = MnuDeplacer.Value
+     Recursive = mnRecursivo.Value
+     AppsIndeseadas = mnDetectar.Value
+
+     SaveSettings()
 
 End

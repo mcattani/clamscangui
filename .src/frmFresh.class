@@ -34,7 +34,7 @@ Public Sub Form_Open()
 
      Dim COMM As String
 
-     COMM = "cat /var/log/clamav/freshclam.log"
+     COMM = "cat /var/log/clamav/freshclam.log"                                 'affichage de fresclam.log
 
      Shell (comm) To txSalida.Text
 

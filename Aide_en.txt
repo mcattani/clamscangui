@@ -43,6 +43,15 @@ History:
 Languages ​​:
 - You can currently choose between three languages ​​in which the software has been translated (English, Spanish or French)
 
+The Sudo button:
+- allows you to execute your commands as super user.
+
+Configuration files:
+- The following files can be viewed or edited if the sudo button is pressed:
+clamd.conf
+freshclam.conf
+milter-clamav.conf
+
 A point about the analysis:
 - As stated in the FAQ, clamav antivirus does not repair infected files.
 - some viruses in Linux can act without authorization.

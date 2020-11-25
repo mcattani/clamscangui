@@ -43,6 +43,15 @@ Historia:
 Los idiomas :
 - Actualmente puede elegir entre tres idiomas en los que se ha traducido el software (inglés, español o francés)
 
+El botón Sudo:
+- le permite ejecutar sus comandos como superusuario.
+
+Archivos de configuración:
+- Los siguientes archivos se pueden ver o editar si se presiona el botón sudo:
+clamd.conf
+freshclam.conf
+milter-clamav.conf
+
 Un punto sobre el análisis:
 - Como se indica en las preguntas frecuentes, clamav antivirus no repara los archivos infectados.
 - algunos virus en Linux pueden actuar sin autorización.

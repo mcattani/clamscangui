@@ -12,7 +12,7 @@ Public Sub btnCerrar_Click()
 
 End
 
-Public Sub btnSauve_Click()
+Public Sub btnSauve_Click()                                                     'bouton de sauvegarde
 
      Dim Comm As String
      Dim nomFich As String
@@ -21,24 +21,39 @@ Public Sub btnSauve_Click()
      If Message.Question(("¿Quieres guardar tus cambios?"), ("Si"), ("No")) = 2 Then
           Me.Close(True)
      Else
-          Select Case FMain.iFlag
+          Select Case FMain.iFlag                                               'en fonction du drapeau integer
                Case 0
                     nomFich = User.Home &/ ".clamscangui/clamd.pil"
                     File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamd.conf"
+
                Case 1
                     nomFich = User.Home &/ ".clamscangui/freshclam.pil"
                     File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/freshclam.conf"
+
                Case 2
                     nomFich = User.Home &/ ".clamscangui/clamav-milter.pil"
                     File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamav-milter.conf"
+
+               Case 3
+                    nomFich = User.Home &/ ".clamscangui/clamd.exemple"
+                    File.Save(nomFich, TextArea1.Text)
+
+               Case 4
+                    nomFich = User.Home &/ ".clamscangui/freshclam.exemple"
+                    File.Save(nomFich, TextArea1.Text)
+
+               Case 5
+                    nomFich = User.Home &/ ".clamscangui/clamav-milter.exemple"
+                    File.Save(nomFich, TextArea1.Text)
+
           End Select
 
-          Authenticate.Command("sudo " & Comm)
-          Shell (FMain.monTexte)
-          If FMain.bFlag = True Then
+          Authenticate.Command("sudo " & Comm)                                  'on récupère le mot de passe
+          Shell (FMain.monTexte)                                                'on lance le process
+          If FMain.bFlag = True Then                                            'message en fonction du résultat
                If Not Error Then Message.Info(("Copia de seguridad realizada"))
                If Error Then Message.Info(("Copia de seguridad no realizada"))
           Else
@@ -51,7 +66,7 @@ Catch
 
 End
 
-Public Sub btnRestaurar_Click()
+Public Sub btnRestaurar_Click()                                                 'bouton de restauration
 
      Dim Comm As String
      Dim nomFich As String
@@ -60,24 +75,42 @@ Public Sub btnRestaurar_Click()
      If Message.Question(("¿Quiere restaurar el archivo respaldado?"), ("Si"), ("No")) = 2 Then
           Me.Close(True)
      Else
-          Select Case FMain.iFlag
+          Select Case FMain.iFlag                                               'en fonction du drapeau integer
                Case 0
                     nomFich = User.Home &/ ".clamscangui/clamd.sauve"
                     TextArea1.Text = File.load(nomFich)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamd.conf"
+
                Case 1
                     nomFich = User.Home &/ ".clamscangui/freshclam.sauve"
                     TextArea1.Text = File.load(nomFich)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/freshclam.conf"
+
                Case 2
                     nomFich = User.Home &/ ".clamscangui/clamav-milter.sauve"
                     TextArea1.Text = File.load(nomFich)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamav-milter.conf"
+
+               Case 3
+                    nomFich = "/usr/share/doc/clamav-daemon/examples/clamd.conf.sample"
+                    TextArea1.Text = File.load(nomFich)
+                    Comm = "cp -a  " & nomFich & " " & "User.Home &/.clamscangui/clamd.exemple"
+
+               Case 4
+                    nomFich = "/usr/share/doc/clamav-freshclam/examples/freshclam.conf.sample"
+                    TextArea1.Text = File.load(nomFich)
+                    Comm = "cp -a  " & nomFich & " " & User.Home &/ ".clamscangui/freshclam.exemple"
+
+               Case 5
+                    nomFich = "/usr/share/doc/clamav-milter/examples/clamav-milter.conf.sample"
+                    TextArea1.Text = File.load(nomFich)
+                    Comm = "cp -a  " & nomFich & " " & User.Home &/ ".clamscangui/clamav-milter.exemple"
+
           End Select
 
-          Authenticate.Command("sudo " & Comm)
-          Shell (FMain.monTexte)
-          If FMain.bFlag = True Then
+          Authenticate.Command("sudo " & Comm)                                  'on récupère le mot de passe
+          Shell (FMain.monTexte)                                                'on lance le process
+          If FMain.bFlag = True Then                                            'message en fonction du résultat
                If Not Error Then Message.Info(("Restauración realizada"))
                If Error Then Message.Info(("Restauración no realizada"))
           Else
@@ -94,40 +127,90 @@ Public Sub Form_Open()
 
      Dim nomFich As String
 
-     If FMain.bTBSudo = True Then
+     If FMain.bTBSudo = True And (FMain.iFlag = 0 Or FMain.iFlag = 1 Or FMain.iFlag = 2) Then                                               'affichage des boutons de restauration et de sauvegarde
           TextArea1.ReadOnly = False
           btnSauve.Visible = True
           btnRestaurar.Visible = True
-          Me.Caption = ("# Modo de edición # ") & "---------" & Application.Name & "---------" & " # " & (" Configuración de: ")
+          Me.Caption = ("# Modo de edición # ") & " --- " & Application.Name & " --- " & " # " & (" Configuración de: ")
           Me.Background = Color.Red
-     Else
+          Label1.Text = ("Edición:") & gb.NewLine
+     Else                                                                       'non affichage boutons restauration et sauvegarde
           TextArea1.ReadOnly = True
           btnSauve.Visible = False
           btnRestaurar.Visible = False
-          Me.Caption = ("# Modo de consulta # ") & "---------" & Application.Name & "---------" & " # " & (" Configuración de: ")
+          Me.Caption = ("# Modo de consulta # ") & " --- " & Application.Name & " -- " & " # " & (" Configuración de: ")
           Me.Background = Color.Default
+          Label1.Text = ("Consulta:") & gb.NewLine
      Endif
 
-     Select Case FMain.iFlag
+     Select Case FMain.iFlag                                                    'en fonction du drapeau integer
 
           Case 0    'clamd
                TextArea1.Text = File.Load("/etc/clamav/clamd.conf")
                Me.Caption = Me.Caption & " clamd.conf" & " # "
                nomFich = User.Home &/ ".clamscangui/clamd.sauve"
-               If Not Exist(nomFich) Then File.Save(nomFich, TextArea1.Text)    'la première fois seulement
+               Label1.Text = Label1.text & gb.NewLine & ("Su archivo de configuración clamd.conf")
+
           Case 1    'freshclam
                TextArea1.Text = File.Load("/etc/clamav/freshclam.conf")
                Me.Caption = Me.Caption & " freshclam.conf" & " # "
                nomFich = User.Home &/ ".clamscangui/freshclam.sauve"
-               If Not Exist(nomFich) Then File.Save(nomFich, TextArea1.Text)    'la première fois seulement
+               Label1.Text = Label1.text & gb.NewLine & ("Su archivo de configuración Freshclam.conf")
+
           Case 2    'milter
                TextArea1.Text = File.Load("/etc/clamav/clamav-milter.conf")
                Me.Caption = Me.Caption & " clamav-milter.conf" & " # "
                nomFich = User.Home &/ ".clamscangui/clamav-milter.sauve"
-               If Not Exist(nomFich) Then File.Save(nomFich, TextArea1.Text)    'la première fois seulement
+               Label1.Text = Label1.text & gb.NewLine & ("Su archivo de configuración clamav-milter.conf")
+
+               '********** exemples ****************
+          Case 3
+               TextArea1.Text = File.Load("/usr/share/doc/clamav-daemon/examples/clamd.conf.sample")
+               Me.Caption = (" Ejemplo de clamd.conf ")
+               Label1.Text = Label1.text & gb.NewLine & ("Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n")
+               Label1.Text = Label1.Text & "/usr/share/doc/clamav-daemon/examples/clamd.conf.sample"
+               nomFich = User.Home &/ "Clamav/clamd.exemple"
+
+          Case 4
+               TextArea1.Text = File.Load("/usr/share/doc/clamav-freshclam/examples/freshclam.conf.sample")
+               Me.Caption = (" Ejemplo de freshclam.conf ")
+               Label1.Text = Label1.text & gb.NewLine & ("Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n")
+               Label1.Text = Label1.Text & "/usr/share/doc/clamav-freshclam/examples/freshclam.conf.sample"
+               nomFich = User.Home &/ "Clamav/freshclam.exemple"
+
+          Case 5
+               TextArea1.Text = File.Load("/usr/share/doc/clamav-milter/examples/clamav-milter.conf.sample")
+               Me.Caption = (" Ejemplo de clamav-milter.conf ")
+               Label1.Text = Label1.text & gb.NewLine & ("Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n")
+               Label1.Text = Label1.Text & "/usr/share/doc/clamav-milter/examples/clamav-milter.conf.sample"
+               nomFich = User.Home &/ "Clamav/clamav-milter.exemple"
+
      End Select
+
+     If Not Exist(nomFich) And FMain.bTBSudo = True And (FMain.iFlag = 0 Or FMain.iFlag = 1 Or FMain.iFlag = 2) Then                        'la première fois seulement et si TBSudo enfoncé
+          File.Save(nomFich, TextArea1.Text)
+          Message.Title = (("Es la primera vez !") & "  ~ " & File.Name(nomFich))
+          Message.Info(("Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla")) ' Message de rappel
+     Endif
+
+     If Not Exist(nomFich) And FMain.bTBSudo = True And (FMain.iFlag = 3 Or FMain.iFlag = 4 Or FMain.iFlag = 5) Then
+          File.Save(nomFich, TextArea1.Text)
+          Message.Title = (("Es la primera vez !") & "  ~ " & File.Name(nomFich))
+          Message.Info(("Se acaba de guardar un archivo de ejemplo \n en el siguiente directorio: \n ") & nomFich)
+     Endif
+
      TextArea1.pos = 0
      TextArea1.EnsureVisible()
-     If FMain.bTBSudo = True Then Message.Info(("Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla")) ' rappel
+
+End
+
+Public Sub btnImpr_Click()
+
+     Dim hreport As Report
+     Dim Parties As String[]
+
+     Parties = Split(TextArea1.Text, gb.NewLine)
+     hreport = New Impr1(Parties)
+     hreport.preview()
 
 End

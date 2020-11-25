@@ -37,7 +37,7 @@
       }
       { mnBell Menu Log1
         Name = "mnBell"
-        Text = ("Sonido de Campana si se Encuentra Algo")
+        Text = ("Sonido de Campana si se encuentra algo")
         Picture = Picture["icon:/22/zoom-normal"]
         Toggle = True
       }
@@ -63,7 +63,7 @@
       { mnuXML Menu option1
         Name = "mnuXML"
         Text = ("Escanear XML/HTML")
-        Picture = Picture["icon:/22/html"]
+        Picture = Picture["icon:/22/file"]
         Toggle = True
       }
       { mnuSWF Menu option1
@@ -75,6 +75,24 @@
       { mnuPdf Menu option1
         Name = "mnuPdf"
         Text = ("Escanear PDF")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuPE Menu option1
+        Name = "MnuPE"
+        Text = ("Escanear PE")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuELF Menu option1
+        Name = "MnuELF"
+        Text = ("Escanear ELF")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuOLE2 Menu option1
+        Name = "MnuOLE2"
+        Text = ("Escanear OLE2")
         Picture = Picture["icon:/22/file"]
         Toggle = True
       }
@@ -92,7 +110,6 @@
       Text = ("Escaneo Recursivo")
       Picture = Picture["icon:/22/rotate-left"]
       Toggle = True
-      Checked = True
     }
     { mnRemover Menu optionAvance
       Name = "mnRemover"
@@ -108,7 +125,7 @@
     }
     { MnuDeplacer Menu optionAvance
       Name = "MnuDeplacer"
-      Text = ("Poner en Cuarentena Archivos Infectados")
+      Text = ("poner en cuarentena archivos infectados")
       Picture = Picture["icon:/48/download"]
       Toggle = True
     }
@@ -145,7 +162,7 @@
     }
   }
   { MnuAction Menu
-    Text = ("Comportamiento")
+    Text = ("comportamiento")
     { MnuVirus Menu
       Text = ("Archivos potencialmente infectados")
       Picture = Picture["icon:/48/flag"]
@@ -160,10 +177,8 @@
       Text = ("Historial de lectura")
       Picture = Picture["icon:/48/archive"]
     }
-  }
-  { MnuLangues Menu
-    Text = ("+")
-    Picture = Picture["icon:/32/add"]
+    { Menu7 Menu
+    }
     { Menu4 Menu
       Text = ("Idiomas")
       Picture = Picture["icon:/48/people"]
@@ -174,12 +189,60 @@
       }
       { MnuFrancais Menu langue
         Name = "MnuFrancais"
-        Text = ("Francés")
+        Text = ("francés")
         Radio = True
       }
       { MnuAnglais Menu langue
         Name = "MnuAnglais"
         Text = ("Inglés")
+        Radio = True
+      }
+    }
+    { Menu8 Menu
+    }
+    { MnuConf Menu
+      Text = ("Archivos de configuración")
+      Picture = Picture["icon:/24/info"]
+      { MnuConfClamd Menu Config
+        Name = "MnuConfClamd"
+        Text = ("Clamd.conf")
+        Picture = Picture["icon:/24/gnu"]
+        Radio = True
+        Checked = True
+      }
+      { MnuConfFresh Menu Config
+        Name = "MnuConfFresh"
+        Text = ("Freshclam.conf")
+        Picture = Picture["icon:/24/linux"]
+        Radio = True
+      }
+      { MnuConfMilter Menu Config
+        Name = "MnuConfMilter"
+        Text = ("milter.conf")
+        Picture = Picture["icon:/24/mail"]
+        Radio = True
+      }
+    }
+    { MnuExemples Menu
+      Text = ("Ejemplos de configuraciones")
+      Picture = Picture["icon:/24/help"]
+      { MnuExempleClamd Menu Exemples
+        Name = "MnuExempleClamd"
+        Text = ("clamd.conf")
+        Picture = Picture["icon:/24/gnu"]
+        Radio = True
+        Checked = True
+      }
+      { MnuExempleFreshclam Menu Exemples
+        Name = "MnuExempleFreshclam"
+        Text = ("freshclam.conf")
+        Picture = Picture["icon:/24/linux"]
+        Radio = True
+      }
+      { MnuExempleMilter Menu Exemples
+        Name = "MnuExempleMilter"
+        Text = ("milter.conf")
+        Picture = Picture["icon:/24/mail"]
         Radio = True
       }
     }
@@ -227,17 +290,17 @@
   { Panel1 Panel
     MoveScaled(44,0,36,5)
     { TBKill ToolButton
-      MoveScaled(18,0,4.625,4)
+      MoveScaled(17,0,4.5714,4)
       ToolTip = ("¡Mata el proceso en curso!")
       Picture = Picture["icon:/32/halt"]
     }
     { TBhProc ToolButton
-      MoveScaled(13,0,4.625,4)
+      MoveScaled(12,0,4.5714,4)
       ToolTip = ("¡Ejecute el proceso!")
       Picture = Picture["icon:/32/exec"]
     }
     { TBeffacer ToolButton
-      MoveScaled(0,0,5,4)
+      MoveScaled(1,0,5,4)
       ToolTip = ("Salida de texto claro")
       Picture = Picture["icon:/24/clear"]
     }

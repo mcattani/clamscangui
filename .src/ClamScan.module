@@ -12,6 +12,7 @@
 '' ' *********************************************************************************************************
 
 Public hProc As Process
+Public Comm As String
 
 Public Function Version() As String
 
@@ -22,7 +23,7 @@ Public Function Version() As String
 
 End Function
 
-Public Sub TournProc()
+Public Sub TournProc()                                                          'tant que tourne le process
 
      While hProc.state = hProc.Running
           Wait 1
@@ -32,9 +33,9 @@ Public Sub TournProc()
 
 End
 
-Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, Quarant As Boolean, bSudo As Boolean)
+Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean)
 
-     Dim Comm As String
+     ' Dim Comm As String
 
      FMain.txSalida.Text = ""
      Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options
@@ -49,11 +50,14 @@ Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boole
      If SWF = True Then comm = comm & " --scan-swf=yes"
      If HTML = True Then comm = comm & " --scan-html=yes --scan-xmldocs=yes"
      If HWP3 = True Then comm = comm & " --scan-hwp3=yes"
+     If PE = True Then comm = comm & " --scan-pe=yes"
+     If ELF = True Then comm = comm & " --scan-elf=yes"
+     If OLE2 = True Then comm = comm & " --scan-ole2=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine
 
      If bSudo = True Then
           Authenticate.Command("sudo " & Comm)
-          If FMain.bFlag = True Then
+          If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
                hProc = Shell (FMain.monTexte) For Read As "Scan"
                TournProc()
           Endif
@@ -69,9 +73,9 @@ Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boole
 
 End
 
-Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Recursive As Boolean, Bell As Boolean, RemoverArch As Boolean, AppsIndeseadas As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, Quarant As Boolean, bSudo As Boolean)
+Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Recursive As Boolean, AppsIndeseadas As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean)
 
-     Dim Comm As String
+     ' Dim Comm As String
 
      FMain.txSalida.Text = ""
      Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options modifiables ici
@@ -88,11 +92,16 @@ Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolea
      If SWF = True Then comm = comm & " --scan-swf=yes"
      If HTML = True Then comm = comm & " --scan-html=yes --scan-xmldocs=yes"
      If HWP3 = True Then comm = comm & " --scan-hwp3=yes"
+     If PE = True Then comm = comm & " --scan-pe=yes"
+     If ELF = True Then comm = comm & " --scan-elf=yes"
+     If OLE2 = True Then comm = comm & " --scan-ole2=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine        'déplacement des fichiers virus en quarantaine
+
+     'ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Recursive, AppsIndeseadas, Mail, PDF, SWF, HTML, HWP3, Quarant, bSudo)
 
      If bSudo = True Then
           Authenticate.Command("sudo " & Comm)
-          If FMain.bFlag = True Then
+          If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
                hProc = Shell (FMain.monTexte) For Read As "Scan"
                TournProc
           Endif
@@ -108,7 +117,7 @@ Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolea
 
 End
 
-Public Sub Scan_read()
+Public Sub Scan_read()                                                          'affichage dans terminal
 
      Dim sLine As String
 
