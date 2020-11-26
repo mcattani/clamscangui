@@ -1,4 +1,6 @@
 # clamscangui
+Última versión: 1.1.52
+
 Repositorio de la interfaz gráfica para el antivirus ClamAV hecho en Gambas.
 
 El ClamAV es un poderoso antivirus open source que detecta: troyanos, virus, malware y otros amenazas.

@@ -7,12 +7,14 @@ Count=0
 [OpenFile]
 Active=1
 File[1]=".src/FMain.form"
-File[2]=".hidden/CHANGELOG:0.0"
-File[3]=".src/FMain.class:5.582"
-Count=3
+File[2]=".src/FMain.class:5.49"
+File[3]=".src/FrmGeneral.form"
+File[4]=".src/frmAbout.form"
+File[5]=".src/frmAbout.class:5.46"
+Count=5
 
 [Package]
-Dir="~/Escritorio/clamscangui-1.1.50.orig/"
+Dir="~/Escritorio/clamscangui-1.1.52.orig/"
 
 [Watches]
 Count=0

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"PO-Revision-Date: 2020-11-26 09:08 UTC\n"
+"PO-Revision-Date: 2020-11-26 17:49 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -70,91 +70,91 @@ msgstr "Authentifier"
 msgid "Unus Ex Altera"
 msgstr ""
 
-#: ClamScan.module:21
+#: ClamScan.module:20
 msgid "clamscan --version"
 msgstr "clamscan --version"
 
-#: ClamScan.module:138
+#: ClamScan.module:137
 msgid " Escaneo realizado : "
 msgstr " Analyse effectuée : "
 
-#: FMain.class:53 Module1.module:22
+#: FMain.class:54 Module1.module:22
 msgid "¡Atención!"
 msgstr "Attention!"
 
-#: FMain.class:54
+#: FMain.class:55
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr "Vous devez avoir installé l'antivirus ClamAv pour pouvoir utiliser cette application"
 
-#: FMain.class:57
+#: FMain.class:58
 msgid "Versión instalada: "
 msgstr "Version installée : "
 
-#: FMain.class:61
+#: FMain.class:62
 msgid " ~ Instalación incompleta de Clamav"
 msgstr "~ Installation incomplète de Clamav"
 
-#: FMain.class:62
+#: FMain.class:63
 msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr "Pour reconfigurer clamav-milter, exécutez sudo dpkg-reconfigure clamav-milter"
 
-#: FMain.class:62
+#: FMain.class:63
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr "Pour reconfigurer clamd, exécutez sudo dpkg-reconfigure clamav-daemon"
 
-#: FMain.class:220
+#: FMain.class:221
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr "Toutes vos commandes sont\ndu SuperUser!"
 
-#: FMain.class:276
+#: FMain.class:277
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr "Veuillez patienter quelques secondes\npendant le démarrage de l'antivirus"
 
-#: FMain.class:298
+#: FMain.class:299
 msgid "Elija el directorio para escanear"
 msgstr "Choisissez le répertoire à analyser"
 
-#: FMain.class:299
+#: FMain.class:300
 msgid "Elija el archivo para analizar"
 msgstr "Choisissez le fichier à analyser"
 
-#: FMain.class:332
+#: FMain.class:333
 msgid "Seleccione \n an objeto para escanear!"
 msgstr "Veuillez sélectionner\nun objet à scanner!"
 
-#: FMain.class:395 Module1.module:88
+#: FMain.class:396 Module1.module:88
 msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr "Clamscan, fonctionne toujours, en arrière-plan.\nVous devrez effacer la mémoire vous-même."
 
-#: FMain.class:401
+#: FMain.class:402
 msgid "El proceso actual ha sido eliminado"
 msgstr "Le processus actuel a été tué"
 
-#: FMain.class:401
+#: FMain.class:402
 msgid "¡Puedes volver!"
 msgstr "Vous pouvez revenir!"
 
-#: FMain.class:404
+#: FMain.class:405
 msgid "¡El proceso ya se detuvo!"
 msgstr "Le processus est déjà arrêté!"
 
-#: FMain.class:561
+#: FMain.class:599
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "La langue choisie sera appliquée après le redémarrage"
 
-#: FMain.class:563
+#: FMain.class:601
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "La langue choisie sera appliquée après le redémarrage du programme."
 
-#: FMain.class:563 FrmConf.class:21 Virus.class:54
+#: FMain.class:601 FrmGeneral.class:34
 msgid "No"
 msgstr "Non"
 
-#: FMain.class:563 FrmConf.class:21 Virus.class:54
+#: FMain.class:601 FrmGeneral.class:34
 msgid "Si"
 msgstr "Oui"
 
-#: FMain.class:563
+#: FMain.class:601
 msgid "¿Quieres renunciar?"
 msgstr "Voulez-vous quitter?"
 
@@ -378,150 +378,190 @@ msgstr "Effacer la sortie de texte"
 msgid "Sudo"
 msgstr ""
 
-#: FrmAide.class:29
+#: FrmGeneral.class:33
+msgid "¡Proceda con cuidado!"
+msgstr "Procédez avec précaution!"
+
+#: FrmGeneral.class:34
+msgid "¿Quieres guardar tus cambios?"
+msgstr "Voulez-vous enregistrer vos modifications?"
+
+#: FrmGeneral.class:70
+msgid "Copia de seguridad realizada"
+msgstr "Sauvegarde effectuée"
+
+#: FrmGeneral.class:71
+msgid "Copia de seguridad no realizada"
+msgstr "Sauvegarde non effectuée"
+
+#: FrmGeneral.class:91
+msgid "¿Quiere restaurar el archivo respaldado?"
+msgstr "Voulez-vous restaurer le fichier sauvegardé?"
+
+#: FrmGeneral.class:130
+msgid "Restauración realizada"
+msgstr "Restauration terminée"
+
+#: FrmGeneral.class:131
+msgid "Restauración no realizada"
+msgstr "Restauration non effectuée"
+
+#: FrmGeneral.class:144
+msgid "¿Quieres restaurar la selección?"
+msgstr "Voulez-vous restaurer la sélection?"
+
+#: FrmGeneral.class:149
+msgid "¡Seleccione dónde restaurar el archivo!"
+msgstr "Sélectionnez où restaurer le fichier!"
+
+#: FrmGeneral.class:151
+msgid "¡El archivo no fue restaurado!"
+msgstr "Le fichier n'a pas été restauré!"
+
+#: FrmGeneral.class:157
+msgid "su archivo ha sido restaurado a la siguiente carpeta: \n"
+msgstr "Votre fichier a été restauré dans le dossier suivant:\n"
+
+#: FrmGeneral.class:159
+msgid "Restaurar error"
+msgstr "Erreur de restauration"
+
+#: FrmGeneral.class:194
+msgid "Historial de escaneo:"
+msgstr "Historique de scan :"
+
+#: FrmGeneral.class:198
+msgid "Historia de ClamScanGui : "
+msgstr "Historique de ClamScanGui : "
+
+#: FrmGeneral.class:215
+msgid "Grabación de la sesión:"
+msgstr "Enregistrement de session :"
+
+#: FrmGeneral.class:219
+msgid " Registro de ClamScanGui "
+msgstr "Log de ClamScanGui : "
+
+#: FrmGeneral.class:238
+msgid "Viendo el archivo Freshclam.log:"
+msgstr "Affichage du fichier Freshclam.log :"
+
+#: FrmGeneral.class:260
+msgid " Configuración de: "
+msgstr " Configuration de : "
+
+#: FrmGeneral.class:260
+msgid "# Modo de edición # "
+msgstr "# Mode Édition # "
+
+#: FrmGeneral.class:262
+msgid "Edición:"
+msgstr "Édition :"
+
+#: FrmGeneral.class:267
+msgid "# Modo de consulta # "
+msgstr "# Mode Consultation # "
+
+#: FrmGeneral.class:269
+msgid "Consulta:"
+msgstr "Consultation :"
+
+#: FrmGeneral.class:278
+msgid "Su archivo de configuración clamd.conf"
+msgstr "Votre fichier de configuration clamd.conf"
+
+#: FrmGeneral.class:284
+msgid "Su archivo de configuración Freshclam.conf"
+msgstr "Votre fichier de configuration Freshclam.conf"
+
+#: FrmGeneral.class:290
+msgid "Su archivo de configuración clamav-milter.conf"
+msgstr "Votre fichier de configuration clamav-milter.conf"
+
+#: FrmGeneral.class:295
+msgid " Ejemplo de clamd.conf "
+msgstr "Exemple de clamd.conf"
+
+#: FrmGeneral.class:296
+msgid "Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n"
+msgstr "Un exemple de fichier de configuration avec des commentaires\nque vous pouvez trouver sur votre disque à:\n"
+
+#: FrmGeneral.class:302
+msgid " Ejemplo de freshclam.conf "
+msgstr "Exemple de Freshclam.conf"
+
+#: FrmGeneral.class:309
+msgid " Ejemplo de clamav-milter.conf "
+msgstr "Exemple de clamav-milter.conf"
+
+#: FrmGeneral.class:318
+msgid "Es la primera vez !"
+msgstr "C'est la première fois !"
+
+#: FrmGeneral.class:319
+msgid "Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla"
+msgstr "Une sauvegarde de sécurité vient d'être faite\nen cas d'erreur, vous pourrez la restaurer"
+
+#: FrmGeneral.class:325
+msgid "Se acaba de guardar un archivo de ejemplo \n en el siguiente directorio: \n "
+msgstr "Un fichier d'exemple vient d'être enregistré\ndans le répertoire suivant :\n "
+
+#: FrmGeneral.class:338
+msgid "Ayuda de ClamScanGui:"
+msgstr "Aide ClamScanGui :"
+
+#: FrmGeneral.class:343
 msgid " Inicio de archivo "
 msgstr "Début du fichier"
 
 # gb-ignore
-#: FrmAide.class:31
+#: FrmGeneral.class:345
 msgid " FAQ : http://www.clamav.net"
 msgstr ""
 
-#: FrmAide.class:41
+#: FrmGeneral.class:355
 msgid " Ayuda de ClamScanGui "
 msgstr "Aide ClamScanGui"
 
-#: FrmAide.class:51
+#: FrmGeneral.class:365
 msgid " Fin del documento "
 msgstr "Fin du document"
 
-#: FrmAide.form:11
-msgid "Ayuda de ClamScanGui"
-msgstr "Aide de ClamScanGui"
+#: FrmGeneral.class:375
+msgid "Cuarentena de ClamScanGui:"
+msgstr "ClamScanGui Quarantaine :"
 
-#: FrmAide.form:35 FrmConf.form:96 FrmHistoric.form:53 FrmLog.form:47 Virus.form:53 frmAbout.form:44 frmFresh.form:34
-msgid "Cerrar"
-msgstr "Fermer"
+#: FrmGeneral.class:381
+msgid "Cuarentena de ClamScanGui"
+msgstr "ClamScanGui Quarantaine"
 
-#: FrmConf.class:20
-msgid "¡Proceda con cuidado!"
-msgstr "Procédez avec précaution!"
+#: FrmGeneral.class:404
+msgid "¿Quieres borrar la selección?"
+msgstr "Voulez-vous supprimer la sélection?"
 
-#: FrmConf.class:21
-msgid "¿Quieres guardar tus cambios?"
-msgstr "Voulez-vous enregistrer vos modifications?"
+#: FrmGeneral.form:57
+msgid "Seleccione los archivos que desee eliminar"
+msgstr "Sélectionner les fichiers à effacer"
 
-#: FrmConf.class:57
-msgid "Copia de seguridad realizada"
-msgstr "Sauvegarde effectuée"
-
-#: FrmConf.class:58
-msgid "Copia de seguridad no realizada"
-msgstr "Sauvegarde non effectuée"
-
-#: FrmConf.class:75
-msgid "¿Quiere restaurar el archivo respaldado?"
-msgstr "Voulez-vous restaurer le fichier sauvegardé?"
-
-#: FrmConf.class:114
-msgid "Restauración realizada"
-msgstr "Restauration terminée"
-
-#: FrmConf.class:115
-msgid "Restauración no realizada"
-msgstr "Restauration non effectuée"
-
-#: FrmConf.class:134
-msgid " Configuración de: "
-msgstr " Configuration de : "
-
-#: FrmConf.class:134
-msgid "# Modo de edición # "
-msgstr "# Mode Édition # "
-
-#: FrmConf.class:136
-msgid "Edición:"
-msgstr "Édition :"
-
-#: FrmConf.class:141
-msgid "# Modo de consulta # "
-msgstr "# Mode Consultation # "
-
-#: FrmConf.class:143
-msgid "Consulta:"
-msgstr "Consultation :"
-
-#: FrmConf.class:157
-msgid "Su archivo de configuración clamd.conf"
-msgstr "Votre fichier de configuration clamd.conf"
-
-#: FrmConf.class:163
-msgid "Su archivo de configuración Freshclam.conf"
-msgstr "Votre fichier de configuration Freshclam.conf"
-
-#: FrmConf.class:169
-msgid "Su archivo de configuración clamav-milter.conf"
-msgstr "Votre fichier de configuration clamav-milter.conf"
-
-#: FrmConf.class:174
-msgid " Ejemplo de clamd.conf "
-msgstr "Exemple de clamd.conf"
-
-#: FrmConf.class:175
-msgid "Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n"
-msgstr "Un exemple de fichier de configuration avec des commentaires\nque vous pouvez trouver sur votre disque à:\n"
-
-#: FrmConf.class:181
-msgid " Ejemplo de freshclam.conf "
-msgstr "Exemple de Freshclam.conf"
-
-#: FrmConf.class:188
-msgid " Ejemplo de clamav-milter.conf "
-msgstr "Exemple de clamav-milter.conf"
-
-#: FrmConf.class:197
-msgid "Es la primera vez !"
-msgstr "C'est la première fois !"
-
-#: FrmConf.class:198
-msgid "Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla"
-msgstr "Une sauvegarde de sécurité vient d'être faite\nen cas d'erreur, vous pourrez la restaurer"
-
-#: FrmConf.class:204
-msgid "Se acaba de guardar un archivo de ejemplo \n en el siguiente directorio: \n "
-msgstr "Un fichier d'exemple vient d'être enregistré\ndans le répertoire suivant :\n "
-
-#: FrmConf.form:60 FrmHistoric.form:42 FrmLog.form:36
+#: FrmGeneral.form:72
 msgid "Imprimir"
 msgstr "Imprimer"
 
-#: FrmConf.form:72 Virus.form:34
-msgid "Restaurar"
-msgstr "Restaurer"
-
-#: FrmConf.form:85
-msgid "Salvar"
-msgstr "Sauvegarder"
-
-#: FrmHistoric.class:19
-msgid "Historia de ClamScanGui : "
-msgstr "Historique de ClamScanGui : "
-
-#: FrmHistoric.class:31 FrmLog.class:42
-msgid "El archivo o directorio no existe"
-msgstr "Le fichier ou le répertoire n'existe pas"
-
-#: FrmHistoric.form:26
-msgid "Perderás todo tu historial si haces clic en Borrar"
-msgstr "Vous perdrez tout votre historique si vous cliquez sur Supprimer"
-
-#: FrmHistoric.form:31
+#: FrmGeneral.form:83
 msgid "Borrar"
 msgstr "Supprimer"
 
-#: FrmLog.class:30
-msgid " Registro de ClamScanGui "
-msgstr "Log de ClamScanGui : "
+#: FrmGeneral.form:94
+msgid "Restaurar"
+msgstr "Restaurer"
+
+#: FrmGeneral.form:106
+msgid "Salvar"
+msgstr "Sauvegarder"
+
+#: FrmGeneral.form:117 frmAbout.form:44
+msgid "Cerrar"
+msgstr "Fermer"
 
 #: Module1.module:22
 msgid "para ClamScanGui"
@@ -530,42 +570,6 @@ msgstr "pour ClamScanGui"
 #: Module1.module:23
 msgid "Solo es posible una instancia del Programa."
 msgstr "Une seule instance du programme est possible."
-
-#: Virus.class:44
-msgid "Cuarentena de ClamScanGui"
-msgstr "ClamScanGui Quarantaine"
-
-#: Virus.class:54
-msgid "¿Quieres borrar la selección?"
-msgstr "Voulez-vous supprimer la sélection?"
-
-#: Virus.class:74
-msgid "¿Quieres restaurar la selección?"
-msgstr "Voulez-vous restaurer la sélection?"
-
-#: Virus.class:79
-msgid "¡Seleccione dónde restaurar el archivo!"
-msgstr "Sélectionnez où restaurer le fichier!"
-
-#: Virus.class:81
-msgid "¡El archivo no fue restaurado!"
-msgstr "Le fichier n'a pas été restauré!"
-
-#: Virus.class:87
-msgid "su archivo ha sido restaurado a la siguiente carpeta: \n"
-msgstr "Votre fichier a été restauré dans le dossier suivant:\n"
-
-#: Virus.class:89
-msgid "Restaurar error"
-msgstr "Erreur de restauration"
-
-#: Virus.form:20
-msgid "Seleccione los archivos que desee eliminar"
-msgstr "Sélectionner les fichiers à effacer"
-
-#: Virus.form:41
-msgid "Eliminar"
-msgstr "Éliminer"
 
 #: frmAbout.form:28
 msgid "Acerca de mí"
@@ -585,20 +589,11 @@ msgid "https://thenerdyapprentice.blogspot.com/"
 msgstr ""
 
 #: frmAbout.form:50
-msgid "Programa ligeramente modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com"
-msgstr "programme légèrement modifié par Pil Valaquarus.\nOctobre 2020\nvalaquarus@gmail.com"
+msgid "Programa modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com"
+msgstr "programme modifié par Pil Valaquarus.\nOctobre 2020\nvalaquarus@gmail.com"
 
 # gb-ignore
 #: frmAbout.form:61
 msgid "mail to : valaquarus@gmail.com"
 msgstr ""
-
-# gb-ignore
-#: frmFresh.form:11
-msgid "// Freshclam Log // "
-msgstr ""
-
-#: frmFresh.form:17
-msgid "Muestra el log de Freshclam, el programa de actualización del Antivirus"
-msgstr "Affiche le journal de Freshclam, le programme de mise à jour antivirus"
 

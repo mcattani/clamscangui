@@ -2,19 +2,19 @@ Format: 1.0
 Source: clamscangui
 Binary: clamscangui
 Architecture: all source
-Version: 1.1.50-0ubuntu1
+Version: 1.1.52-0ubuntu1
 Checksums-Md5:
- 769bd6202fd83ca2f04976b211377913 1665 clamscangui_1.1.50-0ubuntu1.dsc
- 5ec5df5a69356aaef94ff5ccd77e6657 362200 clamscangui_1.1.50-0ubuntu1_all.deb
+ 8954fd9792e086a3d6a42694c74137fd 1661 clamscangui_1.1.52-0ubuntu1.dsc
+ bae5ffa34c04cab08a20ef269b249bd1 360856 clamscangui_1.1.52-0ubuntu1_all.deb
 Checksums-Sha1:
- 06be2869db45951ebfcbec13906fc54957eaecca 1665 clamscangui_1.1.50-0ubuntu1.dsc
- 223d98fa1811211327bf109a612d355e9fa1b462 362200 clamscangui_1.1.50-0ubuntu1_all.deb
+ 34bc518c9edede66e5130db6637c720dd4aa2ef0 1661 clamscangui_1.1.52-0ubuntu1.dsc
+ 98305c0d826b6cfc777681252c1bc6ef175eaba2 360856 clamscangui_1.1.52-0ubuntu1_all.deb
 Checksums-Sha256:
- aa98b90c4273dd0ad61915eac7f5454db1929a48059eb812748f7f7ca1a21f50 1665 clamscangui_1.1.50-0ubuntu1.dsc
- 68c91d835ac9376374497f2aac4d14b5964f1ac4b094a843904dfc1036ce17e6 362200 clamscangui_1.1.50-0ubuntu1_all.deb
+ 98d6c924c49c10a12b95021cf8dac7488ec0a87f565dcc0cbdbfa447dfae53b9 1661 clamscangui_1.1.52-0ubuntu1.dsc
+ 05d41960b35fe1c483c7c5e4dde563cdecf8a04457f78fbf0fce8d286b8834b1 360856 clamscangui_1.1.52-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Thu, 26 Nov 2020 06:36:01 -0300
+Build-Date: Thu, 26 Nov 2020 18:36:47 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs

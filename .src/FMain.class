@@ -43,6 +43,7 @@ Public bSudo As Boolean                                                         
 Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
 Public monTexte As String                                                       'texte de commande pour transfert
 Public iFlag As Integer                                                         'drapeau integer
+Public iForm As Integer                                                         'drapeau choix du formulaire
 
 Public Sub Form_Open()                                                          'Form prinipale appelée par le Module1
 
@@ -136,24 +137,24 @@ End
 
 Public Sub LoadSettings()                                                       'réglages enregistrés
 
-     '************* Group Log1 *******************
+     '************* Group Log1 *************************************************
      mnErrores.Value = Settings["Menu/Errores"]
      mnInfectados.Value = Settings["Menu/Infectes"]
      mnNoSummary.Value = Settings["Menu/NoSummary"]
      mnSupressOK.Value = Settings["Menu/SupprOK"]
      mnBell.Value = Settings["Menu/Bell"]
-     '************* Group optionAvance **************
+     '************* Group optionAvance *****************************************
      mnRemover.Value = Settings["Menu/Remover"]
      mnDetectar.Value = Settings["Menu/Detectar"]
      MnuDeplacer.Value = Settings["Menu/Deplacer"]
      mnRecursivo.Value = Settings["Menu/Recursif"]
-     '************************************************
+     '**************************************************************************
      MnuAuto.Value = Settings["Menu/Auto"]
      MnuManuelle.Value = Settings["Menu/Manuel"]
      MnuImmediate.Enabled = Settings["Menu/Immediat"]
      MnuVirus.Enabled = Settings["Menu/Virus"]
      langue = Settings["General/LangInit"]
-     '************* Group option1 ********************
+     '************* Group option1 **********************************************
      mnuHWP3.Value = Settings["Menu/pHWP3"]
      mnuXML.Value = Settings["Menu/pXML"]
      mnuSWF.Value = Settings["Menu/pSWF"]
@@ -162,7 +163,7 @@ Public Sub LoadSettings()                                                       
      mnuPE.Value = Settings["Menu/pPE"]
      mnuELF.Value = Settings["Menu/pELF"]
      MnuOLE2.Value = Settings["Menu/pOLE2"]
-     '********** Toutes options transmises **********************
+     '********** Toutes options transmises *************************************
      SalidaERR = mnErrores.Value
      infect = mnInfectados.Value
      SuprimirOK = mnSupressOK.Value
@@ -182,7 +183,7 @@ Public Sub LoadSettings()                                                       
      Quarant = MnuDeplacer.Value
      Recursive = mnRecursivo.Value
      AppsIndeseadas = mnDetectar.Value
-     '********************************************************
+     '**************************************************************************
 
      If langue = "fr" Then
           MnuFrancais.Value = True
@@ -228,25 +229,23 @@ End
 
 Public Sub SaveSettings()                                                       'sauvegarde des réglages
 
-     '********** Group log1 *****************************
+     '********** Group log1 ****************************************************
      Settings["Menu/Errores"] = mnErrores.Value
      Settings["Menu/Infectes"] = mnInfectados.Value
      Settings["Menu/NoSummary"] = mnNoSummary.Value
      Settings["Menu/SupprOK"] = mnSupressOK.Value
      Settings["Menu/Bell"] = mnBell.Value
-     '******** Group optionAvance ***********************
+     '******** Group optionAvance **********************************************
      Settings["Menu/Recursif"] = mnRecursivo.Value
      Settings["Menu/Remover"] = mnRemover.Value
      Settings["Menu/Detectar"] = mnDetectar.Value
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
-     '******** recherche virus ********************
+     '******** recherche virus *************************************************
      Settings["Menu/Auto"] = MnuAuto.Value
      Settings["Menu/Manuel"] = MnuManuelle.Value
      Settings["Menu/Immediat"] = MnuImmediate.Enabled
      Settings["Menu/Virus"] = MnuVirus.Enabled
-
-     Settings["General/LangInit"] = langue
-     '********* Group option1 ****************************
+     '********* Group option1 **************************************************
      Settings["Menu/pHWP3"] = mnuHWP3.Value
      Settings["Menu/pXML"] = mnuXML.Value
      Settings["Menu/pSWF"] = mnuSWF.Value
@@ -255,6 +254,8 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/pPE"] = mnuPE.Value
      Settings["Menu/pELF"] = mnuELF.Value
      Settings["Menu/pOLE2"] = MnuOLE2.Value
+     '**************************************************************************
+     Settings["General/LangInit"] = langue
 
 End
 
@@ -406,11 +407,21 @@ Public Sub TBKill_Click()                                                       
 
 End
 
+Public Sub mnAcerca_Click()                                                     'menu à propos
+
+     Me.Hide
+     frmAbout.ShowModal()
+     Me.Show
+
+End
+
 Public Sub MnuHistoric_Click()                                                  'montre l'historique global
 
      FMain.Mouse = Mouse.Wait                                                   'au cas où le fichier serait gros
      Wait
-     FrmHistoric.ShowModal()
+     iForm = 0
+     FrmGeneral.ShowModal()
+     ' FrmHistoric.ShowModal()
      Me.Hide
      FMain.Mouse = Mouse.Default
      Me.Show
@@ -421,17 +432,11 @@ Public Sub MnuLog_Click()                                                       
 
      FMain.Mouse = Mouse.Wait
      Wait
+     iForm = 1
      Me.Hide
-     FrmLog.ShowModal()
+     FrmGeneral.ShowModal()
+     ' FrmLog.ShowModal()
      FMain.Mouse = Mouse.Default
-     Me.Show
-
-End
-
-Public Sub mnAcerca_Click()                                                     'menu à propos
-
-     Me.Hide
-     frmAbout.ShowModal()
      Me.Show
 
 End
@@ -441,8 +446,48 @@ Public Sub mnFreshclam_Click()                                                  
      FMain.Mouse = Mouse.Wait
      Wait
      Me.Hide
-     frmFresh.ShowModal()
+     iForm = 2
+     FrmGeneral.ShowModal()
+     ' frmFresh.ShowModal()
      FMain.Mouse = Mouse.Default
+     Me.Show
+
+End
+
+Public Sub Config_Click()                                                       'lecture ou édition des fichiers de config
+
+     If MnuConfClamd.Value = True Then iFlag = 0
+     If MnuConfFresh.Value = True Then iFlag = 1
+     If MnuConfMilter.Value = True Then iFlag = 2
+
+     FMain.Hide()
+     iForm = 3
+     FrmGeneral.ShowModal()
+     ' FrmConf.ShowModal()
+     FMain.Show()
+
+End
+
+Public Sub Exemples_Click()                                                     'pour l'instant lecture des fichiers exemples
+
+     If MnuExempleClamd.Value = True Then iFlag = 3
+     If MnuExempleFreshclam.Value = True Then iFlag = 4
+     If MnuExempleMilter.Value = True Then iFlag = 5
+
+     FMain.Hide()
+     iForm = 3
+     FrmGeneral.ShowModal()
+     ' FrmConf.ShowModal()
+     FMain.Show()
+
+End
+
+Public Sub MnuAide_Click()                                                      'affichage de l'aide
+
+     Me.Hide
+     iForm = 4
+     FrmGeneral.ShowModal()
+     ' FrmAide.ShowModal()
      Me.Show
 
 End
@@ -452,7 +497,9 @@ Public Sub MnuVirus_Click()                                                     
      FMain.Mouse = Mouse.Wait
      Wait
      Me.Hide
-     Virus.ShowModal()
+     iForm = 5
+     FrmGeneral.ShowModal()
+     ' Virus.ShowModal()
      FMain.Mouse = Mouse.Default
      Me.Show
      DC.Reload
@@ -525,7 +572,6 @@ Public Sub Form_Close()                                                         
      If Not IsNull(clamscan.hProc) Then
           If clamscan.hProc.State = clamscan.hProc.Running Then
                clamscan.hProc.Kill
-               ' Shell "kill -9 " & clamscan.hProc.Handle                       'semble plus efficace que ligne au dessus
                Wait 1                                                           'attente d'une seconde pour kill process
                clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
                Module1.cloture = True
@@ -536,14 +582,6 @@ Public Sub Form_Close()                                                         
      Me.Hide()
 
      Module1.quitAppli()                                                        'fermeture par le Module1
-
-End
-
-Public Sub MnuAide_Click()                                                      'affichage de l'aide
-
-     Me.Hide
-     FrmAide.ShowModal()
-     Me.Show
 
 End
 
@@ -575,30 +613,6 @@ End
 Public Sub TBeffacer_Click()                                                    'bouton effacer le texte du textarea1
 
      FMain.txSalida.Text = ""
-
-End
-
-Public Sub Config_Click()                                                       'lecture ou édition des fichiers de config
-
-     If MnuConfClamd.Value = True Then iFlag = 0
-     If MnuConfFresh.Value = True Then iFlag = 1
-     If MnuConfMilter.Value = True Then iFlag = 2
-
-     FMain.Hide()
-     FrmConf.ShowModal()
-     FMain.Show()
-
-End
-
-Public Sub Exemples_Click()
-
-     If MnuExempleClamd.Value = True Then iFlag = 3
-     If MnuExempleFreshclam.Value = True Then iFlag = 4
-     If MnuExempleMilter.Value = True Then iFlag = 5
-
-     FMain.Hide()
-     FrmConf.ShowModal()
-     FMain.Show()
 
 End
 

@@ -12,7 +12,6 @@
 '' ' *********************************************************************************************************
 
 Public hProc As Process
-' Public Comm As String
 
 Public Function Version() As String
 

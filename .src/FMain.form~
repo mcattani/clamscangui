@@ -65,6 +65,7 @@
         Text = ("Escanear XML/HTML")
         Picture = Picture["icon:/22/file"]
         Toggle = True
+        Checked = True
       }
       { mnuSWF Menu option1
         Name = "mnuSWF"
@@ -77,6 +78,7 @@
         Text = ("Escanear PDF")
         Picture = Picture["icon:/22/file"]
         Toggle = True
+        Checked = True
       }
       { MnuPE Menu option1
         Name = "MnuPE"
@@ -110,6 +112,7 @@
       Text = ("Escaneo Recursivo")
       Picture = Picture["icon:/22/rotate-left"]
       Toggle = True
+      Checked = True
     }
     { mnRemover Menu optionAvance
       Name = "mnRemover"
@@ -122,17 +125,18 @@
       Text = ("Detectar Aplicaciones Indeseadas")
       Picture = Picture["icon:/22/filter"]
       Toggle = True
+      Checked = True
     }
     { MnuDeplacer Menu optionAvance
       Name = "MnuDeplacer"
-      Text = ("Poner en Cuarentena Archivos Infectados")
+      Text = ("Poner en cuarentena Archivos Infectados")
       Picture = Picture["icon:/48/download"]
       Toggle = True
     }
     { Menu5 Menu
     }
     { MnuBase Menu
-      Text = ("Actualización de la Base de Datos")
+      Text = ("Actualización de la base de datos")
       Picture = Picture["chukablue2.png"]
       { mnFreshclam Menu
         Text = ("Ver Log Freshclam")
@@ -142,14 +146,14 @@
       }
       { MnuAuto Menu mnu
         Name = "MnuAuto"
-        Text = ("Actualización Automática")
+        Text = ("Actualización automática")
         Picture = Picture["icon:/48/database"]
         Radio = True
         Checked = True
       }
       { MnuManuelle Menu mnu
         Name = "MnuManuelle"
-        Text = ("Actualización Manual")
+        Text = ("Actualización manual")
         Picture = Picture["icon:/48/server"]
         Radio = True
       }
@@ -162,7 +166,7 @@
     }
   }
   { MnuAction Menu
-    Text = ("comportamiento")
+    Text = ("Comportamiento")
     { MnuVirus Menu
       Text = ("Archivos Potencialmente Infectados")
       Picture = Picture["icon:/48/flag"]
