@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"PO-Revision-Date: 2020-11-25 19:33 UTC\n"
+"PO-Revision-Date: 2020-11-26 09:11 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -15,8 +15,8 @@ msgid "ClamScanGui"
 msgstr ""
 
 #: .project:2
-msgid "Un sencillo GUI para el antivirus ClamAV.\nLégèrement modifié par PilValaquarus"
-msgstr "A simple GUI for ClamAV antivirus.\nLégèrement modified by PilValaquarus"
+msgid "Un sencillo GUI para el antivirus ClamAV.\nModifié par PilValaquarus"
+msgstr "A simple GUI for ClamAV antivirus.\nI modified for PilValaquarus"
 
 #: Authenticate.class:46
 msgid "ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!"
@@ -76,76 +76,88 @@ msgstr ""
 msgid "clamscan --version"
 msgstr ""
 
-#: ClamScan.module:140
+#: ClamScan.module:138
 msgid " Escaneo realizado : "
 msgstr " Scan performed: "
 
-#: FMain.class:53
-msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
-msgstr "You must have ClamAv antivirus installed to be able to use this App"
-
-#: FMain.class:55
-msgid "Versión instalada: "
-msgstr "Installed version:"
-
-#: FMain.class:211 Module1.module:22
+#: FMain.class:53 Module1.module:22
 msgid "¡Atención!"
 msgstr "Attention!"
 
-#: FMain.class:212
+#: FMain.class:54
+msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
+msgstr "You must have ClamAv antivirus installed to be able to use this App"
+
+#: FMain.class:57
+msgid "Versión instalada: "
+msgstr "Installed version:"
+
+#: FMain.class:61
+msgid " ~ Instalación incompleta de Clamav"
+msgstr "~ Incomplete installation of Clamav"
+
+#: FMain.class:62
+msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
+msgstr "To reconfigure clamav-milter, run sudo dpkg-reconfigure clamav-milter"
+
+#: FMain.class:62
+msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
+msgstr "To reconfigure clamd, run sudo dpkg-reconfigure clamav-daemon"
+
+#: FMain.class:220
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr "All your orders are\nfrom the SuperUser!"
 
-#: FMain.class:268
+#: FMain.class:276
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr "Please wait a few seconds while the antivirus starts"
 
-#: FMain.class:290
+#: FMain.class:298
 msgid "Elija el directorio para escanear"
 msgstr "Choose the directory to scan"
 
-#: FMain.class:291
+#: FMain.class:299
 msgid "Elija el archivo para analizar"
 msgstr "Choose the file to analyze"
 
-#: FMain.class:324
+#: FMain.class:332
 msgid "Seleccione \n an objeto para escanear!"
 msgstr "Please select\nan object to scan!"
 
-#: FMain.class:387 Module1.module:88
+#: FMain.class:395 Module1.module:88
 msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr "Clamscan, still works, in the background.\nYou will have to erase the memory yourself."
 
-#: FMain.class:393
+#: FMain.class:401
 msgid "El proceso actual ha sido eliminado"
 msgstr "The current process has been killed"
 
-#: FMain.class:393
+#: FMain.class:401
 msgid "¡Puedes volver!"
 msgstr "You can come back!"
 
-#: FMain.class:396
+#: FMain.class:404
 msgid "¡El proceso ya se detuvo!"
 msgstr "The process has already stopped!"
 
-#: FMain.class:553
+#: FMain.class:561
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "The chosen language will be applied after the restart"
 
-#: FMain.class:555
+#: FMain.class:563
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "The chosen language will be applied after restarting the program."
 
 # gb-ignore
-#: FMain.class:555 FrmConf.class:21 Virus.class:54
+#: FMain.class:563 FrmConf.class:21 Virus.class:54
 msgid "No"
 msgstr ""
 
-#: FMain.class:555 FrmConf.class:21 Virus.class:54
+#: FMain.class:563 FrmConf.class:21 Virus.class:54
 msgid "Si"
 msgstr "Yes"
 
-#: FMain.class:555
+#: FMain.class:563
 msgid "¿Quieres renunciar?"
 msgstr "Do you want to quit?"
 
@@ -442,43 +454,43 @@ msgstr "# Consultation mode # "
 msgid "Consulta:"
 msgstr "Consultation:"
 
-#: FrmConf.class:152
+#: FrmConf.class:157
 msgid "Su archivo de configuración clamd.conf"
 msgstr "Your configuration file clamd.conf"
 
-#: FrmConf.class:158
+#: FrmConf.class:163
 msgid "Su archivo de configuración Freshclam.conf"
 msgstr "Your Freshclam.conf configuration file"
 
-#: FrmConf.class:164
+#: FrmConf.class:169
 msgid "Su archivo de configuración clamav-milter.conf"
 msgstr "Your configuration file clamav-milter.conf"
 
-#: FrmConf.class:169
+#: FrmConf.class:174
 msgid " Ejemplo de clamd.conf "
 msgstr "Clamd.conf example"
 
-#: FrmConf.class:170
+#: FrmConf.class:175
 msgid "Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n"
 msgstr "An example of a configuration file with comments\nwhich you can find on your disk at:\n"
 
-#: FrmConf.class:176
+#: FrmConf.class:181
 msgid " Ejemplo de freshclam.conf "
 msgstr "Freshclam.conf example"
 
-#: FrmConf.class:183
+#: FrmConf.class:188
 msgid " Ejemplo de clamav-milter.conf "
 msgstr "Clamav-milter.conf example"
 
-#: FrmConf.class:192
+#: FrmConf.class:197
 msgid "Es la primera vez !"
 msgstr "Its the first time !"
 
-#: FrmConf.class:193
+#: FrmConf.class:198
 msgid "Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla"
 msgstr "A safety backup has just been made\nin case of error, you will be able to restore it"
 
-#: FrmConf.class:199
+#: FrmConf.class:204
 msgid "Se acaba de guardar un archivo de ejemplo \n en el siguiente directorio: \n "
 msgstr "An example file has just been saved\nin the following directory:\n "
 

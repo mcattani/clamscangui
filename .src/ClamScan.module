@@ -12,7 +12,7 @@
 '' ' *********************************************************************************************************
 
 Public hProc As Process
-Public Comm As String
+' Public Comm As String
 
 Public Function Version() As String
 
@@ -35,7 +35,7 @@ End
 
 Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean)
 
-     ' Dim Comm As String
+     Dim Comm As String
 
      FMain.txSalida.Text = ""
      Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options
@@ -75,7 +75,7 @@ End
 
 Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Recursive As Boolean, AppsIndeseadas As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean)
 
-     ' Dim Comm As String
+     Dim Comm As String
 
      FMain.txSalida.Text = ""
      Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options modifiables ici
@@ -96,8 +96,6 @@ Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolea
      If ELF = True Then comm = comm & " --scan-elf=yes"
      If OLE2 = True Then comm = comm & " --scan-ole2=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine        'déplacement des fichiers virus en quarantaine
-
-     'ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Recursive, AppsIndeseadas, Mail, PDF, SWF, HTML, HWP3, Quarant, bSudo)
 
      If bSudo = True Then
           Authenticate.Command("sudo " & Comm)

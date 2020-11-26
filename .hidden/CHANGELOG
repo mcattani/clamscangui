@@ -1,21 +1,21 @@
-* Wed Nov 25 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.49
-- Pequeños arreglos estéticos
-- Ahora se pueden ver/cambiar las configuraciones de ClamAv
+* Thu Nov 26 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.50
+-Corregido conrtol instalación completa de ClamAV
+-Corregidos menús en español.
+
+* Thu Nov 26 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.50
+- Contrôle de l'installation complète de clamav
 
 * Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.49
+- Reconfiguration de clamd demandée si fichier absent.
 
 * Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.49
 - Réduction de plusieurs bugs
 
 * Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.48
-- Traductions
-
-* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.48
-- Détails d'affichage
-
-* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.48
 - Fichiers exemple en lecture
 -Copie des exemples dans ~/Clamav/
+- Détails d'affichage
+- Traductions
 
 * Sat Nov 21 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.47
 - réduction du bug sur fermeture

@@ -143,6 +143,11 @@ Public Sub Form_Open()
           Label1.Text = ("Consulta:") & gb.NewLine
      Endif
 
+     ' If Not Exist("/etc/clamav/clamd.conf") Then
+     '      Message.Title = ("¡Atención!")
+     '      Message(("Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"))
+     '      Me.Close
+     ' Else
      Select Case FMain.iFlag                                                    'en fonction du drapeau integer
 
           Case 0    'clamd
@@ -201,6 +206,8 @@ Public Sub Form_Open()
 
      TextArea1.pos = 0
      TextArea1.EnsureVisible()
+
+     ' Endif
 
 End
 

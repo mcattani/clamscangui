@@ -50,17 +50,24 @@ Public Sub Form_Open()                                                          
      Dim histo As File
 
      If Not Exist("/usr/bin/clamscan") Then
+          Message.Title = ("¡Atención!")
           Message.Warning(("Debe tener instalado el antivirus ClamAv para poder utilizar esta App"))
+          Me.Close
      Else
           txSalida.text = ("Versión instalada: ") & ClamScan.Version()
      Endif
 
-     antivir = User.Home &/ "Clamav"
-     quarantaine = User.Home &/ ".clamscangui/viruses"                          'dossier de quarantaine des virus
-     clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"                  'fichier Log
-     historic = User.Home &/ ".clamscangui/Historique.txt"                      'fichier historique
+     If Not Exist("/etc/clamav/clamd.conf") Then
+          Message.Title = ("¡Atención!") & (" ~ Instalación incompleta de Clamav")
+          Message(("Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon") & "\n" & ("Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"))
+          Me.Close
+     Endif
 
-     If Not Exist(quarantaine) Then                                             'création du dossier de quarantaine des virus
+     antivir = User.Home &/ "Clamav"
+     quarantaine = User.Home &/ ".clamscangui/viruses"                     'dossier de quarantaine des virus
+     clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"             'fichier Log
+     historic = User.Home &/ ".clamscangui/Historique.txt"                 'fichier historique
+     If Not Exist(quarantaine) Then                                        'création du dossier de quarantaine des virus
           Try Mkdir User.Home &/ ".clamscangui"
           Try Mkdir quarantaine
      Endif
@@ -69,11 +76,11 @@ Public Sub Form_Open()                                                          
           Try Mkdir antivir
      Endif
 
-     If Not Exist(clamLog) Then                                                 'fichier Log
+     If Not Exist(clamLog) Then                                            'fichier Log
           leFichier = Open clamLog For Create
      Endif
 
-     If Not Exist(historic) Then                                                'fichier historique
+     If Not Exist(historic) Then                                           'fichier historique
           histo = Open historic For Create
      Endif
 
@@ -83,12 +90,12 @@ Public Sub Form_Open()                                                          
 
      FMain.Text = Application.Name & " " & Application.Version
 
-     If Settings["First_Time", True] = True Then                                 'démarrage première fois
+     If Settings["First_Time", True] = True Then                           'démarrage première fois
           Settings["First_Time"] = False
           premiereFois
      Endif
-     LoadSettings()                                                             'réglages enregistrés
-     Cerf.ShowModal()                                                           'splash form
+     LoadSettings()                                                        'réglages enregistrés
+     Cerf.ShowModal()                                                      'splash form
 
 End
 

@@ -9,7 +9,7 @@
   { mnOpciones Menu
     Text = ("Opciones")
     { MnuEnreg Menu
-      Text = ("Grabación de sesiones")
+      Text = ("Grabación de Sesiones")
       Picture = Picture["icon:/32/info"]
       { mnErrores Menu Log1
         Name = "mnErrores"
@@ -31,7 +31,7 @@
       }
       { mnSupressOK Menu Log1
         Name = "mnSupressOK"
-        Text = ("No mostrar Comprobaciones \"OK\"")
+        Text = ("No mostrar comprobaciones \"OK\"")
         Picture = Picture["icon:/22/unindent"]
         Toggle = True
       }

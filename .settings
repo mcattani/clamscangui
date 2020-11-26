@@ -1,11 +1,19 @@
 [Breakpoints]
 Count=0
 
+[DebugWindow]
+Count=0
+
 [OpenFile]
 Active=1
 File[1]=".src/FMain.form"
-Count=1
+File[2]=".hidden/CHANGELOG:0.0"
+File[3]=".src/FMain.class:5.582"
+Count=3
 
 [Package]
-Dir="~/Escritorio/clamscangui-1.1.49.orig/"
+Dir="~/Escritorio/clamscangui-1.1.50.orig/"
+
+[Watches]
+Count=0
 
