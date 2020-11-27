@@ -27,6 +27,7 @@ Public HWP3 As Boolean
 Public PE As Boolean
 Public ELF As Boolean
 Public OLE2 As Boolean
+Public ARCH As Boolean
 
 Public maCle As Integer
 Public Ruta As String                                                           'endroit ou fichier à scanner
@@ -65,10 +66,10 @@ Public Sub Form_Open()                                                          
      Endif
 
      antivir = User.Home &/ "Clamav"
-     quarantaine = User.Home &/ ".clamscangui/viruses"                     'dossier de quarantaine des virus
-     clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"             'fichier Log
-     historic = User.Home &/ ".clamscangui/Historique.txt"                 'fichier historique
-     If Not Exist(quarantaine) Then                                        'création du dossier de quarantaine des virus
+     quarantaine = User.Home &/ ".clamscangui/viruses"                          'dossier de quarantaine des virus
+     clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"                  'fichier Log
+     historic = User.Home &/ ".clamscangui/Historique.txt"                      'fichier historique
+     If Not Exist(quarantaine) Then                                             'création du dossier de quarantaine des virus
           Try Mkdir User.Home &/ ".clamscangui"
           Try Mkdir quarantaine
      Endif
@@ -77,11 +78,11 @@ Public Sub Form_Open()                                                          
           Try Mkdir antivir
      Endif
 
-     If Not Exist(clamLog) Then                                            'fichier Log
+     If Not Exist(clamLog) Then                                                 'fichier Log
           leFichier = Open clamLog For Create
      Endif
 
-     If Not Exist(historic) Then                                           'fichier historique
+     If Not Exist(historic) Then                                                'fichier historique
           histo = Open historic For Create
      Endif
 
@@ -91,12 +92,12 @@ Public Sub Form_Open()                                                          
 
      FMain.Text = Application.Name & " " & Application.Version
 
-     If Settings["First_Time", True] = True Then                           'démarrage première fois
+     If Settings["First_Time", True] = True Then                                'démarrage première fois
           Settings["First_Time"] = False
           premiereFois
      Endif
-     LoadSettings()                                                        'réglages enregistrés
-     Cerf.ShowModal()                                                      'splash form
+     LoadSettings()                                                             'réglages enregistrés
+     Cerf.ShowModal()                                                           'splash form
 
 End
 
@@ -123,6 +124,7 @@ Public Sub premiereFois()                                                       
      mnuPE.Value = True
      mnuELF.Value = True
      MnuOLE2.Value = True
+     MnuARCH.Value = True
 
      Settings["Menu/pHWP3"] = mnuHWP3.Value
      Settings["Menu/pXML"] = mnuXML.Value
@@ -132,6 +134,7 @@ Public Sub premiereFois()                                                       
      Settings["Menu/pPE"] = mnuPE.Value
      Settings["Menu/pELF"] = mnuELF.Value
      Settings["Menu/pOLE2"] = MnuOLE2.Value
+     Settings["Menu/pARCH"] = MnuARCH.Value
 
 End
 
@@ -163,6 +166,7 @@ Public Sub LoadSettings()                                                       
      mnuPE.Value = Settings["Menu/pPE"]
      mnuELF.Value = Settings["Menu/pELF"]
      MnuOLE2.Value = Settings["Menu/pOLE2"]
+     MnuARCH.Value = Settings["Menu/pARCH"]
      '********** Toutes options transmises *************************************
      SalidaERR = mnErrores.Value
      infect = mnInfectados.Value
@@ -178,6 +182,7 @@ Public Sub LoadSettings()                                                       
      PE = mnuPE.Value
      ELF = mnuELF.Value
      OLE2 = MnuOLE2.Value
+     ARCH = MnuARCH.Value
 
      Remover = mnRemover.Value
      Quarant = MnuDeplacer.Value
@@ -254,6 +259,7 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/pPE"] = mnuPE.Value
      Settings["Menu/pELF"] = mnuELF.Value
      Settings["Menu/pOLE2"] = MnuOLE2.Value
+     Settings["Menu/pARCH"] = MnuARCH.Value
      '**************************************************************************
      Settings["General/LangInit"] = langue
 
@@ -273,21 +279,21 @@ End
 
 Public Sub FC_Activate()
 
-     menuFaux()
+     menuFaux()                                                                 'menus désactivés
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(FC.SelectedPath)
-     ClamScan.ScanFile(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo)
+     ClamScan.ScanFile(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo, ARCH)
      menuVraix()                                                                'menus activés
 
 End
 
 Public Sub DC_Activate()
 
-     menuFaux()
+     menuFaux()                                                                 'menus désactivés
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(DC.SelectedPath)
-     ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Recursive, AppsIndeseadas, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo)
-     menuVraix()                                                                'menus désactivés
+     ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Recursive, AppsIndeseadas, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo, ARCH)
+     menuVraix()                                                                'menus activés
 
 End
 
@@ -387,7 +393,7 @@ Public Sub TBKill_Click()                                                       
      Endif
      If ClamScan.hProc.State = ClamScan.hProc.Running Then
           If FMain.bSudo = True Then
-               Authenticate.Command("sudo killall -u root -9 clamscan")              'montexte est affecté à la commande du process
+               Authenticate.Command("sudo killall -u root -9 clamscan")         'montexte est affecté à la commande du process
                If FMain.bFlag = True Then
                     Shell FMain.monTexte
                Else
@@ -396,7 +402,7 @@ Public Sub TBKill_Click()                                                       
                     Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
                Endif
           Else
-               ClamScan.hProc.Kill                                                 'on tue le processus
+               ClamScan.hProc.Kill                                              'on tue le processus
           Endif
 
           Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
@@ -411,7 +417,7 @@ Public Sub mnAcerca_Click()                                                     
 
      Me.Hide
      frmAbout.ShowModal()
-     Me.Show
+     FMain.Show()
 
 End
 
@@ -424,7 +430,7 @@ Public Sub MnuHistoric_Click()                                                  
      ' FrmHistoric.ShowModal()
      Me.Hide
      FMain.Mouse = Mouse.Default
-     Me.Show
+     FMain.Show()
 
 End
 
@@ -437,7 +443,7 @@ Public Sub MnuLog_Click()                                                       
      FrmGeneral.ShowModal()
      ' FrmLog.ShowModal()
      FMain.Mouse = Mouse.Default
-     Me.Show
+     FMain.Show()
 
 End
 
@@ -450,7 +456,7 @@ Public Sub mnFreshclam_Click()                                                  
      FrmGeneral.ShowModal()
      ' frmFresh.ShowModal()
      FMain.Mouse = Mouse.Default
-     Me.Show
+     FMain.Show()
 
 End
 
@@ -488,7 +494,7 @@ Public Sub MnuAide_Click()                                                      
      iForm = 4
      FrmGeneral.ShowModal()
      ' FrmAide.ShowModal()
-     Me.Show
+     FMain.Show()
 
 End
 
@@ -501,7 +507,7 @@ Public Sub MnuVirus_Click()                                                     
      FrmGeneral.ShowModal()
      ' Virus.ShowModal()
      FMain.Mouse = Mouse.Default
-     Me.Show
+     FMain.Show()
      DC.Reload
      FC.Reload
 
@@ -644,6 +650,7 @@ Public Sub option1_Click()                                                      
      Settings["Menu/pPE"] = mnuPE.Value
      Settings["Menu/pELF"] = mnuELF.Value
      Settings["Menu/pOLE2"] = MnuOLE2.Value
+     Settings["Menu/pARCH"] = MnuARCH.Value
 
      mail = mnuMail.Value                                                       'valeurs transmises
      pdf = mnuPdf.Value
@@ -653,6 +660,7 @@ Public Sub option1_Click()                                                      
      PE = mnuPE.Value
      ELF = mnuELF.Value
      OLE2 = MnuOLE2.Value
+     ARCH = MnuARCH.Value
 
      SaveSettings()
 

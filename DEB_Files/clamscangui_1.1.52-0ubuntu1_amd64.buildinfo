@@ -4,17 +4,17 @@ Binary: clamscangui
 Architecture: all source
 Version: 1.1.52-0ubuntu1
 Checksums-Md5:
- 8954fd9792e086a3d6a42694c74137fd 1661 clamscangui_1.1.52-0ubuntu1.dsc
- bae5ffa34c04cab08a20ef269b249bd1 360856 clamscangui_1.1.52-0ubuntu1_all.deb
+ 188747ebbe2ac74e453764b9f093cedf 1665 clamscangui_1.1.52-0ubuntu1.dsc
+ f0cf7dda817f7c363cc70be1b4d51365 360936 clamscangui_1.1.52-0ubuntu1_all.deb
 Checksums-Sha1:
- 34bc518c9edede66e5130db6637c720dd4aa2ef0 1661 clamscangui_1.1.52-0ubuntu1.dsc
- 98305c0d826b6cfc777681252c1bc6ef175eaba2 360856 clamscangui_1.1.52-0ubuntu1_all.deb
+ 515a2a6df84d508f5e79583194757c56c1b657a8 1665 clamscangui_1.1.52-0ubuntu1.dsc
+ 246f715f1da004251e85b84014629eb599dd9868 360936 clamscangui_1.1.52-0ubuntu1_all.deb
 Checksums-Sha256:
- 98d6c924c49c10a12b95021cf8dac7488ec0a87f565dcc0cbdbfa447dfae53b9 1661 clamscangui_1.1.52-0ubuntu1.dsc
- 05d41960b35fe1c483c7c5e4dde563cdecf8a04457f78fbf0fce8d286b8834b1 360856 clamscangui_1.1.52-0ubuntu1_all.deb
+ 1688dfd1037d8747d4f6fc86c0e5b707082fba17887a41582e6a92bb56adda17 1665 clamscangui_1.1.52-0ubuntu1.dsc
+ b465e14be401bd11660cdbbcf939dbf261bad0ceb0dacff4a3be63909fad8c4f 360936 clamscangui_1.1.52-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Thu, 26 Nov 2020 18:36:47 -0300
+Build-Date: Fri, 27 Nov 2020 17:14:40 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs
@@ -349,7 +349,7 @@ Installed-Build-Depends:
  ucf (= 3.0043),
  util-linux (= 2.36-3ubuntu1),
  x11-common (= 1:7.7+19ubuntu15),
- xdg-utils (= 1.1.3-2ubuntu1),
+ xdg-utils (= 1.1.3-2ubuntu1.20.10.1),
  xkb-data (= 2.29-2),
  xz-utils (= 5.2.4-1ubuntu1),
  zlib1g (= 1:1.2.11.dfsg-2ubuntu4)
@@ -357,4 +357,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_AR.UTF-8"
  LC_ALL="es_AR.UTF-8"
- SOURCE_DATE_EPOCH="1606392000"
+ SOURCE_DATE_EPOCH="1606478400"

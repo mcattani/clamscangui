@@ -40,24 +40,24 @@ Public Sub Command(CommandLine As String) As String                             
           VBox2.Visible = True
           ' HBox1.Visible = True
      Endif
-     CheckCapsLock                                                             'Check if the Caps Lock is on
+     CheckCapsLock                                                              'Check if the Caps Lock is on
      If Module1.cloture = True Then
           ' ButtonCancel.Visible = False
           Me.Title = ("ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!")
      Endif
-     Me.ShowModal()                                                            'Show the Authentication Form
-     Return sOutput                                                            'Return the Command's output
+     Me.ShowModal()                                                             'Show the Authentication Form
+     Return sOutput                                                             'Return the Command's output
 
 End
 
-Public Sub ButtonAuthenticate_Click()                                          'When the the Authenticate button is clicked..
+Public Sub ButtonAuthenticate_Click()                                           'When the the Authenticate button is clicked..
 
-     Dim sPass As String                                                       'To store the password after the 'Shell$' command
+     Dim sPass As String                                                        'To store the password after the 'Shell$' command
      Dim sChkOutput As String
 
-     Wait                                                                      'Once around the Event Loop
-     If Not sPassword Then sPassword = TextBoxPassword.Text                    'If there is no password stored then take it from TextBox
-     sPass = Shell$(sPassword)                                                 'The caters for odd characters in the password
+     Wait                                                                       'Once around the Event Loop
+     If Not sPassword Then sPassword = TextBoxPassword.Text                     'If there is no password stored then take it from TextBox
+     sPass = Shell$(sPassword)                                                  'The caters for odd characters in the password
 
      Try Shell "sudo -K;echo " & sPass & "|sudo -S -k whoami 2>&1" To sChkOutput ' fonctionne pour toutes les langues
      TextAreaTerminal.Clear
@@ -89,9 +89,9 @@ Catch
 
 End
 
-Public Sub Terminal_read()                                                     'Grabs the text normally output in the Terminal
+Public Sub Terminal_read()                                                      'Grabs the text normally output in the Terminal
 
-     Dim sLine As String                                                       'To store the output
+     Dim sLine As String                                                        'To store the output
 
      sLine = Read #Last, Lof(Last)
      sOutput &= sLine
@@ -103,52 +103,58 @@ Catch
 
 End
 
-Public Sub ButtonCancel_Click()                                                'If the Cancel button is clicked..
+Public Sub ButtonCancel_Click()                                                 'If the Cancel button is clicked..
 
      Me.Text = ("Acción cancelada.")
      Me.Close
 
 End
 
-Public Sub Timer1_Timer()                                                      'Timer to 'Shake' the Form when an incorrect password is entered
+Public Sub Timer1_Timer()                                                       'Timer to 'Shake' the Form when an incorrect password is entered
 
      Me.Text = ("¡Inténtalo de nuevo!")
-     If Even(Me.X) Then Me.x += 9 Else Me.x -= 9                               'If the Form's X value is even then add 9 to it Else subtract 9 from the X value
-     Wait                                                                      'Once around the Event Loop
-     Inc siCount                                                               'Increase the counter
-     If siCount > 75 Then                                                      'If the counter is greater than 75 then..
-          Timer1.Stop                                                          'Stop the Timer (and therefore the 'Shaking')
-          siCount = 0                                                          'Reset the counter
+     If Even(Me.X) Then Me.x += 9 Else Me.x -= 9                                'If the Form's X value is even then add 9 to it Else subtract 9 from the X value
+     Wait                                                                       'Once around the Event Loop
+     Inc siCount                                                                'Increase the counter
+     If siCount > 75 Then                                                       'If the counter is greater than 75 then..
+          Timer1.Stop                                                           'Stop the Timer (and therefore the 'Shaking')
+          siCount = 0                                                           'Reset the counter
      End If
 
 End
 
-Public Sub TextBoxPassword_KeyRelease()                                        'To catch the user pressing [Enter] or [Return]
+Public Sub TextBoxPassword_KeyRelease()                                         'To catch the user pressing [Enter] or [Return]
 
-     If Key.Text = "\r" Then ButtonAuthenticate_Click                          'If the user pressed [Enter] or [Return] then Click the 'Authenticate' button
-     CheckCapsLock                                                             'Check the Caps Lock
+     If Key.Text = "\r" Then ButtonAuthenticate_Click                           'If the user pressed [Enter] or [Return] then Click the 'Authenticate' button
+     CheckCapsLock                                                              'Check the Caps Lock
 
 End
 
-Public Sub CheckCapsLock()                                                     'To check the Caps Lock state
+Public Sub CheckCapsLock()                                                      'To check the Caps Lock state
 
-     Dim sState As String                                                      'To store the 'Shell' output
-     Dim siCap As Short                                                        'To store the 'Value' of Caps Lock state
+     Dim sState As String                                                       'To store the 'Shell' output
+     Dim siCap As Short                                                         'To store the 'Value' of Caps Lock state
 
-     Try Shell "xset q | grep 'LED mask'" To sState                            'Shell command. Result is similar to: - 'auto repeat:  on    key click percent:  0    LED mask:  00000003'
+     Try Shell "xset q | grep 'LED mask'" To sState                             'Shell command. Result is similar to: - 'auto repeat:  on    key click percent:  0    LED mask:  00000003'
 
-     siCap = Right(Bin(Right(Trim(sState), 1)), 1)                             'Get the last binary value, see alternative code below
+     siCap = Right(Bin(Right(Trim(sState), 1)), 1)                              'Get the last binary value, see alternative code below
 
-     If siCap Then                                                             'If siCap is not 0 then..
-          LabelCaps.text = ("Bloqueo de mayúsculas está activado")             'Add a message to the Form indicating the Caps Lock is on
-     Else                                                                      'siCap must be 0
-          LabelCaps.text = ""                                                  'Clear the Caps Lock message
+     If siCap Then                                                              'If siCap is not 0 then..
+          LabelCaps.text = ("Bloqueo de mayúsculas está activado")              'Add a message to the Form indicating the Caps Lock is on
+     Else                                                                       'siCap must be 0
+          LabelCaps.text = ""                                                   'Clear the Caps Lock message
      Endif
 
 End
 
 Public Sub Form_Close()
 
-     If FMain.bFlag = False Then Return                                                                'retour si le drapeau est à faux
+     If FMain.bFlag = False Then Return                                         'retour si le drapeau est à faux
+
+End
+
+Public Sub Form_Open()
+
+     
 
 End

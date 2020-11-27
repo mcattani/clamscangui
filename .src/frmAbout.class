@@ -42,8 +42,3 @@ Public Sub PictureBox2_MouseUp()
 
 End
 
-Public Sub Form_Open()
-
-     
-
-End

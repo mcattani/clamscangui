@@ -32,7 +32,7 @@ Public Sub TournProc()                                                          
 
 End
 
-Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean)
+Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean, ARCH As Boolean)
 
      Dim Comm As String
 
@@ -52,16 +52,17 @@ Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boole
      If PE = True Then comm = comm & " --scan-pe=yes"
      If ELF = True Then comm = comm & " --scan-elf=yes"
      If OLE2 = True Then comm = comm & " --scan-ole2=yes"
+     If ARCH = True Then comm = comm & " --scan-archive=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine
 
      If bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) For Read As "Scan"
+               hProc = Shell (FMain.monTexte) & " 2>&1" For Read As "Scan"
                TournProc()
           Endif
      Else If bsudo = False
-          hProc = Shell (Comm) For Read As "Scan"
+          hProc = Shell (Comm) & " 2>&1" For Read As "Scan"
           TournProc()
      Endif
 
@@ -72,7 +73,7 @@ Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boole
 
 End
 
-Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Recursive As Boolean, AppsIndeseadas As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean)
+Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Recursive As Boolean, AppsIndeseadas As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean, ARCH As Boolean)
 
      Dim Comm As String
 
@@ -94,16 +95,17 @@ Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolea
      If PE = True Then comm = comm & " --scan-pe=yes"
      If ELF = True Then comm = comm & " --scan-elf=yes"
      If OLE2 = True Then comm = comm & " --scan-ole2=yes"
+     If ARCH = True Then comm = comm & " --scan-archive=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine        'déplacement des fichiers virus en quarantaine
 
      If bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) For Read As "Scan"
+               hProc = Shell (FMain.monTexte) & " 2>&1" For Read As "Scan"
                TournProc
           Endif
      Else If bsudo = False
-          hProc = Shell (Comm) For Read As "Scan"
+          hProc = Shell (Comm) & " 2>&1" For Read As "Scan"
           TournProc
      Endif
 
@@ -118,7 +120,8 @@ Public Sub Scan_read()                                                          
 
      Dim sLine As String
 
-     sline = Read #Last, Lof(Last)
+     ' sline = Read #Last, Lof(Last)
+     sline = Read #hProc, Lof(hproc)
      FMain.txSalida.Text &= sLine
      FMain.txSalida.EnsureVisible()
 

@@ -96,9 +96,15 @@
         Picture = Picture["icon:/22/file"]
         Toggle = True
       }
+      { MnuARCH Menu option1
+        Name = "MnuARCH"
+        Text = ("Escanear Archivos Comprimidos")
+        Picture = Picture["icon:/48/archive"]
+        Toggle = True
+      }
       { mnuMail Menu option1
         Name = "mnuMail"
-        Text = ("Escanear archivos de Correo")
+        Text = ("Escanear Archivos de Correo")
         Picture = Picture["icon:/22/mail"]
         Toggle = True
       }
@@ -113,7 +119,7 @@
     }
     { mnRemover Menu optionAvance
       Name = "mnRemover"
-      Text = ("Remover Archivo/s (Cuidado!)")
+      Text = ("Remover archivo/s (Cuidado!)")
       Picture = Picture["icon:/22/delete"]
       Toggle = True
     }
@@ -122,11 +128,10 @@
       Text = ("Detectar Aplicaciones Indeseadas")
       Picture = Picture["icon:/22/filter"]
       Toggle = True
-      Checked = True
     }
     { MnuDeplacer Menu optionAvance
       Name = "MnuDeplacer"
-      Text = ("Poner en cuarentena Archivos Infectados")
+      Text = ("poner en cuarentena archivos infectados")
       Picture = Picture["icon:/48/download"]
       Toggle = True
     }
@@ -143,21 +148,21 @@
       }
       { MnuAuto Menu mnu
         Name = "MnuAuto"
-        Text = ("Actualización automática")
+        Text = ("Actualización Automática")
         Picture = Picture["icon:/48/database"]
         Radio = True
         Checked = True
       }
       { MnuManuelle Menu mnu
         Name = "MnuManuelle"
-        Text = ("Actualización manual")
+        Text = ("Actualización Manual")
         Picture = Picture["icon:/48/server"]
         Radio = True
       }
       { Menu2 Menu
       }
       { MnuImmediate Menu
-        Text = ("Actualización inmediata")
+        Text = ("Actualización Inmediata")
         Picture = Picture["icon:/48/refresh"]
       }
     }

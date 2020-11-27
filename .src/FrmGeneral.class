@@ -11,7 +11,7 @@
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
 
-Public sDir As String[]
+Public sDir As String[]                                                         'pour FV1
 
 Public Sub Run() As Boolean
 
@@ -19,13 +19,19 @@ Public Sub Run() As Boolean
 
 End
 
-Public Sub btnCerrar_Click()
+Public Sub Form_KeyPress()                                                      'pour sortie immédiate
+
+     If Key.code = Key.Esc Then Me.Close
+
+End
+
+Public Sub btnCerrar_Click()                                                    'fermeture
 
      Me.Close()
 
 End
 
-Public Sub btnSauve_Click()
+Public Sub btnSauve_Click()                                                     'bouton sauvegarde en fonction de iFlag
 
      Dim Comm As String
      Dim nomFich As String
@@ -68,21 +74,21 @@ Public Sub btnSauve_Click()
           Shell (FMain.monTexte)                                                'on lance le process
           If FMain.bFlag = True Then                                            'message en fonction du résultat
                If Not Error Then Message.Info(("Copia de seguridad realizada"))
-               If Error Then Message.Info(("Copia de seguridad no realizada"))
+               If Error Then Message.Info(("Copia de seguridad no realizada") & Error.Text)
           Else
                Message.Info(("Copia de seguridad no realizada"))
           Endif
 
      Endif
 Catch
-     Message( Error )
+     Message(Error.Text)
 
 End
 
 Public Sub btnRestaurar_Click()
 
      Select Case FMain.iform
-          Case 3
+          Case 3                                                                'Config
 
                Dim Comm As String
                Dim nomFich As String
@@ -91,7 +97,7 @@ Public Sub btnRestaurar_Click()
                If Message.Question(("¿Quiere restaurar el archivo respaldado?"), ("Si"), ("No")) = 2 Then
                     Me.Close(True)
                Else
-                    Select Case FMain.iFlag                                               'en fonction du drapeau integer
+                    Select Case FMain.iFlag                                     'en fonction du drapeau integer
                          Case 0
                               nomFich = User.Home &/ ".clamscangui/clamd.sauve"
                               TextArea1.Text = File.load(nomFich)
@@ -124,9 +130,9 @@ Public Sub btnRestaurar_Click()
 
                     End Select
 
-                    Authenticate.Command("sudo " & Comm)                                  'on récupère le mot de passe
-                    Shell (FMain.monTexte)                                                'on lance le process
-                    If FMain.bFlag = True Then                                            'message en fonction du résultat
+                    Authenticate.Command("sudo " & Comm)                        'on récupère le mot de passe
+                    Shell (FMain.monTexte)                                      'on lance le process
+                    If FMain.bFlag = True Then                                  'message en fonction du résultat
                          If Not Error Then Message.Info(("Restauración realizada"))
                          If Error Then Message.Info(("Restauración no realizada"))
                     Else
@@ -135,24 +141,24 @@ Public Sub btnRestaurar_Click()
 
                Endif
           Catch
-               Message( Error )
+               Message(Error.Text)
 
-          Case 5
+          Case 5                                                                'virus
                Dim i As Integer
 
                If FV1.Selection.Count > 0 Then
                     If Message.Question(("¿Quieres restaurar la selección?"), ("Si"), ("No")) = 2 Then
                          Return
-                    Else                                                                  'il faudrait afficher un tableau des fichiers déplacer
+                    Else                                                        'il faudrait afficher un tableau des fichiers déplacés
                          For i = 0 To FV1.Selection.Max
                               ' Dialog.Path = User.Home & "/.clamscangui/viruses/" &/ FV1.Selection.First
                               Dialog.Title = ("¡Seleccione dónde restaurar el archivo!")
-                              If Dialog.SelectDirectory() Then                            'dossier à choisir pour la restauration
+                              If Dialog.SelectDirectory() Then                  'dossier à choisir pour la restauration
                                    Message(("¡El archivo no fue restaurado!"))
                                    Return
-                              Else                                                        'on restaure le fichier à l'endroit choisi
+                              Else                                              'on restaure le fichier à l'endroit choisi
                                    Try Copy User.Home & "/.clamscangui/viruses/" &/ FV1.Selection.First To Dialog.Path &/ FV1.Selection.First
-                                   If Not Error Then                                      'et on tue le fichier origine
+                                   If Not Error Then                            'et on tue le fichier origine
                                         Try Kill User.Home & "/.clamscangui/viruses/" &/ FV1.Selection.First
                                         Message(("su archivo ha sido restaurado a la siguiente carpeta: \n") & Dialog.Path)
                                    Else
@@ -235,7 +241,7 @@ Public Sub Form_Open()
                btnImpr.visible = True
                btnRestaurar.Visible = False
                btnCerrar.Visible = True
-               Label1.Text = ("Viendo el archivo Freshclam.log:")
+               Label1.Text = ("Viendo el archivo Freshclam.log:") & " /var/log/clamav/freshclam.log"
                TextArea1.Visible = True
                FV1.visible = False
 
@@ -260,7 +266,7 @@ Public Sub Form_Open()
                     Me.Caption = ("# Modo de edición # ") & " --- " & Application.Name & " --- " & " # " & (" Configuración de: ")
                     Me.Background = Color.Red
                     Label1.Text = ("Edición:") & gb.NewLine
-               Else                                                                       'non affichage boutons restauration et sauvegarde
+               Else                                                             'non affichage boutons restauration et sauvegarde
                     TextArea1.ReadOnly = True
                     btnSauve.Visible = False
                     btnRestaurar.Visible = False
@@ -269,7 +275,7 @@ Public Sub Form_Open()
                     Label1.Text = ("Consulta:") & gb.NewLine
                Endif
 
-               Select Case FMain.iFlag                                                    'en fonction du drapeau integer
+               Select Case FMain.iFlag                                          'en fonction du drapeau integer
 
                     Case 0    'clamd
                          TextArea1.Text = File.Load("/etc/clamav/clamd.conf")
@@ -366,7 +372,7 @@ Public Sub Form_Open()
 
                TextArea1.Pos = 0
 
-          Case 5
+          Case 5                                                                'virus
                btnSauve.Visible = False
                btnBorrar.Visible = True
                btnImpr.visible = False
@@ -382,22 +388,19 @@ Public Sub Form_Open()
 
      End Select
 
-     ' TextArea1.pos = 0
-     ' TextArea1.EnsureVisible()
-
 End
 
 Public Sub btnBorrar_Click()
 
      Select Case FMain.iform
 
-          Case 0
+          Case 0                                                                'historique
                TextArea1.Text = ""
                If Exist(User.Home &/ ".clamscangui/Historique.txt") Then
                     File.Save(User.Home &/ ".clamscangui/Historique.txt", "")
                Endif
 
-          Case 5
+          Case 5                                                                'virus
                Dim i As Integer
 
                If FV1.Selection.Count > 0 Then

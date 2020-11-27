@@ -5,13 +5,19 @@ Count=0
 Count=0
 
 [OpenFile]
-Active=1
-File[1]=".src/FMain.form"
-File[2]=".src/FMain.class:5.49"
-File[3]=".src/FrmGeneral.form"
-File[4]=".src/frmAbout.form"
-File[5]=".src/frmAbout.class:5.46"
-Count=5
+File[1]=".src/Authenticate.form"
+File[2]=".src/Cerf.form"
+File[3]=".src/ClamScan.module:29.38"
+File[4]=".src/Authenticate.class:5.157"
+File[5]=".src/frmAbout.form"
+File[6]=".src/frmAbout.class:0.44"
+File[7]=".src/FrmGeneral.form"
+File[8]=".hidden/CHANGELOG:0.0"
+File[9]=".src/FMain.form"
+File[10]=".src/FMain.class:5.644"
+Active=11
+File[11]=".src/FrmGeneral.class:5.190"
+Count=11
 
 [Package]
 Dir="~/Escritorio/clamscangui-1.1.52.orig/"

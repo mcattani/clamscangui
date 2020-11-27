@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"PO-Revision-Date: 2020-11-26 17:49 UTC\n"
+"PO-Revision-Date: 2020-11-26 21:17 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -14,9 +14,10 @@ msgstr ""
 msgid "ClamScanGui"
 msgstr ""
 
+# gb-ignore
 #: .project:2
-msgid "Un sencillo GUI para el antivirus ClamAV.\nModifié par PilValaquarus"
-msgstr "A simple GUI for ClamAV antivirus.\nI modified for PilValaquarus"
+msgid "Un sencillo GUI para el antivirus ClamAV.\nUne interface graphique simple pour l'antivirus ClamAV.\nModifié par PilValaquarus"
+msgstr ""
 
 #: Authenticate.class:46
 msgid "ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!"
@@ -76,308 +77,312 @@ msgstr ""
 msgid "clamscan --version"
 msgstr ""
 
-#: ClamScan.module:137
+#: ClamScan.module:140
 msgid " Escaneo realizado : "
 msgstr " Scan performed: "
 
-#: FMain.class:54 Module1.module:22
+#: FMain.class:55 Module1.module:22
 msgid "¡Atención!"
 msgstr "Attention!"
 
-#: FMain.class:55
+#: FMain.class:56
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr "You must have ClamAv antivirus installed to be able to use this App"
 
-#: FMain.class:58
+#: FMain.class:59
 msgid "Versión instalada: "
 msgstr "Installed version:"
 
-#: FMain.class:62
+#: FMain.class:63
 msgid " ~ Instalación incompleta de Clamav"
 msgstr "~ Incomplete installation of Clamav"
 
-#: FMain.class:63
+#: FMain.class:64
 msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr "To reconfigure clamav-milter, run sudo dpkg-reconfigure clamav-milter"
 
-#: FMain.class:63
+#: FMain.class:64
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr "To reconfigure clamd, run sudo dpkg-reconfigure clamav-daemon"
 
-#: FMain.class:221
+#: FMain.class:226
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr "All your orders are\nfrom the SuperUser!"
 
-#: FMain.class:277
+#: FMain.class:283
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr "Please wait a few seconds while the antivirus starts"
 
-#: FMain.class:299
+#: FMain.class:305
 msgid "Elija el directorio para escanear"
 msgstr "Choose the directory to scan"
 
-#: FMain.class:300
+#: FMain.class:306
 msgid "Elija el archivo para analizar"
 msgstr "Choose the file to analyze"
 
-#: FMain.class:333
+#: FMain.class:339
 msgid "Seleccione \n an objeto para escanear!"
 msgstr "Please select\nan object to scan!"
 
-#: FMain.class:396 Module1.module:88
+#: FMain.class:402 Module1.module:88
 msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr "Clamscan, still works, in the background.\nYou will have to erase the memory yourself."
 
-#: FMain.class:402
+#: FMain.class:408
 msgid "El proceso actual ha sido eliminado"
 msgstr "The current process has been killed"
 
-#: FMain.class:402
+#: FMain.class:408
 msgid "¡Puedes volver!"
 msgstr "You can come back!"
 
-#: FMain.class:405
+#: FMain.class:411
 msgid "¡El proceso ya se detuvo!"
 msgstr "The process has already stopped!"
 
-#: FMain.class:599
+#: FMain.class:605
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "The chosen language will be applied after the restart"
 
-#: FMain.class:601
+#: FMain.class:607
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "The chosen language will be applied after restarting the program."
 
 # gb-ignore
-#: FMain.class:601 FrmGeneral.class:34
+#: FMain.class:607 FrmGeneral.class:34
 msgid "No"
 msgstr ""
 
-#: FMain.class:601 FrmGeneral.class:34
+#: FMain.class:607 FrmGeneral.class:34
 msgid "Si"
 msgstr "Yes"
 
-#: FMain.class:601
+#: FMain.class:607
 msgid "¿Quieres renunciar?"
 msgstr "Do you want to quit?"
 
 # gb-ignore
-#: FMain.form:70
+#: FMain.form:71
 msgid "// ClamAV GUI //"
 msgstr ""
 
-#: FMain.form:76
+#: FMain.form:77
 msgid "Opciones"
 msgstr "Choices"
 
-#: FMain.form:79
+#: FMain.form:80
 msgid "Grabación de sesiones"
 msgstr "Session recording"
 
-#: FMain.form:84
+#: FMain.form:85
 msgid "Mostrar solo Salida de Errores"
 msgstr "Show only Error Output"
 
-#: FMain.form:91
+#: FMain.form:92
 msgid "Mostrar solo Archivos Infectados"
 msgstr "Show only Infected Files"
 
-#: FMain.form:98
+#: FMain.form:99
 msgid "Salida sin Resumen"
 msgstr "Exit without Summary"
 
-#: FMain.form:105
+#: FMain.form:106
 msgid "No mostrar comprobaciones \"OK\""
 msgstr "Don't show  \"OK \" checks"
 
-#: FMain.form:112
+#: FMain.form:113
 msgid "Sonido de Campana si se encuentra algo"
 msgstr "Bell ringing if something is found"
 
-#: FMain.form:122
+#: FMain.form:123
 msgid "Salir"
 msgstr "Get out"
 
-#: FMain.form:128
+#: FMain.form:129
 msgid "Opciones Avanzadas"
 msgstr "Advanced Options"
 
-#: FMain.form:131
+#: FMain.form:132
 msgid "Más Opciones"
 msgstr "More options"
 
-#: FMain.form:136
+#: FMain.form:137
 msgid "Escanear HWP3"
 msgstr "Scan HWP3"
 
-#: FMain.form:143
+#: FMain.form:144
 msgid "Escanear XML/HTML"
 msgstr "Scan XML / HTML"
 
-#: FMain.form:150
+#: FMain.form:151
 msgid "Escanear SWF"
 msgstr "Scan SWF"
 
-#: FMain.form:157
+#: FMain.form:158
 msgid "Escanear PDF"
 msgstr "Scan PDF"
 
-#: FMain.form:164
+#: FMain.form:165
 msgid "Escanear PE"
 msgstr "Scan PE"
 
-#: FMain.form:171
+#: FMain.form:172
 msgid "Escanear ELF"
 msgstr "Scan ELF"
 
-#: FMain.form:178
+#: FMain.form:179
 msgid "Escanear OLE2"
 msgstr "Scan OLE2"
 
-#: FMain.form:185
+#: FMain.form:186
+msgid "Escanear ARCHive"
+msgstr "Scan ARCHive"
+
+#: FMain.form:193
 msgid "Escanear archivos de Correo"
 msgstr "Scan Mail files"
 
-#: FMain.form:196
+#: FMain.form:204
 msgid "Escaneo Recursivo"
 msgstr "Recursive Scan"
 
-#: FMain.form:203
+#: FMain.form:211
 msgid "Remover archivo/s (Cuidado!)"
 msgstr "Remove file / s (Beware!)"
 
-#: FMain.form:210
+#: FMain.form:218
 msgid "Detectar Aplicaciones Indeseadas"
 msgstr "Detect Unwanted Applications"
 
-#: FMain.form:217
+#: FMain.form:225
 msgid "poner en cuarentena archivos infectados"
 msgstr "quarantine infected files"
 
-#: FMain.form:226
+#: FMain.form:234
 msgid "Actualización de la base de datos"
 msgstr "Upgrade of data base"
 
-#: FMain.form:230
+#: FMain.form:238
 msgid "Ver Log Freshclam"
 msgstr "See Log Freshclam"
 
-#: FMain.form:239
+#: FMain.form:247
 msgid "Actualización automática"
 msgstr "Automatic update"
 
-#: FMain.form:247
+#: FMain.form:255
 msgid "Actualización manual"
 msgstr "Manual update"
 
-#: FMain.form:256
+#: FMain.form:264
 msgid "Actualización inmediata"
 msgstr "Immediate update"
 
-#: FMain.form:263
+#: FMain.form:271
 msgid "comportamiento"
 msgstr "behavior"
 
-#: FMain.form:266
+#: FMain.form:274
 msgid "Archivos potencialmente infectados"
 msgstr "Potentially infected files"
 
-#: FMain.form:274
+#: FMain.form:282
 msgid "Lectura del Log"
 msgstr "Log reading"
 
-#: FMain.form:279
+#: FMain.form:287
 msgid "Historial de lectura"
 msgstr "Reading history"
 
-#: FMain.form:287
+#: FMain.form:295
 msgid "Idiomas"
 msgstr "Languages"
 
-#: FMain.form:292
+#: FMain.form:300
 msgid "Español"
 msgstr "Spanish"
 
-#: FMain.form:298
+#: FMain.form:306
 msgid "francés"
 msgstr "french"
 
-#: FMain.form:304
+#: FMain.form:312
 msgid "Inglés"
 msgstr "English"
 
-#: FMain.form:313
+#: FMain.form:321
 msgid "Archivos de configuración"
 msgstr "Configuration files"
 
 # gb-ignore
-#: FMain.form:318
+#: FMain.form:326
 msgid "Clamd.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:326
+#: FMain.form:334
 msgid "Freshclam.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:333
+#: FMain.form:341
 msgid "milter.conf"
 msgstr ""
 
-#: FMain.form:340
+#: FMain.form:348
 msgid "Ejemplos de configuraciones"
 msgstr "Configuration examples"
 
 # gb-ignore
-#: FMain.form:345
+#: FMain.form:353
 msgid "clamd.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:353
+#: FMain.form:361
 msgid "freshclam.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:368
+#: FMain.form:376
 msgid "?"
 msgstr ""
 
-#: FMain.form:371 frmAbout.form:14
+#: FMain.form:379 frmAbout.form:14
 msgid "Acerca de"
 msgstr "About"
 
-#: FMain.form:376
+#: FMain.form:384
 msgid "Ayuda"
 msgstr "Help"
 
-#: FMain.form:385
+#: FMain.form:393
 msgid "Analizar un Archivo"
 msgstr "Analyze a File"
 
-#: FMain.form:395
+#: FMain.form:403
 msgid "Analizar Directorios"
 msgstr "Analyze Directories"
 
-#: FMain.form:408
+#: FMain.form:416
 msgid "Salida del escaneo"
 msgstr "Scan output"
 
-#: FMain.form:418
+#: FMain.form:426
 msgid "¡Mata el proceso en curso!"
 msgstr "Kill the ongoing process!"
 
-#: FMain.form:424
+#: FMain.form:432
 msgid "¡Ejecute el proceso!"
 msgstr "Run the process!"
 
-#: FMain.form:430
+#: FMain.form:438
 msgid "Salida de texto claro"
 msgstr "Clear text output"
 
 # gb-ignore
-#: FMain.form:436
+#: FMain.form:444
 msgid "Sudo"
 msgstr ""
 

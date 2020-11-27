@@ -1,7 +1,12 @@
-* Thu Nov 26 2020 Ozymandias & PilValaquarus <marianocattani@gmail valaquarus@gmail.com> 1.1.52
--Mejoras de código
+* Fri Nov 27 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.52
+-Optimización de código
+-Corrección de Menú
+
+* Fri Nov 27 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
+- Code propre
 
 * Thu Nov 26 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
+- Form_KeyPress()
 
 * Thu Nov 26 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
 - Allègement du code
