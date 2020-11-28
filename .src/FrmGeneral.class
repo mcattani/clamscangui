@@ -34,6 +34,7 @@ End
 Public Sub btnSauve_Click()                                                     'bouton sauvegarde en fonction de iFlag
 
      Dim Comm As String
+     Dim Comm1 As String
      Dim nomFich As String
 
      Message.Title = ("¡Proceda con cuidado!")
@@ -45,16 +46,22 @@ Public Sub btnSauve_Click()                                                     
                     nomFich = User.Home &/ ".clamscangui/clamd.pil"
                     File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamd.conf"
+                    ' Comm1 = " systemctl restart clamav-daemon"
+                    comm1 = " /etc/init.d/clamav-daemon start"
 
                Case 1
                     nomFich = User.Home &/ ".clamscangui/freshclam.pil"
                     File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/freshclam.conf"
+                    ' Comm1 = " systemctl restart freshclam"
+                    comm1 = " /etc/init.d/clamav-freshclam start"
 
                Case 2
                     nomFich = User.Home &/ ".clamscangui/clamav-milter.pil"
                     File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamav-milter.conf"
+                    ' Comm1 = " systemctl restart clamav-milter"
+                    comm1 = " /etc/init.d/clamav-milter start"
 
                Case 3
                     nomFich = User.Home &/ ".clamscangui/clamd.exemple"
@@ -78,8 +85,11 @@ Public Sub btnSauve_Click()                                                     
           Else
                Message.Info(("Copia de seguridad no realizada"))
           Endif
+          Authenticate.Command("sudo " & Comm1)
+          Shell (FMain.monTexte)
 
      Endif
+
 Catch
      Message(Error.Text)
 
@@ -91,6 +101,7 @@ Public Sub btnRestaurar_Click()
           Case 3                                                                'Config
 
                Dim Comm As String
+               Dim Comm1 As String
                Dim nomFich As String
 
                Message.Title = ("¡Proceda con cuidado!")
@@ -102,16 +113,22 @@ Public Sub btnRestaurar_Click()
                               nomFich = User.Home &/ ".clamscangui/clamd.sauve"
                               TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamd.conf"
+                              ' comm1 = " systemctl restart clamav-daemon"
+                              comm1 = " /etc/init.d/clamav-daemon start"
 
                          Case 1
                               nomFich = User.Home &/ ".clamscangui/freshclam.sauve"
                               TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & "/etc/clamav/freshclam.conf"
+                              ' comm1 = " systemctl restart freshclam"
+                              comm1 = " /etc/init.d/clamav-freshclam start"
 
                          Case 2
                               nomFich = User.Home &/ ".clamscangui/clamav-milter.sauve"
                               TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamav-milter.conf"
+                              ' comm1 = " systemctl restart clamav-milter"
+                              comm1 = " /etc/init.d/clamav-milter start"
 
                          Case 3
                               nomFich = "/usr/share/doc/clamav-daemon/examples/clamd.conf.sample"
@@ -138,7 +155,8 @@ Public Sub btnRestaurar_Click()
                     Else
                          Message.Info(("Restauración no realizada"))
                     Endif
-
+                    Authenticate.Command("sudo " & Comm1)
+                    Shell (FMain.monTexte)
                Endif
           Catch
                Message(Error.Text)

@@ -427,7 +427,6 @@ Public Sub MnuHistoric_Click()                                                  
      Wait
      iForm = 0
      FrmGeneral.ShowModal()
-     ' FrmHistoric.ShowModal()
      Me.Hide
      FMain.Mouse = Mouse.Default
      FMain.Show()
@@ -441,7 +440,6 @@ Public Sub MnuLog_Click()                                                       
      iForm = 1
      Me.Hide
      FrmGeneral.ShowModal()
-     ' FrmLog.ShowModal()
      FMain.Mouse = Mouse.Default
      FMain.Show()
 
@@ -454,7 +452,6 @@ Public Sub mnFreshclam_Click()                                                  
      Me.Hide
      iForm = 2
      FrmGeneral.ShowModal()
-     ' frmFresh.ShowModal()
      FMain.Mouse = Mouse.Default
      FMain.Show()
 
@@ -469,7 +466,6 @@ Public Sub Config_Click()                                                       
      FMain.Hide()
      iForm = 3
      FrmGeneral.ShowModal()
-     ' FrmConf.ShowModal()
      FMain.Show()
 
 End
@@ -483,7 +479,6 @@ Public Sub Exemples_Click()                                                     
      FMain.Hide()
      iForm = 3
      FrmGeneral.ShowModal()
-     ' FrmConf.ShowModal()
      FMain.Show()
 
 End
@@ -493,7 +488,6 @@ Public Sub MnuAide_Click()                                                      
      Me.Hide
      iForm = 4
      FrmGeneral.ShowModal()
-     ' FrmAide.ShowModal()
      FMain.Show()
 
 End
@@ -505,7 +499,6 @@ Public Sub MnuVirus_Click()                                                     
      Me.Hide
      iForm = 5
      FrmGeneral.ShowModal()
-     ' Virus.ShowModal()
      FMain.Mouse = Mouse.Default
      FMain.Show()
      DC.Reload

@@ -9,9 +9,10 @@
   Arrangement = Arrange.Horizontal
   AutoResize = True
   { VBox1 VBox
-    Move(0,7,56,77)
+    Move(0,56,56,77)
     { PictureBox1 PictureBox
-      Move(7,7,42,63)
+      Move(0,0,56,70)
+      Expand = True
       Picture = Picture["icon:/48/lock"]
     }
   }
@@ -59,7 +60,7 @@
       }
     }
     { Panel2 HBox
-      Move(0,161,553,35)
+      Move(0,161,553,32)
       Font = Font["Noto Sans,10"]
       { LabelCaps Label
         Move(7,6,189,28)
@@ -68,20 +69,22 @@
         Expand = True
       }
       { ButtonCancel Button
-        Move(196,7,119,28)
+        Move(196,4,133,28)
         Font = Font["Noto Sans,10"]
         Text = ("Cancelar")
+        Picture = Picture["icon:/22/cancel"]
       }
       { Panel4 Panel
-        Move(315,0,7,35)
+        Move(343,0,7,35)
       }
       { ButtonAuthenticate Button
-        Move(329,6,119,28)
+        Move(357,4,133,28)
         Font = Font["Noto Sans,10"]
         Text = ("Autenticar")
+        Picture = Picture["icon:/22/security"]
       }
       { Panel8 Panel
-        Move(455,0,21,35)
+        Move(518,0,21,35)
       }
     }
     { VBox2 HBox
@@ -98,7 +101,7 @@
     }
   }
   { Timer1 #Timer
-    #Move(7,98)
+    #Move(0,140)
     Delay = 10
   }
 }

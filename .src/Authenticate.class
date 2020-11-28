@@ -152,9 +152,3 @@ Public Sub Form_Close()
      If FMain.bFlag = False Then Return                                         'retour si le drapeau est à faux
 
 End
-
-Public Sub Form_Open()
-
-     
-
-End

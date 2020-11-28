@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"POT-Creation-Date: 2020-11-27 10:24 UTC\n"
+"POT-Creation-Date: 2020-11-28 20:47 UTC\n"
 "PO-Revision-Date: 2020-11-26 21:17 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: fr\n"
@@ -54,7 +54,7 @@ msgstr "Essayez à nouveau!"
 msgid "Bloqueo de mayúsculas está activado"
 msgstr "Touche Maj activée"
 
-#: Authenticate.form:67
+#: Authenticate.form:68
 msgid ""
 "Un comando o aplicación está intentando realizar una acción que requiere privilegios.\n"
 "Se requiere autenticación para realizar esta acción."
@@ -62,15 +62,15 @@ msgstr ""
 "Une commande ou une application tente d'exécuter une action qui nécessite des privilèges.\n"
 "Une authentification est requise pour effectuer cette action."
 
-#: Authenticate.form:78
+#: Authenticate.form:79
 msgid "Contraseña:"
 msgstr "Mot de passe : "
 
-#: Authenticate.form:108
+#: Authenticate.form:109
 msgid "Cancelar"
 msgstr "Annuler"
 
-#: Authenticate.form:118
+#: Authenticate.form:120
 msgid "Autenticar"
 msgstr "Authentifier"
 
@@ -161,23 +161,23 @@ msgstr "Vous pouvez revenir!"
 msgid "¡El proceso ya se detuvo!"
 msgstr "Le processus est déjà arrêté!"
 
-#: FMain.class:605
+#: FMain.class:598
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "La langue choisie sera appliquée après le redémarrage"
 
-#: FMain.class:607
+#: FMain.class:600
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "La langue choisie sera appliquée après le redémarrage du programme."
 
-#: FMain.class:607 FrmGeneral.class:40
+#: FMain.class:600 FrmGeneral.class:41
 msgid "No"
 msgstr "Non"
 
-#: FMain.class:607 FrmGeneral.class:40
+#: FMain.class:600 FrmGeneral.class:41
 msgid "Si"
 msgstr "Oui"
 
-#: FMain.class:607
+#: FMain.class:600
 msgid "¿Quieres renunciar?"
 msgstr "Voulez-vous quitter?"
 
@@ -405,111 +405,111 @@ msgstr "Effacer la sortie de texte"
 msgid "Sudo"
 msgstr ""
 
-#: FrmGeneral.class:39
+#: FrmGeneral.class:40
 msgid "¡Proceda con cuidado!"
 msgstr "Procédez avec précaution!"
 
-#: FrmGeneral.class:40
+#: FrmGeneral.class:41
 msgid "¿Quieres guardar tus cambios?"
 msgstr "Voulez-vous enregistrer vos modifications?"
 
-#: FrmGeneral.class:76
+#: FrmGeneral.class:83
 msgid "Copia de seguridad realizada"
 msgstr "Sauvegarde effectuée"
 
-#: FrmGeneral.class:77
+#: FrmGeneral.class:84
 msgid "Copia de seguridad no realizada"
 msgstr "Sauvegarde non effectuée"
 
-#: FrmGeneral.class:97
+#: FrmGeneral.class:108
 msgid "¿Quiere restaurar el archivo respaldado?"
 msgstr "Voulez-vous restaurer le fichier sauvegardé?"
 
-#: FrmGeneral.class:136
+#: FrmGeneral.class:153
 msgid "Restauración realizada"
 msgstr "Restauration terminée"
 
-#: FrmGeneral.class:137
+#: FrmGeneral.class:154
 msgid "Restauración no realizada"
 msgstr "Restauration non effectuée"
 
-#: FrmGeneral.class:150
+#: FrmGeneral.class:168
 msgid "¿Quieres restaurar la selección?"
 msgstr "Voulez-vous restaurer la sélection?"
 
-#: FrmGeneral.class:155
+#: FrmGeneral.class:173
 msgid "¡Seleccione dónde restaurar el archivo!"
 msgstr "Sélectionnez où restaurer le fichier!"
 
-#: FrmGeneral.class:157
+#: FrmGeneral.class:175
 msgid "¡El archivo no fue restaurado!"
 msgstr "Le fichier n'a pas été restauré!"
 
-#: FrmGeneral.class:163
+#: FrmGeneral.class:181
 msgid "su archivo ha sido restaurado a la siguiente carpeta: \n"
 msgstr "Votre fichier a été restauré dans le dossier suivant:\n"
 
-#: FrmGeneral.class:165
+#: FrmGeneral.class:183
 msgid "Restaurar error"
 msgstr "Erreur de restauration"
 
-#: FrmGeneral.class:200
+#: FrmGeneral.class:218
 msgid "Historial de escaneo:"
 msgstr "Historique de scan :"
 
-#: FrmGeneral.class:204
+#: FrmGeneral.class:222
 msgid "Historia de ClamScanGui : "
 msgstr "Historique de ClamScanGui : "
 
-#: FrmGeneral.class:221
+#: FrmGeneral.class:239
 msgid "Grabación de la sesión:"
 msgstr "Enregistrement de session :"
 
-#: FrmGeneral.class:225
+#: FrmGeneral.class:243
 msgid " Registro de ClamScanGui "
 msgstr "Log de ClamScanGui : "
 
-#: FrmGeneral.class:244
+#: FrmGeneral.class:262
 msgid "Viendo el archivo Freshclam.log:"
 msgstr "Affichage du fichier Freshclam.log :"
 
-#: FrmGeneral.class:266
+#: FrmGeneral.class:284
 msgid " Configuración de: "
 msgstr " Configuration de : "
 
-#: FrmGeneral.class:266
+#: FrmGeneral.class:284
 msgid "# Modo de edición # "
 msgstr "# Mode Édition # "
 
-#: FrmGeneral.class:268
+#: FrmGeneral.class:286
 msgid "Edición:"
 msgstr "Édition :"
 
-#: FrmGeneral.class:273
+#: FrmGeneral.class:291
 msgid "# Modo de consulta # "
 msgstr "# Mode Consultation # "
 
-#: FrmGeneral.class:275
+#: FrmGeneral.class:293
 msgid "Consulta:"
 msgstr "Consultation :"
 
-#: FrmGeneral.class:284
+#: FrmGeneral.class:302
 msgid "Su archivo de configuración clamd.conf"
 msgstr "Votre fichier de configuration clamd.conf"
 
-#: FrmGeneral.class:290
+#: FrmGeneral.class:308
 msgid "Su archivo de configuración Freshclam.conf"
 msgstr "Votre fichier de configuration Freshclam.conf"
 
-#: FrmGeneral.class:296
+#: FrmGeneral.class:314
 msgid "Su archivo de configuración clamav-milter.conf"
 msgstr "Votre fichier de configuration clamav-milter.conf"
 
-#: FrmGeneral.class:301
+#: FrmGeneral.class:319
 msgid " Ejemplo de clamd.conf "
 msgstr "Exemple de clamd.conf"
 
-#: FrmGeneral.class:302
+#: FrmGeneral.class:320
 msgid ""
 "Un ejemplo de un archivo de configuración con comentarios\n"
 " que puede encontrar en su disco en:\n"
@@ -517,19 +517,19 @@ msgstr ""
 "Un exemple de fichier de configuration avec des commentaires\n"
 "que vous pouvez trouver sur votre disque à:\n"
 
-#: FrmGeneral.class:308
+#: FrmGeneral.class:326
 msgid " Ejemplo de freshclam.conf "
 msgstr "Exemple de Freshclam.conf"
 
-#: FrmGeneral.class:315
+#: FrmGeneral.class:333
 msgid " Ejemplo de clamav-milter.conf "
 msgstr "Exemple de clamav-milter.conf"
 
-#: FrmGeneral.class:324
+#: FrmGeneral.class:342
 msgid "Es la primera vez !"
 msgstr "C'est la première fois !"
 
-#: FrmGeneral.class:325
+#: FrmGeneral.class:343
 msgid ""
 "Se acaba de realizar una copia de seguridad \n"
 "en caso de error, puede restaurarla"
@@ -537,7 +537,7 @@ msgstr ""
 "Une sauvegarde de sécurité vient d'être faite\n"
 "en cas d'erreur, vous pourrez la restaurer"
 
-#: FrmGeneral.class:331
+#: FrmGeneral.class:349
 msgid ""
 "Se acaba de guardar un archivo de ejemplo \n"
 " en el siguiente directorio: \n"
@@ -547,36 +547,36 @@ msgstr ""
 "dans le répertoire suivant :\n"
 " "
 
-#: FrmGeneral.class:344
+#: FrmGeneral.class:362
 msgid "Ayuda de ClamScanGui:"
 msgstr "Aide ClamScanGui :"
 
-#: FrmGeneral.class:349
+#: FrmGeneral.class:367
 msgid " Inicio de archivo "
 msgstr "Début du fichier"
 
 # gb-ignore
-#: FrmGeneral.class:351
+#: FrmGeneral.class:369
 msgid " FAQ : http://www.clamav.net"
 msgstr ""
 
-#: FrmGeneral.class:361
+#: FrmGeneral.class:379
 msgid " Ayuda de ClamScanGui "
 msgstr "Aide ClamScanGui"
 
-#: FrmGeneral.class:371
+#: FrmGeneral.class:389
 msgid " Fin del documento "
 msgstr "Fin du document"
 
-#: FrmGeneral.class:381
+#: FrmGeneral.class:399
 msgid "Cuarentena de ClamScanGui:"
 msgstr "ClamScanGui Quarantaine :"
 
-#: FrmGeneral.class:387
+#: FrmGeneral.class:405
 msgid "Cuarentena de ClamScanGui"
 msgstr "ClamScanGui Quarantaine"
 
-#: FrmGeneral.class:407
+#: FrmGeneral.class:425
 msgid "¿Quieres borrar la selección?"
 msgstr "Voulez-vous supprimer la sélection?"
 

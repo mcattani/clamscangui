@@ -54,7 +54,7 @@ Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boole
      If OLE2 = True Then comm = comm & " --scan-ole2=yes"
      If ARCH = True Then comm = comm & " --scan-archive=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine
-
+     comm = comm & " --exclude-dir=" & FMain.quarantaine
      If bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
@@ -62,7 +62,7 @@ Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boole
                TournProc()
           Endif
      Else If bsudo = False
-          hProc = Shell (Comm) & " 2>&1" For Read As "Scan"
+          hProc = Shell (Comm) & " 2>&1" For Read As " Scan "
           TournProc()
      Endif
 
@@ -78,7 +78,7 @@ Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolea
      Dim Comm As String
 
      FMain.txSalida.Text = ""
-     Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options modifiables ici
+     Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
      If SalidaError = True Then Comm = Comm & " --quiet"
      If SinINF = True Then comm = comm & " --no-summary"
      If SuprimirOK = True Then Comm = comm & " -o"
@@ -97,7 +97,7 @@ Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolea
      If OLE2 = True Then comm = comm & " --scan-ole2=yes"
      If ARCH = True Then comm = comm & " --scan-archive=yes"
      If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine        'déplacement des fichiers virus en quarantaine
-
+     comm = comm & " --exclude-dir=" & FMain.quarantaine
      If bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process

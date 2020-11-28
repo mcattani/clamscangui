@@ -1,15 +1,18 @@
-* Fri Nov 27 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.52
--Optimización de código
--Corrección de Menú
+* Sat Nov 28 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.53
+-Optimización del código
+-Arreglo menú en español
+
+* Sat Nov 28 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.53
+- Redémarrage du service après modification des fichiers de configuration.
+- Exclude path quarantaine pendant un scan.
 
 * Fri Nov 27 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
-- Code propre
-
-* Thu Nov 26 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
-- Form_KeyPress()
+- Décorations
 
 * Thu Nov 26 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
 - Allègement du code
+- Form_KeyPress()
+- Code plus propre
 
 * Thu Nov 26 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.51
 - Allègement code

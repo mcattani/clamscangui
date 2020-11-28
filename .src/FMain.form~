@@ -9,7 +9,7 @@
   { mnOpciones Menu
     Text = ("Opciones")
     { MnuEnreg Menu
-      Text = ("Grabación de Sesiones")
+      Text = ("Grabación de sesiones")
       Picture = Picture["icon:/32/info"]
       { mnErrores Menu Log1
         Name = "mnErrores"
@@ -98,13 +98,13 @@
       }
       { MnuARCH Menu option1
         Name = "MnuARCH"
-        Text = ("Escanear Archivos Comprimidos")
+        Text = ("Escanear ARCHive")
         Picture = Picture["icon:/48/archive"]
         Toggle = True
       }
       { mnuMail Menu option1
         Name = "mnuMail"
-        Text = ("Escanear Archivos de Correo")
+        Text = ("Escanear archivos de Correo")
         Picture = Picture["icon:/22/mail"]
         Toggle = True
       }
@@ -148,29 +148,29 @@
       }
       { MnuAuto Menu mnu
         Name = "MnuAuto"
-        Text = ("Actualización Automática")
+        Text = ("Actualización automática")
         Picture = Picture["icon:/48/database"]
         Radio = True
         Checked = True
       }
       { MnuManuelle Menu mnu
         Name = "MnuManuelle"
-        Text = ("Actualización Manual")
+        Text = ("Actualización manual")
         Picture = Picture["icon:/48/server"]
         Radio = True
       }
       { Menu2 Menu
       }
       { MnuImmediate Menu
-        Text = ("Actualización Inmediata")
+        Text = ("Actualización inmediata")
         Picture = Picture["icon:/48/refresh"]
       }
     }
   }
   { MnuAction Menu
-    Text = ("Comportamiento")
+    Text = ("comportamiento")
     { MnuVirus Menu
-      Text = ("Archivos Potencialmente Infectados")
+      Text = ("Archivos potencialmente infectados")
       Picture = Picture["icon:/48/flag"]
     }
     { Menu3 Menu
@@ -180,7 +180,7 @@
       Picture = Picture["icon:/48/book"]
     }
     { MnuHistoric Menu
-      Text = ("Historial de Lectura")
+      Text = ("Historial de lectura")
       Picture = Picture["icon:/48/archive"]
     }
     { Menu7 Menu
@@ -195,7 +195,7 @@
       }
       { MnuFrancais Menu langue
         Name = "MnuFrancais"
-        Text = ("Francés")
+        Text = ("francés")
         Radio = True
       }
       { MnuAnglais Menu langue
@@ -207,7 +207,7 @@
     { Menu8 Menu
     }
     { MnuConf Menu
-      Text = ("Archivos de Configuración")
+      Text = ("Archivos de configuración")
       Picture = Picture["icon:/24/info"]
       { MnuConfClamd Menu Config
         Name = "MnuConfClamd"
@@ -230,7 +230,7 @@
       }
     }
     { MnuExemples Menu
-      Text = ("Ejemplos de Configuraciones")
+      Text = ("Ejemplos de configuraciones")
       Picture = Picture["icon:/24/help"]
       { MnuExempleClamd Menu Exemples
         Name = "MnuExempleClamd"
@@ -296,12 +296,12 @@
   { Panel1 Panel
     MoveScaled(44,0,36,5)
     { TBKill ToolButton
-      MoveScaled(17,0,4.625,4)
+      MoveScaled(17,0,4.5714,4)
       ToolTip = ("¡Mata el proceso en curso!")
       Picture = Picture["icon:/32/halt"]
     }
     { TBhProc ToolButton
-      MoveScaled(12,0,4.625,4)
+      MoveScaled(12,0,4.5714,4)
       ToolTip = ("¡Ejecute el proceso!")
       Picture = Picture["icon:/32/exec"]
     }

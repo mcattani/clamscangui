@@ -9,7 +9,7 @@
   { mnOpciones Menu
     Text = ("Opciones")
     { MnuEnreg Menu
-      Text = ("Grabación de Sesiones")
+      Text = ("Grabación de sesiones")
       Picture = Picture["icon:/32/info"]
       { mnErrores Menu Log1
         Name = "mnErrores"
@@ -31,7 +31,7 @@
       }
       { mnSupressOK Menu Log1
         Name = "mnSupressOK"
-        Text = ("No mostrar comprobaciones \"OK\"")
+        Text = ("No mostrar Comprobaciones \"OK\"")
         Picture = Picture["icon:/22/unindent"]
         Toggle = True
       }
@@ -104,7 +104,7 @@
       }
       { mnuMail Menu option1
         Name = "mnuMail"
-        Text = ("Escanear Archivos de Correo")
+        Text = ("Escanear archivos de Correo")
         Picture = Picture["icon:/22/mail"]
         Toggle = True
       }
@@ -119,7 +119,7 @@
     }
     { mnRemover Menu optionAvance
       Name = "mnRemover"
-      Text = ("Remover archivo/s (Cuidado!)")
+      Text = ("Remover Archivo/s (Cuidado!)")
       Picture = Picture["icon:/22/delete"]
       Toggle = True
     }
@@ -131,7 +131,7 @@
     }
     { MnuDeplacer Menu optionAvance
       Name = "MnuDeplacer"
-      Text = ("poner en cuarentena archivos infectados")
+      Text = ("Poner en Cuarentena Archivos Infectados")
       Picture = Picture["icon:/48/download"]
       Toggle = True
     }
@@ -207,7 +207,7 @@
     { Menu8 Menu
     }
     { MnuConf Menu
-      Text = ("Archivos de Configuración")
+      Text = ("Archivos de configuración")
       Picture = Picture["icon:/24/info"]
       { MnuConfClamd Menu Config
         Name = "MnuConfClamd"
@@ -230,7 +230,7 @@
       }
     }
     { MnuExemples Menu
-      Text = ("Ejemplos de Configuraciones")
+      Text = ("Ejemplos de configuraciones")
       Picture = Picture["icon:/24/help"]
       { MnuExempleClamd Menu Exemples
         Name = "MnuExempleClamd"
