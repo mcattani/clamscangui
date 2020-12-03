@@ -32,79 +32,50 @@ Public Sub TournProc()                                                          
 
 End
 
-Public Function ScanFile(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean, ARCH As Boolean)
-
-     Dim Comm As String
-
-     FMain.txSalida.Text = ""
-     Comm = "clamscan " & Ruta                                                  'commande clamscan avec toutes les options
-     If SalidaError = True Then Comm = Comm & " --quiet"
-     If SinINF = True Then comm = comm & " --no-summary"
-     If SuprimirOK = True Then Comm = comm & " -o"
-     If SoloINF = True Then comm = comm & " -i"
-     If bell = True Then comm = comm & " --bell"
-     If RemoverArch = True Then comm = comm & " --remove=yes"
-     If PDF = True Then comm = comm & " --scan-pdf=yes"
-     If Mail = True Then comm = comm & " --scan-mail=yes"
-     If SWF = True Then comm = comm & " --scan-swf=yes"
-     If HTML = True Then comm = comm & " --scan-html=yes --scan-xmldocs=yes"
-     If HWP3 = True Then comm = comm & " --scan-hwp3=yes"
-     If PE = True Then comm = comm & " --scan-pe=yes"
-     If ELF = True Then comm = comm & " --scan-elf=yes"
-     If OLE2 = True Then comm = comm & " --scan-ole2=yes"
-     If ARCH = True Then comm = comm & " --scan-archive=yes"
-     If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine
-     comm = comm & " --exclude-dir=" & FMain.quarantaine
-     If bSudo = True Then
-          Authenticate.Command("sudo " & Comm)
-          If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) & " 2>&1" For Read As "Scan"
-               TournProc()
-          Endif
-     Else If bsudo = False
-          hProc = Shell (Comm) & " 2>&1" For Read As " Scan "
-          TournProc()
-     Endif
-
-     FichierLog()
-     Wait
-     FMain.Mouse = Mouse.Default
-     FMain.txSalida.Mouse = Mouse.Default
-
-End
-
-Public Function ScanDir(Ruta As String, SalidaError As Boolean, SinINF As Boolean, SuprimirOK As Boolean, SoloINF As Boolean, Bell As Boolean, RemoverArch As Boolean, Recursive As Boolean, AppsIndeseadas As Boolean, Mail As Boolean, PDF As Boolean, SWF As Boolean, HTML As Boolean, HWP3 As Boolean, PE As Boolean, ELF As Boolean, OLE2 As Boolean, Quarant As Boolean, bSudo As Boolean, ARCH As Boolean)
+Public Function ScanAction(Ruta As String)
 
      Dim Comm As String
 
      FMain.txSalida.Text = ""
      Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
-     If SalidaError = True Then Comm = Comm & " --quiet"
-     If SinINF = True Then comm = comm & " --no-summary"
-     If SuprimirOK = True Then Comm = comm & " -o"
-     If SoloINF = True Then comm = comm & " -i"
-     If Recursive = True Then comm = comm & " -r"
-     If bell = True Then comm = comm & " --bell"
-     If RemoverArch = True Then comm = comm & " --remove=yes"
-     If AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
-     If PDF = True Then comm = comm & " --scan-pdf=yes"
-     If Mail = True Then comm = comm & " --scan-mail=yes"
-     If SWF = True Then comm = comm & " --scan-swf=yes"
-     If HTML = True Then comm = comm & " --scan-html=yes --scan-xmldocs=yes"
-     If HWP3 = True Then comm = comm & " --scan-hwp3=yes"
-     If PE = True Then comm = comm & " --scan-pe=yes"
-     If ELF = True Then comm = comm & " --scan-elf=yes"
-     If OLE2 = True Then comm = comm & " --scan-ole2=yes"
-     If ARCH = True Then comm = comm & " --scan-archive=yes"
-     If Quarant = True Then comm = comm & " --move=" & FMain.quarantaine        'déplacement des fichiers virus en quarantaine
-     comm = comm & " --exclude-dir=" & FMain.quarantaine
-     If bSudo = True Then
+
+     'choix*********************************************************************
+     If FMain.SalidaErr = True Then Comm = Comm & " --quiet"
+     If FMain.SinINF = True Then comm = comm & " --no-summary"
+     If FMain.SuprimirOK = True Then Comm = comm & " -o"
+     If FMain.Infect = True Then comm = comm & " -i"
+     If FMain.bell = True Then comm = comm & " --bell"
+     'options*******************************************************************
+     If FMain.Recursive = True Then comm = comm & " -r"
+     If FMain.Remover = True Then comm = comm & " --remove=yes"
+     If FMain.AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
+     If FMain.AllMatch = True Then comm = comm & " -z" '" --allmatch=yes"
+     If FMain.Quarant = True Then comm = comm & " --move=" & FMain.quarantaine  'déplacement des fichiers virus en quarantaine
+     'options plus**************************************************************
+     If FMain.CrossFs = False Then comm = comm & " --cross-fs=no"
+     If FMain.PDF = False Then comm = comm & " --scan-pdf=no"
+     If FMain.Mail = False Then comm = comm & " --scan-mail=no"
+     If FMain.SWF = False Then comm = comm & " --scan-swf=no"
+     If FMain.HTML = False Then comm = comm & " --scan-html=no --scan-xmldocs=no"
+     If FMain.HWP3 = False Then comm = comm & " --scan-hwp3=no"
+     If FMain.PE = False Then comm = comm & " --scan-pe=no"
+     If FMain.ELF = False Then comm = comm & " --scan-elf=no"
+     If FMain.OLE2 = False Then comm = comm & " --scan-ole2=no"
+     If FMain.ARCH = False Then comm = comm & " --scan-archive=no"
+     If FMain.PhishingSig = False Then comm = comm & " --phishing-sigs=no"
+     If FMain.PhishingUrl = False Then comm = comm & " --phishing-scan-urls=no"
+     If FMain.Algo = False Then comm = comm & " --algorithmic-detection=no"
+     '**************************************************************************
+
+     comm = comm & " --exclude-dir=" & FMain.quarantaine                        'exclude quarantaine
+
+     If FMain.bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
                hProc = Shell (FMain.monTexte) & " 2>&1" For Read As "Scan"
                TournProc
           Endif
-     Else If bsudo = False
+     Else If FMain.bsudo = False
           hProc = Shell (Comm) & " 2>&1" For Read As "Scan"
           TournProc
      Endif

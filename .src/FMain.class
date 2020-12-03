@@ -11,6 +11,7 @@
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
 
+'*************************** clés à transmettre à clamscan *********************
 Public SalidaERR As Boolean
 Public SinINF As Boolean
 Public Recursive As Boolean
@@ -28,7 +29,12 @@ Public PE As Boolean
 Public ELF As Boolean
 Public OLE2 As Boolean
 Public ARCH As Boolean
-
+Public PhishingSig As Boolean
+Public PhishingUrl As Boolean
+Public Algo As Boolean
+Public AllMatch As Boolean
+Public CrossFs As Boolean
+'*******************************************************************************
 Public maCle As Integer
 Public Ruta As String                                                           'endroit ou fichier à scanner
 Public sMot As String
@@ -43,7 +49,7 @@ Public langue As String                                                         
 Public bSudo As Boolean                                                         'sudo appliqué
 Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
 Public monTexte As String                                                       'texte de commande pour transfert
-Public iFlag As Integer                                                         'drapeau integer
+Public iFlag As Integer                                                         'drapeau choix du menu
 Public iForm As Integer                                                         'drapeau choix du formulaire
 
 Public Sub Form_Open()                                                          'Form prinipale appelée par le Module1
@@ -125,6 +131,10 @@ Public Sub premiereFois()                                                       
      mnuELF.Value = True
      MnuOLE2.Value = True
      MnuARCH.Value = True
+     MnuPhishingSig.Value = True
+     MnuPhishingUrl.Value = True
+     MnuCrossFs.value = True
+     MnuAlgo.Value = True
 
      Settings["Menu/pHWP3"] = mnuHWP3.Value
      Settings["Menu/pXML"] = mnuXML.Value
@@ -135,6 +145,10 @@ Public Sub premiereFois()                                                       
      Settings["Menu/pELF"] = mnuELF.Value
      Settings["Menu/pOLE2"] = MnuOLE2.Value
      Settings["Menu/pARCH"] = MnuARCH.Value
+     Settings["Menu/PhishingSig"] = MnuPhishingSig.Value
+     Settings["Menu/PhishingUrl"] = MnuPhishingUrl.Value
+     Settings["Menu/CrossFs"] = MnuCrossFs.value
+     Settings["Menu/Algo"] = MnuAlgo.Value
 
 End
 
@@ -151,6 +165,8 @@ Public Sub LoadSettings()                                                       
      mnDetectar.Value = Settings["Menu/Detectar"]
      MnuDeplacer.Value = Settings["Menu/Deplacer"]
      mnRecursivo.Value = Settings["Menu/Recursif"]
+     MnuAllMatch.value = Settings["Menu/AllMatch"]
+     MnuCrossFs.value = Settings["Menu/CrossFs"]
      '**************************************************************************
      MnuAuto.Value = Settings["Menu/Auto"]
      MnuManuelle.Value = Settings["Menu/Manuel"]
@@ -167,13 +183,16 @@ Public Sub LoadSettings()                                                       
      mnuELF.Value = Settings["Menu/pELF"]
      MnuOLE2.Value = Settings["Menu/pOLE2"]
      MnuARCH.Value = Settings["Menu/pARCH"]
+     MnuPhishingSig.Value = Settings["Menu/PhishingSig"]
+     MnuPhishingUrl.Value = Settings["Menu/PhishingUrl"]
+     MnuAlgo.Value = Settings["Menu/Algo"]
      '********** Toutes options transmises *************************************
      SalidaERR = mnErrores.Value
      infect = mnInfectados.Value
      SuprimirOK = mnSupressOK.Value
      SinINF = mnNoSummary.Value
      Bell = mnBell.Value
-
+     '**************************************************************************
      mail = mnuMail.Value
      pdf = mnuPdf.Value
      Swf = mnuSWF.Value
@@ -183,7 +202,12 @@ Public Sub LoadSettings()                                                       
      ELF = mnuELF.Value
      OLE2 = MnuOLE2.Value
      ARCH = MnuARCH.Value
-
+     PhishingSig = MnuPhishingSig.Value
+     PhishingUrl = MnuPhishingUrl.Value
+     Algo = MnuAlgo.Value
+     '**************************************************************************
+     CrossFs = MnuCrossFs.Value
+     AllMatch = MnuAllMatch.Value
      Remover = mnRemover.Value
      Quarant = MnuDeplacer.Value
      Recursive = mnRecursivo.Value
@@ -245,6 +269,8 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/Remover"] = mnRemover.Value
      Settings["Menu/Detectar"] = mnDetectar.Value
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
+     Settings["Menu/AllMatch"] = MnuAllMatch.value
+     Settings["Menu/CrossFs"] = MnuCrossFs.value
      '******** recherche virus *************************************************
      Settings["Menu/Auto"] = MnuAuto.Value
      Settings["Menu/Manuel"] = MnuManuelle.Value
@@ -260,6 +286,9 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/pELF"] = mnuELF.Value
      Settings["Menu/pOLE2"] = MnuOLE2.Value
      Settings["Menu/pARCH"] = MnuARCH.Value
+     Settings["Menu/PhishingSig"] = MnuPhishingSig.Value
+     Settings["Menu/PhishingUrl"] = MnuPhishingUrl.Value
+     Settings["Menu/Algo"] = MnuAlgo.Value
      '**************************************************************************
      Settings["General/LangInit"] = langue
 
@@ -282,7 +311,8 @@ Public Sub FC_Activate()
      menuFaux()                                                                 'menus désactivés
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(FC.SelectedPath)
-     ClamScan.ScanFile(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo, ARCH)
+
+     ClamScan.ScanAction(Ruta)
      menuVraix()                                                                'menus activés
 
 End
@@ -292,8 +322,9 @@ Public Sub DC_Activate()
      menuFaux()                                                                 'menus désactivés
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(DC.SelectedPath)
-     ClamScan.ScanDir(ruta, SalidaERR, SinINF, SuprimirOK, SinINF, Bell, Remover, Recursive, AppsIndeseadas, Mail, PDF, SWF, HTML, HWP3, PE, ELF, OLE2, Quarant, bSudo, ARCH)
-     menuVraix()                                                                'menus activés
+
+     ClamScan.ScanAction(Ruta)
+     menuVraix() '                                                              'menus activés
 
 End
 
@@ -644,6 +675,9 @@ Public Sub option1_Click()                                                      
      Settings["Menu/pELF"] = mnuELF.Value
      Settings["Menu/pOLE2"] = MnuOLE2.Value
      Settings["Menu/pARCH"] = MnuARCH.Value
+     Settings["Menu/PhishingSig"] = MnuPhishingSig.Value
+     Settings["Menu/PhishingUrl"] = MnuPhishingUrl.Value
+     Settings["Menu/Algo"] = MnuAlgo.Value
 
      mail = mnuMail.Value                                                       'valeurs transmises
      pdf = mnuPdf.Value
@@ -654,6 +688,9 @@ Public Sub option1_Click()                                                      
      ELF = mnuELF.Value
      OLE2 = MnuOLE2.Value
      ARCH = MnuARCH.Value
+     PhishingSig = MnuPhishingSig.Value
+     PhishingUrl = MnuPhishingUrl.Value
+     Algo = MnuAlgo.Value
 
      SaveSettings()
 
@@ -668,11 +705,15 @@ Public Sub optionAvance_Click()                                                 
      Settings["Menu/Remover"] = mnRemover.Value
      Settings["Menu/Detectar"] = mnDetectar.Value
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
+     Settings["Menu/AllMatch"] = MnuAllMatch.value
+     Settings["Menu/CrossFs"] = MnuCrossFs.Value
 
      Remover = mnRemover.Value                                                  'valeurs transmises
      Quarant = MnuDeplacer.Value
      Recursive = mnRecursivo.Value
      AppsIndeseadas = mnDetectar.Value
+     AllMatch = MnuAllMatch.Value
+     CrossFs = MnuCrossFs.Value
 
      SaveSettings()
 

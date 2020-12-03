@@ -85,6 +85,7 @@
     --pcre-match-limit=#n                Maximum calls to the PCRE match function.
     --pcre-recmatch-limit=#n             Maximum recursive calls to the PCRE match function.
     --pcre-max-filesize=#n               Maximum size file to perform PCRE subsig matching.
+    
     --enable-stats                       Enable statistical reporting of malware
     --disable-pe-stats                   Disable submission of individual PE sections in stats submissions
     --stats-timeout=#n                   Number of seconds to wait for waiting a response back from the stats server

@@ -1,6 +1,23 @@
-* Sat Nov 28 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.53
--Optimización del código
--Arreglo menú en español
+* Thu Dec 03 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.55
+-Mejoramiento de código.
+-Reimplementación de menús.
+
+* Tue Dec 01 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
+- Version 2
+
+* Tue Dec 01 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
+- Commande options par défaut
+
+* Tue Dec 01 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
+- changement texte des menus
+
+* Mon Nov 30 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
+- Vérification des différents menus activés
+- Allègement du code
+- Ajout de toutes les options de base
+
+* Mon Nov 30 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.54
+- Ajout des limitations pour plus tard
 
 * Sat Nov 28 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.53
 - Redémarrage du service après modification des fichiers de configuration.

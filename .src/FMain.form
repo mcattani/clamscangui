@@ -1,43 +1,45 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,81,90)
+  MoveScaled(0,0,82,91)
+  Expand = True
   Text = ("// ClamAV GUI //")
   Icon = Picture["icon:/48/security"]
   Resizable = False
+  Arrangement = Arrange.Horizontal
   AutoResize = True
   { mnOpciones Menu
     Text = ("Opciones")
     { MnuEnreg Menu
-      Text = ("Grabación de sesiones")
+      Text = ("Grabación de Sesiones")
       Picture = Picture["icon:/32/info"]
       { mnErrores Menu Log1
         Name = "mnErrores"
-        Text = ("Mostrar solo Salida de Errores")
+        Text = ("Solo salida de errores")
         Picture = Picture["icon:/22/important"]
         Toggle = True
       }
       { mnInfectados Menu Log1
         Name = "mnInfectados"
-        Text = ("Mostrar solo Archivos Infectados")
+        Text = ("Mostrar solo archivos infectados")
         Picture = Picture["icon:/22/open-recent"]
         Toggle = True
       }
       { mnNoSummary Menu Log1
         Name = "mnNoSummary"
-        Text = ("Salida sin Resumen")
+        Text = ("No mostrar resumen al final")
         Picture = Picture["icon:/22/open-recent"]
         Toggle = True
       }
       { mnSupressOK Menu Log1
         Name = "mnSupressOK"
-        Text = ("No mostrar Comprobaciones \"OK\"")
+        Text = ("No mostrar resultados \"ok\"")
         Picture = Picture["icon:/22/unindent"]
         Toggle = True
       }
       { mnBell Menu Log1
         Name = "mnBell"
-        Text = ("Sonido de Campana si se encuentra algo")
+        Text = ("Sonar campana si se detecta virus")
         Picture = Picture["icon:/22/zoom-normal"]
         Toggle = True
       }
@@ -51,92 +53,6 @@
   }
   { mnOpcionesAvanzadas Menu
     Text = ("Opciones Avanzadas")
-    { Escaneo Menu
-      Text = ("Más Opciones")
-      Picture = Picture["icon:/22/add"]
-      { mnuHWP3 Menu option1
-        Name = "mnuHWP3"
-        Text = ("Escanear HWP3")
-        Picture = Picture["icon:/22/file"]
-        Toggle = True
-      }
-      { mnuXML Menu option1
-        Name = "mnuXML"
-        Text = ("Escanear XML/HTML")
-        Picture = Picture["icon:/22/file"]
-        Toggle = True
-      }
-      { mnuSWF Menu option1
-        Name = "mnuSWF"
-        Text = ("Escanear SWF")
-        Picture = Picture["icon:/22/file"]
-        Toggle = True
-      }
-      { mnuPdf Menu option1
-        Name = "mnuPdf"
-        Text = ("Escanear PDF")
-        Picture = Picture["icon:/22/file"]
-        Toggle = True
-      }
-      { MnuPE Menu option1
-        Name = "MnuPE"
-        Text = ("Escanear PE")
-        Picture = Picture["icon:/22/file"]
-        Toggle = True
-      }
-      { MnuELF Menu option1
-        Name = "MnuELF"
-        Text = ("Escanear ELF")
-        Picture = Picture["icon:/22/file"]
-        Toggle = True
-      }
-      { MnuOLE2 Menu option1
-        Name = "MnuOLE2"
-        Text = ("Escanear OLE2")
-        Picture = Picture["icon:/22/file"]
-        Toggle = True
-      }
-      { MnuARCH Menu option1
-        Name = "MnuARCH"
-        Text = ("Escanear Archivos Comprimidos")
-        Picture = Picture["icon:/48/archive"]
-        Toggle = True
-      }
-      { mnuMail Menu option1
-        Name = "mnuMail"
-        Text = ("Escanear archivos de Correo")
-        Picture = Picture["icon:/22/mail"]
-        Toggle = True
-      }
-    }
-    { Menu6 Menu
-    }
-    { mnRecursivo Menu optionAvance
-      Name = "mnRecursivo"
-      Text = ("Escaneo Recursivo")
-      Picture = Picture["icon:/22/rotate-left"]
-      Toggle = True
-    }
-    { mnRemover Menu optionAvance
-      Name = "mnRemover"
-      Text = ("Remover Archivo/s (Cuidado!)")
-      Picture = Picture["icon:/22/delete"]
-      Toggle = True
-    }
-    { mnDetectar Menu optionAvance
-      Name = "mnDetectar"
-      Text = ("Detectar Aplicaciones Indeseadas")
-      Picture = Picture["icon:/22/filter"]
-      Toggle = True
-    }
-    { MnuDeplacer Menu optionAvance
-      Name = "MnuDeplacer"
-      Text = ("Poner en Cuarentena Archivos Infectados")
-      Picture = Picture["icon:/48/download"]
-      Toggle = True
-    }
-    { Menu5 Menu
-    }
     { MnuBase Menu
       Text = ("Actualización de la base de datos")
       Picture = Picture["chukablue2.png"]
@@ -148,29 +64,150 @@
       }
       { MnuAuto Menu mnu
         Name = "MnuAuto"
-        Text = ("Actualización Automática")
+        Text = ("Actualización automática")
         Picture = Picture["icon:/48/database"]
         Radio = True
         Checked = True
       }
       { MnuManuelle Menu mnu
         Name = "MnuManuelle"
-        Text = ("Actualización Manual")
+        Text = ("Actualización manual")
         Picture = Picture["icon:/48/server"]
         Radio = True
       }
       { Menu2 Menu
       }
       { MnuImmediate Menu
-        Text = ("Actualización Inmediata")
+        Text = ("Actualización inmediata")
         Picture = Picture["icon:/48/refresh"]
+      }
+    }
+    { Menu5 Menu
+    }
+    { MnuAutres Menu
+      Text = ("Más opciones (no marcadas por defecto)")
+      Picture = Picture["icon:/22/attach"]
+      Visible = False
+    }
+    { Menu6 Menu
+    }
+    { mnRecursivo Menu optionAvance
+      Name = "mnRecursivo"
+      Text = ("Escaneo recursivo")
+      Picture = Picture["icon:/22/rotate-left"]
+      Toggle = True
+    }
+    { MnuAllMatch Menu optionAvance
+      Name = "MnuAllMatch"
+      Text = ("Continuar escanenado tras coincidencia")
+      Picture = Picture["icon:/22/align-height"]
+      Toggle = True
+    }
+    { mnRemover Menu optionAvance
+      Name = "mnRemover"
+      Text = ("Remover archivos infectados (¡Atención! )")
+      Picture = Picture["icon:/22/delete"]
+      Toggle = True
+    }
+    { mnDetectar Menu optionAvance
+      Name = "mnDetectar"
+      Text = ("Detectar aplicaciones no deseadas")
+      Picture = Picture["icon:/22/filter"]
+      Toggle = True
+    }
+    { MnuDeplacer Menu optionAvance
+      Name = "MnuDeplacer"
+      Text = ("Mover archivos infectados")
+      Picture = Picture["icon:/48/download"]
+      Toggle = True
+    }
+    { Menu10 Menu
+    }
+    { Escaneo Menu
+      Text = ("Más opciones (marcadas por defecto)")
+      Picture = Picture["icon:/22/add"]
+      { MnuCrossFs Menu optionAvance
+        Name = "MnuCrossFs"
+        Text = ("--cross-fs[=yes(*)/no]")
+        Picture = Picture["icon:/22/linux"]
+        Toggle = True
+      }
+      { mnuHWP3 Menu option1
+        Name = "mnuHWP3"
+        Text = ("--scan-hwp3[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { mnuXML Menu option1
+        Name = "mnuXML"
+        Text = ("--scan-html[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { mnuSWF Menu option1
+        Name = "mnuSWF"
+        Text = ("--scan-swf[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { mnuPdf Menu option1
+        Name = "mnuPdf"
+        Text = ("--scan-pdf[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuPE Menu option1
+        Name = "MnuPE"
+        Text = ("--scan-pe[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuELF Menu option1
+        Name = "MnuELF"
+        Text = ("--scan-elf[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuOLE2 Menu option1
+        Name = "MnuOLE2"
+        Text = ("--scan-ole2[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuARCH Menu option1
+        Name = "MnuARCH"
+        Text = ("--scan-archive[=yes(*)/no]")
+        Picture = Picture["icon:/48/archive"]
+        Toggle = True
+      }
+      { mnuMail Menu option1
+        Name = "mnuMail"
+        Text = ("--scan-mail[=yes(*)/no]")
+        Picture = Picture["icon:/22/mail"]
+        Toggle = True
+      }
+      { MnuAlgo Menu option1
+        Name = "MnuAlgo"
+        Text = ("--algorithmic-detection[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuPhishingSig Menu
+        Text = ("--phishing-sigs[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
+      }
+      { MnuPhishingUrl Menu
+        Text = ("--phishing-scan-urls[=yes(*)/no]")
+        Picture = Picture["icon:/22/file"]
+        Toggle = True
       }
     }
   }
   { MnuAction Menu
     Text = ("Comportamiento")
     { MnuVirus Menu
-      Text = ("Archivos Potencialmente Infectados")
+      Text = ("Archivos potencialmente infectados")
       Picture = Picture["icon:/48/flag"]
     }
     { Menu3 Menu
@@ -180,7 +217,7 @@
       Picture = Picture["icon:/48/book"]
     }
     { MnuHistoric Menu
-      Text = ("Historial de Lectura")
+      Text = ("Historial de lectura")
       Picture = Picture["icon:/48/archive"]
     }
     { Menu7 Menu
@@ -207,7 +244,7 @@
     { Menu8 Menu
     }
     { MnuConf Menu
-      Text = ("Archivos de configuración")
+      Text = ("Archivos de Configuración")
       Picture = Picture["icon:/24/info"]
       { MnuConfClamd Menu Config
         Name = "MnuConfClamd"
@@ -230,7 +267,7 @@
       }
     }
     { MnuExemples Menu
-      Text = ("Ejemplos de configuraciones")
+      Text = ("Ejemplos de Configuraciones")
       Picture = Picture["icon:/24/help"]
       { MnuExempleClamd Menu Exemples
         Name = "MnuExempleClamd"
@@ -264,58 +301,61 @@
       Picture = Picture["icon:/48/help"]
     }
   }
-  { TP TabPanel
-    MoveScaled(1,0,79,60)
-    Count = 2
-    Index = 0
-    Text = ("Analizar un Archivo")
-    { FC FileChooser
-      MoveScaled(1,1,77,54)
-      Expand = True
-      Border = False
-      Root = "/"
+  { PanGauche Panel
+    MoveScaled(1,0,79.875,85.875)
+    { TP TabPanel
+      MoveScaled(0,0,79,60)
+      Count = 2
+      Index = 0
+      Text = ("Analizar un Archivo")
+      { FC FileChooser
+        MoveScaled(1,1,77,54)
+        Expand = True
+        Border = False
+        Root = "/"
+        ReadOnly = True
+      }
+      Index = 1
+      Text = ("Analizar Directorios")
+      { DC DirChooser
+        MoveScaled(1,1,77,53)
+        Border = False
+        Root = "/"
+        ShowHidden = True
+      }
+      Index = 0
+    }
+    { !txSalida TextArea
+      MoveScaled(0,61,79,24)
+      #Public = True
+      ToolTip = ("Salida del escaneo")
       ReadOnly = True
+      Wrap = True
     }
-    Index = 1
-    Text = ("Analizar Directorios")
-    { DC DirChooser
-      MoveScaled(1,1,77,53)
-      Border = False
-      Root = "/"
-      ShowHidden = True
-    }
-    Index = 0
-  }
-  { !txSalida TextArea
-    MoveScaled(1,61,79,24)
-    #Public = True
-    ToolTip = ("Salida del escaneo")
-    ReadOnly = True
-    Wrap = True
-  }
-  { Panel1 Panel
-    MoveScaled(44,0,36,5)
-    { TBKill ToolButton
-      MoveScaled(17,0,4.625,4)
-      ToolTip = ("¡Mata el proceso en curso!")
-      Picture = Picture["icon:/32/halt"]
-    }
-    { TBhProc ToolButton
-      MoveScaled(12,0,4.625,4)
-      ToolTip = ("¡Ejecute el proceso!")
-      Picture = Picture["icon:/32/exec"]
-    }
-    { TBeffacer ToolButton
-      MoveScaled(1,0,5,4)
-      ToolTip = ("Salida de texto claro")
-      Picture = Picture["icon:/24/clear"]
-    }
-    { TBSudo ToolButton
-      MoveScaled(25,0,11,4)
-      ToolTip = ("Sudo")
-      Text = ("Sudo")
-      Picture = Picture["icon:/24/linux"]
-      Toggle = True
+    { Panel1 Panel
+      MoveScaled(43,0,36,5)
+      { TBKill ToolButton
+        MoveScaled(17,0,4.625,4)
+        ToolTip = ("¡Mata el proceso en curso!")
+        Picture = Picture["icon:/32/halt"]
+      }
+      { TBhProc ToolButton
+        MoveScaled(12,0,4.625,4)
+        ToolTip = ("¡Ejecute el proceso!")
+        Picture = Picture["icon:/32/exec"]
+      }
+      { TBeffacer ToolButton
+        MoveScaled(1,0,5,4)
+        ToolTip = ("Salida de texto claro")
+        Picture = Picture["icon:/24/clear"]
+      }
+      { TBSudo ToolButton
+        MoveScaled(25,0,11,4)
+        ToolTip = ("Sudo")
+        Text = ("Sudo")
+        Picture = Picture["icon:/24/linux"]
+        Toggle = True
+      }
     }
   }
 }

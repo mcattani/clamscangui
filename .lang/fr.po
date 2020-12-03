@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"POT-Creation-Date: 2020-11-28 20:47 UTC\n"
-"PO-Revision-Date: 2020-11-26 21:17 UTC\n"
+"POT-Creation-Date: 2020-12-01 19:23 UTC\n"
+"PO-Revision-Date: 2020-11-30 23:01 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -83,35 +83,35 @@ msgstr ""
 msgid "clamscan --version"
 msgstr "clamscan --version"
 
-#: ClamScan.module:140
+#: ClamScan.module:111
 msgid " Escaneo realizado : "
 msgstr " Analyse effectuée : "
 
-#: FMain.class:55 Module1.module:22
+#: FMain.class:61 Module1.module:22
 msgid "¡Atención!"
 msgstr "Attention!"
 
-#: FMain.class:56
+#: FMain.class:62
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr "Vous devez avoir installé l'antivirus ClamAv pour pouvoir utiliser cette application"
 
-#: FMain.class:59
+#: FMain.class:65
 msgid "Versión instalada: "
 msgstr "Version installée : "
 
-#: FMain.class:63
+#: FMain.class:69
 msgid " ~ Instalación incompleta de Clamav"
 msgstr "~ Installation incomplète de Clamav"
 
-#: FMain.class:64
+#: FMain.class:70
 msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr "Pour reconfigurer clamav-milter, exécutez sudo dpkg-reconfigure clamav-milter"
 
-#: FMain.class:64
+#: FMain.class:70
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr "Pour reconfigurer clamd, exécutez sudo dpkg-reconfigure clamav-daemon"
 
-#: FMain.class:226
+#: FMain.class:250
 msgid ""
 "¡Todos sus pedidos son \n"
 " del SuperUsuario!"
@@ -119,21 +119,21 @@ msgstr ""
 "Toutes vos commandes sont\n"
 "du SuperUser!"
 
-#: FMain.class:283
+#: FMain.class:312
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 "Veuillez patienter quelques secondes\n"
 "pendant le démarrage de l'antivirus"
 
-#: FMain.class:305
+#: FMain.class:336
 msgid "Elija el directorio para escanear"
 msgstr "Choisissez le répertoire à analyser"
 
-#: FMain.class:306
+#: FMain.class:337
 msgid "Elija el archivo para analizar"
 msgstr "Choisissez le fichier à analyser"
 
-#: FMain.class:339
+#: FMain.class:370
 msgid ""
 "Seleccione \n"
 " an objeto para escanear!"
@@ -141,7 +141,7 @@ msgstr ""
 "Veuillez sélectionner\n"
 "un objet à scanner!"
 
-#: FMain.class:402 Module1.module:88
+#: FMain.class:433 Module1.module:88
 msgid ""
 "clamscan, todavía funciona, en segundo plano.\n"
 " Tendrá que borrar la memoria usted mismo."
@@ -149,259 +149,304 @@ msgstr ""
 "Clamscan, fonctionne toujours, en arrière-plan.\n"
 "Vous devrez effacer la mémoire vous-même."
 
-#: FMain.class:408
+#: FMain.class:439
 msgid "El proceso actual ha sido eliminado"
 msgstr "Le processus actuel a été tué"
 
-#: FMain.class:408
+#: FMain.class:439
 msgid "¡Puedes volver!"
 msgstr "Vous pouvez revenir!"
 
-#: FMain.class:411
+#: FMain.class:442
 msgid "¡El proceso ya se detuvo!"
 msgstr "Le processus est déjà arrêté!"
 
-#: FMain.class:598
+#: FMain.class:629
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "La langue choisie sera appliquée après le redémarrage"
 
-#: FMain.class:600
+#: FMain.class:631
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "La langue choisie sera appliquée après le redémarrage du programme."
 
-#: FMain.class:600 FrmGeneral.class:41
+#: FMain.class:631 FrmGeneral.class:41
 msgid "No"
 msgstr "Non"
 
-#: FMain.class:600 FrmGeneral.class:41
+#: FMain.class:631 FrmGeneral.class:41
 msgid "Si"
 msgstr "Oui"
 
-#: FMain.class:600
+#: FMain.class:631
 msgid "¿Quieres renunciar?"
 msgstr "Voulez-vous quitter?"
 
 # gb-ignore
-#: FMain.form:71
+#: FMain.form:80
 msgid "// ClamAV GUI //"
 msgstr ""
 
-#: FMain.form:77
+#: FMain.form:87
 msgid "Opciones"
 msgstr "Les choix"
 
-#: FMain.form:80
+#: FMain.form:90
 msgid "Grabación de sesiones"
 msgstr "Enregistrement de session"
 
-#: FMain.form:85
-msgid "Mostrar solo Salida de Errores"
-msgstr "Afficher uniquement la sortie d'erreur"
+# gb-ignore
+#: FMain.form:95
+msgid "--quiet"
+msgstr ""
 
-#: FMain.form:92
-msgid "Mostrar solo Archivos Infectados"
-msgstr "Afficher uniquement les fichiers infectés"
+# gb-ignore
+#: FMain.form:102
+msgid "--infected"
+msgstr ""
 
-#: FMain.form:99
-msgid "Salida sin Resumen"
-msgstr "Quitter sans résumé"
+# gb-ignore
+#: FMain.form:109
+msgid "--no-summary"
+msgstr ""
 
-#: FMain.form:106
-msgid "No mostrar comprobaciones \"OK\""
-msgstr "Ne pas afficher les chèques  \"OK \""
+# gb-ignore
+#: FMain.form:116
+msgid "--suppress-ok-results"
+msgstr ""
 
-#: FMain.form:113
-msgid "Sonido de Campana si se encuentra algo"
-msgstr "La cloche sonne si quelque chose est trouvé"
-
+# gb-ignore
 #: FMain.form:123
+msgid "--bell"
+msgstr ""
+
+#: FMain.form:133
 msgid "Salir"
 msgstr "Sortir"
 
-#: FMain.form:129
+#: FMain.form:139
 msgid "Opciones Avanzadas"
 msgstr "Options avancées"
 
-#: FMain.form:132
-msgid "Más Opciones"
-msgstr "Plus d'options"
-
-#: FMain.form:137
-msgid "Escanear HWP3"
-msgstr "Scanner HWP3"
-
-#: FMain.form:144
-msgid "Escanear XML/HTML"
-msgstr "Analyser XML / HTML"
-
-#: FMain.form:151
-msgid "Escanear SWF"
-msgstr "Analyser SWF"
-
-#: FMain.form:158
-msgid "Escanear PDF"
-msgstr "Scanner le PDF"
-
-#: FMain.form:165
-msgid "Escanear PE"
-msgstr "Scan PE"
-
-#: FMain.form:172
-msgid "Escanear ELF"
-msgstr "Scanner ELF"
-
-#: FMain.form:179
-msgid "Escanear OLE2"
-msgstr "Analyser OLE2"
-
-#: FMain.form:186
-msgid "Escanear ARCHive"
-msgstr "Scan ARCHive"
-
-#: FMain.form:193
-msgid "Escanear archivos de Correo"
-msgstr "Analyser les fichiers de courrier"
-
-#: FMain.form:204
-msgid "Escaneo Recursivo"
-msgstr "Scan récursif"
-
-#: FMain.form:211
-msgid "Remover archivo/s (Cuidado!)"
-msgstr "Supprimer le fichier / s (attention!)"
-
-#: FMain.form:218
-msgid "Detectar Aplicaciones Indeseadas"
-msgstr "Détecter les applications indésirables"
-
-#: FMain.form:225
-msgid "poner en cuarentena archivos infectados"
-msgstr "mise en quarantaine des fichiers infectés"
-
-#: FMain.form:234
+#: FMain.form:142
 msgid "Actualización de la base de datos"
 msgstr "Mise à niveau de la base de données"
 
-#: FMain.form:238
+#: FMain.form:146
 msgid "Ver Log Freshclam"
 msgstr "Voir Log Freshclam"
 
-#: FMain.form:247
+#: FMain.form:155
 msgid "Actualización automática"
 msgstr "Mise à jour automatique"
 
-#: FMain.form:255
+#: FMain.form:163
 msgid "Actualización manual"
 msgstr "Mise à jour manuelle"
 
-#: FMain.form:264
+#: FMain.form:172
 msgid "Actualización inmediata"
 msgstr "Mise à jour immédiate"
 
-#: FMain.form:271
-msgid "comportamiento"
-msgstr "Actions"
+#: FMain.form:181
+msgid "Más opciones (non marcadas por defecto)"
+msgstr "Plus d'options (non cochées par défaut)"
 
-#: FMain.form:274
+# gb-ignore
+#: FMain.form:191
+msgid "--recursive[=yes/no(*)]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:198
+msgid "--allmatch[=yes/no(*)]"
+msgstr ""
+
+#: FMain.form:205
+msgid "--remove[=yes/no(*)] ( ¡Atención! )"
+msgstr "--remove[=yes/no(*)] (Attention!)"
+
+# gb-ignore
+#: FMain.form:212
+msgid "--detect-pua[=yes/no(*)]"
+msgstr ""
+
+#: FMain.form:219
+msgid "--move=CUARENTENA"
+msgstr "--move=QUARANTAINE"
+
+#: FMain.form:228
+msgid "Más opciones (marcadas por defecto)"
+msgstr "Plus d'options (cochées par défaut)"
+
+# gb-ignore
+#: FMain.form:233
+msgid "--cross-fs[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:240
+msgid "--scan-hwp3[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:247
+msgid "--scan-html[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:254
+msgid "--scan-swf[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:261
+msgid "--scan-pdf[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:268
+msgid "--scan-pe[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:275
+msgid "--scan-elf[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:282
+msgid "--scan-ole2[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:289
+msgid "--scan-archive[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:296
+msgid "--scan-mail[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:303
+msgid "--algorithmic-detection[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:309
+msgid "--phishing-sigs[=yes(*)/no]"
+msgstr ""
+
+# gb-ignore
+#: FMain.form:315
+msgid "--phishing-scan-urls[=yes(*)/no]"
+msgstr ""
+
+#: FMain.form:323
+msgid "comportamiento"
+msgstr "comportement"
+
+#: FMain.form:326
 msgid "Archivos potencialmente infectados"
 msgstr "Fichiers potentiellement infectés"
 
-#: FMain.form:282
+#: FMain.form:334
 msgid "Lectura del Log"
 msgstr "Lecture du journal"
 
-#: FMain.form:287
+#: FMain.form:339
 msgid "Historial de lectura"
 msgstr "Lecture de l'Historique"
 
-#: FMain.form:295
+#: FMain.form:347
 msgid "Idiomas"
 msgstr "Langues"
 
-#: FMain.form:300
+#: FMain.form:352
 msgid "Español"
 msgstr "Espagnol"
 
-#: FMain.form:306
+#: FMain.form:358
 msgid "francés"
 msgstr "français"
 
-#: FMain.form:312
+#: FMain.form:364
 msgid "Inglés"
 msgstr "Anglais"
 
-#: FMain.form:321
+#: FMain.form:373
 msgid "Archivos de configuración"
 msgstr "Fichiers de configuration"
 
 # gb-ignore
-#: FMain.form:326
+#: FMain.form:378
 msgid "Clamd.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:334
+#: FMain.form:386
 msgid "Freshclam.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:341
+#: FMain.form:393
 msgid "milter.conf"
 msgstr ""
 
-#: FMain.form:348
+#: FMain.form:400
 msgid "Ejemplos de configuraciones"
 msgstr "Exemples de configuration"
 
 # gb-ignore
-#: FMain.form:353
+#: FMain.form:405
 msgid "clamd.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:361
+#: FMain.form:413
 msgid "freshclam.conf"
 msgstr ""
 
 # gb-ignore
-#: FMain.form:376
+#: FMain.form:428
 msgid "?"
 msgstr ""
 
-#: FMain.form:379 frmAbout.form:14
+#: FMain.form:431 frmAbout.form:14
 msgid "Acerca de"
 msgstr "À propos de"
 
-#: FMain.form:384
+#: FMain.form:436
 msgid "Ayuda"
 msgstr "Aide"
 
-#: FMain.form:393
+#: FMain.form:448
 msgid "Analizar un Archivo"
 msgstr "Analyser un fichier"
 
-#: FMain.form:403
+#: FMain.form:458
 msgid "Analizar Directorios"
 msgstr "Analyser les répertoires"
 
-#: FMain.form:416
+#: FMain.form:471
 msgid "Salida del escaneo"
 msgstr "Sortie de numérisation"
 
-#: FMain.form:426
+#: FMain.form:481
 msgid "¡Mata el proceso en curso!"
 msgstr "Tuez le processus en cours!"
 
-#: FMain.form:432
+#: FMain.form:487
 msgid "¡Ejecute el proceso!"
 msgstr "Exécutez le processus!"
 
-#: FMain.form:438
+#: FMain.form:493
 msgid "Salida de texto claro"
 msgstr "Effacer la sortie de texte"
 
 # gb-ignore
-#: FMain.form:444
+#: FMain.form:499
 msgid "Sudo"
 msgstr ""
 
