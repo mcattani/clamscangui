@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,123,43)
+  MoveScaled(0,0,123,44)
   ToolTip = ("Acerca de") & "..."
   Text = ("Acerca de") & "..."
   Icon = Picture["icon:/48/security"]

@@ -12,6 +12,7 @@
 '' ' *********************************************************************************************************
 
 Public hProc As Process
+Public sTexte As String
 
 Public Function Version() As String
 
@@ -35,23 +36,29 @@ End
 Public Function ScanAction(Ruta As String)
 
      Dim Comm As String
+     Dim ajout As String
 
      FMain.txSalida.Text = ""
      Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
 
-     'choix*********************************************************************
+     'Menu choix****************************************************************
      If FMain.SalidaErr = True Then Comm = Comm & " --quiet"
      If FMain.SinINF = True Then comm = comm & " --no-summary"
      If FMain.SuprimirOK = True Then Comm = comm & " -o"
      If FMain.Infect = True Then comm = comm & " -i"
      If FMain.bell = True Then comm = comm & " --bell"
-     'options*******************************************************************
+     If FMain.Verbose = True Then comm = comm & " --verbose"
+     If FMain.ArchVerbose = True Then comm = comm & " --archive-verbose"
+     If FMain.Adebug = True Then comm = comm & " --debug"
+     'Menu options**************************************************************
      If FMain.Recursive = True Then comm = comm & " -r"
      If FMain.Remover = True Then comm = comm & " --remove=yes"
      If FMain.AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
      If FMain.AllMatch = True Then comm = comm & " -z" '" --allmatch=yes"
      If FMain.Quarant = True Then comm = comm & " --move=" & FMain.quarantaine  'déplacement des fichiers virus en quarantaine
-     'options plus**************************************************************
+     If FMain.Intersection = True Then comm = comm & " --partition-intersection=yes"
+     If FMain.Structured = True Then comm = comm & " --detect-structured=yes"
+     'Menu options plus*********************************************************
      If FMain.CrossFs = False Then comm = comm & " --cross-fs=no"
      If FMain.PDF = False Then comm = comm & " --scan-pdf=no"
      If FMain.Mail = False Then comm = comm & " --scan-mail=no"
@@ -67,23 +74,35 @@ Public Function ScanAction(Ruta As String)
      If FMain.Algo = False Then comm = comm & " --algorithmic-detection=no"
      '**************************************************************************
 
-     comm = comm & " --exclude-dir=" & FMain.quarantaine                        'exclude quarantaine
+     ajout = ajout & " --exclude-dir=" & FMain.quarantaine                        'exclude quarantaine
+     ajout = ajout & " --exclude-dir=^/proc"
+     ajout = ajout & " --exclude-dir=^/sys"
+     comm = comm & FMain.sCommande
 
      If FMain.bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) & " 2>&1" For Read As "Scan"
+               hProc = Shell (FMain.monTexte) & ajout & " 2>&1" For Read As "Scan"
                TournProc
           Endif
      Else If FMain.bsudo = False
-          hProc = Shell (Comm) & " 2>&1" For Read As "Scan"
+          hProc = Shell (Comm) & ajout & " 2>&1" For Read As "Scan"
           TournProc
      Endif
+
+     '***************************************************
+     If FMain.Quarant = True Then
+          File.Save(FMain.liste, sTexte)                                        'sauvegarde de la liste des fichiers en quarantaine
+     Else
+          File.Save(FMain.pil, sTexte)                                          'sauvegarde de la liste des fichiers et virus après scan
+     Endif
+     '***************************************************
 
      FichierLog()
      Wait
      FMain.Mouse = Mouse.Default
      FMain.txSalida.Mouse = Mouse.Default
+     FMain.monTexte = ""
 
 End
 
@@ -96,32 +115,32 @@ Public Sub Scan_read()                                                          
      FMain.txSalida.Text &= sLine
      FMain.txSalida.EnsureVisible()
 
+     If sLine Ends "FOUND" & gb.NewLine Then
+          sTexte &= sLine
+     Endif
+     File.Save(FMain.clamLog, sTexte)
+
 End
 
 Public Sub FichierLog()                                                         'sauvegarde des Logs et de l'Historique
 
-     Dim monTexte As String
-     Dim leFichier As File
-     Dim histo As File
-     Dim histoText As String
      Dim TextDate As String
 
-     monTexte = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
-     histoText = User.Home &/ ".clamscangui/Historique.txt"
      TextDate = " ---------| " & (" Escaneo realizado : ") & Now() & " |--------- "
 
-     If Not Exist(monTexte) Then
-          leFichier = Open monTexte For Create
+     If Not Exist(FMain.clamLog) Then                                                 'fichier Log
+          FMain.leFichier = Open FMain.clamLog For Create
      Else
-          leFichier = Open monTexte For Input
-     Endif
-     If Not Exist(histoText) Then
-          histo = Open histoText For Create
-     Else
-          histo = Open histoText For Input
+          FMain.leFichier = Open FMain.clamLog For Input
      Endif
 
-     File.Save(monTexte, leFichier.Load(monTexte) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)   'Logs
-     File.Save(histoText, histo.Load(histoText) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)     'Historique
+     If Not Exist(FMain.historic) Then                                                'fichier historique
+          FMain.histo = Open FMain.historic For Create
+     Else
+          FMain.histo = Open FMain.historic For Input
+     Endif
+
+     File.Save(FMain.clamLog, FMain.leFichier.Load(FMain.clamLog) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)   'Logs
+     File.Save(FMain.historic, FMain.histo.Load(FMain.historic) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)     'Historique
 
 End

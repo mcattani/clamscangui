@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sun, 13 Dec 2020 12:00:00 +0000
+Source: clamscangui
+Binary: clamscangui
+Architecture: source all
+Version: 1.1.60-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: PilValaquarus <marianocattani@gmail.com / valaquarus@gmail.com>
+Changed-By: PilValaquarus <marianocattani@gmail.com / valaquarus@gmail.com>
+Description:
+ clamscangui - Un sencillo GUI para el antivirus ClamAV. Une interface graphiqu.
+Changes:
+ clamscangui (1.1.60-0ubuntu1) unstable; urgency=low
+ .
+   * Cambios varios realizados por Philippe
+Checksums-Sha1:
+ 409476db4a010cb341b6a98750198bbdd2e0071f 1772 clamscangui_1.1.60-0ubuntu1.dsc
+ 3347b98d77f9620929d0e261ec102c450767bf21 3206 clamscangui_1.1.60-0ubuntu1.diff.gz
+ ac7995bcd242e55d5123ae53579623f537778c3b 368712 clamscangui_1.1.60-0ubuntu1_all.deb
+ 85e64d2462abfeefd66d2bbbd00dc7424a755f9b 11399 clamscangui_1.1.60-0ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ 8672ba8552f294c5b1dc672fef137eb8f6b27ffe4fbc7a4ed8b520503017fef7 1772 clamscangui_1.1.60-0ubuntu1.dsc
+ 39c7943a8dd4e451e3ca452888b67a1dfc7d3d30c700e61e6bdc71c67b98e19d 3206 clamscangui_1.1.60-0ubuntu1.diff.gz
+ 6ce2031a9a6f7d7745eb9993d847fbdbda925ca731540f3e2d071c603a314148 368712 clamscangui_1.1.60-0ubuntu1_all.deb
+ f2ce2eed8bb26b895587f233dfaf965f34a2fbb2d90a76b1882bdd0f1da6e57b 11399 clamscangui_1.1.60-0ubuntu1_amd64.buildinfo
+Files:
+ ac2abbd2a78c6b5c666f7d6d0344dc1c 1772 contrib/utils optional clamscangui_1.1.60-0ubuntu1.dsc
+ 4d71a68aadddc1dcb1ac4bed6f502f3e 3206 contrib/utils optional clamscangui_1.1.60-0ubuntu1.diff.gz
+ 9bd3c4c695681a3825292a048b847efd 368712 contrib/utils optional clamscangui_1.1.60-0ubuntu1_all.deb
+ a84df9512e254878689286f96ece25c7 11399 contrib/utils optional clamscangui_1.1.60-0ubuntu1_amd64.buildinfo

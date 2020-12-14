@@ -34,28 +34,41 @@ Public PhishingUrl As Boolean
 Public Algo As Boolean
 Public AllMatch As Boolean
 Public CrossFs As Boolean
+Public Intersection As Boolean
+Public Structured As Boolean
+Public Verbose As Boolean
+Public ArchVerbose As Boolean
+Public Adebug As Boolean
+Public Json As Boolean
 '*******************************************************************************
-Public maCle As Integer
+Public maCle As Integer                                                         'clé de position
 Public Ruta As String                                                           'endroit ou fichier à scanner
-Public sMot As String
+Public sMot As String                                                           'string à transmettre en commande shell
 Public bSortie As Boolean                                                       'drapeau de sortie de programme
 Public bFlag As Boolean                                                         'drapeau boolean
 Public quarantaine As String                                                    'nom du dossier de quarantaine
 Public historic As String                                                       'nom du fichier historque
 Public clamLog As String                                                        'nom du ficier log de session
 Public Quarant As Boolean                                                       'drapeau pour quarantaine
-Public antivir As String
+Public pil As String                                                            'liste des fichiers vérolés
+Public liste As String                                                          'liste des fichiers en quarantaine
 Public langue As String                                                         'langue
 Public bSudo As Boolean                                                         'sudo appliqué
 Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
-Public monTexte As String                                                       'texte de commande pour transfert
 Public iFlag As Integer                                                         'drapeau choix du menu
 Public iForm As Integer                                                         'drapeau choix du formulaire
+Public sCommande As String                                                      'commande à transmettre
+Public email As String                                                          'mail pour soumission
+Public nom As String                                                            'nom pour soumission
+Public fListe As File                                                           'fichier liste virus en quarantaine
+Public fPil As File                                                             'fichier liste virus trouvés
+Public leFichier As File                                                        'fichier log
+Public histo As File                                                            'fichier historique
+Public monTexte As String                                                       'texte pour commande à transmettre
 
 Public Sub Form_Open()                                                          'Form prinipale appelée par le Module1
 
-     Dim leFichier As File
-     Dim histo As File
+     PanLimit.Visible = False
 
      If Not Exist("/usr/bin/clamscan") Then
           Message.Title = ("¡Atención!")
@@ -71,17 +84,15 @@ Public Sub Form_Open()                                                          
           Me.Close
      Endif
 
-     antivir = User.Home &/ "Clamav"
      quarantaine = User.Home &/ ".clamscangui/viruses"                          'dossier de quarantaine des virus
      clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"                  'fichier Log
      historic = User.Home &/ ".clamscangui/Historique.txt"                      'fichier historique
+     liste = User.Home &/ ".clamscangui/viruses/liste.txt"                      'liste des virus en quarantaine
+     pil = User.Home &/ ".clamscangui/pil.txt"                                  'liste des virus trouvés
+
      If Not Exist(quarantaine) Then                                             'création du dossier de quarantaine des virus
           Try Mkdir User.Home &/ ".clamscangui"
           Try Mkdir quarantaine
-     Endif
-
-     If Not Exist(antivir) Then
-          Try Mkdir antivir
      Endif
 
      If Not Exist(clamLog) Then                                                 'fichier Log
@@ -92,9 +103,15 @@ Public Sub Form_Open()                                                          
           histo = Open historic For Create
      Endif
 
+     If Not Exist(pil) Then                                                     'liste des fichiers corrompus
+          fPil = Open pil For Create
+     Endif
+
+     If Not Exist(liste) Then                                                   'liste des fichiers en quarantaine
+          fListe = Open liste For Create
+     Endif
+
      quarantaine = Shell$(quarantaine)
-     clamLog = Shell$(clamLog)
-     historic = Shell$(historic)
 
      FMain.Text = Application.Name & " " & Application.Version
 
@@ -114,6 +131,7 @@ Public Sub premiereFois()                                                       
      MnuImmediate.Enabled = False
      MnuDeplacer.Value = False
      MnuVirus.Enabled = False
+     MnuSoumis.Enabled = False
 
      Settings["Menu/Auto"] = MnuAuto.Value
      Settings["Menu/Manuel"] = MnuManuelle.Value
@@ -121,6 +139,8 @@ Public Sub premiereFois()                                                       
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
      Settings["Menu/Virus"] = MnuVirus.Enabled
      Settings["General/LangInit"] = Left(System.Language, 2)
+     Settings["General/courriel"] = ""
+     Settings["General/nom"] = ""
 
      mnuHWP3.Value = True
      mnuXML.Value = True
@@ -160,6 +180,10 @@ Public Sub LoadSettings()                                                       
      mnNoSummary.Value = Settings["Menu/NoSummary"]
      mnSupressOK.Value = Settings["Menu/SupprOK"]
      mnBell.Value = Settings["Menu/Bell"]
+     MnuVerbose.Value = Settings["Menu/Verbose"]
+     MnuArchVerbose.Value = Settings["Menu/ArchVerbose"]
+     MnuDebug.value = Settings["Menu/Debug"]
+     MnuJson.Value = Settings["Menu/Json"]
      '************* Group optionAvance *****************************************
      mnRemover.Value = Settings["Menu/Remover"]
      mnDetectar.Value = Settings["Menu/Detectar"]
@@ -167,6 +191,8 @@ Public Sub LoadSettings()                                                       
      mnRecursivo.Value = Settings["Menu/Recursif"]
      MnuAllMatch.value = Settings["Menu/AllMatch"]
      MnuCrossFs.value = Settings["Menu/CrossFs"]
+     MnuIntersection.Value = Settings["Menu/Intersection"]
+     MnuStructured.Value = Settings["Menu/Structured"]
      '**************************************************************************
      MnuAuto.Value = Settings["Menu/Auto"]
      MnuManuelle.Value = Settings["Menu/Manuel"]
@@ -192,6 +218,10 @@ Public Sub LoadSettings()                                                       
      SuprimirOK = mnSupressOK.Value
      SinINF = mnNoSummary.Value
      Bell = mnBell.Value
+     Verbose = MnuVerbose.Value
+     ArchVerbose = MnuArchVerbose.Value
+     Adebug = MnuDebug.Value
+     Json = MnuJson.Value
      '**************************************************************************
      mail = mnuMail.Value
      pdf = mnuPdf.Value
@@ -212,7 +242,11 @@ Public Sub LoadSettings()                                                       
      Quarant = MnuDeplacer.Value
      Recursive = mnRecursivo.Value
      AppsIndeseadas = mnDetectar.Value
+     Intersection = MnuIntersection.Value
+     Structured = MnuStructured.Value
      '**************************************************************************
+     email = Settings["General/courriel"]
+     nom = Settings["General/nom"]
 
      If langue = "fr" Then
           MnuFrancais.Value = True
@@ -239,6 +273,21 @@ Public Sub LoadSettings()                                                       
           bTBSudo = False
      Endif
 
+     If MnuDeplacer.Value = True Then
+          ' MnuVirus.Enabled = True
+          ' MnuSoumis.Enabled = False
+          RB1.Background = Color.Red
+          RB1.Enabled = False
+     Else
+          MnuDeplacer.Value = False
+          ' MnuVirus.Enabled = False
+          ' MnuSoumis.Enabled = True
+          RB1.Background = Color.Green
+          RB1.Enabled = False
+     Endif
+     MnuVirus.Enabled = True
+     MnuSoumis.Enabled = True
+
 End
 
 Public Sub TBSudo_Click()                                                       'bouton sudo enfoncé
@@ -264,6 +313,10 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/NoSummary"] = mnNoSummary.Value
      Settings["Menu/SupprOK"] = mnSupressOK.Value
      Settings["Menu/Bell"] = mnBell.Value
+     Settings["Menu/Verbose"] = MnuVerbose.Value
+     Settings["Menu/ArchVerbose"] = MnuArchVerbose.Value
+     Settings["Menu/Debug"] = MnuDebug.value
+     Settings["Menu/Json"] = MnuJson.Value
      '******** Group optionAvance **********************************************
      Settings["Menu/Recursif"] = mnRecursivo.Value
      Settings["Menu/Remover"] = mnRemover.Value
@@ -271,6 +324,8 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
      Settings["Menu/AllMatch"] = MnuAllMatch.value
      Settings["Menu/CrossFs"] = MnuCrossFs.value
+     Settings["Menu/Intersection"] = MnuIntersection.Value
+     Settings["Menu/Structured"] = MnuStructured.Value
      '******** recherche virus *************************************************
      Settings["Menu/Auto"] = MnuAuto.Value
      Settings["Menu/Manuel"] = MnuManuelle.Value
@@ -391,6 +446,24 @@ Public Sub menuFaux()                                                           
      TBhProc.Enabled = False
      TBeffacer.Enabled = False
      TBSudo.Enabled = False
+     BtnDefaut.Enabled = False
+     BtnMax.Enabled = False
+     SlidDirRecursion.Enabled = False
+     SlidEmbPE.Enabled = False
+     SlidFiles.Enabled = False
+     SlidFilesize.Enabled = False
+     SlidHtmlNorm.Enabled = False
+     SlidHtmlTags.Enabled = False
+     SlidIconsPE.Enabled = False
+     SlidPartitions.Enabled = False
+     SlidPcreFilesize.Enabled = False
+     SlidPcreLimit.Enabled = False
+     SlidPcreRecLimit.Enabled = False
+     SlidRechWP3.Enabled = False
+     Slidrecursion.Enabled = False
+     SlidScansize.Enabled = False
+     SlidScriptNorm.Enabled = False
+     SlidZipType.Enabled = False
      Wait
 
 End
@@ -410,6 +483,24 @@ Public Sub menuVraix()                                                          
      TBhProc.Enabled = True
      TBeffacer.Enabled = True
      TBSudo.Enabled = True
+     BtnDefaut.Enabled = True
+     BtnMax.Enabled = True
+     SlidDirRecursion.Enabled = True
+     SlidEmbPE.Enabled = True
+     SlidFiles.Enabled = True
+     SlidFilesize.Enabled = True
+     SlidHtmlNorm.Enabled = True
+     SlidHtmlTags.Enabled = True
+     SlidIconsPE.Enabled = True
+     SlidPartitions.Enabled = True
+     SlidPcreFilesize.Enabled = True
+     SlidPcreLimit.Enabled = True
+     SlidPcreRecLimit.Enabled = True
+     SlidRechWP3.Enabled = True
+     Slidrecursion.Enabled = True
+     SlidScansize.Enabled = True
+     SlidScriptNorm.Enabled = True
+     SlidZipType.Enabled = True
      Wait
 
 End
@@ -441,6 +532,7 @@ Public Sub TBKill_Click()                                                       
      Else
           Message(("¡El proceso ya se detuvo!"))
      Endif
+     FMain.monTexte = ""
 
 End
 
@@ -455,7 +547,7 @@ End
 Public Sub MnuHistoric_Click()                                                  'montre l'historique global
 
      FMain.Mouse = Mouse.Wait                                                   'au cas où le fichier serait gros
-     Wait
+     Wait                                                                       'prévoir de réduire le fichier à un maximume de 1 mega
      iForm = 0
      FrmGeneral.ShowModal()
      Me.Hide
@@ -529,6 +621,30 @@ Public Sub MnuVirus_Click()                                                     
      Wait
      Me.Hide
      iForm = 5
+
+     If Not Exist(liste) Then                                                   'liste des fichiers en quarantaine
+          fListe = Open liste For Create
+     Endif
+
+     FrmGeneral.ShowModal()
+     FMain.Mouse = Mouse.Default
+     FMain.Show()
+     DC.Reload
+     FC.Reload
+
+End
+
+Public Sub MnuSoumis_Click()                                                    'nom à changer car trompeur ici ce sont les fichiers potentiellement corrompus et non la soumission
+
+     FMain.Mouse = Mouse.Wait
+     Wait
+     Me.Hide
+     iForm = 6
+
+     If Not Exist(pil) Then                                                     'liste des fichiers corrompus
+          fPil = Open pil For Create
+     Endif
+
      FrmGeneral.ShowModal()
      FMain.Mouse = Mouse.Default
      FMain.Show()
@@ -653,12 +769,20 @@ Public Sub Log1_Click()                                                         
      Settings["Menu/NoSummary"] = mnNoSummary.Value
      Settings["Menu/SupprOK"] = mnSupressOK.Value
      Settings["Menu/Bell"] = mnBell.Value
+     Settings["Menu/Verbose"] = MnuVerbose.Value
+     Settings["Menu/ArchVerbose"] = MnuArchVerbose.Value
+     Settings["Menu/Debug"] = MnuDebug.value
+     Settings["Menu/Json"] = MnuJson.Value
 
      SalidaERR = mnErrores.Value                                                'valeurs transmises
      infect = mnInfectados.Value
      SuprimirOK = mnSupressOK.Value
      SinINF = mnNoSummary.Value
      Bell = mnBell.Value
+     Verbose = MnuVerbose.Value
+     ArchVerbose = MnuArchVerbose.Value
+     Adebug = MnuDebug.Value
+     Json = MnuJson.Value
 
      SaveSettings()
 
@@ -698,8 +822,18 @@ End
 
 Public Sub optionAvance_Click()                                                 'menu des options avancées
 
-     If MnuDeplacer.Value = True Then MnuVirus.Enabled = True
-     If MnuDeplacer.Value = False Then MnuVirus.Enabled = False
+     If MnuDeplacer.Value = True Then
+          ' MnuVirus.Enabled = True
+          ' MnuSoumis.Enabled = False
+          RB1.Background = Color.Red
+          RB1.Enabled = False
+     Else
+          MnuDeplacer.Value = False
+          ' MnuVirus.Enabled = False
+          ' MnuSoumis.Enabled = True
+          RB1.Background = Color.Green
+          RB1.Enabled = False
+     Endif
 
      Settings["Menu/Recursif"] = mnRecursivo.Value
      Settings["Menu/Remover"] = mnRemover.Value
@@ -707,6 +841,8 @@ Public Sub optionAvance_Click()                                                 
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
      Settings["Menu/AllMatch"] = MnuAllMatch.value
      Settings["Menu/CrossFs"] = MnuCrossFs.Value
+     Settings["Menu/Intersection"] = MnuIntersection.Value
+     Settings["Menu/Structured"] = MnuStructured.Value
 
      Remover = mnRemover.Value                                                  'valeurs transmises
      Quarant = MnuDeplacer.Value
@@ -714,7 +850,113 @@ Public Sub optionAvance_Click()                                                 
      AppsIndeseadas = mnDetectar.Value
      AllMatch = MnuAllMatch.Value
      CrossFs = MnuCrossFs.Value
+     Intersection = MnuIntersection.Value
+     Structured = MnuStructured.Value
 
      SaveSettings()
+
+End
+
+Public Sub BtnDefaut_Click()                                                    'valeurs par défaut dans les limites
+
+     FMain.sCommande = ""
+     SlidFilesize.value = SlidFilesize.DefaultValue
+     SlidScansize.Value = SlidScansize.DefaultValue
+     SlidFiles.Value = SlidFiles.DefaultValue
+     Slidrecursion.Value = Slidrecursion.DefaultValue
+     SlidDirRecursion.value = SlidDirRecursion.DefaultValue
+     SlidEmbPE.Value = SlidEmbPE.DefaultValue
+     SlidHtmlNorm.Value = SlidHtmlNorm.DefaultValue
+     SlidHtmlTags.Value = SlidHtmlTags.DefaultValue
+     SlidScriptNorm.Value = SlidScriptNorm.DefaultValue
+     SlidPartitions.Value = SlidPartitions.DefaultValue
+     SlidIconsPE.Value = SlidIconsPE.DefaultValue
+     SlidRechWP3.Value = SlidRechWP3.DefaultValue
+     SlidPcreLimit.Value = SlidPcreLimit.DefaultValue
+     SlidPcreRecLimit.Value = SlidPcreRecLimit.DefaultValue
+     SlidPcreFilesize.Value = SlidPcreFilesize.DefaultValue
+     SlidZipType.Value = SlidZipType.DefaultValue
+
+     limit_Leave()
+
+End
+
+Public Sub MnuLimit_Click()                                                     'apparition ou non des limites
+
+     If PanLimit.Visible = False Then
+          PanLimit.Visible = True
+          Me.Center
+     Else
+          PanLimit.Visible = False
+          Me.Center
+     Endif
+
+End
+
+Public Sub limit_Change()
+
+     If SlidFilesize.value = SlidFilesize.DefaultValue Then sCommande = ""
+     If SlidScansize.Value = SlidScansize.DefaultValue Then sCommande = ""
+     If SlidFiles.Value = SlidFiles.DefaultValue Then sCommande = ""
+     If Slidrecursion.Value = Slidrecursion.DefaultValue Then sCommande = ""
+     If SlidDirRecursion.value = SlidDirRecursion.DefaultValue Then sCommande = ""
+     If SlidEmbPE.Value = SlidEmbPE.DefaultValue Then sCommande = ""
+     If SlidHtmlNorm.Value = SlidHtmlNorm.DefaultValue Then sCommande = ""
+     If SlidHtmlTags.Value = SlidHtmlTags.DefaultValue Then sCommande = ""
+     If SlidScriptNorm.Value = SlidScriptNorm.DefaultValue Then sCommande = ""
+     If SlidPartitions.Value = SlidPartitions.DefaultValue Then sCommande = ""
+     If SlidIconsPE.Value = SlidIconsPE.DefaultValue Then sCommande = ""
+     If SlidRechWP3.Value = SlidRechWP3.DefaultValue Then sCommande = ""
+     If SlidPcreLimit.Value = SlidPcreLimit.DefaultValue Then sCommande = ""
+     If SlidPcreRecLimit.Value = SlidPcreRecLimit.DefaultValue Then sCommande = ""
+     If SlidPcreFilesize.Value = SlidPcreFilesize.DefaultValue Then sCommande = ""
+     If SlidZipType.Value = SlidZipType.DefaultValue Then sCommande = ""
+
+End
+
+Public Sub limit_Leave()                                                        'application des changements de limite
+
+     sCommande = ""
+     If SlidFilesize.value <> SlidFilesize.DefaultValue Then sCommande = sCommande & " --max-filesize=" & CStr(SlidFilesize.Value) & "M"
+     If SlidScansize.Value <> SlidScansize.DefaultValue Then sCommande = sCommande & " --max-scansize=" & CStr(SlidScansize.Value) & "M"
+     If SlidFiles.Value <> SlidFiles.DefaultValue Then sCommande = sCommande & " --max-files=" & CStr(SlidFiles.Value)
+     If Slidrecursion.Value <> Slidrecursion.DefaultValue Then sCommande = sCommande & " --max-recursion=" & CStr(Slidrecursion.Value)
+     If SlidDirRecursion.value <> SlidDirRecursion.DefaultValue Then sCommande = sCommande & " --max-dir-recursion=" & CStr(SlidDirRecursion.Value)
+     If SlidEmbPE.Value <> SlidEmbPE.DefaultValue Then sCommande = sCommande & " --max-embeddedpe=" & CStr(SlidEmbPE.Value) & "M"
+     If SlidHtmlNorm.Value <> SlidHtmlNorm.DefaultValue Then sCommande = sCommande & " --max-htmlnormalize=" & CStr(SlidHtmlNorm.Value) & "M"
+     If SlidHtmlTags.Value <> SlidHtmlTags.DefaultValue Then sCommande = sCommande & " --max-htmlnotags=" & CStr(SlidHtmlTags.Value) & "M"
+     If SlidScriptNorm.Value <> SlidScriptNorm.DefaultValue Then sCommande = sCommande & " --max-scriptnormalize=" & CStr(SlidScriptNorm.Value) & "M"
+     If SlidPartitions.Value <> SlidPartitions.DefaultValue Then sCommande = sCommande & " --max-partitions=" & CStr(SlidPartitions.Value)
+     If SlidIconsPE.Value <> SlidIconsPE.DefaultValue Then sCommande = sCommande & " -- max-iconspe=" & CStr(SlidIconsPE.Value)
+
+     If SlidRechWP3.Value <> SlidRechWP3.DefaultValue Then sCommande = sCommande & "  --max-rechwp3=" & CStr(SlidRechWP3.Value)
+     If SlidPcreLimit.Value <> SlidPcreLimit.DefaultValue Then sCommande = sCommande & "  --pcre-match-limit=" & CStr(SlidPcreLimit.Value)
+     If SlidPcreRecLimit.Value <> SlidPcreRecLimit.DefaultValue Then sCommande = sCommande & " --pcre-recmatch-limit=" & CStr(SlidPcreRecLimit.Value)
+     If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
+     If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
+
+End
+
+Public Sub BtnMax_Click()                                                       'valeurs max des limites
+
+     FMain.sCommande = ""
+     SlidFilesize.value = SlidFilesize.MaxValue
+     SlidScansize.Value = SlidScansize.MaxValue
+     SlidFiles.Value = SlidFiles.MaxValue
+     Slidrecursion.Value = Slidrecursion.MaxValue
+     SlidDirRecursion.value = SlidDirRecursion.MaxValue
+     SlidEmbPE.Value = SlidEmbPE.MaxValue
+     SlidHtmlNorm.Value = SlidHtmlNorm.MaxValue
+     SlidHtmlTags.Value = SlidHtmlTags.MaxValue
+     SlidScriptNorm.Value = SlidScriptNorm.MaxValue
+     SlidPartitions.Value = SlidPartitions.MaxValue
+     SlidIconsPE.Value = SlidIconsPE.MaxValue
+     SlidRechWP3.Value = SlidRechWP3.MaxValue
+     SlidPcreLimit.Value = SlidPcreLimit.MaxValue
+     SlidPcreRecLimit.Value = SlidPcreRecLimit.MaxValue
+     SlidPcreFilesize.Value = SlidPcreFilesize.MaxValue
+     SlidZipType.Value = SlidZipType.MaxValue
+
+     limit_Leave()
 
 End

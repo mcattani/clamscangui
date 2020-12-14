@@ -23,63 +23,75 @@
     Expand = True
     Arrangement = Arrange.Horizontal
     { TextArea1 TextArea
-      MoveScaled(2,2,58,68)
+      MoveScaled(2,2,37,68)
       Expand = True
       ReadOnly = True
       Wrap = True
     }
-    { FV1 FileView
-      MoveScaled(66,3,39,67)
-      ToolTip = ("Seleccione los archivos que desee eliminar")
+    { GV1 GridView
+      MoveScaled(70,2,36,67)
       Expand = True
-      Mode = Select.Multiple
-      ShowDetailed = True
-      ShowHidden = True
-      ShowDirectory = True
+      Mode = Select.Single
+      Header = GridView.Both
     }
   }
   { HBox1 HBox
     MoveScaled(1,82.4286,112,4)
     Spacing = True
     { btnImpr Button
-      MoveScaled(0,0,19,4)
+      MoveScaled(0,0,17.1429,4)
       Text = ("Imprimir")
       Picture = Picture["icon:/24/print"]
     }
+    { btnQuarant Button
+      MoveScaled(1,0,17.1429,4)
+      Visible = False
+      Text = ("Cuarentena")
+      Picture = Picture["icon:/24/security"]
+    }
     { Panel5 Panel
-      MoveScaled(20,0,2,4)
+      MoveScaled(17,0,2,4)
+      Expand = True
+    }
+    { btnSubmission Button
+      MoveScaled(19,0,17.1429,4)
+      Text = ("Sumisión")
+      Picture = Picture["icon:/24/mail"]
+    }
+    { Panel7 Panel
+      MoveScaled(36,0,2,4)
       Expand = True
     }
     { btnBorrar Button
-      MoveScaled(23,0,19,4)
+      MoveScaled(38,0,17.1429,4)
       Text = ("Borrar")
       Picture = Picture["icon:/24/clear"]
     }
     { Panel2 Panel
-      MoveScaled(43,0,2,4)
+      MoveScaled(55,0,2,4)
       Expand = True
     }
     { btnRestaurar Button
-      MoveScaled(46,0,19,4)
+      MoveScaled(57,0,17.1429,4)
       Text = ("Restaurar")
       Picture = Picture["icon:/24/redo"]
       Cancel = True
     }
     { Panel1 Panel
-      MoveScaled(65,0,2,4)
+      MoveScaled(74,0,2,4)
       Expand = True
     }
     { btnSauve Button
-      MoveScaled(68,0,19,4)
+      MoveScaled(76,0,17.1429,4)
       Text = ("Salvar")
       Picture = Picture["icon:/24/floppy"]
     }
     { Panel6 Panel
-      MoveScaled(88,0,2,4)
+      MoveScaled(93,0,2,4)
       Expand = True
     }
     { btnCerrar Button
-      MoveScaled(91,0,19,4)
+      MoveScaled(94.2857,0,17.1429,4)
       Text = ("Cerrar")
       Picture = Picture["icon:/24/close"]
     }

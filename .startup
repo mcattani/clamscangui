@@ -1,8 +1,8 @@
 Module1
-ClamScanGui
+ClamScanGuiV0
 0
 0
-1.1.55
+1.1.60
 
 gb.image
 gb.qt5
@@ -14,6 +14,8 @@ gb.form.dialog
 gb.util
 gb.settings
 gb.form.stock
+gb.net
+gb.net.curl
 gb.qt5.ext
 gb.report2
 

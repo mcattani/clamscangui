@@ -1,20 +1,41 @@
-* Thu Dec 03 2020 Ozymandias & PilValaquarus <marianocattani@gmail.com valaquarus@gmail.com> 1.1.55
--Mejoramiento de código.
--Reimplementación de menús.
+* Sun Dec 13 2020 PilValaquarus <marianocattani@gmail.com / valaquarus@gmail.com> 1.1.60
+- Cambios varios realizados por Philippe
 
-* Tue Dec 01 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
-- Version 2
+* Thu Dec 10 2020 PilValaquarus <valaquarus@gmail.com> 1.1.60
+- Indicateur visuel de mise en quarantaine
 
-* Tue Dec 01 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
-- Commande options par défaut
+* Thu Dec 10 2020 PilValaquarus <valaquarus@gmail.com> 1.1.60
+- Correction bug sur fichier Log
+- Commentaires
+- Contrôle du code
 
-* Tue Dec 01 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
-- changement texte des menus
+* Wed Dec 09 2020 PilValaquarus <valaquarus@gmail.com> 1.1.59
+- Recodage complet
+
+* Fri Dec 04 2020 PilValaquarus <valaquarus@gmail.com> 1.1.58
+- Ajout soumission sans quarantaine
+
+* Fri Dec 04 2020 PilValaquarus <valaquarus@gmail.com> 1.1.57
+- Ajout Limitations
+
+* Thu Dec 03 2020 PilValaquarus <valaquarus@gmail.com> 1.1.56
+- Terminal, fond noir
+
+* Thu Dec 03 2020 PilValaquarus <valaquarus@gmail.com> 1.1.56
+- Ajout de clamsubmit pour soumission de faux positifs
+- correction d'un petit bug sur les champs email et nom
+- renommage menu actions
+- Ajout --gen-json
 
 * Mon Nov 30 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
 - Vérification des différents menus activés
 - Allègement du code
 - Ajout de toutes les options de base
+- changement texte des menus
+- Commande options par défaut
+- Version 2
+- Ajout commandes
+- Ajout --Debug
 
 * Mon Nov 30 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.54
 - Ajout des limitations pour plus tard

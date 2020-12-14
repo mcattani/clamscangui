@@ -2,19 +2,19 @@ Format: 1.0
 Source: clamscangui
 Binary: clamscangui
 Architecture: all source
-Version: 1.1.55-0ubuntu1
+Version: 1.1.60-0ubuntu1
 Checksums-Md5:
- 34973a61fc0ba533aedd558fa2e4f99b 1665 clamscangui_1.1.55-0ubuntu1.dsc
- 40d53abe18d33122f39e0f596b72e2d6 361144 clamscangui_1.1.55-0ubuntu1_all.deb
+ ac2abbd2a78c6b5c666f7d6d0344dc1c 1772 clamscangui_1.1.60-0ubuntu1.dsc
+ 9bd3c4c695681a3825292a048b847efd 368712 clamscangui_1.1.60-0ubuntu1_all.deb
 Checksums-Sha1:
- ade0ec46a6ccc22df62339fe47e93accd598043d 1665 clamscangui_1.1.55-0ubuntu1.dsc
- b35cc061e9ddf471090d318e529a3c2126b431eb 361144 clamscangui_1.1.55-0ubuntu1_all.deb
+ 409476db4a010cb341b6a98750198bbdd2e0071f 1772 clamscangui_1.1.60-0ubuntu1.dsc
+ ac7995bcd242e55d5123ae53579623f537778c3b 368712 clamscangui_1.1.60-0ubuntu1_all.deb
 Checksums-Sha256:
- 44f16402f2c4b8de9331df7995ff0dd0e40463d543208ca2c501dfc5bcd31189 1665 clamscangui_1.1.55-0ubuntu1.dsc
- 40da24599ce355c44622222acc67520b2447f3f6b41cbda0d6f6fb2367916d70 361144 clamscangui_1.1.55-0ubuntu1_all.deb
+ 8672ba8552f294c5b1dc672fef137eb8f6b27ffe4fbc7a4ed8b520503017fef7 1772 clamscangui_1.1.60-0ubuntu1.dsc
+ 6ce2031a9a6f7d7745eb9993d847fbdbda925ca731540f3e2d071c603a314148 368712 clamscangui_1.1.60-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Thu, 03 Dec 2020 16:57:32 -0300
+Build-Date: Sun, 13 Dec 2020 21:22:04 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs
@@ -71,6 +71,8 @@ Installed-Build-Depends:
  gambas3-gb-form-dialog (= 3.15.2-1),
  gambas3-gb-form-stock (= 3.15.2-1),
  gambas3-gb-image (= 3.15.2-1),
+ gambas3-gb-net (= 3.15.2-1),
+ gambas3-gb-net-curl (= 3.15.2-1),
  gambas3-gb-qt5 (= 3.15.2-1),
  gambas3-gb-qt5-ext (= 3.15.2-1),
  gambas3-gb-report2 (= 3.15.2-1),
@@ -127,7 +129,8 @@ Installed-Build-Depends:
  libctf-nobfd0 (= 2.35.1-1ubuntu1),
  libctf0 (= 2.35.1-1ubuntu1),
  libcups2 (= 2.3.3-3ubuntu1),
- libcurl4 (= 7.68.0-1ubuntu4),
+ libcurl3-gnutls (= 7.68.0-1ubuntu4.2),
+ libcurl4 (= 7.68.0-1ubuntu4.2),
  libdb5.3 (= 5.3.28+dfsg1-0.6ubuntu3),
  libdbus-1-3 (= 1.12.20-1ubuntu1),
  libdebconfclient0 (= 0.252ubuntu1),
@@ -185,7 +188,7 @@ Installed-Build-Depends:
  libidn2-0 (= 2.3.0-1),
  libinput-bin (= 1.16.2-1),
  libinput10 (= 1.16.2-1),
- libip4tc2 (= 1.8.5-3ubuntu2.20.10.1),
+ libip4tc2 (= 1.8.5-3ubuntu2.20.10.2),
  libisl22 (= 0.22.1-1),
  libitm1 (= 10.2.0-13ubuntu1),
  libjpeg-turbo8 (= 2.0.3-0ubuntu2),
@@ -260,7 +263,7 @@ Installed-Build-Depends:
  libsmartcols1 (= 2.36-3ubuntu1),
  libsqlite3-0 (= 3.33.0-1),
  libssh-4 (= 0.9.4-1ubuntu3),
- libssl1.1 (= 1.1.1f-1ubuntu4),
+ libssl1.1 (= 1.1.1f-1ubuntu4.1),
  libstdc++-10-dev (= 10.2.0-13ubuntu1),
  libstdc++6 (= 10.2.0-13ubuntu1),
  libsub-override-perl (= 0.09-2),
@@ -318,7 +321,7 @@ Installed-Build-Depends:
  libxtst6 (= 2:1.2.3-1),
  libxxf86vm1 (= 1:1.1.4-1build1),
  libzstd1 (= 1.4.5+dfsg-4),
- linux-libc-dev (= 5.8.0-31.33),
+ linux-libc-dev (= 5.8.0-33.36),
  login (= 1:4.8.1-1ubuntu6),
  logrotate (= 3.14.0-4ubuntu5),
  lsb-base (= 11.1.0ubuntu2),
@@ -357,4 +360,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_AR.UTF-8"
  LC_ALL="es_AR.UTF-8"
- SOURCE_DATE_EPOCH="1606996800"
+ SOURCE_DATE_EPOCH="1607860800"

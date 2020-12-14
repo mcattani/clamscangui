@@ -1,0 +1,103 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,99,72)
+  Text = ("Formulario de envío de falsos positivos")
+  Icon = Picture["icon:/48/security"]
+  Resizable = False
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { TextLabel1 TextLabel
+    MoveScaled(3,2,89,6)
+    Expand = True
+    AutoResize = True
+    Text = ("Porfavor complete todos los campos\npara que la presentación sea eficaz.\nConsulte la lista de archivos para enviar,\nasí como los nombres de los virus.")
+  }
+  { Panel2 Panel
+    MoveScaled(1,10,97,56)
+    { TBCourriel TextBox
+      MoveScaled(29,0,67,4)
+    }
+    { TBNom TextBox
+      MoveScaled(29,5,67,4)
+    }
+    { TAVirus TextArea
+      MoveScaled(29,10,67,9)
+      Wrap = True
+    }
+    { TAFichier TextArea
+      MoveScaled(29,20,67,9)
+      ReadOnly = True
+      Wrap = True
+    }
+    { Label2 TextLabel
+      MoveScaled(1,20,22,7)
+      Expand = True
+      AutoResize = True
+      Text = ("Lista de archivos para enviar:")
+      Alignment = Align.Normal
+    }
+    { Label4 TextLabel
+      MoveScaled(1,10,22,8)
+      Expand = True
+      AutoResize = True
+      Text = ("Nombre del virus detectado como falso positivo:")
+      Alignment = Align.Normal
+    }
+    { Label3 TextLabel
+      MoveScaled(1,5,21.4286,4)
+      Expand = True
+      AutoResize = True
+      Text = ("Su nombre :")
+      Alignment = Align.Normal
+    }
+    { Label1 TextLabel
+      MoveScaled(1,0,21.4286,4)
+      Expand = True
+      AutoResize = True
+      Text = ("Su correo :")
+      Alignment = Align.Normal
+    }
+    { TextArea3 TextArea
+      MoveScaled(1,36,95,19)
+      Background = Color.Black
+      Foreground = Color.White
+      ReadOnly = True
+      Wrap = True
+    }
+    { TextLabel2 TextLabel
+      MoveScaled(1,31,31,4)
+      AutoResize = True
+      Text = ("Terminal para rastrear su pedido:")
+    }
+  }
+  { HBox1 HBox
+    MoveScaled(8,67,90,4)
+    Spacing = True
+    { Panel1 Panel
+      MoveScaled(4,0,4,4)
+      Expand = True
+    }
+    { btnEnviar Button
+      MoveScaled(29,0,16,4)
+      Text = ("Enviar")
+      Picture = Picture["icon:/22/mail"]
+      Default = True
+    }
+    { btnCancel Button
+      MoveScaled(46,0,16,4)
+      Text = ("Cancelar")
+      Picture = Picture["icon:/22/cancel"]
+    }
+    { Panel3 Panel
+      MoveScaled(63,0,4,4)
+      Expand = True
+    }
+    { btnCerrar Button
+      MoveScaled(71,0,17.1429,4)
+      Text = ("Cerrar")
+      Picture = Picture["icon:/24/close"]
+    }
+  }
+}

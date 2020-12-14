@@ -5,15 +5,18 @@ Count=0
 Count=0
 
 [OpenFile]
-File[1]=".src/FMain.form"
-File[2]=".src/Module1.module:5.19"
-Active=3
-File[3]=".src/ClamScan.module:0.0"
-Count=4
-File[4]="clamscan.txt:0.0"
+File[1]=".src/Module1.module:5.19"
+File[2]=".src/Authenticate.form"
+File[3]=".src/Cerf.form"
+File[4]=".src/ClamScan.module:0.0"
+File[5]=".src/frmAbout.form"
+Active=7
+File[6]=".src/FMain.form"
+Count=7
+File[7]=".src/FMain.class:5.70"
 
 [Package]
-Dir="~/Escritorio/clamscangui-1.1.55.orig/"
+Dir="~/Escritorio/"
 
 [Watches]
 Count=0
