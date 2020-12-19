@@ -83,54 +83,6 @@
   }
   { mnOpcionesAvanzadas Menu
     Text = ("Opciones Avanzadas")
-    { MnuAutres Menu
-      Text = ("Opciones no marcadas por defecto")
-      Picture = Picture["icon:/22/attach"]
-      { mnRemover Menu optionAvance
-        Name = "mnRemover"
-        Text = ("--remove[=yes/no(*)] ( ¡Atención! )")
-        Picture = Picture["icon:/22/delete"]
-        Toggle = True
-      }
-      { mnRecursivo Menu optionAvance
-        Name = "mnRecursivo"
-        Text = ("--recursive[=yes/no(*)]")
-        Picture = Picture["icon:/22/rotate-left"]
-        Toggle = True
-      }
-      { MnuAllMatch Menu optionAvance
-        Name = "MnuAllMatch"
-        Text = ("--allmatch[=yes/no(*)]")
-        Picture = Picture["icon:/22/align-height"]
-        Toggle = True
-      }
-      { mnDetectar Menu optionAvance
-        Name = "mnDetectar"
-        Text = ("--detect-pua[=yes/no(*)]")
-        Picture = Picture["icon:/22/filter"]
-        Toggle = True
-      }
-      { MnuStructured Menu optionAvance
-        Name = "MnuStructured"
-        Text = ("--detect-structured[=yes/no(*)]")
-        Picture = Picture["icon:/22/database"]
-        Toggle = True
-      }
-      { MnuIntersection Menu optionAvance
-        Name = "MnuIntersection"
-        Text = ("--partition-intersection[=yes/no(*)]")
-        Picture = Picture["icon:/22/cdrom"]
-        Toggle = True
-      }
-      { MnuDeplacer Menu optionAvance
-        Name = "MnuDeplacer"
-        Text = ("--move=CUARENTENA")
-        Picture = Picture["icon:/48/download"]
-        Toggle = True
-      }
-    }
-    { Menu5 Menu
-    }
     { MnuBase Menu
       Text = ("Actualización de la base de datos")
       Picture = Picture["chukablue2.png"]
@@ -158,6 +110,93 @@
       { MnuImmediate Menu
         Text = ("Actualización inmediata")
         Picture = Picture["icon:/48/refresh"]
+      }
+    }
+    { Menu5 Menu
+    }
+    { MnuAutres Menu
+      Text = ("Opciones no marcadas por defecto")
+      Picture = Picture["icon:/22/attach"]
+      { MnuAllMatch Menu optionAvance
+        Name = "MnuAllMatch"
+        Text = ("--allmatch[=yes/no(*)]")
+        Picture = Picture["icon:/22/align-height"]
+        Toggle = True
+      }
+      { mnDetectar Menu optionAvance
+        Name = "mnDetectar"
+        Text = ("--detect-pua[=yes/no(*)]")
+        Picture = Picture["icon:/22/filter"]
+        Toggle = True
+      }
+      { MnuStructured Menu optionAvance
+        Name = "MnuStructured"
+        Text = ("--detect-structured[=yes/no(*)]")
+        Picture = Picture["icon:/22/database"]
+        Toggle = True
+      }
+      { MnuIntersection Menu optionAvance
+        Name = "MnuIntersection"
+        Text = ("--partition-intersection[=yes/no(*)]")
+        Picture = Picture["icon:/22/cdrom"]
+        Toggle = True
+      }
+      { Menu6 Menu optionAvance
+        Name = "Menu6"
+        Text = ("--heuristic-scan-precedence[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu9 Menu optionAvance
+        Name = "Menu9"
+        Text = ("--phishing-ssl[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu12 Menu optionAvance
+        Name = "Menu12"
+        Text = ("--phishing-cloak[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu13 Menu optionAvance
+        Name = "Menu13"
+        Text = ("--detect-broken[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu14 Menu optionAvance
+        Name = "Menu14"
+        Text = ("--block-macros[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu15 Menu
+      }
+      { mnRemover Menu optionAvance
+        Name = "mnRemover"
+        Text = ("--remove[=yes/no(*)]  ( ¡Atención! )")
+        Picture = Picture["icon:/22/delete"]
+        Toggle = True
+      }
+      { MnuDeplacer Menu optionAvance
+        Name = "MnuDeplacer"
+        Text = ("--move=CUARENTENA")
+        Picture = Picture["icon:/48/download"]
+        Toggle = True
+      }
+      { Menu16 Menu
+      }
+      { mnRecursivo Menu optionAvance
+        Name = "mnRecursivo"
+        Text = ("--recursive[=yes/no(*)]")
+        Picture = Picture["icon:/22/rotate-left"]
+        Toggle = True
       }
     }
     { Menu10 Menu
@@ -240,6 +279,12 @@
         Text = ("--phishing-scan-urls[=yes(*)/no]")
         Picture = Picture["icon:/22/file"]
         Toggle = True
+      }
+      { Menu17 Menu
+        Text = ("--bytecode[=yes(*)/no]")
+        Picture = Picture["icon:/24/new"]
+        Toggle = True
+        Visible = False
       }
     }
   }
@@ -667,18 +712,14 @@
       DefaultValue = 25
       Value = 25
     }
-    { BtnDefaut Button
-      MoveScaled(28,0,12.8571,4)
-      Text = ("Defecto")
-    }
-    { BtnMax Button
-      MoveScaled(15.1429,0,12.8571,4)
-      Text = ("Max")
-    }
     { Label1 TextLabel
       MoveScaled(0.4286,0,15,5)
       Font = Font["Bold,Underline"]
       Text = ("Limitaciones: (ver ayuda)")
+    }
+    { BtnDefaut ToggleButton
+      MoveScaled(23.4286,0,16,4)
+      Text = ("Defecto")
     }
   }
 }

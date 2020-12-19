@@ -5,15 +5,9 @@ Count=0
 Count=0
 
 [OpenFile]
-File[1]=".src/Module1.module:5.19"
-File[2]=".src/Authenticate.form"
-File[3]=".src/Cerf.form"
-File[4]=".src/ClamScan.module:0.0"
-File[5]=".src/frmAbout.form"
-Active=7
-File[6]=".src/FMain.form"
-Count=7
-File[7]=".src/FMain.class:5.70"
+Count=1
+Active=1
+File[1]=".src/FMain.form"
 
 [Package]
 Dir="~/Escritorio/"

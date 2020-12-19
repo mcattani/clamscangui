@@ -39,6 +39,8 @@ Public Function ScanAction(Ruta As String)
      Dim ajout As String
 
      FMain.txSalida.Text = ""
+     sTexte = ""
+
      Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
 
      'Menu choix****************************************************************
@@ -77,7 +79,7 @@ Public Function ScanAction(Ruta As String)
      ajout = ajout & " --exclude-dir=" & FMain.quarantaine                        'exclude quarantaine
      ajout = ajout & " --exclude-dir=^/proc"
      ajout = ajout & " --exclude-dir=^/sys"
-     comm = comm & FMain.sCommande
+     comm = comm & FMain.sCommande                                              'sCommande issue des limites
 
      If FMain.bSudo = True Then
           Authenticate.Command("sudo " & Comm)
@@ -90,19 +92,35 @@ Public Function ScanAction(Ruta As String)
           TournProc
      Endif
 
-     '***************************************************
+     '************************************************************************** après le scan_read()
+     RecupVirus()                                                               'récupération des lignes virus
+     sTexte = ""                                                                'effacement de sTexte
+     FichierLog()                                                               'sauvegarde des log et historique
+     Wait                                                                       'si long
+     '**************************************************************************
+
+     FMain.Mouse = Mouse.Default
+     FMain.txSalida.Mouse = Mouse.Default
+     FMain.monTexte = ""
+
+End
+
+Public Sub RecupVirus()
+
+     Dim sLigne As String[] = Split(FMain.txSalida.Text, gb.NewLine, "", True)
+     Dim i As Integer
+
+     For i = 0 To sLigne.Max
+          If sLigne[i] Ends " FOUND" Then
+               sTexte &= sLigne[i] & gb.NewLine
+          Endif
+     Next
+
      If FMain.Quarant = True Then
           File.Save(FMain.liste, sTexte)                                        'sauvegarde de la liste des fichiers en quarantaine
      Else
           File.Save(FMain.pil, sTexte)                                          'sauvegarde de la liste des fichiers et virus après scan
      Endif
-     '***************************************************
-
-     FichierLog()
-     Wait
-     FMain.Mouse = Mouse.Default
-     FMain.txSalida.Mouse = Mouse.Default
-     FMain.monTexte = ""
 
 End
 
@@ -110,19 +128,13 @@ Public Sub Scan_read()                                                          
 
      Dim sLine As String
 
-     ' sline = Read #Last, Lof(Last)
      sline = Read #hProc, Lof(hproc)
      FMain.txSalida.Text &= sLine
      FMain.txSalida.EnsureVisible()
 
-     If sLine Ends "FOUND" & gb.NewLine Then
-          sTexte &= sLine
-     Endif
-     File.Save(FMain.clamLog, sTexte)
-
 End
 
-Public Sub FichierLog()                                                         'sauvegarde des Logs et de l'Historique
+Public Sub FichierLog()                                                         'sauvegarde des Log et de l'Historique
 
      Dim TextDate As String
 

@@ -42,29 +42,32 @@ Public Adebug As Boolean
 Public Json As Boolean
 '*******************************************************************************
 Public maCle As Integer                                                         'clé de position
+Public iFlag As Integer                                                         'drapeau choix du menu
+Public iForm As Integer                                                         'drapeau choix du formulaire
+
 Public Ruta As String                                                           'endroit ou fichier à scanner
 Public sMot As String                                                           'string à transmettre en commande shell
-Public bSortie As Boolean                                                       'drapeau de sortie de programme
-Public bFlag As Boolean                                                         'drapeau boolean
 Public quarantaine As String                                                    'nom du dossier de quarantaine
 Public historic As String                                                       'nom du fichier historque
 Public clamLog As String                                                        'nom du ficier log de session
-Public Quarant As Boolean                                                       'drapeau pour quarantaine
 Public pil As String                                                            'liste des fichiers vérolés
 Public liste As String                                                          'liste des fichiers en quarantaine
 Public langue As String                                                         'langue
-Public bSudo As Boolean                                                         'sudo appliqué
-Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
-Public iFlag As Integer                                                         'drapeau choix du menu
-Public iForm As Integer                                                         'drapeau choix du formulaire
 Public sCommande As String                                                      'commande à transmettre
 Public email As String                                                          'mail pour soumission
 Public nom As String                                                            'nom pour soumission
+Public monTexte As String                                                       'texte pour commande à transmettre
+
+Public Quarant As Boolean                                                       'drapeau pour quarantaine
+Public bSortie As Boolean                                                       'drapeau de sortie de programme
+Public bFlag As Boolean                                                         'drapeau boolean
+Public bSudo As Boolean                                                         'sudo appliqué
+Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
+
 Public fListe As File                                                           'fichier liste virus en quarantaine
 Public fPil As File                                                             'fichier liste virus trouvés
 Public leFichier As File                                                        'fichier log
 Public histo As File                                                            'fichier historique
-Public monTexte As String                                                       'texte pour commande à transmettre
 
 Public Sub Form_Open()                                                          'Form prinipale appelée par le Module1
 
@@ -86,7 +89,7 @@ Public Sub Form_Open()                                                          
 
      quarantaine = User.Home &/ ".clamscangui/viruses"                          'dossier de quarantaine des virus
      clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"                  'fichier Log
-     historic = User.Home &/ ".clamscangui/Historique.txt"                      'fichier historique
+     historic = User.Home &/ ".clamscangui/Historique"                      'fichier historique
      liste = User.Home &/ ".clamscangui/viruses/liste.txt"                      'liste des virus en quarantaine
      pil = User.Home &/ ".clamscangui/pil.txt"                                  'liste des virus trouvés
 
@@ -199,6 +202,8 @@ Public Sub LoadSettings()                                                       
      MnuImmediate.Enabled = Settings["Menu/Immediat"]
      MnuVirus.Enabled = Settings["Menu/Virus"]
      langue = Settings["General/LangInit"]
+     email = Settings["General/courriel"]
+     nom = Settings["General/nom"]
      '************* Group option1 **********************************************
      mnuHWP3.Value = Settings["Menu/pHWP3"]
      mnuXML.Value = Settings["Menu/pXML"]
@@ -245,8 +250,6 @@ Public Sub LoadSettings()                                                       
      Intersection = MnuIntersection.Value
      Structured = MnuStructured.Value
      '**************************************************************************
-     email = Settings["General/courriel"]
-     nom = Settings["General/nom"]
 
      If langue = "fr" Then
           MnuFrancais.Value = True
@@ -274,14 +277,10 @@ Public Sub LoadSettings()                                                       
      Endif
 
      If MnuDeplacer.Value = True Then
-          ' MnuVirus.Enabled = True
-          ' MnuSoumis.Enabled = False
           RB1.Background = Color.Red
           RB1.Enabled = False
      Else
           MnuDeplacer.Value = False
-          ' MnuVirus.Enabled = False
-          ' MnuSoumis.Enabled = True
           RB1.Background = Color.Green
           RB1.Enabled = False
      Endif
@@ -367,6 +366,18 @@ Public Sub FC_Activate()
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(FC.SelectedPath)
 
+     ' If Not Exist(FMain.pil) Then                                                     'liste des fichiers corrompus
+     '      FMain.fPil = Open FMain.pil For Create
+     ' Else
+     '      FMain.fPil = Open FMain.pil For Append
+     ' Endif
+     '
+     ' If Not Exist(FMain.liste) Then                                                   'liste des fichiers en quarantaine
+     '      FMain.fListe = Open FMain.liste For Create
+     ' Else
+     '      FMain.fListe = Open FMain.liste For Append
+     ' Endif
+
      ClamScan.ScanAction(Ruta)
      menuVraix()                                                                'menus activés
 
@@ -377,6 +388,18 @@ Public Sub DC_Activate()
      menuFaux()                                                                 'menus désactivés
      Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(DC.SelectedPath)
+
+     ' If Not Exist(FMain.pil) Then                                                     'liste des fichiers corrompus
+     '      FMain.fPil = Open FMain.pil For Create
+     ' Else
+     '      FMain.fPil = Open FMain.pil For Append
+     ' Endif
+     '
+     ' If Not Exist(FMain.liste) Then                                                   'liste des fichiers en quarantaine
+     '      FMain.fListe = Open FMain.liste For Create
+     ' Else
+     '      FMain.fListe = Open FMain.liste For Append
+     ' Endif
 
      ClamScan.ScanAction(Ruta)
      menuVraix() '                                                              'menus activés
@@ -433,7 +456,7 @@ Public Sub TBhProc_Click()                                                  'exe
 
 End
 
-Public Sub menuFaux()                                                           'menus et boutons inactivés
+Public Sub menuFaux()                                                           'menus et boutons désactivés pendant le scan
 
      mnOpciones.Enabled = False
      mnOpcionesAvanzadas.Enabled = False
@@ -447,7 +470,6 @@ Public Sub menuFaux()                                                           
      TBeffacer.Enabled = False
      TBSudo.Enabled = False
      BtnDefaut.Enabled = False
-     BtnMax.Enabled = False
      SlidDirRecursion.Enabled = False
      SlidEmbPE.Enabled = False
      SlidFiles.Enabled = False
@@ -468,7 +490,7 @@ Public Sub menuFaux()                                                           
 
 End
 
-Public Sub menuVraix()                                                          'menus et boutons activés
+Public Sub menuVraix()                                                          'menus et boutons activés avant un scan
 
      mnOpciones.Enabled = True
      mnOpcionesAvanzadas.Enabled = True
@@ -484,7 +506,6 @@ Public Sub menuVraix()                                                          
      TBeffacer.Enabled = True
      TBSudo.Enabled = True
      BtnDefaut.Enabled = True
-     BtnMax.Enabled = True
      SlidDirRecursion.Enabled = True
      SlidEmbPE.Enabled = True
      SlidFiles.Enabled = True
@@ -823,14 +844,10 @@ End
 Public Sub optionAvance_Click()                                                 'menu des options avancées
 
      If MnuDeplacer.Value = True Then
-          ' MnuVirus.Enabled = True
-          ' MnuSoumis.Enabled = False
           RB1.Background = Color.Red
           RB1.Enabled = False
      Else
           MnuDeplacer.Value = False
-          ' MnuVirus.Enabled = False
-          ' MnuSoumis.Enabled = True
           RB1.Background = Color.Green
           RB1.Enabled = False
      Endif
@@ -854,30 +871,6 @@ Public Sub optionAvance_Click()                                                 
      Structured = MnuStructured.Value
 
      SaveSettings()
-
-End
-
-Public Sub BtnDefaut_Click()                                                    'valeurs par défaut dans les limites
-
-     FMain.sCommande = ""
-     SlidFilesize.value = SlidFilesize.DefaultValue
-     SlidScansize.Value = SlidScansize.DefaultValue
-     SlidFiles.Value = SlidFiles.DefaultValue
-     Slidrecursion.Value = Slidrecursion.DefaultValue
-     SlidDirRecursion.value = SlidDirRecursion.DefaultValue
-     SlidEmbPE.Value = SlidEmbPE.DefaultValue
-     SlidHtmlNorm.Value = SlidHtmlNorm.DefaultValue
-     SlidHtmlTags.Value = SlidHtmlTags.DefaultValue
-     SlidScriptNorm.Value = SlidScriptNorm.DefaultValue
-     SlidPartitions.Value = SlidPartitions.DefaultValue
-     SlidIconsPE.Value = SlidIconsPE.DefaultValue
-     SlidRechWP3.Value = SlidRechWP3.DefaultValue
-     SlidPcreLimit.Value = SlidPcreLimit.DefaultValue
-     SlidPcreRecLimit.Value = SlidPcreRecLimit.DefaultValue
-     SlidPcreFilesize.Value = SlidPcreFilesize.DefaultValue
-     SlidZipType.Value = SlidZipType.DefaultValue
-
-     limit_Leave()
 
 End
 
@@ -937,25 +930,48 @@ Public Sub limit_Leave()                                                        
 
 End
 
-Public Sub BtnMax_Click()                                                       'valeurs max des limites
+Public Sub BtnDefaut_Click()                                                    'valeurs par défaut dans les limites
 
      FMain.sCommande = ""
-     SlidFilesize.value = SlidFilesize.MaxValue
-     SlidScansize.Value = SlidScansize.MaxValue
-     SlidFiles.Value = SlidFiles.MaxValue
-     Slidrecursion.Value = Slidrecursion.MaxValue
-     SlidDirRecursion.value = SlidDirRecursion.MaxValue
-     SlidEmbPE.Value = SlidEmbPE.MaxValue
-     SlidHtmlNorm.Value = SlidHtmlNorm.MaxValue
-     SlidHtmlTags.Value = SlidHtmlTags.MaxValue
-     SlidScriptNorm.Value = SlidScriptNorm.MaxValue
-     SlidPartitions.Value = SlidPartitions.MaxValue
-     SlidIconsPE.Value = SlidIconsPE.MaxValue
-     SlidRechWP3.Value = SlidRechWP3.MaxValue
-     SlidPcreLimit.Value = SlidPcreLimit.MaxValue
-     SlidPcreRecLimit.Value = SlidPcreRecLimit.MaxValue
-     SlidPcreFilesize.Value = SlidPcreFilesize.MaxValue
-     SlidZipType.Value = SlidZipType.MaxValue
+     If BtnDefaut.value = False Then
+          BtnDefaut.Text = ("Defecto")
+          ' FMain.sCommande = ""
+          SlidFilesize.value = SlidFilesize.DefaultValue
+          SlidScansize.Value = SlidScansize.DefaultValue
+          SlidFiles.Value = SlidFiles.DefaultValue
+          Slidrecursion.Value = Slidrecursion.DefaultValue
+          SlidDirRecursion.value = SlidDirRecursion.DefaultValue
+          SlidEmbPE.Value = SlidEmbPE.DefaultValue
+          SlidHtmlNorm.Value = SlidHtmlNorm.DefaultValue
+          SlidHtmlTags.Value = SlidHtmlTags.DefaultValue
+          SlidScriptNorm.Value = SlidScriptNorm.DefaultValue
+          SlidPartitions.Value = SlidPartitions.DefaultValue
+          SlidIconsPE.Value = SlidIconsPE.DefaultValue
+          SlidRechWP3.Value = SlidRechWP3.DefaultValue
+          SlidPcreLimit.Value = SlidPcreLimit.DefaultValue
+          SlidPcreRecLimit.Value = SlidPcreRecLimit.DefaultValue
+          SlidPcreFilesize.Value = SlidPcreFilesize.DefaultValue
+          SlidZipType.Value = SlidZipType.DefaultValue
+     Else
+          BtnDefaut.Text = ("Max")
+          ' FMain.sCommande = ""
+          SlidFilesize.value = SlidFilesize.MaxValue
+          SlidScansize.Value = SlidScansize.MaxValue
+          SlidFiles.Value = SlidFiles.MaxValue
+          Slidrecursion.Value = Slidrecursion.MaxValue
+          SlidDirRecursion.value = SlidDirRecursion.MaxValue
+          SlidEmbPE.Value = SlidEmbPE.MaxValue
+          SlidHtmlNorm.Value = SlidHtmlNorm.MaxValue
+          SlidHtmlTags.Value = SlidHtmlTags.MaxValue
+          SlidScriptNorm.Value = SlidScriptNorm.MaxValue
+          SlidPartitions.Value = SlidPartitions.MaxValue
+          SlidIconsPE.Value = SlidIconsPE.MaxValue
+          SlidRechWP3.Value = SlidRechWP3.MaxValue
+          SlidPcreLimit.Value = SlidPcreLimit.MaxValue
+          SlidPcreRecLimit.Value = SlidPcreRecLimit.MaxValue
+          SlidPcreFilesize.Value = SlidPcreFilesize.MaxValue
+          SlidZipType.Value = SlidZipType.MaxValue
+     Endif
 
      limit_Leave()
 

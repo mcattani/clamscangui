@@ -23,16 +23,9 @@ Public Sub btCerrar_Click()
 
 End
 
-Public Sub URL_Click()
-
-     Desktop.Open(URL.Link)
-
-End
-
 Public Sub Form_Activate()
 
      Me.Center
-     txtAbout.Pos = 0
 
 End
 

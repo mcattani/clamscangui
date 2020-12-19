@@ -5,40 +5,32 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-14 00:20 UTC\n"
+"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: frmAbout.form:14
+#: frmAbout.form:12
 msgid "Acerca de"
 msgstr ""
 
-#: frmAbout.form:28
-msgid "Acerca de mí"
-msgstr ""
-
-#: frmAbout.form:29
-msgid "Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que\nme hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! "
-msgstr ""
-
-#: frmAbout.form:37
-msgid "Click para acceder al blog"
-msgstr ""
-
-#: frmAbout.form:38
-msgid "https://thenerdyapprentice.blogspot.com/"
-msgstr ""
-
-#: frmAbout.form:44
+#: frmAbout.form:20
 msgid "Cerrar"
 msgstr ""
 
-#: frmAbout.form:50
-msgid "Programa modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com"
+#: frmAbout.form:26
+msgid "Basado en una idea original d'Ozymandias :\nhttps://thenerdyapprentice.blogspot.com/\n\nPrograma modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com\n"
 msgstr ""
 
-#: frmAbout.form:61
+#: frmAbout.form:37
 msgid "mail to : valaquarus@gmail.com"
+msgstr ""
+
+#: frmAbout.form:47
+msgid "Click para acceder al blog"
+msgstr ""
+
+#: frmAbout.form:48
+msgid "https://thenerdyapprentice.blogspot.com/"
 msgstr ""
 

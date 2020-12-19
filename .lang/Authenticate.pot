@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-14 00:20 UTC\n"
+"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,19 +42,19 @@ msgstr ""
 msgid "¡Acción completada!"
 msgstr ""
 
-#: Authenticate.class:88
+#: Authenticate.class:89
 msgid "¡Se ha producido un error!"
 msgstr ""
 
-#: Authenticate.class:108
+#: Authenticate.class:109
 msgid "Acción cancelada."
 msgstr ""
 
-#: Authenticate.class:115
+#: Authenticate.class:116
 msgid "¡Inténtalo de nuevo!"
 msgstr ""
 
-#: Authenticate.class:143
+#: Authenticate.class:144
 msgid "Bloqueo de mayúsculas está activado"
 msgstr ""
 

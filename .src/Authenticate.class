@@ -82,10 +82,11 @@ Public Sub ButtonAuthenticate_Click()                                           
                Endif
           Endif
      End If
+     sPass = ""
 
 Catch
      TextAreaTerminal.Clear
-     TextAreaTerminal.Text &= gb.NewLine & (("¡Se ha producido un error!")) & " 1 " & Error.Text
+     TextAreaTerminal.Text &= gb.NewLine & (("¡Se ha producido un error!")) & " ButtonAuthenticate " & Error.Text
 
 End
 
@@ -99,7 +100,7 @@ Public Sub Terminal_read()                                                      
      Wait
 Catch
      TextAreaTerminal.Clear
-     TextAreaTerminal.Text &= gb.NewLine & (("¡Se ha producido un error!")) & " 2 " & Error.Text
+     TextAreaTerminal.Text &= gb.NewLine & (("¡Se ha producido un error!")) & " Terminal_read " & Error.Text
 
 End
 

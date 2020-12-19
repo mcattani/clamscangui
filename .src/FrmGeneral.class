@@ -11,9 +11,13 @@
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
 
+'' TODO reste à changer la sélection unique par une sélection multiple
+'' Changer myRow (integer) par myRow[](integer[])
+
 Public myRow As Integer
 Public fichier As String[] = New String[]
 Public virus As String[] = New String[]
+Public lNbrLigne As Long
 
 Public Sub Run() As Boolean
 
@@ -30,8 +34,25 @@ End
 Public Sub btnCerrar_Click()                                                    'fermeture
 
      FMain.txSalida.Clear
-
+     Try Kill FMain.pil
      Me.Close()
+
+End
+
+Public Sub GV1_Select()
+
+     myRow = GV1.Row
+
+End
+
+Public Sub btnImpr_Click()                                                      'impression
+
+     Dim hreport As Report
+     Dim Parties As String[]
+
+     Parties = Split(TextArea1.Text, gb.NewLine)
+     hreport = New Impr1(Parties)
+     hreport.preview()
 
 End
 
@@ -84,8 +105,11 @@ Public Sub btnSauve_Click()                                                     
           Authenticate.Command("sudo " & Comm)                                  'on récupère le mot de passe
           Shell (FMain.monTexte)                                                'on lance le process
           If FMain.bFlag = True Then                                            'message en fonction du résultat
-               If Not Error Then Message.Info(("Copia de seguridad realizada"))
-               If Error Then Message.Info(("Copia de seguridad no realizada") & Error.Text)
+               If Not Error Then
+                    Message.Info(("Copia de seguridad realizada"))
+               Else
+                    Message.Info(("Copia de seguridad no realizada") & " " & Error.Text)
+               Endif
           Else
                Message.Info(("Copia de seguridad no realizada"))
           Endif
@@ -158,8 +182,11 @@ Public Sub btnRestaurar_Click()
                     Authenticate.Command("sudo " & Comm)                        'on récupère le mot de passe
                     Shell (FMain.monTexte)                                      'on lance le process
                     If FMain.bFlag = True Then                                  'message en fonction du résultat
-                         If Not Error Then Message.Info(("Restauración realizada"))
-                         If Error Then Message.Info(("Restauración no realizada"))
+                         If Not Error Then
+                              Message.Info(("Restauración realizada"))
+                         Else
+                              Message.Info(("Restauración no realizada") & " " & Error.Text)
+                         Endif
                     Else
                          Message.Info(("Restauración no realizada"))
                     Endif
@@ -177,13 +204,9 @@ Public Sub btnRestaurar_Click()
                     If Message.Warning(("¿Quieres restaurar el archivo de la cuarentena?"), ("Si"), ("No")) = 2 Then
                          Return
                     Endif
-
-                    Shell "cp -a  " & User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow]) & " " & fichier[myRow]
+                    '***********************************************************
+                    Try Shell "cp -a  " & User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow]) & " " & fichier[myRow]
                     Wait
-
-                    fichier.Extract(myRow, 1)
-                    virus.Extract(myRow, 1)
-                    GV1.Rows.Remove(myRow, 1)
 
                     Try Kill User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow])
 
@@ -193,13 +216,17 @@ Public Sub btnRestaurar_Click()
                          Message(("¡El archivo en cuestión no existe!"))
                     Endif
 
+                    fichier.Extract(myRow, 1)
+                    virus.Extract(myRow, 1)
+                    GV1.Rows.Remove(myRow, 1)
+
                     hFile = Open FMain.liste For Create
                     For i = 0 To GV1.Rows.Max
                          sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
                     Next
                     File.Save(FMain.liste, sLine)
                     sLine = ""
-
+                    '***********************************************************
                Else
                     Message(("No hay archivo para restaurar"))
                     Return
@@ -214,10 +241,10 @@ End
 
 Public Sub Form_Open()
 
-     Dim ceTexte As String
      Dim hFile As File
      Dim sLine As String
      Dim i As Integer
+     Dim ceTexte As String
 
      Select Case FMain.iform
           Case 0                                                                'FrmHistoric
@@ -232,15 +259,33 @@ Public Sub Form_Open()
                TextArea1.Visible = True
                GV1.Visible = False
 
-               Me.Text = ("Historia de ClamScanGui : ") & User.Home &/ ".clamscangui/Historique.txt"
-               ceTexte = User.Home &/ ".clamscangui/Historique.txt"
+               If Not Exist(FMain.historic) Then
+                    FMain.histo = Open FMain.historic For Create
+               Else
+                    FMain.histo = Open FMain.historic For Input
+               Endif
 
+               Me.Text = ("Historia de ClamScanGui : ") & FMain.historic
                TextArea1.Pos = 0
                TextArea1.Alignment = Align.Normal
-               TextArea1.Text = File.Load(User.Home &/ ".clamscangui/Historique.txt")
+
+               Try Shell " cat " & FMain.historic & " | wc -l " To ceTexte      'combien de lignes dans le fichier?
+               lNbrLigne = Val(ceTexte)
+
+               If lNbrLigne > 3000 Then
+                    Message.Title = ("¡Atención, archivo muy grande!")
+                    If Message.Question(("¿Quieres ver el archivo completo? \n ¡Ten paciencia!"), ("Si"), ("¡Solo una parte!")) = 1 Then
+                         Try Shell " cat " & FMain.historic To TextArea1.Text   'affiche tout le fichier
+                    Else
+                         Try Shell " tail -n 2000 " & FMain.historic To TextArea1.Text    'affiche la queue du fichier 2000 lignes
+                    Endif
+               Else
+                    Try Shell " cat " & FMain.historic To TextArea1.Text        'affiche tout le fichier
+               Endif
+
                If TextArea1.Text = "" Then
                     TextArea1.Alignment = Align.Center
-                    TextArea1.Text = " --------| Fichier Vide |-------- "
+                    TextArea1.Text = (" -------- | Archivo vacío | -------- ")  'fichier vide
                Endif
 
           Case 1                                                                'FrmLog
@@ -255,15 +300,15 @@ Public Sub Form_Open()
                TextArea1.Visible = True
                GV1.Visible = False
 
-               Me.Text = (" Registro de ClamScanGui ") & User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
+               Me.Text = (" Registro de ClamScanGui ") & FMain.clamLog ' User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
                FMain.clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
 
                TextArea1.Pos = 0
                TextArea1.Alignment = Align.Normal
-               TextArea1.Text = File.Load(User.Home &/ ".clamscangui/ClamScanGui_Log.txt")
+               TextArea1.Text = File.Load(FMain.clamLog)
                If TextArea1.Text = "" Then
                     TextArea1.Alignment = Align.Center
-                    TextArea1.Text = " --------| Fichier Vide |-------- "
+                    TextArea1.Text = (" -------- | Archivo vacío | -------- ")
                Endif
 
           Case 2                                                                'frmFresh
@@ -475,12 +520,6 @@ Catch
 
 End
 
-Public Sub GV1_Select()
-
-     myRow = GV1.Row
-
-End
-
 Public Sub btnBorrar_Click()
 
      Dim i As Integer
@@ -491,8 +530,8 @@ Public Sub btnBorrar_Click()
 
           Case 0                                                                'historique
                TextArea1.Text = ""
-               If Exist(User.Home &/ ".clamscangui/Historique.txt") Then
-                    File.Save(User.Home &/ ".clamscangui/Historique.txt", "")
+               If Exist(FMain.historic) Then                                    'effacement du fichier
+                    Try Kill FMain.historic
                Endif
 
           Case 5, 6
@@ -504,6 +543,7 @@ Public Sub btnBorrar_Click()
                     If Message.Warning(("¿Quieres destruir el archivo?"), ("Si"), ("No")) = 2 Then
                          Return
                     Endif
+                    '***********************************************************
                     Try Kill fichier[myRow]
 
                     If Not Error Then
@@ -517,20 +557,21 @@ Public Sub btnBorrar_Click()
                     GV1.Rows.Remove(myRow, 1)
 
                     If FMain.iForm = 5 Then                                     'liste de la quarantaine
-                         hFile = Open FMain.liste For Create
+                         hFile = Open FMain.liste For Create                    'vérifier nécessité de create et non append
                          For i = 0 To GV1.Rows.Max
                               sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
                          Next
                          File.Save(FMain.liste, sLine)
                          sLine = ""
                     Else If FMain.iForm = 6 Then                                'liste des potentiellement corrompus
-                         hFile = Open FMain.pil For Create
+                         hFile = Open FMain.pil For Create                      'vérifier nécessité de create et non append
                          For i = 0 To GV1.Rows.Max
                               sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
                          Next
                          File.Save(FMain.pil, sLine)
                          sLine = ""
                     Endif
+                    '***********************************************************
                Else
                     Message(("No hay archivo para borrar"))
                     Return
@@ -540,17 +581,6 @@ Public Sub btnBorrar_Click()
 
 Catch
      Message.Info((Error.Text))
-
-End
-
-Public Sub btnImpr_Click()                                                      'impression
-
-     Dim hreport As Report
-     Dim Parties As String[]
-
-     Parties = Split(TextArea1.Text, gb.NewLine)
-     hreport = New Impr1(Parties)
-     hreport.preview()
 
 End
 
@@ -597,13 +627,13 @@ Public Sub btnQuarant_Click()                                                   
                     If Message.Warning(("¿Quieres poner el archivo en cuarentena?"), ("Si"), ("No")) = 2 Then
                          Return
                     Endif
-
+                    '***********************************************************
                     hFile1 = Open FMain.liste For Append
                     sLine = fichier[myRow] & ": " & virus[myRow] & " FOUND" & gb.NewLine
                     File.Save(FMain.liste, sLine)
                     sLine = ""
 
-                    Shell "cp -a  " & fichier[myRow] & " " & User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow])
+                    Try Shell "cp -a  " & fichier[myRow] & " " & User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow])
                     Wait
                     Try Kill fichier[myRow]
 
@@ -623,6 +653,7 @@ Public Sub btnQuarant_Click()                                                   
                     Next
                     File.Save(FMain.pil, sLine)
                     sLine = ""
+                    '***********************************************************
                Else
                     Message(("No hay archivo para borrar"))
                     Return

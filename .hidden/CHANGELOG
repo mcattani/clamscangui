@@ -1,5 +1,18 @@
-* Sun Dec 13 2020 PilValaquarus <marianocattani@gmail.com / valaquarus@gmail.com> 1.1.60
-- Cambios varios realizados por Philippe
+* Sat Dec 19 2020 Ozymadias & Philippe Valarcher <marianocattani@gmail.com> 1.1.63
+
+* Sat Dec 19 2020 PilValaquarus <valaquarus@gmail.com> 1.1.63
+- Bug sur récupération liste virus
+
+* Fri Dec 18 2020 PilValaquarus <valaquarus@gmail.com> 1.1.62
+- Détails
+
+* Wed Dec 16 2020 PilValaquarus <valaquarus@gmail.com> 1.1.61
+- Contrôle taille fichier Historique.
+
+* Fri Dec 11 2020 PilValaquarus <valaquarus@gmail.com> 1.1.61
+- Possibilité de sélection multiple.
+- Correction d'un bug sur quarantaine
+- Modification des menus
 
 * Thu Dec 10 2020 PilValaquarus <valaquarus@gmail.com> 1.1.60
 - Indicateur visuel de mise en quarantaine
