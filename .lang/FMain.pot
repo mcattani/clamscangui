@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -410,63 +410,63 @@ msgstr ""
 msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr ""
 
-#: FMain.class:298
+#: FMain.class:316
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr ""
 
-#: FMain.class:366
+#: FMain.class:402
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 
-#: FMain.class:414
+#: FMain.class:450
 msgid "Elija el directorio para escanear"
 msgstr ""
 
-#: FMain.class:415
+#: FMain.class:451
 msgid "Elija el archivo para analizar"
 msgstr ""
 
-#: FMain.class:448
+#: FMain.class:484
 msgid "Seleccione \n an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:545
+#: FMain.class:581
 msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr ""
 
-#: FMain.class:551
+#: FMain.class:587
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: FMain.class:551
+#: FMain.class:587
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: FMain.class:554
+#: FMain.class:590
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:766
+#: FMain.class:802
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:804
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:804
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:804
 msgid "Si"
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:804
 msgid "No"
 msgstr ""
 
-#: FMain.class:956
+#: FMain.class:995
 msgid "Max"
 msgstr ""
 

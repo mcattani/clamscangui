@@ -5,9 +5,9 @@ Count=0
 Count=0
 
 [OpenFile]
-Count=1
 Active=1
 File[1]=".src/FMain.form"
+Count=1
 
 [Package]
 Dir="~/Escritorio/"

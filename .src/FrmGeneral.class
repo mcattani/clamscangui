@@ -34,7 +34,6 @@ End
 Public Sub btnCerrar_Click()                                                    'fermeture
 
      FMain.txSalida.Clear
-     Try Kill FMain.pil
      Me.Close()
 
 End
@@ -196,42 +195,29 @@ Public Sub btnRestaurar_Click()
                Endif
 
           Case 5                                                                'liste des fichiers en quarantaine
-               If GV1.Rows.Count > 0 Then
-                    If GV1.Rows.Selection.Max < 0 Then
-                         Message(("No hay archivo para restaurar"))
-                         Return
-                    Endif
-                    If Message.Warning(("¿Quieres restaurar el archivo de la cuarentena?"), ("Si"), ("No")) = 2 Then
-                         Return
-                    Endif
-                    '***********************************************************
-                    Try Shell "cp -a  " & User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow]) & " " & fichier[myRow]
-                    Wait
-
-                    Try Kill User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow])
-
-                    If Not Error Then
-                         Message(("El archivo ha sido restaurado"))
-                    Else
-                         Message(("¡El archivo en cuestión no existe!"))
-                    Endif
-
-                    fichier.Extract(myRow, 1)
-                    virus.Extract(myRow, 1)
-                    GV1.Rows.Remove(myRow, 1)
-
-                    hFile = Open FMain.liste For Create
-                    For i = 0 To GV1.Rows.Max
-                         sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
-                    Next
-                    File.Save(FMain.liste, sLine)
-                    sLine = ""
-                    '***********************************************************
-               Else
+               If GV1.Rows.Selection.Max < 0 Then
                     Message(("No hay archivo para restaurar"))
                     Return
                Endif
-
+               If Message.Warning(("¿Quieres restaurar el archivo de la cuarentena?"), ("Si"), ("No")) = 2 Then
+                    Return
+               Endif
+               Try Shell "cp -a " & User.Home &/ ".clamscangui/viruses" &/ File.Name(fichier[myRow]) & " " & fichier[myRow]
+               Wait
+               If Not Error Then
+                    Message(("El archivo ha sido restaurado"))
+               Else
+                    Message(("¡El archivo en cuestión no existe!"))
+               Endif
+               Try Kill User.Home &/ ".clamscangui/viruses" &/ File.Name(fichier[myRow])
+               GV1.Rows.Remove(myRow, 1)
+               hFile = Open FMain.liste For Create
+               For i = 0 To GV1.Rows.Max
+                    sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
+               Next
+               File.Save(FMain.liste, sLine)
+               sLine = ""
+               ' miseAjour(FMain.liste)
      End Select
 
 Catch
@@ -239,11 +225,8 @@ Catch
 
 End
 
-Public Sub Form_Open()
+Public Sub _New() 'Form_Open()
 
-     Dim hFile As File
-     Dim sLine As String
-     Dim i As Integer
      Dim ceTexte As String
 
      Select Case FMain.iform
@@ -469,20 +452,7 @@ Public Sub Form_Open()
                GV1.AddColumn(("Archivos infectados"), -1, Align.Center)
                GV1.AddColumn(("Virus"), -1, Align.center)
 
-               hFile = Open FMain.liste For Input
-               i = 0
-               While Not Eof(hFile)
-                    Line Input #hFile, sLine
-                    fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)
-                    virus.Add(Left(Mid(sLine, InStr(sLine, ":") + 1), -6), i)
-                    i += 1
-               Wend
-               GV1.Rows.Count = i
-
-               For i = 0 To GV1.Rows.Max
-                    GV1[i, 0].Text = fichier[i]
-                    GV1[i, 1].Text = virus[i]
-               Next
+               miseAjour(FMain.liste)
 
           Case 6                                                                'liste des virus
                btnSauve.Visible = False
@@ -499,20 +469,7 @@ Public Sub Form_Open()
                GV1.AddColumn(("Archivos infectados"), -1, Align.Center)
                GV1.AddColumn(("Virus"), -1, Align.center)
 
-               hFile = Open FMain.pil For Input
-               i = 0
-               While Not Eof(hFile)
-                    Line Input #hFile, sLine
-                    fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)
-                    virus.Add(Left(Mid(sLine, InStr(sLine, ":") + 1), -6), i)
-                    i += 1
-               Wend
-               GV1.Rows.Count = i
-
-               For i = 0 To GV1.Rows.Max
-                    GV1[i, 0].Text = fichier[i]
-                    GV1[i, 1].Text = virus[i]
-               Next
+               miseAjour(FMain.pil)
 
      End Select
 Catch
@@ -520,7 +477,30 @@ Catch
 
 End
 
-Public Sub btnBorrar_Click()
+Public Sub miseAjour(fich As String)
+
+     Dim hFile As File
+     Dim sLine As String
+     Dim i As Integer
+
+     hFile = Open fich For Input                                                'ouverture en lecture du fichier concerné
+     i = 0
+     While Not Eof(hFile)
+          Line Input #hFile, sLine                                              'sLine de la forme /path complet: nom virus FOUND
+          fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)                 'récupération du path complet
+          virus.Add(Left(Mid(sLine, InStr(sLine, ":") + 2), -6), i)             'récupération du nom virus
+          i += 1                                                                'incrément de i
+     Wend
+     GV1.Rows.Count = i                                                         'nombre de ligne du gridview
+
+     For i = 0 To GV1.Rows.Max                                                  'remplissage du GridView GV1
+          GV1[i, 0].Text = fichier[i]                                           'col 0 =path complet
+          GV1[i, 1].Text = virus[i]                                             'col 1 =nom virus
+     Next
+
+End
+
+Public Sub btnBorrar_Click()                                                    'effacer
 
      Dim i As Integer
      Dim sLine As String
@@ -534,47 +514,43 @@ Public Sub btnBorrar_Click()
                     Try Kill FMain.historic
                Endif
 
-          Case 5, 6
-               If GV1.Rows.Count > 0 Then
-                    If GV1.Rows.Selection.Max < 0 Then
-                         Message(("No hay archivo para borrar"))
-                         Return
-                    Endif
-                    If Message.Warning(("¿Quieres destruir el archivo?"), ("Si"), ("No")) = 2 Then
-                         Return
-                    Endif
-                    '***********************************************************
-                    Try Kill fichier[myRow]
-
-                    If Not Error Then
-                         Message(("¡El archivo ha sido destruido!"))
-                    Else
-                         Message(("¡El archivo en cuestión no existe!"))
-                    Endif
-
-                    fichier.Extract(myRow, 1)
-                    virus.Extract(myRow, 1)
-                    GV1.Rows.Remove(myRow, 1)
-
-                    If FMain.iForm = 5 Then                                     'liste de la quarantaine
-                         hFile = Open FMain.liste For Create                    'vérifier nécessité de create et non append
-                         For i = 0 To GV1.Rows.Max
-                              sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
-                         Next
-                         File.Save(FMain.liste, sLine)
-                         sLine = ""
-                    Else If FMain.iForm = 6 Then                                'liste des potentiellement corrompus
-                         hFile = Open FMain.pil For Create                      'vérifier nécessité de create et non append
-                         For i = 0 To GV1.Rows.Max
-                              sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
-                         Next
-                         File.Save(FMain.pil, sLine)
-                         sLine = ""
-                    Endif
-                    '***********************************************************
-               Else
+          Case 5, 6                                                             'quarantaine ou liste des virus trouvés
+               If GV1.Rows.Selection.Max < 0 Then
                     Message(("No hay archivo para borrar"))
                     Return
+               Endif
+               If Message.Warning(("¿Quieres destruir el archivo?"), ("Si"), ("No")) = 2 Then
+                    Return
+               Endif
+
+               Try Kill fichier[myRow]
+
+               If Not Error Then
+                    Message(("¡El archivo ha sido destruido!"))
+               Else
+                    Message(("¡El archivo en cuestión no existe!"))
+               Endif
+
+               fichier.Extract(myRow, 1)
+               virus.Extract(myRow, 1)
+               GV1.Rows.Remove(myRow, 1)
+
+               If FMain.iForm = 5 Then                                     'liste de la quarantaine
+                    hFile = Open FMain.liste For Create                    'vérifier nécessité de create et non append
+                    For i = 0 To GV1.Rows.Max
+                         sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
+                    Next
+                    File.Save(FMain.liste, sLine)
+                    sLine = ""
+                    ' miseAjour(FMain.liste)                                 'inutile ici
+               Else If FMain.iForm = 6 Then                                'liste des potentiellement corrompus
+                    hFile = Open FMain.pil For Create                      'vérifier nécessité de create et non append
+                    For i = 0 To GV1.Rows.Max
+                         sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
+                    Next
+                    File.Save(FMain.pil, sLine)
+                    sLine = ""
+                    ' miseAjour(FMain.pil)                                   'inutile ici
                Endif
 
      End Select
@@ -589,22 +565,18 @@ Public Sub btnSubmission_Click()                                                
      FMain.email = Settings["General/courriel"]
      FMain.nom = Settings["General/nom"]
 
-     If GV1.Rows.Count > 0 Then
-          If GV1.Rows.Selection.Max < 0 Then
-               Message(("No hay archivo para enviar"))
-               Return
-          Endif
-
-          Select Case FMain.iForm
-
-               Case 5, 6
-                    FrmSoumission.ShowModal()
-
-          End Select
-     Else
+     If GV1.Rows.Selection.Max < 0 Then
           Message(("No hay archivo para enviar"))
           Return
      Endif
+
+     Select Case FMain.iForm
+
+          Case 5, 6
+               FrmSoumission.ShowModal()
+
+     End Select
+
 Catch
      Message.Info((Error.Text))
 
@@ -612,53 +584,39 @@ End
 
 Public Sub btnQuarant_Click()                                                   'mise en quarantaine des virus sélectionnés
 
-     Dim hFile1 As File
      Dim hFile2 As File
      Dim i As Integer
      Dim sLine As String
 
      Select Case FMain.iForm
           Case 6
-               If GV1.Rows.Count > 0 Then
-                    If GV1.Rows.Selection.Max < 0 Then
-                         Message(("No hay archivo para borrar"))
-                         Return
-                    Endif
-                    If Message.Warning(("¿Quieres poner el archivo en cuarentena?"), ("Si"), ("No")) = 2 Then
-                         Return
-                    Endif
-                    '***********************************************************
-                    hFile1 = Open FMain.liste For Append
-                    sLine = fichier[myRow] & ": " & virus[myRow] & " FOUND" & gb.NewLine
-                    File.Save(FMain.liste, sLine)
-                    sLine = ""
-
-                    Try Shell "cp -a  " & fichier[myRow] & " " & User.Home &/ ".clamscangui/viruses/" & File.Name(fichier[myRow])
-                    Wait
-                    Try Kill fichier[myRow]
-
-                    If Not Error Then
-                         Message(("El archivo se ha movido a cuarentena"))
-                    Else
-                         Message(("¡El archivo en cuestión no existe!"))
-                    Endif
-
-                    fichier.Extract(myRow, 1)
-                    virus.Extract(myRow, 1)
-                    GV1.Rows.Remove(myRow, 1)
-
-                    hFile2 = Open FMain.pil For Create
-                    For i = 0 To GV1.Rows.Max
-                         sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
-                    Next
-                    File.Save(FMain.pil, sLine)
-                    sLine = ""
-                    '***********************************************************
-               Else
+               If GV1.Rows.Selection.Max < 0 Then
                     Message(("No hay archivo para borrar"))
                     Return
                Endif
-
+               If Message.Warning(("¿Quieres poner el archivo en cuarentena?"), ("Si"), ("No")) = 2 Then
+                    Return
+               Endif
+               Try Shell "cp -a " & fichier[myRow] & " " & User.Home &/ ".clamscangui/viruses" &/ File.Name(fichier[myRow])
+               Wait
+               If Not Error Then
+                    Message(("El archivo se ha movido a cuarentena"))
+               Else
+                    Message(("¡El archivo en cuestión no existe!"))
+               Endif
+               sLine = File.Load(FMain.liste) & fichier[myRow] & ": " & virus[myRow] & " FOUND" & gb.NewLine
+               File.Save(FMain.liste, sLine)
+               sLine = ""
+               ' miseAjour(FMain.liste)
+               Try Kill fichier[myRow]
+               GV1.Rows.Remove(myRow, 1)
+               hFile2 = Open FMain.pil For Create
+               For i = 0 To GV1.Rows.Max
+                    sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
+               Next
+               File.Save(FMain.pil, sLine)
+               sLine = ""
+               ' miseAjour(FMain.pil)
      End Select
 
 Catch

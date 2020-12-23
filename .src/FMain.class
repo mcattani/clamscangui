@@ -89,7 +89,7 @@ Public Sub Form_Open()                                                          
 
      quarantaine = User.Home &/ ".clamscangui/viruses"                          'dossier de quarantaine des virus
      clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"                  'fichier Log
-     historic = User.Home &/ ".clamscangui/Historique"                      'fichier historique
+     historic = User.Home &/ ".clamscangui/Historique"                          'fichier historique
      liste = User.Home &/ ".clamscangui/viruses/liste.txt"                      'liste des virus en quarantaine
      pil = User.Home &/ ".clamscangui/pil.txt"                                  'liste des virus trouvés
 
@@ -251,6 +251,24 @@ Public Sub LoadSettings()                                                       
      Structured = MnuStructured.Value
      '**************************************************************************
 
+     ' If SlidFilesize.value <> SlidFilesize.DefaultValue Then sCommande = sCommande & " --max-filesize=" & CStr(SlidFilesize.Value) & "M"
+     ' If SlidScansize.Value <> SlidScansize.DefaultValue Then sCommande = sCommande & " --max-scansize=" & CStr(SlidScansize.Value) & "M"
+     ' If SlidFiles.Value <> SlidFiles.DefaultValue Then sCommande = sCommande & " --max-files=" & CStr(SlidFiles.Value)
+     ' If Slidrecursion.Value <> Slidrecursion.DefaultValue Then sCommande = sCommande & " --max-recursion=" & CStr(Slidrecursion.Value)
+     ' If SlidDirRecursion.value <> SlidDirRecursion.DefaultValue Then sCommande = sCommande & " --max-dir-recursion=" & CStr(SlidDirRecursion.Value)
+     ' If SlidEmbPE.Value <> SlidEmbPE.DefaultValue Then sCommande = sCommande & " --max-embeddedpe=" & CStr(SlidEmbPE.Value) & "M"
+     ' If SlidHtmlNorm.Value <> SlidHtmlNorm.DefaultValue Then sCommande = sCommande & " --max-htmlnormalize=" & CStr(SlidHtmlNorm.Value) & "M"
+     ' If SlidHtmlTags.Value <> SlidHtmlTags.DefaultValue Then sCommande = sCommande & " --max-htmlnotags=" & CStr(SlidHtmlTags.Value) & "M"
+     ' If SlidScriptNorm.Value <> SlidScriptNorm.DefaultValue Then sCommande = sCommande & " --max-scriptnormalize=" & CStr(SlidScriptNorm.Value) & "M"
+     ' If SlidPartitions.Value <> SlidPartitions.DefaultValue Then sCommande = sCommande & " --max-partitions=" & CStr(SlidPartitions.Value)
+     ' If SlidIconsPE.Value <> SlidIconsPE.DefaultValue Then sCommande = sCommande & " -- max-iconspe=" & CStr(SlidIconsPE.Value)
+     '
+     ' If SlidRechWP3.Value <> SlidRechWP3.DefaultValue Then sCommande = sCommande & "  --max-rechwp3=" & CStr(SlidRechWP3.Value)
+     ' If SlidPcreLimit.Value <> SlidPcreLimit.DefaultValue Then sCommande = sCommande & "  --pcre-match-limit=" & CStr(SlidPcreLimit.Value)
+     ' If SlidPcreRecLimit.Value <> SlidPcreRecLimit.DefaultValue Then sCommande = sCommande & " --pcre-recmatch-limit=" & CStr(SlidPcreRecLimit.Value)
+     ' If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
+     ' If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
+
      If langue = "fr" Then
           MnuFrancais.Value = True
      Else If langue = "en" Then
@@ -345,6 +363,24 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/Algo"] = MnuAlgo.Value
      '**************************************************************************
      Settings["General/LangInit"] = langue
+
+     ' If SlidFilesize.value <> SlidFilesize.DefaultValue Then sCommande = sCommande & " --max-filesize=" & CStr(SlidFilesize.Value) & "M"
+     ' If SlidScansize.Value <> SlidScansize.DefaultValue Then sCommande = sCommande & " --max-scansize=" & CStr(SlidScansize.Value) & "M"
+     ' If SlidFiles.Value <> SlidFiles.DefaultValue Then sCommande = sCommande & " --max-files=" & CStr(SlidFiles.Value)
+     ' If Slidrecursion.Value <> Slidrecursion.DefaultValue Then sCommande = sCommande & " --max-recursion=" & CStr(Slidrecursion.Value)
+     ' If SlidDirRecursion.value <> SlidDirRecursion.DefaultValue Then sCommande = sCommande & " --max-dir-recursion=" & CStr(SlidDirRecursion.Value)
+     ' If SlidEmbPE.Value <> SlidEmbPE.DefaultValue Then sCommande = sCommande & " --max-embeddedpe=" & CStr(SlidEmbPE.Value) & "M"
+     ' If SlidHtmlNorm.Value <> SlidHtmlNorm.DefaultValue Then sCommande = sCommande & " --max-htmlnormalize=" & CStr(SlidHtmlNorm.Value) & "M"
+     ' If SlidHtmlTags.Value <> SlidHtmlTags.DefaultValue Then sCommande = sCommande & " --max-htmlnotags=" & CStr(SlidHtmlTags.Value) & "M"
+     ' If SlidScriptNorm.Value <> SlidScriptNorm.DefaultValue Then sCommande = sCommande & " --max-scriptnormalize=" & CStr(SlidScriptNorm.Value) & "M"
+     ' If SlidPartitions.Value <> SlidPartitions.DefaultValue Then sCommande = sCommande & " --max-partitions=" & CStr(SlidPartitions.Value)
+     ' If SlidIconsPE.Value <> SlidIconsPE.DefaultValue Then sCommande = sCommande & " -- max-iconspe=" & CStr(SlidIconsPE.Value)
+     '
+     ' If SlidRechWP3.Value <> SlidRechWP3.DefaultValue Then sCommande = sCommande & "  --max-rechwp3=" & CStr(SlidRechWP3.Value)
+     ' If SlidPcreLimit.Value <> SlidPcreLimit.DefaultValue Then sCommande = sCommande & "  --pcre-match-limit=" & CStr(SlidPcreLimit.Value)
+     ' If SlidPcreRecLimit.Value <> SlidPcreRecLimit.DefaultValue Then sCommande = sCommande & " --pcre-recmatch-limit=" & CStr(SlidPcreRecLimit.Value)
+     ' If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
+     ' If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
 
 End
 
@@ -770,9 +806,11 @@ Public Sub AppliLangues()                                                       
      Else
           Settings["General/LangInit"] = langue
           Settings.Save
-          ' Shell "gbx3 " & Application.Path                                    ' ATTENTION Cette ligne doit etre Décommenté lors du travail dans l'IDE  et etre commenter avant de générer l'executable
+          '*** ATTENTION Cette ligne doit etre Décommenté lors du travail dans l'IDE  et être commenter avant de générer l'executable ***
+          ' Shell "gbx3 " & Application.Path
           Shell "kill -9 " & Application.id
-          Exec [Application.Path & "/" & Application.Name]                      ' ATTENTION ligne à décommenter avant de générer l'executable
+          '*** ATTENTION ligne à décommenter avant de générer l'executable ***
+          Exec [Application.Path & "/" & Application.Name]
      Endif
 
 End
@@ -928,6 +966,8 @@ Public Sub limit_Leave()                                                        
      If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
      If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
 
+     SaveSettings()
+
 End
 
 Public Sub BtnDefaut_Click()                                                    'valeurs par défaut dans les limites
@@ -935,7 +975,6 @@ Public Sub BtnDefaut_Click()                                                    
      FMain.sCommande = ""
      If BtnDefaut.value = False Then
           BtnDefaut.Text = ("Defecto")
-          ' FMain.sCommande = ""
           SlidFilesize.value = SlidFilesize.DefaultValue
           SlidScansize.Value = SlidScansize.DefaultValue
           SlidFiles.Value = SlidFiles.DefaultValue
@@ -954,7 +993,6 @@ Public Sub BtnDefaut_Click()                                                    
           SlidZipType.Value = SlidZipType.DefaultValue
      Else
           BtnDefaut.Text = ("Max")
-          ' FMain.sCommande = ""
           SlidFilesize.value = SlidFilesize.MaxValue
           SlidScansize.Value = SlidScansize.MaxValue
           SlidFiles.Value = SlidFiles.MaxValue

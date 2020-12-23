@@ -3,61 +3,61 @@ msgid ""
 msgstr ""
 "#-#-#-#-#  #project.pot (ClamScanGui 3.15.2)  #-#-#-#-#\n"
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Authenticate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Cerf.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ClamScan.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FMain.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmGeneral.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmSoumission.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Impr1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Module1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmAbout.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-19 20:49 UTC\n"
+"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -598,69 +598,69 @@ msgid ""
 "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr ""
 
-#: FMain.class:298
+#: FMain.class:316
 msgid ""
 "¡Todos sus pedidos son \n"
 " del SuperUsuario!"
 msgstr ""
 
-#: FMain.class:366
+#: FMain.class:402
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 
-#: FMain.class:414
+#: FMain.class:450
 msgid "Elija el directorio para escanear"
 msgstr ""
 
-#: FMain.class:415
+#: FMain.class:451
 msgid "Elija el archivo para analizar"
 msgstr ""
 
-#: FMain.class:448
+#: FMain.class:484
 msgid ""
 "Seleccione \n"
 " an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:545 Module1.module:88
+#: FMain.class:581 Module1.module:88
 msgid ""
 "clamscan, todavía funciona, en segundo plano.\n"
 " Tendrá que borrar la memoria usted mismo."
 msgstr ""
 
-#: FMain.class:551
+#: FMain.class:587
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: FMain.class:551
+#: FMain.class:587
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: FMain.class:554
+#: FMain.class:590
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:766
+#: FMain.class:802
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:804
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:768
+#: FMain.class:804
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:768 FrmGeneral.class:66
+#: FMain.class:804 FrmGeneral.class:65
 msgid "Si"
 msgstr ""
 
-#: FMain.class:768 FrmGeneral.class:66
+#: FMain.class:804 FrmGeneral.class:65
 msgid "No"
 msgstr ""
 
-#: FMain.class:956
+#: FMain.class:995
 msgid "Max"
 msgstr ""
 
@@ -688,216 +688,216 @@ msgstr ""
 msgid "Cerrar"
 msgstr ""
 
-#: FrmGeneral.class:65
+#: FrmGeneral.class:64
 msgid "¡Proceda con cuidado!"
 msgstr ""
 
-#: FrmGeneral.class:66
+#: FrmGeneral.class:65
 msgid "¿Quieres guardar tus cambios?"
 msgstr ""
 
-#: FrmGeneral.class:109
+#: FrmGeneral.class:108
 msgid "Copia de seguridad realizada"
 msgstr ""
 
-#: FrmGeneral.class:111
+#: FrmGeneral.class:110
 msgid "Copia de seguridad no realizada"
 msgstr ""
 
-#: FrmGeneral.class:140
+#: FrmGeneral.class:139
 msgid "¿Quiere restaurar el archivo respaldado?"
 msgstr ""
 
-#: FrmGeneral.class:186
+#: FrmGeneral.class:185
 msgid "Restauración realizada"
 msgstr ""
 
-#: FrmGeneral.class:188
+#: FrmGeneral.class:187
 msgid "Restauración no realizada"
 msgstr ""
 
-#: FrmGeneral.class:201
+#: FrmGeneral.class:199
 msgid "No hay archivo para restaurar"
 msgstr ""
 
-#: FrmGeneral.class:204
+#: FrmGeneral.class:202
 msgid "¿Quieres restaurar el archivo de la cuarentena?"
 msgstr ""
 
-#: FrmGeneral.class:214
+#: FrmGeneral.class:208
 msgid "El archivo ha sido restaurado"
 msgstr ""
 
-#: FrmGeneral.class:216
+#: FrmGeneral.class:210
 msgid "¡El archivo en cuestión no existe!"
 msgstr ""
 
-#: FrmGeneral.class:258
+#: FrmGeneral.class:241
 msgid "Historial de escaneo:"
 msgstr ""
 
-#: FrmGeneral.class:268
+#: FrmGeneral.class:251
 msgid "Historia de ClamScanGui : "
 msgstr ""
 
-#: FrmGeneral.class:276
+#: FrmGeneral.class:259
 msgid "¡Atención, archivo muy grande!"
 msgstr ""
 
-#: FrmGeneral.class:277
+#: FrmGeneral.class:260
 msgid ""
 "¿Quieres ver el archivo completo? \n"
 " ¡Ten paciencia!"
 msgstr ""
 
-#: FrmGeneral.class:277
+#: FrmGeneral.class:260
 msgid "¡Solo una parte!"
 msgstr ""
 
-#: FrmGeneral.class:288
+#: FrmGeneral.class:271
 msgid " -------- | Archivo vacío | -------- "
 msgstr ""
 
-#: FrmGeneral.class:299
+#: FrmGeneral.class:282
 msgid "Grabación de la sesión:"
 msgstr ""
 
-#: FrmGeneral.class:303
+#: FrmGeneral.class:286
 msgid " Registro de ClamScanGui "
 msgstr ""
 
-#: FrmGeneral.class:324
+#: FrmGeneral.class:307
 msgid "Viendo el archivo Freshclam.log:"
 msgstr ""
 
-#: FrmGeneral.class:347
+#: FrmGeneral.class:330
 msgid "# Modo de edición # "
 msgstr ""
 
-#: FrmGeneral.class:347
+#: FrmGeneral.class:330
 msgid " Configuración de: "
 msgstr ""
 
-#: FrmGeneral.class:349
+#: FrmGeneral.class:332
 msgid "Edición:"
 msgstr ""
 
-#: FrmGeneral.class:354
+#: FrmGeneral.class:337
 msgid "# Modo de consulta # "
 msgstr ""
 
-#: FrmGeneral.class:356
+#: FrmGeneral.class:339
 msgid "Consulta:"
 msgstr ""
 
-#: FrmGeneral.class:365
+#: FrmGeneral.class:348
 msgid "Su archivo de configuración clamd.conf"
 msgstr ""
 
-#: FrmGeneral.class:371
+#: FrmGeneral.class:354
 msgid "Su archivo de configuración Freshclam.conf"
 msgstr ""
 
-#: FrmGeneral.class:377
+#: FrmGeneral.class:360
 msgid "Su archivo de configuración clamav-milter.conf"
 msgstr ""
 
-#: FrmGeneral.class:382
+#: FrmGeneral.class:365
 msgid " Ejemplo de clamd.conf "
 msgstr ""
 
-#: FrmGeneral.class:383
+#: FrmGeneral.class:366
 msgid ""
 "Un ejemplo de un archivo de configuración con comentarios\n"
 " que puede encontrar en su disco en:\n"
 msgstr ""
 
-#: FrmGeneral.class:389
+#: FrmGeneral.class:372
 msgid " Ejemplo de freshclam.conf "
 msgstr ""
 
-#: FrmGeneral.class:396
+#: FrmGeneral.class:379
 msgid " Ejemplo de clamav-milter.conf "
 msgstr ""
 
-#: FrmGeneral.class:405
+#: FrmGeneral.class:388
 msgid "Es la primera vez !"
 msgstr ""
 
-#: FrmGeneral.class:406
+#: FrmGeneral.class:389
 msgid ""
 "Se acaba de realizar una copia de seguridad \n"
 "en caso de error, puede restaurarla"
 msgstr ""
 
-#: FrmGeneral.class:412
+#: FrmGeneral.class:395
 msgid ""
 "Se acaba de guardar un archivo de ejemplo \n"
 " en el siguiente directorio: \n"
 " "
 msgstr ""
 
-#: FrmGeneral.class:426
+#: FrmGeneral.class:409
 msgid "Ayuda de ClamScanGui:"
 msgstr ""
 
-#: FrmGeneral.class:431
+#: FrmGeneral.class:414
 msgid " Inicio de archivo "
 msgstr ""
 
-#: FrmGeneral.class:433
+#: FrmGeneral.class:416
 msgid " FAQ : http://www.clamav.net"
 msgstr ""
 
-#: FrmGeneral.class:443
+#: FrmGeneral.class:426
 msgid " Ayuda de ClamScanGui "
 msgstr ""
 
-#: FrmGeneral.class:453
+#: FrmGeneral.class:436
 msgid " Fin del documento "
 msgstr ""
 
-#: FrmGeneral.class:465
+#: FrmGeneral.class:448
 msgid "Cuarentena de ClamScanGui:"
 msgstr ""
 
-#: FrmGeneral.class:468
+#: FrmGeneral.class:451
 msgid "Cuarentena de ClamScanGui"
 msgstr ""
 
-#: FrmGeneral.class:469
+#: FrmGeneral.class:452
 msgid "Archivos infectados"
 msgstr ""
 
-#: FrmGeneral.class:470
+#: FrmGeneral.class:453
 msgid "Virus"
 msgstr ""
 
-#: FrmGeneral.class:495
+#: FrmGeneral.class:465
 msgid "Lista de virus encontrados"
 msgstr ""
 
-#: FrmGeneral.class:540
+#: FrmGeneral.class:519
 msgid "No hay archivo para borrar"
 msgstr ""
 
-#: FrmGeneral.class:543
+#: FrmGeneral.class:522
 msgid "¿Quieres destruir el archivo?"
 msgstr ""
 
-#: FrmGeneral.class:550
+#: FrmGeneral.class:529
 msgid "¡El archivo ha sido destruido!"
 msgstr ""
 
-#: FrmGeneral.class:594
+#: FrmGeneral.class:569
 msgid "No hay archivo para enviar"
 msgstr ""
 
-#: FrmGeneral.class:627
+#: FrmGeneral.class:597
 msgid "¿Quieres poner el archivo en cuarentena?"
 msgstr ""
 
-#: FrmGeneral.class:641
+#: FrmGeneral.class:603
 msgid "El archivo se ha movido a cuarentena"
 msgstr ""
 
