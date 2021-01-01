@@ -1,13 +1,29 @@
-* Tue Dec 22 2020 TheNerdyAprrentice <marainocattani@gmail.com> 1.1.64
+* Fri Jan 01 2021 Ozymandias <marianocattani@gmail.com> 1.1.67
+-Recompilación
 
-* Tue Dec 22 2020 PilValaquarus <valaquarus@gmail.com> 1.1.64
+* Thu Dec 31 2020 PilValaquarus <valaquarus@gmail.com> 1.1.67
+- Correction bug sur sudo
+
+* Tue Dec 29 2020 PilValaquarus <valaquarus@gmail.com> 1.1.66
+- Correction Bug sur effacement
+
+* Tue Dec 29 2020 PilValaquarus <valaquarus@gmail.com> 1.1.66
+- Recompilation
+
+* Mon Dec 28 2020 PilValaquarus <valaquarus@gmail.com> 1.1.66
+- Nettoyage à la fermeture
+- récupération nom de virus sur quarantaine auto
+
+* Mon Dec 28 2020 PilValaquarus <valaquarus@gmail.com> 1.1.65
+- Même nom de virus corrigé
+
+* Thu Dec 24 2020 PilValaquarus <valaquarus@gmail.com> 1.1.64
 - Réduction du bug
-
-* Tue Dec 22 2020 PilValaquarus <valaquarus@gmail.com> 1.1.63
-- Toujours même bug non réglé
+- Allègement code
 
 * Sat Dec 19 2020 PilValaquarus <valaquarus@gmail.com> 1.1.63
 - Bug sur récupération liste virus
+- Toujours même bug non réglé
 
 * Fri Dec 18 2020 PilValaquarus <valaquarus@gmail.com> 1.1.62
 - Détails

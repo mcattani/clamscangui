@@ -55,25 +55,6 @@ Public Sub langues()
 
 End
 
-' Public Sub souvenir()
-'
-'      ' Dim comm As String
-'      ' Shell "pidof clamscan" To result
-'      ' Shell "pgrep -if clamscan" To result
-'      ' comm = "kill -s " & result
-'      ' comm = comm & "kill -kill " & result
-'      ' comm = comm & "Kill -TERM " & result
-'      ' comm = "killall -w " & "clamscan"
-'      ' comm = "killall -TERM " & "clamscan"
-'      ' comm = "kill -s KILL " & result
-'      ' comm = comm & "kill -KILL " & result
-'      ' comm = "killall -x clamscan"
-'      ' Shell "pgrep -u root clamscan" To result
-'      ' Authenticate.Command("sudo kill -9 " & result)
-'      ' Shell "kill -9 " & Application.Id
-'
-' End
-
 Public Sub sortie()
 
      Dim result As String

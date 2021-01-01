@@ -294,7 +294,7 @@
       Text = ("Cuarentena")
       Picture = Picture["icon:/48/flag"]
     }
-    { MnuSoumis Menu
+    { MnuCorrompus Menu
       Text = ("Archivos potencialmente infectados")
       Picture = Picture["icon:/22/upload"]
     }

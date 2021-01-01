@@ -49,21 +49,27 @@
         Text = ("Contraseña:")
         Alignment = Align.Right
       }
+      { Panel3 Panel
+        Move(231,0,14,28)
+      }
       { TextBoxPassword TextBox
-        Move(238,4,119,28)
+        Move(266,3,119,28)
         Font = Font["Noto Sans,10"]
         Expand = True
         Password = True
       }
       { Panel7 Panel
-        Move(462,0,21,28)
+        Move(462,0,14,28)
       }
+    }
+    { Panel5 Panel
+      Move(227,151,70,7)
     }
     { Panel2 HBox
       Move(0,161,553,32)
       Font = Font["Noto Sans,10"]
       { LabelCaps Label
-        Move(7,6,189,28)
+        Move(7,1,189,28)
         Font = Font["Bold,11"]
         Foreground = Color.Red
         Expand = True
@@ -75,7 +81,7 @@
         Picture = Picture["icon:/22/cancel"]
       }
       { Panel4 Panel
-        Move(343,0,7,35)
+        Move(343,0,14,28)
       }
       { ButtonAuthenticate Button
         Move(357,4,133,28)
@@ -84,8 +90,11 @@
         Picture = Picture["icon:/22/security"]
       }
       { Panel8 Panel
-        Move(518,0,21,35)
+        Move(518,0,14,28)
       }
+    }
+    { Panel9 Panel
+      Move(231,203,70,7)
     }
     { VBox2 HBox
       Move(0,217,553,119)

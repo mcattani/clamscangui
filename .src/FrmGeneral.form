@@ -28,6 +28,11 @@
       ReadOnly = True
       Wrap = True
     }
+    { DataSource1 DataSource
+      MoveScaled(44,5,10,9)
+      Visible = False
+      Connection = Connections["Connection1"]
+    }
     { GV1 GridView
       MoveScaled(70,2,36,67)
       Expand = True

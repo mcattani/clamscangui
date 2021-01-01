@@ -10,6 +10,7 @@
 '' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
+'' ' To Ceasar : Thanks to Cogier
 
 Create Static                                                                   'Store Class in memory
 
@@ -59,7 +60,7 @@ Public Sub ButtonAuthenticate_Click()                                           
      If Not sPassword Then sPassword = TextBoxPassword.Text                     'If there is no password stored then take it from TextBox
      sPass = Shell$(sPassword)                                                  'The caters for odd characters in the password
 
-     Try Shell "sudo -K;echo " & sPass & "|sudo -S -k whoami 2>&1" To sChkOutput ' fonctionne pour toutes les langues
+     Try Shell "sudo -K;echo " & sPass & "|sudo -S -k whoami 2>&1" To sChkOutput ' fonctionne pour toutes les langues'2>&1
      TextAreaTerminal.Clear
      If Not InStr(sChkOutput, "root") Then
           sPassword = ""                                                        'Clear sPassword
@@ -73,7 +74,8 @@ Public Sub ButtonAuthenticate_Click()                                           
                FMain.bFlag = True
                Me.Close
           Else
-               Try Shell "echo " & sPass & " | sudo -S " & sCommand & " 2>&1" Wait For Read As "Terminal"
+               Try Shell "echo " & sPass & " | sudo -S " & sCommand Wait For Read As "Terminal"
+               '& " 2>&1"
                If Not Error Then
                     FMain.bFlag = True                                          'validation du mot de passe effectuée
                     ButtonCancel.Text = ("atrás")
@@ -95,8 +97,9 @@ Public Sub Terminal_read()                                                      
      Dim sLine As String                                                        'To store the output
 
      sLine = Read #Last, Lof(Last)
-     sOutput &= sLine
-     TextAreaTerminal.Text &= sLine & gb.CrLf                                   'Put the output in the TextArea
+     sOutput &= sLine & gb.NewLine
+     TextAreaTerminal.Text &= sLine & gb.NewLine                                'Put the output in the TextArea
+     ' TextAreaTerminal.Text = sOutput
      Wait
 Catch
      TextAreaTerminal.Clear

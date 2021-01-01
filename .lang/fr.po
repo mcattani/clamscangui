@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGuiV0 3.15.2\n"
-"POT-Creation-Date: 2020-12-19 10:05 UTC\n"
-"PO-Revision-Date: 2020-12-16 20:12 UTC\n"
+"POT-Creation-Date: 2020-12-29 14:38 UTC\n"
+"PO-Revision-Date: 2020-12-28 18:52 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgid "Autenticar"
 msgstr "Authentifier"
 
 # gb-ignore
-#: Cerf.form:26
+#: Cerf.form:26 frmAbout.form:37
 msgid "Unus Ex Altera"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 msgid "clamscan --version"
 msgstr "clamscan --version"
 
-#: ClamScan.module:141
+#: ClamScan.module:146
 msgid " Escaneo realizado : "
 msgstr " Analyse effectuée : "
 
@@ -112,7 +112,7 @@ msgstr "Pour reconfigurer clamav-milter, exécutez sudo dpkg-reconfigure clamav-
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr "Pour reconfigurer clamd, exécutez sudo dpkg-reconfigure clamav-daemon"
 
-#: FMain.class:298
+#: FMain.class:316
 msgid ""
 "¡Todos sus pedidos son \n"
 " del SuperUsuario!"
@@ -120,21 +120,21 @@ msgstr ""
 "Toutes vos commandes sont\n"
 "du SuperUser!"
 
-#: FMain.class:366
+#: FMain.class:402
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 "Veuillez patienter quelques secondes\n"
 "pendant le démarrage de l'antivirus"
 
-#: FMain.class:414
+#: FMain.class:424
 msgid "Elija el directorio para escanear"
 msgstr "Choisissez le répertoire à analyser"
 
-#: FMain.class:415
+#: FMain.class:425
 msgid "Elija el archivo para analizar"
 msgstr "Choisissez le fichier à analyser"
 
-#: FMain.class:448
+#: FMain.class:458
 msgid ""
 "Seleccione \n"
 " an objeto para escanear!"
@@ -142,7 +142,7 @@ msgstr ""
 "Veuillez sélectionner\n"
 "un objet à scanner!"
 
-#: FMain.class:545 Module1.module:88
+#: FMain.class:555 Module1.module:69
 msgid ""
 "clamscan, todavía funciona, en segundo plano.\n"
 " Tendrá que borrar la memoria usted mismo."
@@ -150,40 +150,40 @@ msgstr ""
 "Clamscan, fonctionne toujours, en arrière-plan.\n"
 "Vous devrez effacer la mémoire vous-même."
 
-#: FMain.class:551
+#: FMain.class:561
 msgid "El proceso actual ha sido eliminado"
 msgstr "Le processus actuel a été tué"
 
-#: FMain.class:551
+#: FMain.class:561
 msgid "¡Puedes volver!"
 msgstr "Vous pouvez revenir!"
 
-#: FMain.class:554
+#: FMain.class:564
 msgid "¡El proceso ya se detuvo!"
 msgstr "Le processus est déjà arrêté!"
 
-#: FMain.class:766
+#: FMain.class:788
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "La langue choisie sera appliquée après le redémarrage"
 
-#: FMain.class:768
+#: FMain.class:790
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "La langue choisie sera appliquée après le redémarrage du programme."
 
-#: FMain.class:768 FrmGeneral.class:66
+#: FMain.class:790 FrmGeneral.class:66
 msgid "No"
 msgstr "Non"
 
-#: FMain.class:768 FrmGeneral.class:66
+#: FMain.class:790 FrmGeneral.class:66
 msgid "Si"
 msgstr "Oui"
 
-#: FMain.class:768
+#: FMain.class:790
 msgid "¿Quieres renunciar?"
 msgstr "Voulez-vous quitter?"
 
 # gb-ignore
-#: FMain.class:956
+#: FMain.class:981
 msgid "Max"
 msgstr ""
 
@@ -417,7 +417,7 @@ msgstr ""
 msgid "Acciones"
 msgstr "Actions"
 
-#: FMain.form:477 FrmGeneral.form:79
+#: FMain.form:477 FrmGeneral.form:86
 msgid "Cuarentena"
 msgstr "Quarantaine"
 
@@ -626,59 +626,59 @@ msgstr "Procédez avec précaution!"
 msgid "¿Quieres guardar tus cambios?"
 msgstr "Voulez-vous enregistrer vos modifications?"
 
-#: FrmGeneral.class:109
+#: FrmGeneral.class:103
 msgid "Copia de seguridad realizada"
 msgstr "Sauvegarde effectuée"
 
-#: FrmGeneral.class:111
+#: FrmGeneral.class:105
 msgid "Copia de seguridad no realizada"
 msgstr "Sauvegarde non effectuée"
 
-#: FrmGeneral.class:140
+#: FrmGeneral.class:133
 msgid "¿Quiere restaurar el archivo respaldado?"
 msgstr "Voulez-vous restaurer le fichier sauvegardé?"
 
-#: FrmGeneral.class:186
+#: FrmGeneral.class:173
 msgid "Restauración realizada"
 msgstr "Restauration terminée"
 
-#: FrmGeneral.class:188
+#: FrmGeneral.class:175
 msgid "Restauración no realizada"
 msgstr "Restauration non effectuée"
 
-#: FrmGeneral.class:201
+#: FrmGeneral.class:187
 msgid "No hay archivo para restaurar"
 msgstr "Il n'y a aucun fichier à restaurer"
 
-#: FrmGeneral.class:204
+#: FrmGeneral.class:191
 msgid "¿Quieres restaurar el archivo de la cuarentena?"
 msgstr "Voulez-vous restaurer le fichier à partir de la quarantaine?"
 
-#: FrmGeneral.class:214
+#: FrmGeneral.class:204
 msgid "El archivo ha sido restaurado"
 msgstr "Le fichier a été restauré"
 
-#: FrmGeneral.class:216
+#: FrmGeneral.class:206
 msgid "¡El archivo en cuestión no existe!"
 msgstr "Le fichier en question n'existe pas!"
 
-#: FrmGeneral.class:258
+#: FrmGeneral.class:245
 msgid "Historial de escaneo:"
 msgstr "Historique de scan :"
 
-#: FrmGeneral.class:268
+#: FrmGeneral.class:255
 msgid "Historia de ClamScanGui : "
 msgstr "Historique de ClamScanGui : "
 
-#: FrmGeneral.class:276
+#: FrmGeneral.class:263
 msgid "¡Atención, archivo muy grande!"
 msgstr "Attention, très gros fichier!"
 
-#: FrmGeneral.class:277
+#: FrmGeneral.class:264
 msgid "¡Solo una parte!"
 msgstr "Seulement une partie!"
 
-#: FrmGeneral.class:277
+#: FrmGeneral.class:264
 msgid ""
 "¿Quieres ver el archivo completo? \n"
 " ¡Ten paciencia!"
@@ -686,59 +686,59 @@ msgstr ""
 "Voulez-vous voir le fichier complet?\n"
 "Soyez patient!"
 
-#: FrmGeneral.class:288
+#: FrmGeneral.class:275
 msgid " -------- | Archivo vacío | -------- "
 msgstr " -------- | Fichier vide | -------- "
 
-#: FrmGeneral.class:299
+#: FrmGeneral.class:286
 msgid "Grabación de la sesión:"
 msgstr "Enregistrement de session :"
 
-#: FrmGeneral.class:303
+#: FrmGeneral.class:290
 msgid " Registro de ClamScanGui "
 msgstr "Log de ClamScanGui : "
 
-#: FrmGeneral.class:324
+#: FrmGeneral.class:311
 msgid "Viendo el archivo Freshclam.log:"
 msgstr "Affichage du fichier Freshclam.log :"
 
-#: FrmGeneral.class:347
+#: FrmGeneral.class:334
 msgid " Configuración de: "
 msgstr " Configuration de : "
 
-#: FrmGeneral.class:347
+#: FrmGeneral.class:334
 msgid "# Modo de edición # "
 msgstr "# Mode Édition # "
 
-#: FrmGeneral.class:349
+#: FrmGeneral.class:336
 msgid "Edición:"
 msgstr "Édition :"
 
-#: FrmGeneral.class:354
+#: FrmGeneral.class:341
 msgid "# Modo de consulta # "
 msgstr "# Mode Consultation # "
 
-#: FrmGeneral.class:356
+#: FrmGeneral.class:343
 msgid "Consulta:"
 msgstr "Consultation :"
 
-#: FrmGeneral.class:365
+#: FrmGeneral.class:352
 msgid "Su archivo de configuración clamd.conf"
 msgstr "Votre fichier de configuration clamd.conf"
 
-#: FrmGeneral.class:371
+#: FrmGeneral.class:358
 msgid "Su archivo de configuración Freshclam.conf"
 msgstr "Votre fichier de configuration Freshclam.conf"
 
-#: FrmGeneral.class:377
+#: FrmGeneral.class:364
 msgid "Su archivo de configuración clamav-milter.conf"
 msgstr "Votre fichier de configuration clamav-milter.conf"
 
-#: FrmGeneral.class:382
+#: FrmGeneral.class:369
 msgid " Ejemplo de clamd.conf "
 msgstr "Exemple de clamd.conf"
 
-#: FrmGeneral.class:383
+#: FrmGeneral.class:370
 msgid ""
 "Un ejemplo de un archivo de configuración con comentarios\n"
 " que puede encontrar en su disco en:\n"
@@ -746,19 +746,19 @@ msgstr ""
 "Un exemple de fichier de configuration avec des commentaires\n"
 "que vous pouvez trouver sur votre disque à:\n"
 
-#: FrmGeneral.class:389
+#: FrmGeneral.class:376
 msgid " Ejemplo de freshclam.conf "
 msgstr "Exemple de Freshclam.conf"
 
-#: FrmGeneral.class:396
+#: FrmGeneral.class:383
 msgid " Ejemplo de clamav-milter.conf "
 msgstr "Exemple de clamav-milter.conf"
 
-#: FrmGeneral.class:405
+#: FrmGeneral.class:392
 msgid "Es la primera vez !"
 msgstr "C'est la première fois !"
 
-#: FrmGeneral.class:406
+#: FrmGeneral.class:393
 msgid ""
 "Se acaba de realizar una copia de seguridad \n"
 "en caso de error, puede restaurarla"
@@ -766,7 +766,7 @@ msgstr ""
 "Une sauvegarde de sécurité vient d'être faite\n"
 "en cas d'erreur, vous pourrez la restaurer"
 
-#: FrmGeneral.class:412
+#: FrmGeneral.class:399
 msgid ""
 "Se acaba de guardar un archivo de ejemplo \n"
 " en el siguiente directorio: \n"
@@ -776,100 +776,104 @@ msgstr ""
 "dans le répertoire suivant :\n"
 " "
 
-#: FrmGeneral.class:426
+#: FrmGeneral.class:413
 msgid "Ayuda de ClamScanGui:"
 msgstr "Aide ClamScanGui :"
 
-#: FrmGeneral.class:431
+#: FrmGeneral.class:418
 msgid " Inicio de archivo "
 msgstr "Début du fichier"
 
 # gb-ignore
-#: FrmGeneral.class:433
+#: FrmGeneral.class:420
 msgid " FAQ : http://www.clamav.net"
 msgstr ""
 
-#: FrmGeneral.class:443
+#: FrmGeneral.class:430
 msgid " Ayuda de ClamScanGui "
 msgstr "Aide ClamScanGui"
 
-#: FrmGeneral.class:453
+#: FrmGeneral.class:440
 msgid " Fin del documento "
 msgstr "Fin du document"
 
-#: FrmGeneral.class:465
+#: FrmGeneral.class:452
 msgid "Cuarentena de ClamScanGui:"
 msgstr "ClamScanGui Quarantaine :"
 
-#: FrmGeneral.class:468
+#: FrmGeneral.class:455
 msgid "Cuarentena de ClamScanGui"
 msgstr "ClamScanGui Quarantaine"
 
-#: FrmGeneral.class:469
+#: FrmGeneral.class:456
 msgid "Archivos infectados"
 msgstr "Fichiers infectés"
 
-#: FrmGeneral.class:470
+#: FrmGeneral.class:457
 msgid "Virus"
 msgstr "Virus"
 
-#: FrmGeneral.class:495
+#: FrmGeneral.class:458
+msgid "Nombre"
+msgstr "Nom"
+
+#: FrmGeneral.class:469
 msgid "Lista de virus encontrados"
 msgstr "Liste des virus trouvés"
 
-#: FrmGeneral.class:540
+#: FrmGeneral.class:532
 msgid "No hay archivo para borrar"
 msgstr "Il n'y a aucun fichier à supprimer"
 
-#: FrmGeneral.class:543
+#: FrmGeneral.class:535
 msgid "¿Quieres destruir el archivo?"
 msgstr "Voulez-vous détruire le fichier?"
 
-#: FrmGeneral.class:550
+#: FrmGeneral.class:542
 msgid "¡El archivo ha sido destruido!"
 msgstr "Le fichier a été détruit!"
 
-#: FrmGeneral.class:594
+#: FrmGeneral.class:579
 msgid "No hay archivo para enviar"
 msgstr "Il n'y a pas de fichier à envoyer"
 
-#: FrmGeneral.class:627
+#: FrmGeneral.class:606
 msgid "¿Quieres poner el archivo en cuarentena?"
 msgstr "Voulez-vous mettre le fichier en quarantaine?"
 
-#: FrmGeneral.class:641
+#: FrmGeneral.class:619
 msgid "El archivo se ha movido a cuarentena"
 msgstr "Le fichier a été mis en quarantaine"
 
-#: FrmGeneral.form:72
+#: FrmGeneral.form:79
 msgid "Imprimir"
 msgstr "Imprimer"
 
-#: FrmGeneral.form:90
+#: FrmGeneral.form:97
 msgid "Sumisión"
 msgstr "Soumission"
 
-#: FrmGeneral.form:101
+#: FrmGeneral.form:108
 msgid "Borrar"
 msgstr "Supprimer"
 
-#: FrmGeneral.form:112
+#: FrmGeneral.form:119
 msgid "Restaurar"
 msgstr "Restaurer"
 
-#: FrmGeneral.form:124
+#: FrmGeneral.form:131
 msgid "Salvar"
 msgstr "Sauvegarder"
 
-#: FrmGeneral.form:135 FrmSoumission.form:137 frmAbout.form:20
+#: FrmGeneral.form:142 FrmSoumission.form:137 frmAbout.form:20
 msgid "Cerrar"
 msgstr "Fermer"
 
-#: FrmSoumission.class:26
+#: FrmSoumission.class:37
 msgid "¡llena todos los campos!"
 msgstr "Remplissez tous les champs!"
 
-#: FrmSoumission.class:31
+#: FrmSoumission.class:42
 msgid "¡no tienes que enviar nada! "
 msgstr "Vous n'avez rien à envoyer!"
 
@@ -936,11 +940,6 @@ msgstr ""
 "Programme modifié par Pil Valaquarus.\n"
 "Octobre 2020\n"
 "valaquarus@gmail.com\n"
-
-# gb-ignore
-#: frmAbout.form:37
-msgid "mail to : valaquarus@gmail.com"
-msgstr ""
 
 #: frmAbout.form:47
 msgid "Click para acceder al blog"

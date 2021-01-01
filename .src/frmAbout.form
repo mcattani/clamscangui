@@ -19,11 +19,11 @@
     Wrap = True
   }
   { Panel1 Panel
-    MoveScaled(66,2,16.1429,21)
+    MoveScaled(65,2,18,21)
     Border = Border.Raised
     { PictureBox2 PictureBox
-      MoveScaled(0.5714,0.5714,15,19)
-      ToolTip = ("mail to : valaquarus@gmail.com")
+      MoveScaled(1.4286,1.1429,15,19)
+      ToolTip = ("Unus Ex Altera")
       Picture = Picture["pil2.png"]
       Alignment = Align.Center
       Mode = PictureBox.Contain

@@ -14,10 +14,11 @@
 '' TODO reste à changer la sélection unique par une sélection multiple
 '' Changer myRow (integer) par myRow[](integer[])
 
-Public myRow As Integer
-Public fichier As String[] = New String[]
-Public virus As String[] = New String[]
-Public lNbrLigne As Long
+Public myRow As Integer                                                         'ligne du GridView GV1
+Public fichier As String[] = New String[]                                       'path complet du fichier compromis
+Public virus As String[] = New String[]                                         'nom du virus
+Public nameFile As String[] = New String[]                                      'nom du fichier
+Public lNbrLigne As Long                                                        'nombre de ligne du fichier historique
 
 Public Sub Run() As Boolean
 
@@ -40,7 +41,7 @@ End
 
 Public Sub GV1_Select()
 
-     myRow = GV1.Row
+     myRow = GV1.Row                                                            'affectation du numéro de ligne sélectionné
 
 End
 
@@ -68,39 +69,33 @@ Public Sub btnSauve_Click()                                                     
           Select Case FMain.iFlag                                               'en fonction du drapeau integer
                Case 0
                     nomFich = User.Home &/ ".clamscangui/clamd.pil"
-                    File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamd.conf"
                     ' Comm1 = " systemctl restart clamav-daemon"
                     comm1 = " /etc/init.d/clamav-daemon start"
 
                Case 1
                     nomFich = User.Home &/ ".clamscangui/freshclam.pil"
-                    File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/freshclam.conf"
                     ' Comm1 = " systemctl restart freshclam"
                     comm1 = " /etc/init.d/clamav-freshclam start"
 
                Case 2
                     nomFich = User.Home &/ ".clamscangui/clamav-milter.pil"
-                    File.Save(nomFich, TextArea1.Text)
                     Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamav-milter.conf"
                     ' Comm1 = " systemctl restart clamav-milter"
                     comm1 = " /etc/init.d/clamav-milter start"
 
                Case 3
                     nomFich = User.Home &/ ".clamscangui/clamd.exemple"
-                    File.Save(nomFich, TextArea1.Text)
 
                Case 4
                     nomFich = User.Home &/ ".clamscangui/freshclam.exemple"
-                    File.Save(nomFich, TextArea1.Text)
 
                Case 5
                     nomFich = User.Home &/ ".clamscangui/clamav-milter.exemple"
-                    File.Save(nomFich, TextArea1.Text)
 
           End Select
-
+          File.Save(nomFich, TextArea1.Text)
           Authenticate.Command("sudo " & Comm)                                  'on récupère le mot de passe
           Shell (FMain.monTexte)                                                'on lance le process
           If FMain.bFlag = True Then                                            'message en fonction du résultat
@@ -122,9 +117,8 @@ Catch
 
 End
 
-Public Sub btnRestaurar_Click()
+Public Sub btnRestaurar_Click()                                                 'bouton restauration
 
-     Dim hFile As File
      Dim sLine As String
      Dim i As Integer
 
@@ -142,42 +136,36 @@ Public Sub btnRestaurar_Click()
                     Select Case FMain.iFlag                                     'en fonction du drapeau integer
                          Case 0
                               nomFich = User.Home &/ ".clamscangui/clamd.sauve"
-                              TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamd.conf"
                               ' comm1 = " systemctl restart clamav-daemon"
                               comm1 = " /etc/init.d/clamav-daemon start"
 
                          Case 1
                               nomFich = User.Home &/ ".clamscangui/freshclam.sauve"
-                              TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & "/etc/clamav/freshclam.conf"
                               ' comm1 = " systemctl restart freshclam"
                               comm1 = " /etc/init.d/clamav-freshclam start"
 
                          Case 2
                               nomFich = User.Home &/ ".clamscangui/clamav-milter.sauve"
-                              TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & "/etc/clamav/clamav-milter.conf"
                               ' comm1 = " systemctl restart clamav-milter"
                               comm1 = " /etc/init.d/clamav-milter start"
 
                          Case 3
                               nomFich = "/usr/share/doc/clamav-daemon/examples/clamd.conf.sample"
-                              TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & "User.Home &/.clamscangui/clamd.exemple"
 
                          Case 4
                               nomFich = "/usr/share/doc/clamav-freshclam/examples/freshclam.conf.sample"
-                              TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & User.Home &/ ".clamscangui/freshclam.exemple"
 
                          Case 5
                               nomFich = "/usr/share/doc/clamav-milter/examples/clamav-milter.conf.sample"
-                              TextArea1.Text = File.load(nomFich)
                               Comm = "cp -a  " & nomFich & " " & User.Home &/ ".clamscangui/clamav-milter.exemple"
 
                     End Select
-
+                    TextArea1.Text = File.load(nomFich)
                     Authenticate.Command("sudo " & Comm)                        'on récupère le mot de passe
                     Shell (FMain.monTexte)                                      'on lance le process
                     If FMain.bFlag = True Then                                  'message en fonction du résultat
@@ -199,25 +187,41 @@ Public Sub btnRestaurar_Click()
                     Message(("No hay archivo para restaurar"))
                     Return
                Endif
+
                If Message.Warning(("¿Quieres restaurar el archivo de la cuarentena?"), ("Si"), ("No")) = 2 Then
                     Return
                Endif
-               Try Shell "cp -a " & User.Home &/ ".clamscangui/viruses" &/ File.Name(fichier[myRow]) & " " & fichier[myRow]
+
+               If FMain.Quarant = False Then
+                    Try Shell "cp -a " & User.Home &/ ".clamscangui/viruses" &/ nameFile[myRow] & " " & fichier[myRow]
+               Else
+                    Try Shell "cp -a " & User.Home &/ ".clamscangui/viruses" &/ virus[myRow] & " " & fichier[myRow]
+               Endif
+
                Wait
+
                If Not Error Then
                     Message(("El archivo ha sido restaurado"))
                Else
                     Message(("¡El archivo en cuestión no existe!"))
                Endif
-               Try Kill User.Home &/ ".clamscangui/viruses" &/ File.Name(fichier[myRow])
+
+               If FMain.Quarant = False Then
+                    Try Kill User.Home &/ ".clamscangui/viruses" &/ nameFile[myRow]
+               Else
+                    Try Kill User.Home &/ ".clamscangui/viruses" &/ virus[myRow]
+               Endif
+
+               fichier.Extract(myRow, 1)
+               virus.Extract(myRow, 1)
+               nameFile.Extract(myRow, 1)
                GV1.Rows.Remove(myRow, 1)
-               hFile = Open FMain.liste For Create
+
                For i = 0 To GV1.Rows.Max
                     sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
                Next
                File.Save(FMain.liste, sLine)
                sLine = ""
-               ' miseAjour(FMain.liste)
      End Select
 
 Catch
@@ -283,7 +287,7 @@ Public Sub _New() 'Form_Open()
                TextArea1.Visible = True
                GV1.Visible = False
 
-               Me.Text = (" Registro de ClamScanGui ") & FMain.clamLog ' User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
+               Me.Text = (" Registro de ClamScanGui ") & FMain.clamLog          ' User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
                FMain.clamLog = User.Home &/ ".clamscangui/ClamScanGui_Log.txt"
 
                TextArea1.Pos = 0
@@ -451,7 +455,7 @@ Public Sub _New() 'Form_Open()
                Me.Text = ("Cuarentena de ClamScanGui")
                GV1.AddColumn(("Archivos infectados"), -1, Align.Center)
                GV1.AddColumn(("Virus"), -1, Align.center)
-
+               GV1.AddColumn(("Nombre"), -1, Align.Center)
                miseAjour(FMain.liste)
 
           Case 6                                                                'liste des virus
@@ -468,7 +472,7 @@ Public Sub _New() 'Form_Open()
                Me.Text = ("Lista de virus encontrados")
                GV1.AddColumn(("Archivos infectados"), -1, Align.Center)
                GV1.AddColumn(("Virus"), -1, Align.center)
-
+               GV1.AddColumn(("Nombre"), -1, Align.Center)
                miseAjour(FMain.pil)
 
      End Select
@@ -487,8 +491,17 @@ Public Sub miseAjour(fich As String)
      i = 0
      While Not Eof(hFile)
           Line Input #hFile, sLine                                              'sLine de la forme /path complet: nom virus FOUND
-          fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)                 'récupération du path complet
-          virus.Add(Left(Mid(sLine, InStr(sLine, ":") + 2), -6), i)             'récupération du nom virus
+
+          If FMain.Quarant = False Then                                         'si quarantaine automatique
+               fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)            'récupération du path complet
+               virus.Add(Left(Mid(sLine, InStr(sLine, ":") + 2), -6), i)        'récupération du nom virus
+               nameFile.Add(File.Name(fichier[i] & "_" & i), i)                 'ajout de _i au nom du fichier
+          Else                                                                  'si quarantaine non auto
+               fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)            'récupération du path complet
+               virus.Add(Left(Mid(sLine, RInStr(sLine, "/") + 1), -1), i)       'récupération du nom virus
+               nameFile.Add(File.Name(fichier[i]), i)                           'nom du fichier
+          Endif
+
           i += 1                                                                'incrément de i
      Wend
      GV1.Rows.Count = i                                                         'nombre de ligne du gridview
@@ -496,17 +509,17 @@ Public Sub miseAjour(fich As String)
      For i = 0 To GV1.Rows.Max                                                  'remplissage du GridView GV1
           GV1[i, 0].Text = fichier[i]                                           'col 0 =path complet
           GV1[i, 1].Text = virus[i]                                             'col 1 =nom virus
+          GV1[i, 2].Text = nameFile[i]                                          'col 2 =nom fichier
      Next
 
 End
 
-Public Sub btnBorrar_Click()                                                    'effacer
+Public Sub btnBorrar_Click()                                                    'Bouton effacer
 
      Dim i As Integer
      Dim sLine As String
-     Dim hFile As File
 
-     Select Case FMain.iform
+     Select Case FMain.iForm
 
           Case 0                                                                'historique
                TextArea1.Text = ""
@@ -523,7 +536,17 @@ Public Sub btnBorrar_Click()                                                    
                     Return
                Endif
 
-               Try Kill fichier[myRow]
+               If FMain.iForm = 5 Then
+                    If FMain.Quarant = False Then
+                         Try Kill User.Home &/ ".clamscangui/viruses" &/ nameFile[myRow]
+                    Else
+                         Try Kill User.Home &/ ".clamscangui/viruses" &/ virus[myRow]
+                    Endif
+               Endif
+
+               If FMain.iForm = 6 Then
+                    Try Kill fichier[myRow]
+               Endif
 
                If Not Error Then
                     Message(("¡El archivo ha sido destruido!"))
@@ -533,24 +556,19 @@ Public Sub btnBorrar_Click()                                                    
 
                fichier.Extract(myRow, 1)
                virus.Extract(myRow, 1)
+               nameFile.Extract(myRow, 1)
                GV1.Rows.Remove(myRow, 1)
 
+               For i = 0 To GV1.Rows.Max
+                    sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
+               Next
+
                If FMain.iForm = 5 Then                                     'liste de la quarantaine
-                    hFile = Open FMain.liste For Create                    'vérifier nécessité de create et non append
-                    For i = 0 To GV1.Rows.Max
-                         sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
-                    Next
                     File.Save(FMain.liste, sLine)
                     sLine = ""
-                    ' miseAjour(FMain.liste)                                 'inutile ici
                Else If FMain.iForm = 6 Then                                'liste des potentiellement corrompus
-                    hFile = Open FMain.pil For Create                      'vérifier nécessité de create et non append
-                    For i = 0 To GV1.Rows.Max
-                         sLine = sLine & fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
-                    Next
                     File.Save(FMain.pil, sLine)
                     sLine = ""
-                    ' miseAjour(FMain.pil)                                   'inutile ici
                Endif
 
      End Select
@@ -584,7 +602,6 @@ End
 
 Public Sub btnQuarant_Click()                                                   'mise en quarantaine des virus sélectionnés
 
-     Dim hFile2 As File
      Dim i As Integer
      Dim sLine As String
 
@@ -597,26 +614,31 @@ Public Sub btnQuarant_Click()                                                   
                If Message.Warning(("¿Quieres poner el archivo en cuarentena?"), ("Si"), ("No")) = 2 Then
                     Return
                Endif
-               Try Shell "cp -a " & fichier[myRow] & " " & User.Home &/ ".clamscangui/viruses" &/ File.Name(fichier[myRow])
+
+               sLine = File.Load(FMain.liste) & fichier[myRow] & ": " & virus[myRow] & " FOUND" & gb.NewLine
+               File.Save(FMain.liste, sLine)
+               sLine = ""
+
+               Try Shell "cp -a " & fichier[myRow] & " " & User.Home &/ ".clamscangui/viruses" &/ nameFile[myRow]
                Wait
+               Try Kill fichier[myRow]
                If Not Error Then
                     Message(("El archivo se ha movido a cuarentena"))
                Else
                     Message(("¡El archivo en cuestión no existe!"))
                Endif
-               sLine = File.Load(FMain.liste) & fichier[myRow] & ": " & virus[myRow] & " FOUND" & gb.NewLine
-               File.Save(FMain.liste, sLine)
-               sLine = ""
-               ' miseAjour(FMain.liste)
-               Try Kill fichier[myRow]
+
+               fichier.Extract(myRow, 1)
+               virus.Extract(myRow, 1)
+               nameFile.Extract(myRow, 1)
                GV1.Rows.Remove(myRow, 1)
-               hFile2 = Open FMain.pil For Create
+
                For i = 0 To GV1.Rows.Max
                     sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
                Next
                File.Save(FMain.pil, sLine)
                sLine = ""
-               ' miseAjour(FMain.pil)
+
      End Select
 
 Catch

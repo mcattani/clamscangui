@@ -1,5 +1,5 @@
 # clamscangui
-Última versión: 1.1.64
+Última versión: 1.1.67
 
 Repositorio de la interfaz gráfica para el antivirus ClamAV hecho en Gambas.
 

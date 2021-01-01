@@ -1,62 +1,67 @@
 Un antivirus, clamav, bajo Linux:
-- Cuando instalamos un antivirus bajo Linux es para usarlo de otra manera ¿Cuál es el interés?
-- Clamav permite, sobre todo, verificar que uno no transmite o retransmite un archivo contaminado, ya sea como adjunto en un correo electrónico o mediante una memoria USB.
+- Cuando instalas un antivirus en Linux es para usarlo de una forma u otra, ¿de qué sirve?
+- clamav permite, sobre todo, comprobar que uno no transmite ni retransmite a amigos un archivo contaminado, ya sea en forma de adjunto de correo electrónico o mediante llave USB.
 
-Menús de software:
+--- Menús de software: ---
 
-Las opciones :
+--Las opciones :--
+
+-Las opciones :
+- utilizado para mostrar los resultados del análisis en el área de texto de la ventana principal con ciertas opciones.
+Limitaciones:
+- le permite establecer ciertos límites de tamaño de archivo para controlar
+
+--Opciones avanzadas:--
+
+- Opciones no marcadas por defecto: -
+- estas opciones siempre deben estar desmarcadas a menos que sepa lo que está haciendo.
 Escaneo recursivo:
-- La opción más importante porque le permite seguir la ruta completa del archivo que se analiza. Ralentiza el análisis (un poco).
-
-Las otras opciones:
-- Son para mostrar los resultados del análisis en el área de texto de la ventana principal.
-
-Opciones avanzadas:
-Más opciones:
-- Para elegir si se escanean o no determinados tipos de archivos. (Por defecto, todos los escáneres)
-
-Borrar archivos contaminados:
+- La opción más importante porque le permite seguir la ruta completa del archivo que se analiza. Esto ralentiza el análisis (un poco).
+Eliminar archivos contaminados:
 - Opción relativamente peligrosa si tenemos en cuenta la cantidad de falsos positivos que puede generar el antivirus.
-
-Detectar aplicaciones potencialmente no deseadas (PUA):
-- El antivirus es más agresivo con esta opción pero genera más falsos positivos (depende de usted)
-
-Mueva los archivos potencialmente infectados a cuarentena:
-- Activa el menú: Archivo de Acciones potencialmente infectado
+Detecte aplicaciones potencialmente no deseadas (PUA):
+- El antivirus es más agresivo con esta opción pero genera más falsos positivos (depende de ti)
+Mueva los archivos potencialmente infectados a la cuarentena:
 - Proporciona un acceso más rápido a archivos potencialmente infectados; ya sea para destruirlos o restaurarlos en caso de falsos positivos.
-- Aquí nuevamente, tenga cuidado con su uso, la eliminación de un archivo ocurre rápidamente.
+- Nuevamente, tenga cuidado con su uso, la eliminación de un archivo se realiza de forma rápida y permanente.
 
-Actualización de la base de datos:
-- Clamav viene con un actualizador llamado freshclam que puede (por defecto) realizar actualizaciones de forma automática o manual.
-- Puede comprobar su estado leyendo el archivo de registro.
+- Actualización de la base de datos: -
+- clamav viene con un actualizador llamado freshclam que puede (por defecto) realizar actualizaciones de forma automática o manual, puedes cambiar la opción.
+- Puede comprobar su estado leyendo el archivo de registro (en inglés).
+- Puede verificar la configuración de freshclam en su archivo de configuración, en: /etc/clamav/freshclam.conf
+- Puede aumentar ligeramente el tiempo de recuperación de la actualización que, por defecto, es de 30 segundos si recibe errores de descarga sistemáticamente. Con una conexión ADSL, 150 segundos es más que suficiente.
 
-Comportamiento:
-Archivos potencialmente infectados:
-- Si está activo, le permite ver y luego actuar sobre los archivos que realmente se movieron a Cuarentena (destrucción, restauración o no acción)
+- Opciones marcadas por defecto: -
+No debe desmarcar estas opciones.
+- Para elegir si se analizan o no determinados tipos de archivos. (Por defecto, todos los escáneres)
 
-Iniciar sesión:
+--Acciones: -
+
+- Cuarentena: -
+- Le permite actuar sobre los archivos puestos en cuarentena, ya sea automáticamente si la opción ha sido marcada, o por usted.
+- Archivos potencialmente infectados: -
+- Le permite ver y luego actuar sobre los archivos que realmente se han movido a cuarentena (destrucción, restauración o no acción)
+- Registro de sesión: -
 - Le permite ver los análisis realizados durante la sesión.
-
-Historia:
-- Le permite ver todos los análisis realizados siempre que no los elimine.
-
-Los idiomas :
-- Actualmente puede elegir entre tres idiomas en los que se ha traducido el software (inglés, español o francés)
-
-El botón Sudo:
-- le permite ejecutar sus comandos como superusuario.
-
-Archivos de configuración:
+-Historia:-
+- Le permite ver todos los análisis realizados antes siempre que no los elimine.
+(Tenga cuidado si la opción -verbose está marcada, el archivo puede volverse muy grande rápidamente).
+-Las lenguas :-
+- Actualmente puede elegir entre tres idiomas a los que se ha traducido el software (inglés, español o francés)
+-Archivos de configuración: -
 - Los siguientes archivos se pueden ver o editar si se presiona el botón sudo:
 clamd.conf
 freshclam.conf
 milter-clamav.conf
 
+- El botón Sudo: -
+- le permite ejecutar sus comandos como superusuario.
+
 Un punto sobre el análisis:
 - Como se indica en las preguntas frecuentes, clamav antivirus no repara los archivos infectados.
 - algunos virus en Linux pueden actuar sin autorización.
-- autorización es la palabra importante en Linux porque cualquiera que sea su distribución, usted sabe que hasta que dé la autorización, un archivo no puede actuar por sí solo.
+- autorización es la palabra importante en Linux porque sea cual sea su distribución, usted sabe que hasta que dé la autorización, un archivo no puede actuar por sí solo.
 - ¿Qué escanear?
 esencialmente las "cosas" que uno graba en su máquina o en otro medio.
 por ejemplo, todo su directorio de inicio (inicio / usuario) con archivos ocultos (/.algo).
-Para tranquilizarse, puede ejecutar un escaneo de toda su máquina, pero puede ir a tomar un café y sacar al perro, ya que tomará un tiempo para que termine.
+Para tranquilizarse, puede ejecutar un escaneo de toda su máquina, pero puede ir a tomar un café y sacar al perro, ya que esto tardará un tiempo en terminar.

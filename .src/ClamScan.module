@@ -84,11 +84,11 @@ Public Function ScanAction(Ruta As String)
      If FMain.bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) & ajout & " 2>&1" For Read As "Scan"
+               hProc = Shell (FMain.monTexte) & ajout For Read As "Scan" ' & " 2>&1"
                TournProc
           Endif
      Else If FMain.bsudo = False
-          hProc = Shell (Comm) & ajout & " 2>&1" For Read As "Scan"
+          hProc = Shell (Comm) & ajout For Read As "Scan" '& " 2>&1"
           TournProc
      Endif
 
@@ -110,15 +110,19 @@ Public Sub RecupVirus()
      Dim sLigne As String[] = Split(FMain.txSalida.Text, gb.NewLine, "", True)
      Dim i As Integer
 
-     For i = 0 To sLigne.Max
-          If sLigne[i] Ends " FOUND" Then
-               sTexte &= sLigne[i] & gb.NewLine
-          Endif
-     Next
-
-     If FMain.Quarant = True Then
+     If FMain.Quarant = True Then                                               'si quarantaine automatique
+          For i = 0 To sLigne.Max
+               If sLigne[i] Ends " FOUND" Then
+                    sTexte &= sLigne[i + 1] & gb.NewLine                        'ligne d'après (move to )
+               Endif
+          Next
           File.Save(FMain.liste, sTexte)                                        'sauvegarde de la liste des fichiers en quarantaine
-     Else
+     Else                                                                       'si quarantaine non automatique
+          For i = 0 To sLigne.Max
+               If sLigne[i] Ends " FOUND" Then
+                    sTexte &= sLigne[i] & gb.NewLine
+               Endif
+          Next
           File.Save(FMain.pil, sTexte)                                          'sauvegarde de la liste des fichiers et virus après scan
      Endif
 

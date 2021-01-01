@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2020-12-23 01:03 UTC\n"
+"POT-Creation-Date: 2021-01-01 23:00 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -418,55 +418,55 @@ msgstr ""
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 
-#: FMain.class:450
+#: FMain.class:424
 msgid "Elija el directorio para escanear"
 msgstr ""
 
-#: FMain.class:451
+#: FMain.class:425
 msgid "Elija el archivo para analizar"
 msgstr ""
 
-#: FMain.class:484
+#: FMain.class:458
 msgid "Seleccione \n an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:581
+#: FMain.class:555
 msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr ""
 
-#: FMain.class:587
+#: FMain.class:561
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: FMain.class:587
+#: FMain.class:561
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: FMain.class:590
+#: FMain.class:564
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:802
+#: FMain.class:788
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:804
+#: FMain.class:790
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:804
+#: FMain.class:790
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:804
+#: FMain.class:790
 msgid "Si"
 msgstr ""
 
-#: FMain.class:804
+#: FMain.class:790
 msgid "No"
 msgstr ""
 
-#: FMain.class:995
+#: FMain.class:981
 msgid "Max"
 msgstr ""
 

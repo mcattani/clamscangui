@@ -45,6 +45,7 @@ Vous ne devriez pas décocher ces options.
 - Permet de visualiser les analyses effectuées lors de la session.
 -Histoire:-
 - Permet de voir toutes les analyses effectuées auparavant tant que vous ne les supprimez pas.
+(Attention si l'option -verbose est cochée le fichier peut devenir rapidement très grand.)
 -Les langues :-
 - Vous pouvez actuellement choisir entre trois langues dans lesquelles le logiciel a été traduit (anglais, espagnol ou français)
 -Fichiers de configuration :-

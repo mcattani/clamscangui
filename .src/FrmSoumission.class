@@ -1,5 +1,16 @@
 ' Gambas class file
 
+'' ' *********************************************************************************************************
+'' ' Ce programme est un logiciel libre; vous pouvez le redistribuer ou le modifier suivant
+'' ' les termes de la GNU General Public License telle que publiée par la Free Software Foundation ;
+'' ' soit la version 3 de la licence, soit( à votre gré) toute version ultérieure.
+'' ' Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ;
+'' ' sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER.
+'' ' Consultez la GNU General Public License pour plus de détails.
+'' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
+'' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
+'' ' *********************************************************************************************************
+
 Private hProc As Process
 
 Public Sub Run() As Boolean
@@ -31,7 +42,7 @@ Public Sub btnEnviar_Click()
           Message(("¡no tienes que enviar nada! "))
           Return
      Endif
-     'commande clamsubmit pour envoyer une soumission de faux positif à clamav
+     'commande clamsubmit pour envoyer une soumission de faux positif au serveur de clamav
      Comm = "clamsubmit -e " & FMain.email & " -N " & FMain.nom & " -p " & TAFichier.Text & " -V " & TAVirus.Text
 
      If FMain.bSudo = True Then
@@ -55,7 +66,7 @@ Public Sub Scan_read()                                                          
 
      Dim sLine As String
 
-     ' sline = Read #Last, Lof(Last)
+     ' sline = Read #Last, Lof(Last)                                            'j'aime pas LAST
      sline = Read #hProc, Lof(hproc)
      TextArea3.Text &= sLine
      TextArea3.EnsureVisible()
