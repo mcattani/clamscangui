@@ -2,19 +2,19 @@ Format: 1.0
 Source: clamscangui
 Binary: clamscangui
 Architecture: all source
-Version: 1.1.67-0ubuntu1
+Version: 1.1.68-0ubuntu1
 Checksums-Md5:
- 008ffe52f461b1a2f778aeb08d81c8c2 1984 clamscangui_1.1.67-0ubuntu1.dsc
- 7d53151eb73ab29011525cc821510c4e 331680 clamscangui_1.1.67-0ubuntu1_all.deb
+ ccc436283547a273a21e210d1597ba58 1997 clamscangui_1.1.68-0ubuntu1.dsc
+ c42aa2a9748469aa0b94db608fe2cdc5 901164 clamscangui_1.1.68-0ubuntu1_all.deb
 Checksums-Sha1:
- 392cd204297798ae493cfe58422026b103731934 1984 clamscangui_1.1.67-0ubuntu1.dsc
- 51610dc1feca1a39f6a78dd26d02fee27980eaf4 331680 clamscangui_1.1.67-0ubuntu1_all.deb
+ 3ee528bc076a37bcef1566f79957a72ec2765ad2 1997 clamscangui_1.1.68-0ubuntu1.dsc
+ dc4954ff59adbb4e3aaf58183236e10e6f8e7c6a 901164 clamscangui_1.1.68-0ubuntu1_all.deb
 Checksums-Sha256:
- dd809dd13aff1f78205ba1aef88793edf913e1757803c2ee229d50e80f63e036 1984 clamscangui_1.1.67-0ubuntu1.dsc
- aa3903dcc4f2236c78879889c1ab336fb49755a885cea8bf7ea3c58b7fca4c33 331680 clamscangui_1.1.67-0ubuntu1_all.deb
+ 601348aee3b69c2f6e628e7447463f47b67f7782f96349058155b76181134937 1997 clamscangui_1.1.68-0ubuntu1.dsc
+ d7f13e43fc24f10700ca7774b05d49b5c4d685b89a38cb03964c4d380157cf29 901164 clamscangui_1.1.68-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Fri, 01 Jan 2021 20:01:31 -0300
+Build-Date: Fri, 29 Jan 2021 10:07:23 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs
@@ -149,9 +149,9 @@ Installed-Build-Depends:
  libdrm-radeon1 (= 2.4.102-1ubuntu1),
  libdrm2 (= 2.4.102-1ubuntu1),
  libedit2 (= 3.1-20191231-1),
- libegl-mesa0 (= 20.2.1-1),
+ libegl-mesa0 (= 20.2.6-0ubuntu0.20.10.1),
  libegl1 (= 1.3.2-1),
- libelf1 (= 0.181-1),
+ libelf1 (= 0.181-1ubuntu0.1),
  libevdev2 (= 1.9.1+dfsg-1ubuntu0.1),
  libexpat1 (= 2.2.9-1build1),
  libfakeroot (= 1.25.2-1),
@@ -159,7 +159,7 @@ Installed-Build-Depends:
  libfile-stripnondeterminism-perl (= 1.9.0-1),
  libfontconfig1 (= 2.13.1-2ubuntu3),
  libfreetype6 (= 2.10.2+dfsg-3ubuntu1),
- libgbm1 (= 20.2.1-1),
+ libgbm1 (= 20.2.6-0ubuntu0.20.10.1),
  libgcc-10-dev (= 10.2.0-13ubuntu1),
  libgcc-9-dev (= 9.3.0-18ubuntu1),
  libgcc-s1 (= 10.2.0-13ubuntu1),
@@ -167,11 +167,11 @@ Installed-Build-Depends:
  libgdbm-compat4 (= 1.18.1-5.1),
  libgdbm6 (= 1.18.1-5.1),
  libgl1 (= 1.3.2-1),
- libgl1-mesa-dri (= 20.2.1-1),
- libglapi-mesa (= 20.2.1-1),
+ libgl1-mesa-dri (= 20.2.6-0ubuntu0.20.10.1),
+ libglapi-mesa (= 20.2.6-0ubuntu0.20.10.1),
  libglib2.0-0 (= 2.66.1-2),
  libglvnd0 (= 1.3.2-1),
- libglx-mesa0 (= 20.2.1-1),
+ libglx-mesa0 (= 20.2.6-0ubuntu0.20.10.1),
  libglx0 (= 1.3.2-1),
  libgmp10 (= 2:6.2.0+dfsg-6ubuntu1),
  libgnutls30 (= 3.6.15-4ubuntu2),
@@ -226,7 +226,7 @@ Installed-Build-Depends:
  libnsl2 (= 1.3.0-0ubuntu3),
  libnss-nis (= 3.1-0ubuntu4),
  libnss-nisplus (= 1.3-0ubuntu4),
- libp11-kit0 (= 0.23.21-2build1),
+ libp11-kit0 (= 0.23.21-2ubuntu0.1),
  libpam-modules (= 1.3.1-5ubuntu6),
  libpam-modules-bin (= 1.3.1-5ubuntu6),
  libpam-runtime (= 1.3.1-5ubuntu6),
@@ -271,7 +271,7 @@ Installed-Build-Depends:
  libstdc++-10-dev (= 10.2.0-13ubuntu1),
  libstdc++6 (= 10.2.0-13ubuntu1),
  libsub-override-perl (= 0.09-2),
- libsystemd0 (= 246.6-1ubuntu1),
+ libsystemd0 (= 246.6-1ubuntu1.1),
  libtasn1-6 (= 4.16.0-2),
  libtfm1 (= 0.13-4),
  libtinfo6 (= 6.2-1),
@@ -282,7 +282,7 @@ Installed-Build-Depends:
  libtsan0 (= 10.2.0-13ubuntu1),
  libubsan1 (= 10.2.0-13ubuntu1),
  libuchardet0 (= 0.0.7-1),
- libudev1 (= 246.6-1ubuntu1),
+ libudev1 (= 246.6-1ubuntu1.1),
  libunistring2 (= 0.9.10-4),
  libuuid1 (= 2.36-3ubuntu1),
  libvulkan1 (= 1.2.141.0-1),
@@ -325,7 +325,7 @@ Installed-Build-Depends:
  libxtst6 (= 2:1.2.3-1),
  libxxf86vm1 (= 1:1.1.4-1build1),
  libzstd1 (= 1.4.5+dfsg-4),
- linux-libc-dev (= 5.8.0-33.36),
+ linux-libc-dev (= 5.8.0-41.46),
  login (= 1:4.8.1-1ubuntu6),
  logrotate (= 3.14.0-4ubuntu5),
  lsb-base (= 11.1.0ubuntu2),
@@ -348,15 +348,15 @@ Installed-Build-Depends:
  sed (= 4.7-1ubuntu1),
  sensible-utils (= 0.0.13),
  shared-mime-info (= 2.0-1),
- systemd (= 246.6-1ubuntu1),
- systemd-sysv (= 246.6-1ubuntu1),
- systemd-timesyncd (= 246.6-1ubuntu1),
+ systemd (= 246.6-1ubuntu1.1),
+ systemd-sysv (= 246.6-1ubuntu1.1),
+ systemd-timesyncd (= 246.6-1ubuntu1.1),
  sysvinit-utils (= 2.96-3ubuntu1),
- tar (= 1.30+dfsg-7),
+ tar (= 1.30+dfsg-7ubuntu0.20.10.1),
  ucf (= 3.0043),
  util-linux (= 2.36-3ubuntu1),
  x11-common (= 1:7.7+19ubuntu15),
- xdg-utils (= 1.1.3-2ubuntu1.20.10.1),
+ xdg-utils (= 1.1.3-2ubuntu1.20.10.2),
  xkb-data (= 2.29-2),
  xz-utils (= 5.2.4-1ubuntu1),
  zlib1g (= 1:1.2.11.dfsg-2ubuntu4)
@@ -364,4 +364,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_AR.UTF-8"
  LC_ALL="es_AR.UTF-8"
- SOURCE_DATE_EPOCH="1609502400"
+ SOURCE_DATE_EPOCH="1611921600"

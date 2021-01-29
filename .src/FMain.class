@@ -125,6 +125,8 @@ Public Sub Form_Open()                                                          
      LoadSettings()                                                             'réglages enregistrés
      Cerf.ShowModal()                                                           'splash form
 
+
+
 End
 
 Public Sub premiereFois()                                                       'réglages pour une première fois
@@ -998,5 +1000,46 @@ Public Sub BtnDefaut_Click()                                                    
      Endif
 
      limit_Leave()
+
+End
+Public Function GitVersion(raw As String) As String
+ 
+  Dim s As String
+  Dim stx As String[]
+  Dim r As String
+  Dim v As String
+ 
+  v = ""
+  If Exist("/tmp/project.txt") Then
+    Shell "rm /tmp/project.txt" Wait
+  Endif
+ 
+  Shell "wget -O '/tmp/project.txt' '" & raw & "'" Wait
+  If Exist("/tmp/project.txt") Then
+    s = File.Load("/tmp/project.txt")
+    stx = Split(s, "\n")
+    For Each r In stx
+      If InStr(r, "Version=") Then
+        If Split(r, "=")[0] = "Version" Then
+          v = Split(r, "=")[1]
+          Break
+        Endif
+      Endif
+    Next
+  Endif
+  Return v
+End
+
+Public Sub Menu18_Click()
+Dim vChk As String
+
+vChk = GitVersion("https://raw.githubusercontent.com/mcattani/clamscangui/master/.project")
+ 
+  If Application.Version < vChk Then
+    Message.Info(("Nueva versión encontrada!") & ": " & "v" & vChk)
+    frmUpdate.Show
+    Else
+         Message.Info("No hay actualizaciones disponibles")
+  Endif     
 
 End

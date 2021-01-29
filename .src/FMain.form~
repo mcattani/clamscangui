@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,82,91)
+  MoveScaled(0,0,124,91)
   Expand = True
   Text = ("// ClamAV GUI //")
   Icon = Picture["icon:/48/security"]
@@ -43,8 +43,38 @@
         Picture = Picture["icon:/22/zoom-normal"]
         Toggle = True
       }
+      { MnuVerbose Menu Log1
+        Name = "MnuVerbose"
+        Text = ("--verbose")
+        Picture = Picture["icon:/22/edit"]
+        Toggle = True
+      }
+      { MnuArchVerbose Menu Log1
+        Name = "MnuArchVerbose"
+        Text = ("--archive-verbose")
+        Picture = Picture["icon:/22/draw-text"]
+        Toggle = True
+      }
+      { MnuDebug Menu Log1
+        Name = "MnuDebug"
+        Text = ("--debug")
+        Picture = Picture["icon:/22/help"]
+        Toggle = True
+      }
+      { MnuJson Menu Log1
+        Name = "MnuJson"
+        Text = ("--gen-json")
+        Picture = Picture["icon:/22/attach"]
+        Toggle = True
+      }
     }
     { separador Menu
+    }
+    { MnuLimit Menu
+      Text = ("Limitaciones  (con precaución)")
+      Picture = Picture["icon:/22/tools"]
+    }
+    { Menu11 Menu
     }
     { mnSalir Menu
       Text = ("Salir")
@@ -85,47 +115,95 @@
     { Menu5 Menu
     }
     { MnuAutres Menu
-      Text = ("Más opciones (non marcadas por defecto)")
+      Text = ("Opciones no marcadas por defecto")
       Picture = Picture["icon:/22/attach"]
-      Visible = False
-    }
-    { Menu6 Menu
-    }
-    { mnRecursivo Menu optionAvance
-      Name = "mnRecursivo"
-      Text = ("--recursive[=yes/no(*)]")
-      Picture = Picture["icon:/22/rotate-left"]
-      Toggle = True
-    }
-    { MnuAllMatch Menu optionAvance
-      Name = "MnuAllMatch"
-      Text = ("--allmatch[=yes/no(*)]")
-      Picture = Picture["icon:/22/align-height"]
-      Toggle = True
-    }
-    { mnRemover Menu optionAvance
-      Name = "mnRemover"
-      Text = ("--remove[=yes/no(*)] ( ¡Atención! )")
-      Picture = Picture["icon:/22/delete"]
-      Toggle = True
-    }
-    { mnDetectar Menu optionAvance
-      Name = "mnDetectar"
-      Text = ("--detect-pua[=yes/no(*)]")
-      Picture = Picture["icon:/22/filter"]
-      Toggle = True
-    }
-    { MnuDeplacer Menu optionAvance
-      Name = "MnuDeplacer"
-      Text = ("--move=CUARENTENA")
-      Picture = Picture["icon:/48/download"]
-      Toggle = True
+      { MnuAllMatch Menu optionAvance
+        Name = "MnuAllMatch"
+        Text = ("--allmatch[=yes/no(*)]")
+        Picture = Picture["icon:/22/align-height"]
+        Toggle = True
+      }
+      { mnDetectar Menu optionAvance
+        Name = "mnDetectar"
+        Text = ("--detect-pua[=yes/no(*)]")
+        Picture = Picture["icon:/22/filter"]
+        Toggle = True
+      }
+      { MnuStructured Menu optionAvance
+        Name = "MnuStructured"
+        Text = ("--detect-structured[=yes/no(*)]")
+        Picture = Picture["icon:/22/database"]
+        Toggle = True
+      }
+      { MnuIntersection Menu optionAvance
+        Name = "MnuIntersection"
+        Text = ("--partition-intersection[=yes/no(*)]")
+        Picture = Picture["icon:/22/cdrom"]
+        Toggle = True
+      }
+      { Menu6 Menu optionAvance
+        Name = "Menu6"
+        Text = ("--heuristic-scan-precedence[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu9 Menu optionAvance
+        Name = "Menu9"
+        Text = ("--phishing-ssl[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu12 Menu optionAvance
+        Name = "Menu12"
+        Text = ("--phishing-cloak[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu13 Menu optionAvance
+        Name = "Menu13"
+        Text = ("--detect-broken[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu14 Menu optionAvance
+        Name = "Menu14"
+        Text = ("--block-macros[=yes/no*]")
+        Picture = Picture["icon:/24/find"]
+        Toggle = True
+        Visible = False
+      }
+      { Menu15 Menu
+      }
+      { mnRemover Menu optionAvance
+        Name = "mnRemover"
+        Text = ("--remove[=yes/no(*)]  ( ¡Atención! )")
+        Picture = Picture["icon:/22/delete"]
+        Toggle = True
+      }
+      { MnuDeplacer Menu optionAvance
+        Name = "MnuDeplacer"
+        Text = ("--move=CUARENTENA")
+        Picture = Picture["icon:/48/download"]
+        Toggle = True
+      }
+      { Menu16 Menu
+      }
+      { mnRecursivo Menu optionAvance
+        Name = "mnRecursivo"
+        Text = ("--recursive[=yes/no(*)]")
+        Picture = Picture["icon:/22/rotate-left"]
+        Toggle = True
+      }
     }
     { Menu10 Menu
     }
     { Escaneo Menu
-      Text = ("Más opciones (marcadas por defecto)")
-      Picture = Picture["icon:/22/add"]
+      Text = ("Opciones marcadas por defecto")
+      Picture = Picture["icon:/22/ok"]
       { MnuCrossFs Menu optionAvance
         Name = "MnuCrossFs"
         Text = ("--cross-fs[=yes(*)/no]")
@@ -202,13 +280,23 @@
         Picture = Picture["icon:/22/file"]
         Toggle = True
       }
+      { Menu17 Menu
+        Text = ("--bytecode[=yes(*)/no]")
+        Picture = Picture["icon:/24/new"]
+        Toggle = True
+        Visible = False
+      }
     }
   }
   { MnuAction Menu
-    Text = ("comportamiento")
+    Text = ("Acciones")
     { MnuVirus Menu
-      Text = ("Archivos potencialmente infectados")
+      Text = ("Cuarentena")
       Picture = Picture["icon:/48/flag"]
+    }
+    { MnuCorrompus Menu
+      Text = ("Archivos potencialmente infectados")
+      Picture = Picture["icon:/22/upload"]
     }
     { Menu3 Menu
     }
@@ -300,9 +388,13 @@
       Text = ("Ayuda")
       Picture = Picture["icon:/48/help"]
     }
+    { Menu18 Menu
+      Text = ("Buscar actualizaciónes")
+      Picture = Picture["icon:/24/download"]
+    }
   }
   { PanGauche Panel
-    MoveScaled(1,0,79.8571,85.8571)
+    MoveScaled(1,0,79.875,85.875)
     { TP TabPanel
       MoveScaled(0,0,79,60)
       Count = 2
@@ -328,6 +420,8 @@
     { !txSalida TextArea
       MoveScaled(0,61,79,24)
       #Public = True
+      Background = Color.Black
+      Foreground = Color.White
       ToolTip = ("Salida del escaneo")
       ReadOnly = True
       Wrap = True
@@ -335,12 +429,12 @@
     { Panel1 Panel
       MoveScaled(43,0,36,5)
       { TBKill ToolButton
-        MoveScaled(17,0,4.5714,4)
+        MoveScaled(14.375,0,4.625,4)
         ToolTip = ("¡Mata el proceso en curso!")
         Picture = Picture["icon:/32/halt"]
       }
       { TBhProc ToolButton
-        MoveScaled(12,0,4.5714,4)
+        MoveScaled(9.75,0,4.625,4)
         ToolTip = ("¡Ejecute el proceso!")
         Picture = Picture["icon:/32/exec"]
       }
@@ -356,6 +450,280 @@
         Picture = Picture["icon:/24/linux"]
         Toggle = True
       }
+      { RB1 RadioButton
+        MoveScaled(21,0,4,4)
+        ToolTip = ("Verde = sin cuarentena automática\nRojo = cuarentena automática")
+      }
+    }
+  }
+  { PanLimit Panel
+    MoveScaled(82,0,41,86)
+    Visible = False
+    ToolTip = ("Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales.")
+    Border = Border.Plain
+    { Label2 Label
+      MoveScaled(1,6.125,19,4)
+      #Translate = False
+      Text = "max-filesize"
+      Alignment = Align.Right
+    }
+    { Label3 Label
+      MoveScaled(1,10.875,19,4)
+      #Translate = False
+      Text = "max-scansize"
+      Alignment = Align.Right
+    }
+    { Label4 Label
+      MoveScaled(1,16.125,19,4)
+      #Translate = False
+      Text = "max-files"
+      Alignment = Align.Right
+    }
+    { Label5 Label
+      MoveScaled(1,21.125,19,4)
+      #Translate = False
+      Text = "max-recursion"
+      Alignment = Align.Right
+    }
+    { Label6 Label
+      MoveScaled(1,25.875,19,4)
+      #Translate = False
+      Text = "max-dir-recursion"
+      Alignment = Align.Right
+    }
+    { Label7 Label
+      MoveScaled(1,30.75,19,4)
+      #Translate = False
+      Text = "max-embeddedpe"
+      Alignment = Align.Right
+    }
+    { Label8 Label
+      MoveScaled(1,35.75,19,4)
+      #Translate = False
+      Text = "max-htmlnormalize"
+      Alignment = Align.Right
+    }
+    { Label9 Label
+      MoveScaled(1,40.625,19,4)
+      #Translate = False
+      Text = "max-htmlnotags"
+      Alignment = Align.Right
+    }
+    { Label11 Label
+      MoveScaled(1,50.625,19,4)
+      #Translate = False
+      Text = "max-ziptypercq"
+      Alignment = Align.Right
+    }
+    { Label12 Label
+      MoveScaled(1,55.875,19,4)
+      #Translate = False
+      Text = "max-partitions"
+      Alignment = Align.Right
+    }
+    { Label13 Label
+      MoveScaled(1,61.125,19,4)
+      #Translate = False
+      Text = "max-iconspe"
+      Alignment = Align.Right
+    }
+    { Label14 Label
+      MoveScaled(1,66.125,19,4)
+      #Translate = False
+      Text = "max-rechwp3"
+      Alignment = Align.Right
+    }
+    { Label15 Label
+      MoveScaled(1,71.125,19,4)
+      #Translate = False
+      Text = "pcre-match-limit"
+      Alignment = Align.Right
+    }
+    { Label16 Label
+      MoveScaled(1,76.125,19,4)
+      #Translate = False
+      Text = "pcre-recmatch-limit"
+      Alignment = Align.Right
+    }
+    { Label17 Label
+      MoveScaled(1,81.125,19,4)
+      #Translate = False
+      Text = "pcre-max-filesize"
+      Alignment = Align.Right
+    }
+    { Label10 Label
+      MoveScaled(1.125,45.75,19,4)
+      #Translate = False
+      Text = "max-scriptnormalize"
+      Alignment = Align.Right
+    }
+    { SlidFilesize SliderBox Limit
+      Name = "SlidFilesize"
+      MoveScaled(20.875,6.25,19,4)
+      ToolTip = ("Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)")
+      MinValue = 25
+      MaxValue = 2000
+      Step = 25
+      DefaultValue = 25
+      Value = 25
+    }
+    { SlidScansize SliderBox Limit
+      Name = "SlidScansize"
+      MoveScaled(21,11,19,4)
+      ToolTip = ("Extraiga y escanee como máximo #n bytes de cada archivo. El tamaño del archivo más la suma de los tamaños de todos los archivos dentro del archivo cuentan para el tamaño de escaneo. Por ejemplo, un archivo sin comprimir de 1 M que contiene un solo archivo interno de 1 M cuenta como 2 M para el tamaño máximo de escaneo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 100 MB, máximo: <4 GB)")
+      MinValue = 100
+      MaxValue = 2000
+      Step = 100
+      DefaultValue = 100
+      Value = 100
+    }
+    { SlidFiles SliderBox Limit
+      Name = "SlidFiles"
+      MoveScaled(20.875,16.25,19,4)
+      ToolTip = ("Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata de un archivo, un documento u otro tipo de contenedor). Esta opción protege su sistema contra ataques DoS (predeterminado: 10000)")
+      MinValue = 10000
+      MaxValue = 2000000
+      Step = 10000
+      DefaultValue = 10000
+      Value = 10000
+    }
+    { Slidrecursion SliderBox Limit
+      Name = "Slidrecursion"
+      MoveScaled(20.875,21.25,19,4)
+      ToolTip = ("Establecer límite de nivel de recursividad de archivo. Esta opción protege su sistema contra ataques DoS (predeterminado: 16).")
+      MinValue = 16
+      MaxValue = 2000000
+      Step = 16
+      DefaultValue = 16
+      Value = 16
+    }
+    { SlidDirRecursion SliderBox Limit
+      Name = "SlidDirRecursion"
+      MoveScaled(21,26,19,4)
+      ToolTip = ("Los directorios de profundidad máxima se escanean en (predeterminado: 15).")
+      MinValue = 15
+      MaxValue = 2000000
+      Step = 15
+      DefaultValue = 15
+      Value = 15
+    }
+    { SlidEmbPE SliderBox Limit
+      Name = "SlidEmbPE"
+      MoveScaled(21,31,19,4)
+      ToolTip = ("Archivo de tamaño máximo para comprobar si hay PE incrustado. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB).")
+      MinValue = 10
+      MaxValue = 2000
+      Step = 10
+      DefaultValue = 10
+      Value = 10
+    }
+    { SlidHtmlNorm SliderBox Limit
+      Name = "SlidHtmlNorm"
+      MoveScaled(20.875,35.875,19,4)
+      ToolTip = ("Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB).")
+      MinValue = 10
+      MaxValue = 2000
+      Step = 10
+      DefaultValue = 10
+      Value = 10
+    }
+    { SlidHtmlTags SliderBox Limit
+      Name = "SlidHtmlTags"
+      MoveScaled(21,41,19,4)
+      ToolTip = ("Tamaño máximo del archivo HTML normalizado para escanear. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 2 MB, máximo: <4 GB).")
+      MinValue = 2
+      MaxValue = 2000
+      Step = 2
+      DefaultValue = 2
+      Value = 2
+    }
+    { SlidScriptNorm SliderBox Limit
+      Name = "SlidScriptNorm"
+      MoveScaled(21,46,19,4)
+      ToolTip = ("Tamaño máximo del archivo de script para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 5 MB, máximo: <4 GB).")
+      MinValue = 5
+      MaxValue = 2000
+      Step = 5
+      DefaultValue = 5
+      Value = 5
+    }
+    { SlidZipType SliderBox Limit
+      Name = "SlidZipType"
+      MoveScaled(20.875,50.875,19,4)
+      ToolTip = ("Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 1 MB, máximo: <4 GB).")
+      MinValue = 1
+      MaxValue = 2000
+      DefaultValue = 1
+      Value = 1
+    }
+    { SlidPartitions SliderBox Limit
+      Name = "SlidPartitions"
+      MoveScaled(20.875,55.875,19,4)
+      ToolTip = ("Esta opción establece el número máximo de particiones de una imagen de disco sin procesar que se analizará. Debe ser un número entero positivo (predeterminado: 50).")
+      MinValue = 50
+      MaxValue = 2000000
+      Step = 50
+      DefaultValue = 50
+      Value = 50
+    }
+    { SlidIconsPE SliderBox Limit
+      Name = "SlidIconsPE"
+      MoveScaled(20.875,61.25,19,4)
+      ToolTip = ("Esta opción establece el número máximo de iconos dentro de un PE que se escanearán. Debe ser un número entero positivo (predeterminado: 100).")
+      MinValue = 100
+      MaxValue = 2000000
+      Step = 100
+      DefaultValue = 100
+      Value = 100
+    }
+    { SlidRechWP3 SliderBox Limit
+      Name = "SlidRechWP3"
+      MoveScaled(20.875,66.125,19,4)
+      ToolTip = ("Esta opción establece el máximo de llamadas recursivas a la función de análisis de HWP3 (predeterminado: 16).")
+      MinValue = 16
+      MaxValue = 2000000
+      Step = 16
+      DefaultValue = 16
+      Value = 16
+    }
+    { SlidPcreLimit SliderBox Limit
+      Name = "SlidPcreLimit"
+      MoveScaled(20.875,71.25,19,4)
+      ToolTip = ("Número máximo de llamadas a la función de coincidencia de PCRE (predeterminado: 10000).")
+      MinValue = 10000
+      MaxValue = 2000000
+      Step = 10000
+      DefaultValue = 10000
+      Value = 10000
+    }
+    { SlidPcreRecLimit SliderBox Limit
+      Name = "SlidPcreRecLimit"
+      MoveScaled(20.875,76.625,19,4)
+      ToolTip = ("Máximo de llamadas recursivas a la función de coincidencia de PCRE (predeterminado: 5000).")
+      MinValue = 2000
+      MaxValue = 2000000
+      Step = 5000
+      DefaultValue = 5000
+      Value = 5000
+    }
+    { SlidPcreFilesize SliderBox Limit
+      Name = "SlidPcreFilesize"
+      MoveScaled(20.875,81.25,19,4)
+      ToolTip = ("Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE (predeterminado: 25 MB, máximo: <4 GB).")
+      MinValue = 25
+      MaxValue = 2000
+      Step = 25
+      DefaultValue = 25
+      Value = 25
+    }
+    { Label1 TextLabel
+      MoveScaled(0.375,0,15,5)
+      Font = Font["Bold,Underline"]
+      Text = ("Limitaciones: (ver ayuda)")
+    }
+    { BtnDefaut ToggleButton
+      MoveScaled(23.375,0,16,4)
+      Text = ("Defecto")
     }
   }
 }

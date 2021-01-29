@@ -1,0 +1,21 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,66,13)
+  Text = ("Actualización disponible:")
+  Icon = Picture["icon:/24/warning"]
+  Resizable = False
+  { Label1 Label
+    MoveScaled(1,1,64,4)
+    Text = ("Puede descargar la última versión desde el repositorio de GitHub:")
+  }
+  { urlGitHub URLLabel
+    MoveScaled(1,4,37,5)
+    Text = ("https://github.com/mcattani/clamscangui")
+  }
+  { btCerrar Button
+    MoveScaled(48,8,16.125,4)
+    Text = ("Cerrar")
+    Picture = Picture["icon:/24/close"]
+  }
+}

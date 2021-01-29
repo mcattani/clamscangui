@@ -11,26 +11,28 @@
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
 
-Public Sub Form_KeyPress()
+Public Sub Form_Open()
 
-     If Key.code = Key.esc Then Me.Close
+  
 
 End
 
 Public Sub btCerrar_Click()
 
-     Me.Close
-
+  Me.Close
+  
 End
 
-Public Sub Form_Activate()
 
-     Me.Center
+Public Sub URL_Click()
 
+  Desktop.Open(URL.Link)
+  
 End
 
-Public Sub PictureBox2_MouseUp()
+Public Sub Form_KeyPress()
 
-     Desktop.Open("mailto:valaquarus@gmail.com")
+  If Key.code = Key.esc Then Me.Close
+  
 
 End

@@ -1,0 +1,29 @@
+' Gambas class file
+
+
+Public Sub urlGitHub_Click()
+
+     Desktop.Open(urlGitHub.Text)
+     
+End
+
+Public Sub btCerrar_Click()
+
+     Me.Close
+     
+End
+
+Public Sub Form_Open()
+
+     
+
+End
+
+
+
+Public Sub Form_KeyPress()
+
+     If Key.code = Key.esc Then Me.Close
+     
+
+End

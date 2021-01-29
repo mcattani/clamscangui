@@ -5,384 +5,388 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-01-01 23:00 UTC\n"
+"POT-Creation-Date: 2021-01-29 13:06 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMain.form:132
+#: FMain.form:133
 msgid "// ClamAV GUI //"
 msgstr ""
 
-#: FMain.form:139
+#: FMain.form:140
 msgid "Opciones"
 msgstr ""
 
-#: FMain.form:142
+#: FMain.form:143
 msgid "Grabación de sesiones"
 msgstr ""
 
-#: FMain.form:147
+#: FMain.form:148
 msgid "--quiet"
 msgstr ""
 
-#: FMain.form:154
+#: FMain.form:155
 msgid "--infected"
 msgstr ""
 
-#: FMain.form:161
+#: FMain.form:162
 msgid "--no-summary"
 msgstr ""
 
-#: FMain.form:168
+#: FMain.form:169
 msgid "--suppress-ok-results"
 msgstr ""
 
-#: FMain.form:175
+#: FMain.form:176
 msgid "--bell"
 msgstr ""
 
-#: FMain.form:182
+#: FMain.form:183
 msgid "--verbose"
 msgstr ""
 
-#: FMain.form:189
+#: FMain.form:190
 msgid "--archive-verbose"
 msgstr ""
 
-#: FMain.form:196
+#: FMain.form:197
 msgid "--debug"
 msgstr ""
 
-#: FMain.form:203
+#: FMain.form:204
 msgid "--gen-json"
 msgstr ""
 
-#: FMain.form:213
+#: FMain.form:214
 msgid "Limitaciones  (con precaución)"
 msgstr ""
 
-#: FMain.form:221
+#: FMain.form:222
 msgid "Salir"
 msgstr ""
 
-#: FMain.form:227
+#: FMain.form:228
 msgid "Opciones Avanzadas"
 msgstr ""
 
-#: FMain.form:230
+#: FMain.form:231
 msgid "Actualización de la base de datos"
 msgstr ""
 
-#: FMain.form:234
+#: FMain.form:235
 msgid "Ver Log Freshclam"
 msgstr ""
 
-#: FMain.form:243
+#: FMain.form:244
 msgid "Actualización automática"
 msgstr ""
 
-#: FMain.form:251
+#: FMain.form:252
 msgid "Actualización manual"
 msgstr ""
 
-#: FMain.form:260
+#: FMain.form:261
 msgid "Actualización inmediata"
 msgstr ""
 
-#: FMain.form:269
+#: FMain.form:270
 msgid "Opciones no marcadas por defecto"
 msgstr ""
 
-#: FMain.form:274
+#: FMain.form:275
 msgid "--allmatch[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:281
+#: FMain.form:282
 msgid "--detect-pua[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:288
+#: FMain.form:289
 msgid "--detect-structured[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:295
+#: FMain.form:296
 msgid "--partition-intersection[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:302
+#: FMain.form:303
 msgid "--heuristic-scan-precedence[=yes/no*]"
 msgstr ""
 
-#: FMain.form:310
+#: FMain.form:311
 msgid "--phishing-ssl[=yes/no*]"
 msgstr ""
 
-#: FMain.form:318
+#: FMain.form:319
 msgid "--phishing-cloak[=yes/no*]"
 msgstr ""
 
-#: FMain.form:326
+#: FMain.form:327
 msgid "--detect-broken[=yes/no*]"
 msgstr ""
 
-#: FMain.form:334
+#: FMain.form:335
 msgid "--block-macros[=yes/no*]"
 msgstr ""
 
-#: FMain.form:345
+#: FMain.form:346
 msgid "--remove[=yes/no(*)]  ( ¡Atención! )"
 msgstr ""
 
-#: FMain.form:352
+#: FMain.form:353
 msgid "--move=CUARENTENA"
 msgstr ""
 
-#: FMain.form:362
+#: FMain.form:363
 msgid "--recursive[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:372
+#: FMain.form:373
 msgid "Opciones marcadas por defecto"
 msgstr ""
 
-#: FMain.form:377
+#: FMain.form:378
 msgid "--cross-fs[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:384
+#: FMain.form:385
 msgid "--scan-hwp3[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:391
+#: FMain.form:392
 msgid "--scan-html[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:398
+#: FMain.form:399
 msgid "--scan-swf[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:405
+#: FMain.form:406
 msgid "--scan-pdf[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:412
+#: FMain.form:413
 msgid "--scan-pe[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:419
+#: FMain.form:420
 msgid "--scan-elf[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:426
+#: FMain.form:427
 msgid "--scan-ole2[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:433
+#: FMain.form:434
 msgid "--scan-archive[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:440
+#: FMain.form:441
 msgid "--scan-mail[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:447
+#: FMain.form:448
 msgid "--algorithmic-detection[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:453
+#: FMain.form:454
 msgid "--phishing-sigs[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:459
+#: FMain.form:460
 msgid "--phishing-scan-urls[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:465
+#: FMain.form:466
 msgid "--bytecode[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:474
+#: FMain.form:475
 msgid "Acciones"
 msgstr ""
 
-#: FMain.form:477
+#: FMain.form:478
 msgid "Cuarentena"
 msgstr ""
 
-#: FMain.form:482
+#: FMain.form:483
 msgid "Archivos potencialmente infectados"
 msgstr ""
 
-#: FMain.form:490
+#: FMain.form:491
 msgid "Lectura del Log"
 msgstr ""
 
-#: FMain.form:495
+#: FMain.form:496
 msgid "Historial de lectura"
 msgstr ""
 
-#: FMain.form:503
+#: FMain.form:504
 msgid "Idiomas"
 msgstr ""
 
-#: FMain.form:508
+#: FMain.form:509
 msgid "Español"
 msgstr ""
 
-#: FMain.form:514
+#: FMain.form:515
 msgid "francés"
 msgstr ""
 
-#: FMain.form:520
+#: FMain.form:521
 msgid "Inglés"
 msgstr ""
 
-#: FMain.form:529
+#: FMain.form:530
 msgid "Archivos de configuración"
 msgstr ""
 
-#: FMain.form:534
+#: FMain.form:535
 msgid "Clamd.conf"
 msgstr ""
 
-#: FMain.form:542
+#: FMain.form:543
 msgid "Freshclam.conf"
 msgstr ""
 
-#: FMain.form:549
+#: FMain.form:550
 msgid "milter.conf"
 msgstr ""
 
-#: FMain.form:556
+#: FMain.form:557
 msgid "Ejemplos de configuraciones"
 msgstr ""
 
-#: FMain.form:561
+#: FMain.form:562
 msgid "clamd.conf"
 msgstr ""
 
-#: FMain.form:569
+#: FMain.form:570
 msgid "freshclam.conf"
 msgstr ""
 
-#: FMain.form:584
+#: FMain.form:585
 msgid "?"
 msgstr ""
 
-#: FMain.form:587
+#: FMain.form:588
 msgid "Acerca de"
 msgstr ""
 
-#: FMain.form:592
+#: FMain.form:593
 msgid "Ayuda"
 msgstr ""
 
-#: FMain.form:604
+#: FMain.form:598
+msgid "Buscar actualizaciónes"
+msgstr ""
+
+#: FMain.form:610
 msgid "Analizar un Archivo"
 msgstr ""
 
-#: FMain.form:614
+#: FMain.form:620
 msgid "Analizar Directorios"
 msgstr ""
 
-#: FMain.form:629
+#: FMain.form:635
 msgid "Salida del escaneo"
 msgstr ""
 
-#: FMain.form:639
+#: FMain.form:645
 msgid "¡Mata el proceso en curso!"
 msgstr ""
 
-#: FMain.form:645
+#: FMain.form:651
 msgid "¡Ejecute el proceso!"
 msgstr ""
 
-#: FMain.form:651
+#: FMain.form:657
 msgid "Salida de texto claro"
 msgstr ""
 
-#: FMain.form:657
+#: FMain.form:663
 msgid "Sudo"
 msgstr ""
 
-#: FMain.form:665
+#: FMain.form:671
 msgid "Verde = sin cuarentena automática\nRojo = cuarentena automática"
 msgstr ""
 
-#: FMain.form:673
+#: FMain.form:679
 msgid "Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
 msgstr ""
 
-#: FMain.form:775
+#: FMain.form:781
 msgid "Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)"
 msgstr ""
 
-#: FMain.form:786
+#: FMain.form:792
 msgid "Extraiga y escanee como máximo #n bytes de cada archivo. El tamaño del archivo más la suma de los tamaños de todos los archivos dentro del archivo cuentan para el tamaño de escaneo. Por ejemplo, un archivo sin comprimir de 1 M que contiene un solo archivo interno de 1 M cuenta como 2 M para el tamaño máximo de escaneo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 100 MB, máximo: <4 GB)"
 msgstr ""
 
-#: FMain.form:797
+#: FMain.form:803
 msgid "Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata de un archivo, un documento u otro tipo de contenedor). Esta opción protege su sistema contra ataques DoS (predeterminado: 10000)"
 msgstr ""
 
-#: FMain.form:808
+#: FMain.form:814
 msgid "Establecer límite de nivel de recursividad de archivo. Esta opción protege su sistema contra ataques DoS (predeterminado: 16)."
 msgstr ""
 
-#: FMain.form:819
+#: FMain.form:825
 msgid "Los directorios de profundidad máxima se escanean en (predeterminado: 15)."
 msgstr ""
 
-#: FMain.form:830
+#: FMain.form:836
 msgid "Archivo de tamaño máximo para comprobar si hay PE incrustado. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:841
+#: FMain.form:847
 msgid "Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:852
+#: FMain.form:858
 msgid "Tamaño máximo del archivo HTML normalizado para escanear. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 2 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:863
+#: FMain.form:869
 msgid "Tamaño máximo del archivo de script para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 5 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:874
+#: FMain.form:880
 msgid "Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 1 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:884
+#: FMain.form:890
 msgid "Esta opción establece el número máximo de particiones de una imagen de disco sin procesar que se analizará. Debe ser un número entero positivo (predeterminado: 50)."
 msgstr ""
 
-#: FMain.form:895
+#: FMain.form:901
 msgid "Esta opción establece el número máximo de iconos dentro de un PE que se escanearán. Debe ser un número entero positivo (predeterminado: 100)."
 msgstr ""
 
-#: FMain.form:906
+#: FMain.form:912
 msgid "Esta opción establece el máximo de llamadas recursivas a la función de análisis de HWP3 (predeterminado: 16)."
 msgstr ""
 
-#: FMain.form:917
+#: FMain.form:923
 msgid "Número máximo de llamadas a la función de coincidencia de PCRE (predeterminado: 10000)."
 msgstr ""
 
-#: FMain.form:928
+#: FMain.form:934
 msgid "Máximo de llamadas recursivas a la función de coincidencia de PCRE (predeterminado: 5000)."
 msgstr ""
 
-#: FMain.form:939
+#: FMain.form:945
 msgid "Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE (predeterminado: 25 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:950
+#: FMain.form:956
 msgid "Limitaciones: (ver ayuda)"
 msgstr ""
 
-#: FMain.form:955
+#: FMain.form:961
 msgid "Defecto"
 msgstr ""
 
@@ -410,63 +414,67 @@ msgstr ""
 msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr ""
 
-#: FMain.class:316
+#: FMain.class:318
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr ""
 
-#: FMain.class:402
+#: FMain.class:404
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 
-#: FMain.class:424
+#: FMain.class:426
 msgid "Elija el directorio para escanear"
 msgstr ""
 
-#: FMain.class:425
+#: FMain.class:427
 msgid "Elija el archivo para analizar"
 msgstr ""
 
-#: FMain.class:458
+#: FMain.class:460
 msgid "Seleccione \n an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:555
+#: FMain.class:557
 msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr ""
 
-#: FMain.class:561
+#: FMain.class:563
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: FMain.class:561
+#: FMain.class:563
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: FMain.class:564
+#: FMain.class:566
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:788
+#: FMain.class:790
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:790
+#: FMain.class:792
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:790
+#: FMain.class:792
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:790
+#: FMain.class:792
 msgid "Si"
 msgstr ""
 
-#: FMain.class:790
+#: FMain.class:792
 msgid "No"
 msgstr ""
 
-#: FMain.class:981
+#: FMain.class:983
 msgid "Max"
+msgstr ""
+
+#: FMain.class:1039
+msgid "Nueva versión encontrada!"
 msgstr ""
 

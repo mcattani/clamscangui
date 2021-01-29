@@ -388,9 +388,13 @@
       Text = ("Ayuda")
       Picture = Picture["icon:/48/help"]
     }
+    { Menu18 Menu
+      Text = ("Buscar actualizaciónes")
+      Picture = Picture["icon:/24/development"]
+    }
   }
   { PanGauche Panel
-    MoveScaled(1,0,79.8571,85.8571)
+    MoveScaled(1,0,79.875,85.875)
     { TP TabPanel
       MoveScaled(0,0,79,60)
       Count = 2
@@ -425,12 +429,12 @@
     { Panel1 Panel
       MoveScaled(43,0,36,5)
       { TBKill ToolButton
-        MoveScaled(14.4286,0,4.5714,4)
+        MoveScaled(14.375,0,4.625,4)
         ToolTip = ("¡Mata el proceso en curso!")
         Picture = Picture["icon:/32/halt"]
       }
       { TBhProc ToolButton
-        MoveScaled(9.7143,0,4.5714,4)
+        MoveScaled(9.75,0,4.625,4)
         ToolTip = ("¡Ejecute el proceso!")
         Picture = Picture["icon:/32/exec"]
       }
@@ -458,104 +462,104 @@
     ToolTip = ("Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales.")
     Border = Border.Plain
     { Label2 Label
-      MoveScaled(1,6.1429,19,4)
+      MoveScaled(1,6.125,19,4)
       #Translate = False
       Text = "max-filesize"
       Alignment = Align.Right
     }
     { Label3 Label
-      MoveScaled(1,10.8571,19,4)
+      MoveScaled(1,10.875,19,4)
       #Translate = False
       Text = "max-scansize"
       Alignment = Align.Right
     }
     { Label4 Label
-      MoveScaled(1,16.1429,19,4)
+      MoveScaled(1,16.125,19,4)
       #Translate = False
       Text = "max-files"
       Alignment = Align.Right
     }
     { Label5 Label
-      MoveScaled(1,21.1429,19,4)
+      MoveScaled(1,21.125,19,4)
       #Translate = False
       Text = "max-recursion"
       Alignment = Align.Right
     }
     { Label6 Label
-      MoveScaled(1,25.8571,19,4)
+      MoveScaled(1,25.875,19,4)
       #Translate = False
       Text = "max-dir-recursion"
       Alignment = Align.Right
     }
     { Label7 Label
-      MoveScaled(1,30.7143,19,4)
+      MoveScaled(1,30.75,19,4)
       #Translate = False
       Text = "max-embeddedpe"
       Alignment = Align.Right
     }
     { Label8 Label
-      MoveScaled(1,35.7143,19,4)
+      MoveScaled(1,35.75,19,4)
       #Translate = False
       Text = "max-htmlnormalize"
       Alignment = Align.Right
     }
     { Label9 Label
-      MoveScaled(1,40.5714,19,4)
+      MoveScaled(1,40.625,19,4)
       #Translate = False
       Text = "max-htmlnotags"
       Alignment = Align.Right
     }
     { Label11 Label
-      MoveScaled(1,50.5714,19,4)
+      MoveScaled(1,50.625,19,4)
       #Translate = False
       Text = "max-ziptypercq"
       Alignment = Align.Right
     }
     { Label12 Label
-      MoveScaled(1,55.8571,19,4)
+      MoveScaled(1,55.875,19,4)
       #Translate = False
       Text = "max-partitions"
       Alignment = Align.Right
     }
     { Label13 Label
-      MoveScaled(1,61.1429,19,4)
+      MoveScaled(1,61.125,19,4)
       #Translate = False
       Text = "max-iconspe"
       Alignment = Align.Right
     }
     { Label14 Label
-      MoveScaled(1,66.1429,19,4)
+      MoveScaled(1,66.125,19,4)
       #Translate = False
       Text = "max-rechwp3"
       Alignment = Align.Right
     }
     { Label15 Label
-      MoveScaled(1,71.1429,19,4)
+      MoveScaled(1,71.125,19,4)
       #Translate = False
       Text = "pcre-match-limit"
       Alignment = Align.Right
     }
     { Label16 Label
-      MoveScaled(1,76.1429,19,4)
+      MoveScaled(1,76.125,19,4)
       #Translate = False
       Text = "pcre-recmatch-limit"
       Alignment = Align.Right
     }
     { Label17 Label
-      MoveScaled(1,81.1429,19,4)
+      MoveScaled(1,81.125,19,4)
       #Translate = False
       Text = "pcre-max-filesize"
       Alignment = Align.Right
     }
     { Label10 Label
-      MoveScaled(1.1429,45.7143,19,4)
+      MoveScaled(1.125,45.75,19,4)
       #Translate = False
       Text = "max-scriptnormalize"
       Alignment = Align.Right
     }
     { SlidFilesize SliderBox Limit
       Name = "SlidFilesize"
-      MoveScaled(20.8571,6.2857,19,4)
+      MoveScaled(20.875,6.25,19,4)
       ToolTip = ("Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)")
       MinValue = 25
       MaxValue = 2000
@@ -575,7 +579,7 @@
     }
     { SlidFiles SliderBox Limit
       Name = "SlidFiles"
-      MoveScaled(20.8571,16.2857,19,4)
+      MoveScaled(20.875,16.25,19,4)
       ToolTip = ("Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata de un archivo, un documento u otro tipo de contenedor). Esta opción protege su sistema contra ataques DoS (predeterminado: 10000)")
       MinValue = 10000
       MaxValue = 2000000
@@ -585,7 +589,7 @@
     }
     { Slidrecursion SliderBox Limit
       Name = "Slidrecursion"
-      MoveScaled(20.8571,21.2857,19,4)
+      MoveScaled(20.875,21.25,19,4)
       ToolTip = ("Establecer límite de nivel de recursividad de archivo. Esta opción protege su sistema contra ataques DoS (predeterminado: 16).")
       MinValue = 16
       MaxValue = 2000000
@@ -615,7 +619,7 @@
     }
     { SlidHtmlNorm SliderBox Limit
       Name = "SlidHtmlNorm"
-      MoveScaled(20.8571,35.8571,19,4)
+      MoveScaled(20.875,35.875,19,4)
       ToolTip = ("Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB).")
       MinValue = 10
       MaxValue = 2000
@@ -645,7 +649,7 @@
     }
     { SlidZipType SliderBox Limit
       Name = "SlidZipType"
-      MoveScaled(20.8571,50.8571,19,4)
+      MoveScaled(20.875,50.875,19,4)
       ToolTip = ("Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 1 MB, máximo: <4 GB).")
       MinValue = 1
       MaxValue = 2000
@@ -654,7 +658,7 @@
     }
     { SlidPartitions SliderBox Limit
       Name = "SlidPartitions"
-      MoveScaled(20.8571,55.8571,19,4)
+      MoveScaled(20.875,55.875,19,4)
       ToolTip = ("Esta opción establece el número máximo de particiones de una imagen de disco sin procesar que se analizará. Debe ser un número entero positivo (predeterminado: 50).")
       MinValue = 50
       MaxValue = 2000000
@@ -664,7 +668,7 @@
     }
     { SlidIconsPE SliderBox Limit
       Name = "SlidIconsPE"
-      MoveScaled(20.8571,61.2857,19,4)
+      MoveScaled(20.875,61.25,19,4)
       ToolTip = ("Esta opción establece el número máximo de iconos dentro de un PE que se escanearán. Debe ser un número entero positivo (predeterminado: 100).")
       MinValue = 100
       MaxValue = 2000000
@@ -674,7 +678,7 @@
     }
     { SlidRechWP3 SliderBox Limit
       Name = "SlidRechWP3"
-      MoveScaled(20.8571,66.1429,19,4)
+      MoveScaled(20.875,66.125,19,4)
       ToolTip = ("Esta opción establece el máximo de llamadas recursivas a la función de análisis de HWP3 (predeterminado: 16).")
       MinValue = 16
       MaxValue = 2000000
@@ -684,7 +688,7 @@
     }
     { SlidPcreLimit SliderBox Limit
       Name = "SlidPcreLimit"
-      MoveScaled(20.8571,71.2857,19,4)
+      MoveScaled(20.875,71.25,19,4)
       ToolTip = ("Número máximo de llamadas a la función de coincidencia de PCRE (predeterminado: 10000).")
       MinValue = 10000
       MaxValue = 2000000
@@ -694,7 +698,7 @@
     }
     { SlidPcreRecLimit SliderBox Limit
       Name = "SlidPcreRecLimit"
-      MoveScaled(20.8571,76.5714,19,4)
+      MoveScaled(20.875,76.625,19,4)
       ToolTip = ("Máximo de llamadas recursivas a la función de coincidencia de PCRE (predeterminado: 5000).")
       MinValue = 2000
       MaxValue = 2000000
@@ -704,7 +708,7 @@
     }
     { SlidPcreFilesize SliderBox Limit
       Name = "SlidPcreFilesize"
-      MoveScaled(20.8571,81.2857,19,4)
+      MoveScaled(20.875,81.25,19,4)
       ToolTip = ("Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE (predeterminado: 25 MB, máximo: <4 GB).")
       MinValue = 25
       MaxValue = 2000
@@ -713,12 +717,12 @@
       Value = 25
     }
     { Label1 TextLabel
-      MoveScaled(0.4286,0,15,5)
+      MoveScaled(0.375,0,15,5)
       Font = Font["Bold,Underline"]
       Text = ("Limitaciones: (ver ayuda)")
     }
     { BtnDefaut ToggleButton
-      MoveScaled(23.4286,0,16,4)
+      MoveScaled(23.375,0,16,4)
       Text = ("Defecto")
     }
   }
