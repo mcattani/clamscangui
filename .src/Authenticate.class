@@ -60,13 +60,17 @@ Public Sub ButtonAuthenticate_Click()                                           
      If Not sPassword Then sPassword = TextBoxPassword.Text                     'If there is no password stored then take it from TextBox
      sPass = Shell$(sPassword)                                                  'The caters for odd characters in the password
 
-     Try Shell "sudo -K;echo " & sPass & "|sudo -S -k whoami 2>&1" To sChkOutput ' fonctionne pour toutes les langues'2>&1
+     Try Shell "sudo -K;echo " & sPass & "|sudo -S -k whoami 2>&1 " To sChkOutput ' fonctionne pour toutes les langues'2>&1
      TextAreaTerminal.Clear
+
      If Not InStr(sChkOutput, "root") Then
           sPassword = ""                                                        'Clear sPassword
           TextBoxPassword.text = ""                                             'Clear the TextBox
           TextBoxPassword.SetFocus                                              'Put the cursor in the TexBox
           Timer1.Start                                                          'Start the Timer
+          TextAreaTerminal.Text = "Désolé , essayez de nouveau!"
+          Wait 2
+          TextAreaTerminal.Clear
      Else                                                                       'Else..
           Me.Title = ("POR FAVOR ESPERA. Procesando...")                        'Add message..
           If FMain.bSudo = True Then                                            'si TBSudo enfoncé

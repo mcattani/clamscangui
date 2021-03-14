@@ -30,26 +30,24 @@ End
 
 Public Sub langues()
 
-     Dim cLangues As String[] = ["en", "fr", "es"] ', "it", "pt", "de", "ru"]
+     Dim cLangues As String[] = ["en", "fr", "es", "it", "de", "pt", "ru"]
 
      If Not cLangues.Exist(Left(System.Language, 2)) Then                       'anglais si langue pas dans cLangues
           Settings["General/LangInit"] = "en"
-
      Else If Settings["General/LangInit"] = "en" Then
           System.Language = "en_US.UTF-8"
      Else If Settings["General/LangInit"] = "fr" Then
           System.Language = "fr_FR.UTF-8"
      Else If Settings["General/LangInit"] = "es" Then
           System.Language = "es_ES.UTF-8"
-
-          ' Else If Settings["General/LangInit"] = "it" Then
-          '      System.Language = "it_IT.UTF-8"
-          ' Else If Settings["General/LangInit"] = "pt" Then
-          '      System.Language = "pt_PT.UTF-8"
-          ' Else If Settings["General/LangInit"] = "de" Then
-          '      System.Language = "de_DE.UTF-8"
-          ' Else If Settings["General/LangInit"] = "ru" Then
-          '      System.Language = "ru_RU.UTF-8"
+     Else If Settings["General/LangInit"] = "it" Then
+          System.Language = "it_IT.UTF-8"
+     Else If Settings["General/LangInit"] = "pt" Then
+          System.Language = "pt_PT.UTF-8"
+     Else If Settings["General/LangInit"] = "de" Then
+          System.Language = "de_DE.UTF-8"
+     Else If Settings["General/LangInit"] = "ru" Then
+          System.Language = "ru_RU.UTF-8"
      Endif
      Settings.Save()
 
@@ -59,7 +57,7 @@ Public Sub sortie()
 
      Dim result As String
 
-     If FMain.bSudo = True Then                                                 'si sudo alors
+     If FMain.bSudo = True Then                                                 'si sudo alors ...
           Authenticate.Command("sudo killall -u root -9 clamscan")              'montexte est affecté à la commande du process
           If FMain.bFlag = True Then
                Shell FMain.monTexte

@@ -1,0 +1,983 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ClamScanGuiV0 3.15.2\n"
+"POT-Creation-Date: 2021-03-14 15:00 UTC\n"
+"PO-Revision-Date: 2021-03-14 11:25 UTC\n"
+"Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1
+msgid "ClamScanGuiV0"
+msgstr "ClamScanGuiV0"
+
+# gb-ignore
+#: .project:2
+msgid ""
+"- Un sencillo GUI para el antivirus ClamAV.\n"
+"- Une interface graphique simple pour l'antivirus ClamAV.\n"
+"- Simple graphical interface for the ClamAV antivirus.\n"
+"- Простой графический интерфейс для антивируса ClamAV."
+msgstr ""
+
+#: Authenticate.class:47
+msgid "ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!"
+msgstr "ClamScanGui deve limpar a memória do processo atual, mantido por sudo!"
+
+#: Authenticate.class:75
+msgid "POR FAVOR ESPERA. Procesando..."
+msgstr "POR FAVOR, AGUARDE. Em processamento ..."
+
+#: Authenticate.class:85
+msgid "atrás"
+msgstr "atras do"
+
+#: Authenticate.class:87
+msgid "¡Acción completada!"
+msgstr "Ação concluída!"
+
+#: Authenticate.class:95
+msgid "¡Se ha producido un error!"
+msgstr "Ocorreu um erro!"
+
+#: Authenticate.class:116
+msgid "Acción cancelada."
+msgstr "Ação cancelada."
+
+#: Authenticate.class:123
+msgid "¡Inténtalo de nuevo!"
+msgstr "Tenta de novo!"
+
+#: Authenticate.class:151
+msgid "Bloqueo de mayúsculas está activado"
+msgstr "Caps Lock está ativado"
+
+#: Authenticate.form:71
+msgid ""
+"Un comando o aplicación está intentando realizar una acción que requiere privilegios.\n"
+"Se requiere autenticación para realizar esta acción."
+msgstr ""
+"Um comando ou aplicativo está tentando realizar uma ação que requerprivilégios.\n"
+"A autenticação é necessária para executar esta ação."
+
+#: Authenticate.form:82
+msgid "Contraseña:"
+msgstr "Senha:"
+
+#: Authenticate.form:120 FrmSoumission.form:126
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: Authenticate.form:131
+msgid "Autenticar"
+msgstr "Autenticar"
+
+#: Cerf.form:26 frmAbout.form:36
+msgid "Unus Ex Altera"
+msgstr "Unus Ex Altera"
+
+#: ClamScan.module:21
+msgid "clamscan --version"
+msgstr "clamscan --version"
+
+#: ClamScan.module:144
+msgid " Trabajo en curso... "
+msgstr " Trabalho em progresso... "
+
+#: ClamScan.module:170
+msgid " Escaneo realizado : "
+msgstr "  Varredura realizada:"
+
+#: FMain.class:77 Module1.module:22
+msgid "¡Atención!"
+msgstr "Atenção!"
+
+#: FMain.class:78
+msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
+msgstr "Você deve ter o antivírus ClamAv instalado para poder usar este aplicativo"
+
+#: FMain.class:81
+msgid "Versión instalada: "
+msgstr "Versão instalada:"
+
+#: FMain.class:85
+msgid " ~ Instalación incompleta de Clamav"
+msgstr " ~ Instalação incompleta do Clamav"
+
+#: FMain.class:86
+msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
+msgstr "Para reconfigurar o clamav-milter, execute sudo dpkg-reconfigure clamav-milter"
+
+#: FMain.class:86
+msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
+msgstr "Para reconfigurar o clamd, execute sudo dpkg-reconfigure clamav-daemon"
+
+#: FMain.class:316
+msgid ""
+"¡Todos sus pedidos son \n"
+" del SuperUsuario!"
+msgstr ""
+"Todos os seus pedidos são\n"
+" do SuperUser!"
+
+#: FMain.class:403
+msgid "Por favor, espere unos segundos mientras inicia el antivirus"
+msgstr "Por favor aguarde alguns segundos enquanto o antivírus inicia"
+
+#: FMain.class:425
+msgid "Elija el directorio para escanear"
+msgstr "Escolha o diretório para escanear"
+
+#: FMain.class:426
+msgid "Elija el archivo para analizar"
+msgstr "Escolha o arquivo para analisar"
+
+#: FMain.class:459
+msgid ""
+"Seleccione \n"
+" an objeto para escanear!"
+msgstr ""
+"Selecione\n"
+" um objeto para escanear!"
+
+#: FMain.class:556 Module1.module:67
+msgid ""
+"clamscan, todavía funciona, en segundo plano.\n"
+" Tendrá que borrar la memoria usted mismo."
+msgstr ""
+"clamscan, ainda funciona, em segundo plano.\n"
+" Você terá que apagar a memória sozinho."
+
+#: FMain.class:562
+msgid "El proceso actual ha sido eliminado"
+msgstr "O processo atual foi eliminado"
+
+#: FMain.class:562
+msgid "¡Puedes volver!"
+msgstr "Você pode voltar!"
+
+#: FMain.class:565
+msgid "¡El proceso ya se detuvo!"
+msgstr "O processo já parou!"
+
+#: FMain.class:795
+msgid "El idioma elegido se aplicará después del reinicio"
+msgstr "O idioma escolhido será aplicado após o reinício"
+
+#: FMain.class:797
+msgid "El idioma elegido se aplicará después de reiniciar el programa."
+msgstr "O idioma escolhido será aplicado após o reinício do programa."
+
+#: FMain.class:797 FrmGeneral.class:66
+msgid "No"
+msgstr "Não"
+
+#: FMain.class:797 FrmGeneral.class:66
+msgid "Si"
+msgstr "sim"
+
+#: FMain.class:797
+msgid "¿Quieres renunciar?"
+msgstr "Você quer sair?"
+
+#: FMain.class:988
+msgid "Max"
+msgstr "Max"
+
+#: FMain.class:1047
+msgid "Nueva versión encontrada!"
+msgstr "Nova versão encontrada!"
+
+#: FMain.class:1050
+msgid "No hay actualizaciones disponibles"
+msgstr "Sem atualizações disponíveis"
+
+#: FMain.form:139
+msgid "// ClamAV GUI //"
+msgstr "// ClamAV GUI //"
+
+#: FMain.form:146
+msgid "Opciones"
+msgstr "Opções"
+
+#: FMain.form:149
+msgid "Grabación de sesiones"
+msgstr "Gravação de sessão"
+
+#: FMain.form:154
+msgid "--quiet"
+msgstr "--quieto"
+
+#: FMain.form:161
+msgid "--infected"
+msgstr "--infetado"
+
+#: FMain.form:168
+msgid "--no-summary"
+msgstr "--no-summary"
+
+#: FMain.form:175
+msgid "--suppress-ok-results"
+msgstr "--suppress-ok-results"
+
+#: FMain.form:182
+msgid "--bell"
+msgstr "--Sino"
+
+#: FMain.form:189
+msgid "--verbose"
+msgstr "--verbose"
+
+#: FMain.form:196
+msgid "--archive-verbose"
+msgstr "--archive-verbose"
+
+#: FMain.form:203
+msgid "--debug"
+msgstr "--depurar"
+
+#: FMain.form:210
+msgid "--gen-json"
+msgstr "--gen-json"
+
+#: FMain.form:220
+msgid "Limitaciones  (con precaución)"
+msgstr "Limitações (com cautela)"
+
+#: FMain.form:228
+msgid "Salir"
+msgstr "Sair"
+
+#: FMain.form:234
+msgid "Opciones Avanzadas"
+msgstr "Opções avançadas"
+
+#: FMain.form:237
+msgid "Actualización de la base de datos"
+msgstr "Upgrade de banco de dados"
+
+#: FMain.form:241
+msgid "Ver Log Freshclam"
+msgstr "Ver Log Freshclam"
+
+#: FMain.form:250
+msgid "Actualización automática"
+msgstr "Atualização automática"
+
+#: FMain.form:258
+msgid "Actualización manual"
+msgstr "Atualização manual"
+
+#: FMain.form:267
+msgid "Actualización inmediata"
+msgstr "Atualização imediata"
+
+#: FMain.form:276
+msgid "Opciones no marcadas por defecto"
+msgstr "Opções não marcadas por padrão"
+
+#: FMain.form:281
+msgid "--allmatch[=yes/no(*)]"
+msgstr "--allmatch [= sim/não (*)]"
+
+#: FMain.form:288
+msgid "--detect-pua[=yes/no(*)]"
+msgstr "--detect-pua [= sim/não (*)]"
+
+#: FMain.form:295
+msgid "--detect-structured[=yes/no(*)]"
+msgstr "--detectar estruturado [= sim/não (*)]"
+
+#: FMain.form:302
+msgid "--partition-intersection[=yes/no(*)]"
+msgstr "--partição-intersecção [= sim/não (*)]"
+
+#: FMain.form:309
+msgid "--heuristic-scan-precedence[=yes/no*]"
+msgstr "--heuristic-scan-precedence [= sim/não *]"
+
+#: FMain.form:317
+msgid "--phishing-ssl[=yes/no*]"
+msgstr "--phishing-ssl [= sim/não *]"
+
+#: FMain.form:325
+msgid "--phishing-cloak[=yes/no*]"
+msgstr "--phishing-cloak [= sim/não *]"
+
+#: FMain.form:333
+msgid "--detect-broken[=yes/no*]"
+msgstr "--detect-broken [= sim/não *]"
+
+#: FMain.form:341
+msgid "--block-macros[=yes/no*]"
+msgstr "--block-macros [= sim/não *]"
+
+#: FMain.form:352
+msgid "--remove[=yes/no(*)]  ( ¡Atención! )"
+msgstr "--remove [= sim/não (*)] (Atenção!)"
+
+#: FMain.form:359
+msgid "--move=CUARENTENA"
+msgstr "--move = QUARENTENA"
+
+#: FMain.form:369
+msgid "--recursive[=yes/no(*)]"
+msgstr "--recursive [= sim/não (*)]"
+
+#: FMain.form:379
+msgid "Opciones marcadas por defecto"
+msgstr "Opções marcadas por padrão"
+
+#: FMain.form:384
+msgid "--cross-fs[=yes(*)/no]"
+msgstr "--cross-fs [= sim (*)/não]"
+
+#: FMain.form:391
+msgid "--scan-hwp3[=yes(*)/no]"
+msgstr "--scan-hwp3 [= sim (*)/não]"
+
+#: FMain.form:398
+msgid "--scan-html[=yes(*)/no]"
+msgstr "--scan-html [= sim (*)/não]"
+
+#: FMain.form:405
+msgid "--scan-swf[=yes(*)/no]"
+msgstr "--scan-swf [= sim (*)/não]"
+
+#: FMain.form:412
+msgid "--scan-pdf[=yes(*)/no]"
+msgstr "--scan-pdf [= sim (*)/não]"
+
+#: FMain.form:419
+msgid "--scan-pe[=yes(*)/no]"
+msgstr "--scan-pe [= sim (*)/não]"
+
+#: FMain.form:426
+msgid "--scan-elf[=yes(*)/no]"
+msgstr "--scan-elf [= sim (*)/não]"
+
+#: FMain.form:433
+msgid "--scan-ole2[=yes(*)/no]"
+msgstr "--scan-ole2 [= sim (*)/não]"
+
+#: FMain.form:440
+msgid "--scan-archive[=yes(*)/no]"
+msgstr "--scan-archive [= sim (*)/não]"
+
+#: FMain.form:447
+msgid "--scan-mail[=yes(*)/no]"
+msgstr "--scan-mail [= sim (*)/não]"
+
+#: FMain.form:454
+msgid "--algorithmic-detection[=yes(*)/no]"
+msgstr "- detecção de algoritmo [= sim (*)/não]"
+
+#: FMain.form:460
+msgid "--phishing-sigs[=yes(*)/no]"
+msgstr "--phishing-sigs [= sim (*)/não]"
+
+#: FMain.form:466
+msgid "--phishing-scan-urls[=yes(*)/no]"
+msgstr "--phishing-scan-urls [= sim (*)/não]"
+
+#: FMain.form:472
+msgid "--bytecode[=yes(*)/no]"
+msgstr "--bytecode [= sim (*)/não]"
+
+#: FMain.form:481
+msgid "Acciones"
+msgstr "Ações"
+
+#: FMain.form:484 FrmGeneral.form:86
+msgid "Cuarentena"
+msgstr "Quarentena"
+
+#: FMain.form:489
+msgid "Archivos potencialmente infectados"
+msgstr "Arquivos potencialmente infectados"
+
+#: FMain.form:497
+msgid "Lectura del Log"
+msgstr "Leitura de log"
+
+#: FMain.form:502
+msgid "Historial de lectura"
+msgstr "História de leitura"
+
+#: FMain.form:510
+msgid "Idiomas"
+msgstr "línguas"
+
+#: FMain.form:515
+msgid "Español"
+msgstr "espanhol"
+
+#: FMain.form:521
+msgid "francés"
+msgstr "francês"
+
+#: FMain.form:527
+msgid "Inglés"
+msgstr "inglês"
+
+#: FMain.form:533
+msgid "alemán"
+msgstr "alemão"
+
+#: FMain.form:539
+msgid "italiano"
+msgstr "italiano"
+
+#: FMain.form:545
+msgid "portugués"
+msgstr "português"
+
+#: FMain.form:551
+msgid "ruso"
+msgstr "russo"
+
+#: FMain.form:560
+msgid "Archivos de configuración"
+msgstr "Arquivos de configuração"
+
+#: FMain.form:565
+msgid "Clamd.conf"
+msgstr "Clamd.conf"
+
+#: FMain.form:573
+msgid "Freshclam.conf"
+msgstr "Freshclam.conf"
+
+#: FMain.form:580
+msgid "milter.conf"
+msgstr "milter.conf"
+
+#: FMain.form:587
+msgid "Ejemplos de configuraciones"
+msgstr "Exemplos de configuração"
+
+#: FMain.form:592
+msgid "clamd.conf"
+msgstr "clamd.conf"
+
+#: FMain.form:600
+msgid "freshclam.conf"
+msgstr "freshclam.conf"
+
+#: FMain.form:615
+msgid "?"
+msgstr "?"
+
+#: FMain.form:618 frmAbout.form:15
+msgid "Acerca de"
+msgstr "Sobre"
+
+#: FMain.form:623
+msgid "Ayuda"
+msgstr "Ajuda"
+
+#: FMain.form:628
+msgid "ClamScanGui actualizaciónes"
+msgstr "Atualizações do ClamScanGui"
+
+#: FMain.form:640
+msgid "Analizar un Archivo"
+msgstr "Analisar um arquivo"
+
+#: FMain.form:650
+msgid "Analizar Directorios"
+msgstr "Analisar diretórios"
+
+#: FMain.form:669
+msgid "Salida del escaneo"
+msgstr "Saída de digitalização"
+
+#: FMain.form:694
+msgid "¡Mata el proceso en curso!"
+msgstr "Mate o processo em andamento!"
+
+#: FMain.form:700
+msgid "¡Ejecute el proceso!"
+msgstr "Execute o processo!"
+
+#: FMain.form:706
+msgid "Salida de texto claro"
+msgstr "Saída de texto claro"
+
+#: FMain.form:712
+msgid "Sudo"
+msgstr "Sudo"
+
+#: FMain.form:720
+msgid ""
+"Verde = sin cuarentena automática\n"
+"Rojo = cuarentena automática"
+msgstr ""
+"Verde = sem quarentena automática\n"
+"Vermelho = quarentena automática"
+
+#: FMain.form:728
+msgid ""
+"Según el sitio web de clamav:\n"
+"\n"
+"--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n"
+"\n"
+"Desactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
+msgstr ""
+"De acordo com o site do clamav:\n"
+"\n"
+"--max-filesize = 2000M --max-scansize = 2000M --max-files = 2000000 --max-recursion = 2000000 --max-embeddedpe = 2000M --max-htmlnormalize = 2000000 --max-htmlnotags = 2000000 --max-scriptnormalize = 2000000 --max-ziptypercg = 2000000 -max-partitions = 2000000 --max-iconspe = 2000000 --max-rechwp3 = 2000000 --pcre-match-limit = 2000000 --pcre-recmatch-limit = 2000000 --pcre-max-tamanho do arquivo = 2000M:\n"
+"\n"
+"Desativa efetivamente todos os limites e máximos de arquivos paraVarredura. Isso é útil se você quiser ter certeza de que todosarquivos em um conjunto e preferir que o Clam seja executado lentamente oubloquear em vez de pular um arquivo porque encontra um desses limites."
+
+#: FMain.form:830
+msgid "Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)"
+msgstr "Extraia e verifique no máximo #n bytes de cada arquivo. Pode passar ovalor em kilobytes no formato xK ou xk, ou megabytes no formato xM ou xm, ondex é um número. Esta opção protege seu sistema contra ataques DoS(padrão: 25 MB, máximo: <4 GB)"
+
+#: FMain.form:841
+msgid "Extraiga y escanee como máximo #n bytes de cada archivo. El tamaño del archivo más la suma de los tamaños de todos los archivos dentro del archivo cuentan para el tamaño de escaneo. Por ejemplo, un archivo sin comprimir de 1 M que contiene un solo archivo interno de 1 M cuenta como 2 M para el tamaño máximo de escaneo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 100 MB, máximo: <4 GB)"
+msgstr "Extraia e verifique no máximo #n bytes de cada arquivo. O tamanho doarquivo mais a soma dos tamanhos de todos os arquivos dentro do arquivoeles contam para o tamanho da digitalização. Por exemplo, um arquivo descompactado de1M contendo um único arquivo interno de 1M conta como 2M para otamanho máximo de digitalização. Você pode passar o valor em kilobytes no formato xK ouxk ou megabytes no formato xM ou xm, onde x é um número. Esta opçãoprotege seu sistema contra ataques DoS (padrão: 100 MB, máximo: <4 GB)"
+
+#: FMain.form:852
+msgid "Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata de un archivo, un documento u otro tipo de contenedor). Esta opción protege su sistema contra ataques DoS (predeterminado: 10000)"
+msgstr "Extraia no máximo #n arquivos de cada arquivo verificado (quando forde um arquivo, documento ou outro tipo de recipiente). Esta opção protegeseu sistema contra ataques DoS (padrão: 10000)"
+
+#: FMain.form:863
+msgid "Establecer límite de nivel de recursividad de archivo. Esta opción protege su sistema contra ataques DoS (predeterminado: 16)."
+msgstr "Defina o limite do nível de recursão do arquivo. Esta opção protegeseu sistema contra ataques DoS (padrão: 16)."
+
+#: FMain.form:874
+msgid "Los directorios de profundidad máxima se escanean en (predeterminado: 15)."
+msgstr "Os diretórios de profundidade máxima são verificados (padrão: 15)."
+
+#: FMain.form:885
+msgid "Archivo de tamaño máximo para comprobar si hay PE incrustado. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
+msgstr "Arquivo de tamanho máximo para verificar se há PE incorporado. Pode passar ovalor em kilobytes no formato xK ou xk, ou megabytes no formato xM ou xm, ondex é um número (padrão: 10 MB, máximo: <4 GB)."
+
+#: FMain.form:896
+msgid "Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
+msgstr "Tamanho máximo do arquivo HTML para normalizar. Você pode passar o valor emkilobytes no formato xK ou xk, ou megabytes no formato xM ou xm, onde x é umnúmero (padrão: 10 MB, máximo: <4 GB)."
+
+#: FMain.form:907
+msgid "Tamaño máximo del archivo HTML normalizado para escanear. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 2 MB, máximo: <4 GB)."
+msgstr "Tamanho máximo do arquivo HTML normalizado a ser verificado. Pode passar ovalor em kilobytes no formato xK ou xk, ou megabytes no formato xM ou xm, ondex é um número (padrão: 2 MB, máximo: <4 GB)."
+
+#: FMain.form:918
+msgid "Tamaño máximo del archivo de script para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 5 MB, máximo: <4 GB)."
+msgstr "Tamanho máximo do arquivo de script a ser normalizado. Você pode passar o valor emkilobytes no formato xK ou xk, ou megabytes no formato xM ou xm, onde x é umnúmero (padrão: 5 MB, máximo: <4 GB)."
+
+#: FMain.form:929
+msgid "Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 1 MB, máximo: <4 GB)."
+msgstr "Zíper de tamanho máximo para redigitalização. Você pode passar o valor emkilobytes no formato xK ou xk, ou megabytes no formato xM ou xm, onde x é umnúmero (padrão: 1 MB, máximo: <4 GB)."
+
+#: FMain.form:939
+msgid "Esta opción establece el número máximo de particiones de una imagen de disco sin procesar que se analizará. Debe ser un número entero positivo (predeterminado: 50)."
+msgstr "Esta opção define o número máximo de partições em uma imagem de discocru a ser analisado. Deve ser um número inteiro positivo(padrão: 50)."
+
+#: FMain.form:950
+msgid "Esta opción establece el número máximo de iconos dentro de un PE que se escanearán. Debe ser un número entero positivo (predeterminado: 100)."
+msgstr "Esta opção define o número máximo de ícones em um PE que pode serirá digitalizar. Deve ser um número inteiro positivo (padrão: 100)."
+
+#: FMain.form:961
+msgid "Esta opción establece el máximo de llamadas recursivas a la función de análisis de HWP3 (predeterminado: 16)."
+msgstr "Esta opção define o número máximo de chamadas recursivas para a funçãoAnálise HWP3 (padrão: 16)."
+
+#: FMain.form:972
+msgid "Número máximo de llamadas a la función de coincidencia de PCRE (predeterminado: 10000)."
+msgstr "Número máximo de chamadas para a função de correspondência PCRE(padrão: 10000)."
+
+#: FMain.form:983
+msgid "Máximo de llamadas recursivas a la función de coincidencia de PCRE (predeterminado: 5000)."
+msgstr "Máximo de chamadas recursivas para função de correspondência PCRE(padrão: 5000)."
+
+#: FMain.form:994
+msgid "Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE (predeterminado: 25 MB, máximo: <4 GB)."
+msgstr "Arquivo de tamanho máximo para realizar a correspondência de subsig PCRE(padrão: 25 MB, máximo: <4 GB)."
+
+#: FMain.form:1005
+msgid "Limitaciones: (ver ayuda)"
+msgstr "Limitações: (ver ajuda)"
+
+#: FMain.form:1010
+msgid "Defecto"
+msgstr "Predefinição"
+
+#: FrmGeneral.class:65
+msgid "¡Proceda con cuidado!"
+msgstr "Prossiga com cuidado!"
+
+#: FrmGeneral.class:66
+msgid "¿Quieres guardar tus cambios?"
+msgstr "Você quer salvar suas mudanças?"
+
+#: FrmGeneral.class:103
+msgid "Copia de seguridad realizada"
+msgstr "Backup feito"
+
+#: FrmGeneral.class:105
+msgid "Copia de seguridad no realizada"
+msgstr "Backup não realizado"
+
+#: FrmGeneral.class:133
+msgid "¿Quiere restaurar el archivo respaldado?"
+msgstr "Você deseja restaurar o arquivo de backup?"
+
+#: FrmGeneral.class:173
+msgid "Restauración realizada"
+msgstr "Restauração feita"
+
+#: FrmGeneral.class:175
+msgid "Restauración no realizada"
+msgstr "Restauração não feita"
+
+#: FrmGeneral.class:187
+msgid "No hay archivo para restaurar"
+msgstr "Não há nenhum arquivo para restaurar"
+
+#: FrmGeneral.class:191
+msgid "¿Quieres restaurar el archivo de la cuarentena?"
+msgstr "Você deseja restaurar o arquivo da quarentena?"
+
+#: FrmGeneral.class:204
+msgid "El archivo ha sido restaurado"
+msgstr "O arquivo foi restaurado"
+
+#: FrmGeneral.class:206
+msgid "¡El archivo en cuestión no existe!"
+msgstr "O arquivo em questão não existe!"
+
+#: FrmGeneral.class:245
+msgid "Historial de escaneo:"
+msgstr "Histórico de verificação:"
+
+#: FrmGeneral.class:255
+msgid "Historia de ClamScanGui : "
+msgstr "História do ClamScanGui:"
+
+#: FrmGeneral.class:263
+msgid "¡Atención, archivo muy grande!"
+msgstr "Atenção, arquivo muito grande!"
+
+#: FrmGeneral.class:264
+msgid "¡Solo una parte!"
+msgstr "Apenas uma parte!"
+
+#: FrmGeneral.class:264
+msgid ""
+"¿Quieres ver el archivo completo? \n"
+" ¡Ten paciencia!"
+msgstr ""
+"Você quer ver o arquivo completo?\n"
+" Tenha paciência!"
+
+#: FrmGeneral.class:275
+msgid " -------- | Archivo vacío | -------- "
+msgstr " -------- | Arquivo vazio | --------"
+
+#: FrmGeneral.class:286
+msgid "Grabación de la sesión:"
+msgstr "Gravação da sessão:"
+
+#: FrmGeneral.class:290
+msgid " Registro de ClamScanGui "
+msgstr " Registro ClamScanGui"
+
+#: FrmGeneral.class:311
+msgid "Viendo el archivo Freshclam.log:"
+msgstr "Visualizando o arquivo Freshclam.log:"
+
+#: FrmGeneral.class:334
+msgid " Configuración de: "
+msgstr " Configuração de:"
+
+#: FrmGeneral.class:334
+msgid "# Modo de edición # "
+msgstr "# Modo de edição #"
+
+#: FrmGeneral.class:336
+msgid "Edición:"
+msgstr "Edição:"
+
+#: FrmGeneral.class:341
+msgid "# Modo de consulta # "
+msgstr "# Modo de consulta #"
+
+#: FrmGeneral.class:343
+msgid "Consulta:"
+msgstr "Consulta:"
+
+#: FrmGeneral.class:352
+msgid "Su archivo de configuración clamd.conf"
+msgstr "Seu arquivo de configuração clamd.conf"
+
+#: FrmGeneral.class:358
+msgid "Su archivo de configuración Freshclam.conf"
+msgstr "Seu arquivo de configuração Freshclam.conf"
+
+#: FrmGeneral.class:364
+msgid "Su archivo de configuración clamav-milter.conf"
+msgstr "Seu arquivo de configuração clamav-milter.conf"
+
+#: FrmGeneral.class:369
+msgid " Ejemplo de clamd.conf "
+msgstr " Exemplo de Clamd.conf"
+
+#: FrmGeneral.class:370
+msgid ""
+"Un ejemplo de un archivo de configuración con comentarios\n"
+" que puede encontrar en su disco en:\n"
+msgstr ""
+"Um exemplo de arquivo de configuração com comentários\n"
+" que você pode encontrar em seu disco em:\n"
+
+#: FrmGeneral.class:376
+msgid " Ejemplo de freshclam.conf "
+msgstr " Exemplo Freshclam.conf"
+
+#: FrmGeneral.class:383
+msgid " Ejemplo de clamav-milter.conf "
+msgstr " Exemplo Clamav-milter.conf"
+
+#: FrmGeneral.class:392
+msgid "Es la primera vez !"
+msgstr "É a primeira vez !"
+
+#: FrmGeneral.class:393
+msgid ""
+"Se acaba de realizar una copia de seguridad \n"
+"en caso de error, puede restaurarla"
+msgstr ""
+"Acabou de ser feito um backup\n"
+"em caso de erro, você pode restaurá-lo"
+
+#: FrmGeneral.class:399
+msgid ""
+"Se acaba de guardar un archivo de ejemplo \n"
+" en el siguiente directorio: \n"
+" "
+msgstr ""
+"Um arquivo de exemplo acabou de ser salvo\n"
+" no seguinte diretório:\n"
+" "
+
+#: FrmGeneral.class:413
+msgid "Ayuda de ClamScanGui:"
+msgstr "Ajuda do ClamScanGui:"
+
+#: FrmGeneral.class:418
+msgid " Inicio de archivo "
+msgstr " Arquivo Iniciar"
+
+#: FrmGeneral.class:420
+msgid " FAQ : http://www.clamav.net"
+msgstr " FAQ: http://www.clamav.net"
+
+#: FrmGeneral.class:430
+msgid " Ayuda de ClamScanGui "
+msgstr " Ajuda do ClamScanGui"
+
+#: FrmGeneral.class:440
+msgid " Fin del documento "
+msgstr " Fim do documento"
+
+#: FrmGeneral.class:452
+msgid "Cuarentena de ClamScanGui:"
+msgstr "Quarentena de ClamScanGui:"
+
+#: FrmGeneral.class:455
+msgid "Cuarentena de ClamScanGui"
+msgstr "Quarentena ClamScanGui"
+
+#: FrmGeneral.class:456
+msgid "Archivos infectados"
+msgstr "Arquivos infectados"
+
+#: FrmGeneral.class:457
+msgid "Virus"
+msgstr "Vírus"
+
+#: FrmGeneral.class:458
+msgid "Nombre"
+msgstr "Nome"
+
+#: FrmGeneral.class:469
+msgid "Lista de virus encontrados"
+msgstr "Lista de vírus encontrados"
+
+#: FrmGeneral.class:532
+msgid "No hay archivo para borrar"
+msgstr "Não há nenhum arquivo para deletar"
+
+#: FrmGeneral.class:535
+msgid "¿Quieres destruir el archivo?"
+msgstr "Você quer destruir o arquivo?"
+
+#: FrmGeneral.class:552
+msgid "¡El archivo ha sido destruido!"
+msgstr "O arquivo foi destruído!"
+
+#: FrmGeneral.class:587
+msgid "No hay archivo para enviar"
+msgstr "Não há nenhum arquivo para enviar"
+
+#: FrmGeneral.class:614
+msgid "¿Quieres poner el archivo en cuarentena?"
+msgstr "Você deseja colocar o arquivo em quarentena?"
+
+#: FrmGeneral.class:626
+msgid "El archivo se ha movido a cuarentena"
+msgstr "O arquivo foi colocado em quarentena"
+
+#: FrmGeneral.form:79
+msgid "Imprimir"
+msgstr "Imprimir"
+
+#: FrmGeneral.form:97
+msgid "Sumisión"
+msgstr "Submissão"
+
+#: FrmGeneral.form:108
+msgid "Borrar"
+msgstr "Apagar"
+
+#: FrmGeneral.form:119
+msgid "Restaurar"
+msgstr "Restaurar"
+
+#: FrmGeneral.form:131
+msgid "Salvar"
+msgstr "Salve "
+
+#: FrmGeneral.form:142 FrmSoumission.form:137 frmAbout.form:52
+#: frmUpdate.form:26
+msgid "Cerrar"
+msgstr "Fechar"
+
+#: FrmSoumission.class:37
+msgid "¡llena todos los campos!"
+msgstr "Preencha todos os campos!"
+
+#: FrmSoumission.class:42
+msgid "¡no tienes que enviar nada! "
+msgstr "Você não precisa enviar nada!"
+
+#: FrmSoumission.form:25
+msgid "Formulario de envío de falsos positivos"
+msgstr "Formulário de envio de falso positivo"
+
+#: FrmSoumission.form:36
+msgid ""
+"Porfavor complete todos los campos\n"
+"para que la presentación sea eficaz.\n"
+"Consulte la lista de archivos para enviar,\n"
+"así como los nombres de los virus."
+msgstr ""
+"Preencha todos os campos\n"
+"para uma apresentação eficaz.\n"
+"Verifique a lista de arquivos a enviar,\n"
+"bem como os nomes dos vírus."
+
+#: FrmSoumission.form:65
+msgid "Lista de archivos para enviar:"
+msgstr "Lista de arquivos a enviar:"
+
+#: FrmSoumission.form:73
+msgid "Nombre del virus detectado como falso positivo:"
+msgstr "Nome do vírus detectado como falso positivo:"
+
+#: FrmSoumission.form:81
+msgid "Su nombre :"
+msgstr "Seu nome :"
+
+#: FrmSoumission.form:89
+msgid "Su correo :"
+msgstr "Seu e-mail:"
+
+#: FrmSoumission.form:104
+msgid "Terminal para rastrear su pedido:"
+msgstr "Terminal para rastrear seu pedido:"
+
+#: FrmSoumission.form:119
+msgid "Enviar"
+msgstr "Mandar"
+
+#: Module1.module:22
+msgid "para ClamScanGui"
+msgstr "para ClamScanGui"
+
+#: Module1.module:23
+msgid "Solo es posible una instancia del Programa."
+msgstr "Apenas uma instância do Programa é possível."
+
+#: frmAbout.form:24
+msgid "Click para acceder al blog"
+msgstr "Clique para acessar o blog"
+
+#: frmAbout.form:25
+msgid "thenerdyapprentice.blogspot.com/"
+msgstr "thenerdyapprentice.blogspot.com/"
+
+#: frmAbout.form:45
+msgid ""
+"Basado en una idea original de The Nerdy Apprentice :\n"
+"https://thenerdyapprentice.blogspot.com/\n"
+"\n"
+"Programa modificado por Pil Valaquarus.\n"
+"Octubre de 2020\n"
+"valaquarus@gmail.com\n"
+"\n"
+"---- Original ----\n"
+"\n"
+"Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que me hagan las cosas más fáciles. \n"
+"Tengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n"
+"\n"
+"https://thenerdyapprentice.blogspot.com/\n"
+"\n"
+"Si encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n"
+"\n"
+"Este programa es de libre distribución.\n"
+"\n"
+"Saludos! "
+msgstr ""
+"Baseado em uma ideia original de O Aprendiz Nerdy:\n"
+"https://thenerdyapprentice.blogspot.com/\n"
+"\n"
+"Programa modificado por Pil Valaquarus.\n"
+"Outubro de 2020\n"
+"valaquarus@gmail.com\n"
+"\n"
+"---- Original ----\n"
+"\n"
+"Hobbyist e nerd, gosto de experimentar e aprender fazendo aplicativos quetornar as coisas mais fáceis para mim.\n"
+"Tenho um blog onde envio meus projetos (incluindo fontes para esteprograma) e informações adicionais:\n"
+"\n"
+"https://thenerdyapprentice.blogspot.com/\n"
+"\n"
+"Se você achou este programa útil: visite o blog! Deixe umcomente e divulgue!\n"
+"\n"
+"Este programa é distribuído gratuitamente.\n"
+"\n"
+"Saudações!"
+
+#: frmAbout.form:63
+msgid "The Nerdy Apprentice"
+msgstr "O aprendiz nerd"
+
+#: frmAbout.form:73
+msgid "pvacoustics.net/index.php"
+msgstr "pvacoustics.net/index.php"
+
+#: frmUpdate.form:10
+msgid "Actualización disponible:"
+msgstr "Atualização disponível:"
+
+#: frmUpdate.form:16
+msgid "Puede descargar la última versión desde el repositorio de GitHub:"
+msgstr "Você pode baixar a versão mais recente do repositório GitHub:"
+
+#: frmUpdate.form:21
+msgid "https://github.com/mcattani/clamscangui"
+msgstr "https://github.com/mcattani/clamscangui"

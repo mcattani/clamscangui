@@ -125,8 +125,6 @@ Public Sub Form_Open()                                                          
      LoadSettings()                                                             'réglages enregistrés
      Cerf.ShowModal()                                                           'splash form
 
-
-
 End
 
 Public Sub premiereFois()                                                       'réglages pour une première fois
@@ -252,7 +250,7 @@ Public Sub LoadSettings()                                                       
      Intersection = MnuIntersection.Value
      Structured = MnuStructured.Value
      '**************************************************************************
-
+     ''Voir si besoin de maintenir les choix des limites ou non dans les settings
      ' If SlidFilesize.value <> SlidFilesize.DefaultValue Then sCommande = sCommande & " --max-filesize=" & CStr(SlidFilesize.Value) & "M"
      ' If SlidScansize.Value <> SlidScansize.DefaultValue Then sCommande = sCommande & " --max-scansize=" & CStr(SlidScansize.Value) & "M"
      ' If SlidFiles.Value <> SlidFiles.DefaultValue Then sCommande = sCommande & " --max-files=" & CStr(SlidFiles.Value)
@@ -277,14 +275,14 @@ Public Sub LoadSettings()                                                       
           MnuAnglais.Value = True
      Else If langue = "es" Then
           MnuEspagnol.Value = True
-          ' Else If langue = "ru" Then
-          '      MenuRu.Value = True
-          ' Else If langue = "pt" Then
-          '      MenuPt.Value = True
-          ' Else If langue = "de" Then
-          '      MenuDe.Value = True
-          ' Else If langue = "it" Then
-          '      MenuIt.Value = True
+     Else If langue = "ru" Then
+          MnuRusse.Value = True
+     Else If langue = "pt" Then
+          MnuPortugais.Value = True
+     Else If langue = "de" Then
+          MnuAllemand.Value = True
+     Else If langue = "it" Then
+          MnuItalien.Value = True
      Endif
 
      If TBSudo.Value = True Then                                                'idem à TBSudo_Click
@@ -366,6 +364,7 @@ Public Sub SaveSettings()                                                       
      '**************************************************************************
      Settings["General/LangInit"] = langue
 
+     '' Voir si besoin de maintenir les choix des limites ou non dans les settings
      ' If SlidFilesize.value <> SlidFilesize.DefaultValue Then sCommande = sCommande & " --max-filesize=" & CStr(SlidFilesize.Value) & "M"
      ' If SlidScansize.Value <> SlidScansize.DefaultValue Then sCommande = sCommande & " --max-scansize=" & CStr(SlidScansize.Value) & "M"
      ' If SlidFiles.Value <> SlidFiles.DefaultValue Then sCommande = sCommande & " --max-files=" & CStr(SlidFiles.Value)
@@ -764,6 +763,7 @@ Public Sub Form_Close()                                                         
           If clamscan.hProc.State = clamscan.hProc.Running Then
                clamscan.hProc.Kill
                Wait 1                                                           'attente d'une seconde pour kill process
+               FMain.txSalida2.Enabled = False
                clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
                Module1.cloture = True
                Module1.sortie()
@@ -781,6 +781,11 @@ Public Sub langue_Click()                                                       
      If MnuEspagnol.Checked = True Then langue = "es"
      If MnuFrancais.Checked = True Then langue = "fr"
      If MnuAnglais.Checked = True Then langue = "en"
+     If MnuAllemand.Checked = True Then langue = "de"
+     If MnuItalien.checked = True Then langue = "it"
+     If MnuPortugais.checked = True Then langue = "pt"
+     If MnuRusse.Checked = True Then langue = "ru"
+
      AppliLangues()
 
 End
@@ -1002,44 +1007,47 @@ Public Sub BtnDefaut_Click()                                                    
      limit_Leave()
 
 End
-Public Function GitVersion(raw As String) As String
- 
-  Dim s As String
-  Dim stx As String[]
-  Dim r As String
-  Dim v As String
- 
-  v = ""
-  If Exist("/tmp/project.txt") Then
-    Shell "rm /tmp/project.txt" Wait
-  Endif
- 
-  Shell "wget -O '/tmp/project.txt' '" & raw & "'" Wait
-  If Exist("/tmp/project.txt") Then
-    s = File.Load("/tmp/project.txt")
-    stx = Split(s, "\n")
-    For Each r In stx
-      If InStr(r, "Version=") Then
-        If Split(r, "=")[0] = "Version" Then
-          v = Split(r, "=")[1]
-          Break
-        Endif
-      Endif
-    Next
-  Endif
-  Return v
+
+Public Function GitVersion(raw As String) As String                             'test de la version github du prog.
+
+     Dim s As String
+     Dim stx As String[]
+     Dim r As String
+     Dim v As String
+
+     v = ""
+     If Exist("/tmp/project.txt") Then
+          Shell "rm /tmp/project.txt" Wait
+     Endif
+
+     Shell "wget -O '/tmp/project.txt' '" & raw & "'" Wait
+     If Exist("/tmp/project.txt") Then
+          s = File.Load("/tmp/project.txt")
+          stx = Split(s, "\n")
+          For Each r In stx
+               If InStr(r, "Version=") Then
+                    If Split(r, "=")[0] = "Version" Then
+                         v = Split(r, "=")[1]
+                         Break
+                    Endif
+               Endif
+          Next
+     Endif
+     Return v
+
 End
 
-Public Sub Menu18_Click()
-Dim vChk As String
+Public Sub Menu18_Click()                                                       'menu mise à jour sur github
 
-vChk = GitVersion("https://raw.githubusercontent.com/mcattani/clamscangui/master/.project")
- 
-  If Application.Version < vChk Then
-    Message.Info(("Nueva versión encontrada!") & ": " & "v" & vChk)
-    frmUpdate.Show
-    Else
-         Message.Info("No hay actualizaciones disponibles")
-  Endif     
+     Dim vChk As String
+
+     vChk = GitVersion("https://raw.githubusercontent.com/mcattani/clamscangui/master/.project")
+
+     If Application.Version < vChk Then
+          Message.Info(("Nueva versión encontrada!") & ": " & "v" & vChk)
+          frmUpdate.Show
+     Else
+          Message.Info(("No hay actualizaciones disponibles"))
+     Endif
 
 End

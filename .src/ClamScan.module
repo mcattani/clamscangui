@@ -23,16 +23,6 @@ Public Function Version() As String
 
 End Function
 
-Public Sub TournProc()                                                          'tant que tourne le process
-
-     While hProc.state = hProc.Running
-          Wait 1
-          FMain.Mouse = Mouse.Wait
-          FMain.txSalida.Mouse = Mouse.Wait
-     Wend
-
-End
-
 Public Function ScanAction(Ruta As String)
 
      Dim Comm As String
@@ -43,7 +33,7 @@ Public Function ScanAction(Ruta As String)
 
      Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
 
-     'Menu choix****************************************************************
+     'Menu choix de session ****************************************************
      If FMain.SalidaErr = True Then Comm = Comm & " --quiet"
      If FMain.SinINF = True Then comm = comm & " --no-summary"
      If FMain.SuprimirOK = True Then Comm = comm & " -o"
@@ -52,7 +42,8 @@ Public Function ScanAction(Ruta As String)
      If FMain.Verbose = True Then comm = comm & " --verbose"
      If FMain.ArchVerbose = True Then comm = comm & " --archive-verbose"
      If FMain.Adebug = True Then comm = comm & " --debug"
-     'Menu options**************************************************************
+     If FMain.Json = True Then comm = comm & " --gen-json"
+     'Menu options décochées par défaut ****************************************
      If FMain.Recursive = True Then comm = comm & " -r"
      If FMain.Remover = True Then comm = comm & " --remove=yes"
      If FMain.AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
@@ -60,7 +51,7 @@ Public Function ScanAction(Ruta As String)
      If FMain.Quarant = True Then comm = comm & " --move=" & FMain.quarantaine  'déplacement des fichiers virus en quarantaine
      If FMain.Intersection = True Then comm = comm & " --partition-intersection=yes"
      If FMain.Structured = True Then comm = comm & " --detect-structured=yes"
-     'Menu options plus*********************************************************
+     'Menu options cochées par défaut ******************************************
      If FMain.CrossFs = False Then comm = comm & " --cross-fs=no"
      If FMain.PDF = False Then comm = comm & " --scan-pdf=no"
      If FMain.Mail = False Then comm = comm & " --scan-mail=no"
@@ -76,7 +67,7 @@ Public Function ScanAction(Ruta As String)
      If FMain.Algo = False Then comm = comm & " --algorithmic-detection=no"
      '**************************************************************************
 
-     ajout = ajout & " --exclude-dir=" & FMain.quarantaine                        'exclude quarantaine
+     ajout = ajout & " --exclude-dir=" & FMain.quarantaine                      'exclude quarantaine
      ajout = ajout & " --exclude-dir=^/proc"
      ajout = ajout & " --exclude-dir=^/sys"
      comm = comm & FMain.sCommande                                              'sCommande issue des limites
@@ -84,11 +75,11 @@ Public Function ScanAction(Ruta As String)
      If FMain.bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) & ajout For Read As "Scan" ' & " 2>&1"
+               hProc = Shell (FMain.monTexte) & ajout For Read As "Scan"
                TournProc
           Endif
      Else If FMain.bsudo = False
-          hProc = Shell (Comm) & ajout For Read As "Scan" '& " 2>&1"
+          hProc = Shell (Comm) & ajout For Read As "Scan"
           TournProc
      Endif
 
@@ -96,7 +87,7 @@ Public Function ScanAction(Ruta As String)
      RecupVirus()                                                               'récupération des lignes virus
      sTexte = ""                                                                'effacement de sTexte
      FichierLog()                                                               'sauvegarde des log et historique
-     Wait                                                                       'si long
+     Wait                                                                       'finir la sauvegarde
      '**************************************************************************
 
      FMain.Mouse = Mouse.Default
@@ -113,7 +104,7 @@ Public Sub RecupVirus()
      If FMain.Quarant = True Then                                               'si quarantaine automatique
           For i = 0 To sLigne.Max
                If sLigne[i] Ends " FOUND" Then
-                    sTexte &= sLigne[i + 1] & gb.NewLine                        'ligne d'après (move to )
+                    sTexte &= sLigne[i + 1] & gb.NewLine                        'récupération de la ligne suivante (move to )
                Endif
           Next
           File.Save(FMain.liste, sTexte)                                        'sauvegarde de la liste des fichiers en quarantaine
@@ -138,6 +129,40 @@ Public Sub Scan_read()                                                          
 
 End
 
+Public Sub TournProc()                                                          'tant que tourne le process
+
+     Dim i, j As Integer
+
+     If FMain.langue = "es" Then j = 50
+     If FMain.langue = "fr" Then j = 50
+     If FMain.langue = "en" Then j = 50
+     If FMain.langue = "de" Then j = 57
+     If FMain.langue = "it" Then j = 51
+     If FMain.langue = "pt" Then j = 45
+     If FMain.langue = "ru" Then j = 49
+
+     FMain.txSalida2.Text = (" Trabajo en curso... ")
+     While hProc.state = hProc.Running
+          Wait 1
+          FMain.Mouse = Mouse.Wait
+          FMain.txSalida.Mouse = Mouse.Wait
+          FMain.txSalida.ScrollBar = Scroll.None
+          FMain.txSalida2.Visible = True
+          FMain.txSalida2.Text &= "#"
+          i = i + 1
+          If i > j Then
+               i = 0
+               FMain.txSalida2.Clear
+               FMain.txSalida2.Text = (" Trabajo en curso... ")
+               FMain.txSalida2.Text &= "#"
+          Endif
+     Wend
+     FMain.txSalida2.Clear
+     FMain.txSalida2.Visible = False
+     FMain.txSalida.ScrollBar = Scroll.Both
+
+End
+
 Public Sub FichierLog()                                                         'sauvegarde des Log et de l'Historique
 
      Dim TextDate As String
@@ -157,6 +182,6 @@ Public Sub FichierLog()                                                         
      Endif
 
      File.Save(FMain.clamLog, FMain.leFichier.Load(FMain.clamLog) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)   'Logs
-     File.Save(FMain.historic, FMain.histo.Load(FMain.historic) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)     'Historique
+     File.Save(FMain.historic, FMain.histo.Load(FMain.historic) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text) 'Historique
 
 End

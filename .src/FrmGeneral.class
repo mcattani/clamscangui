@@ -12,7 +12,7 @@
 '' ' *********************************************************************************************************
 
 '' TODO reste à changer la sélection unique par une sélection multiple
-'' Changer myRow (integer) par myRow[](integer[])
+'' Changer myRow (integer) en myRow[](integer[])
 
 Public myRow As Integer                                                         'ligne du GridView GV1
 Public fichier As String[] = New String[]                                       'path complet du fichier compromis
@@ -212,12 +212,12 @@ Public Sub btnRestaurar_Click()                                                 
                     Try Kill User.Home &/ ".clamscangui/viruses" &/ virus[myRow]
                Endif
 
-               fichier.Extract(myRow, 1)
-               virus.Extract(myRow, 1)
-               nameFile.Extract(myRow, 1)
-               GV1.Rows.Remove(myRow, 1)
+               fichier.Extract(myRow, 1)                                        'on efface le fichier
+               virus.Extract(myRow, 1)                                          'le virus
+               nameFile.Extract(myRow, 1)                                       'le nom du virus
+               GV1.Rows.Remove(myRow, 1)                                        'la ligne correspondante du GV1
 
-               For i = 0 To GV1.Rows.Max
+               For i = 0 To GV1.Rows.Max                                        'on recrée le fichier liste des virus
                     sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
                Next
                File.Save(FMain.liste, sLine)
@@ -456,7 +456,7 @@ Public Sub _New() 'Form_Open()
                GV1.AddColumn(("Archivos infectados"), -1, Align.Center)
                GV1.AddColumn(("Virus"), -1, Align.center)
                GV1.AddColumn(("Nombre"), -1, Align.Center)
-               miseAjour(FMain.liste)
+               miseAjour(FMain.liste)                                           'mise à jour quarantaine
 
           Case 6                                                                'liste des virus
                btnSauve.Visible = False
@@ -473,7 +473,7 @@ Public Sub _New() 'Form_Open()
                GV1.AddColumn(("Archivos infectados"), -1, Align.Center)
                GV1.AddColumn(("Virus"), -1, Align.center)
                GV1.AddColumn(("Nombre"), -1, Align.Center)
-               miseAjour(FMain.pil)
+               miseAjour(FMain.pil)                                             'mise à jour de la liste des virus
 
      End Select
 Catch
@@ -490,13 +490,13 @@ Public Sub miseAjour(fich As String)
      hFile = Open fich For Input                                                'ouverture en lecture du fichier concerné
      i = 0
      While Not Eof(hFile)
-          Line Input #hFile, sLine                                              'sLine de la forme /path complet: nom virus FOUND
+          Line Input #hFile, sLine                                              'sLine de la forme suivante : /path complet: nom_virus FOUND
 
-          If FMain.Quarant = False Then                                         'si quarantaine automatique
+          If FMain.Quarant = False Then                                         'si quarantaine non auto
                fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)            'récupération du path complet
                virus.Add(Left(Mid(sLine, InStr(sLine, ":") + 2), -6), i)        'récupération du nom virus
                nameFile.Add(File.Name(fichier[i] & "_" & i), i)                 'ajout de _i au nom du fichier
-          Else                                                                  'si quarantaine non auto
+          Else                                                                  'si quarantaine automatique
                fichier.Add(Mid(sLine, 1, RInStr(sLine, ":") - 1), i)            'récupération du path complet
                virus.Add(Left(Mid(sLine, RInStr(sLine, "/") + 1), -1), i)       'récupération du nom virus
                nameFile.Add(File.Name(fichier[i]), i)                           'nom du fichier
@@ -554,19 +554,19 @@ Public Sub btnBorrar_Click()                                                    
                     Message(("¡El archivo en cuestión no existe!"))
                Endif
 
-               fichier.Extract(myRow, 1)
-               virus.Extract(myRow, 1)
-               nameFile.Extract(myRow, 1)
-               GV1.Rows.Remove(myRow, 1)
+               fichier.Extract(myRow, 1)                                        'on efface le fichier
+               virus.Extract(myRow, 1)                                          'le virus
+               nameFile.Extract(myRow, 1)                                       'le nom du virus
+               GV1.Rows.Remove(myRow, 1)                                        'la ligne correspondante du GV1
 
                For i = 0 To GV1.Rows.Max
                     sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine
                Next
 
-               If FMain.iForm = 5 Then                                     'liste de la quarantaine
+               If FMain.iForm = 5 Then                                          'liste de la quarantaine
                     File.Save(FMain.liste, sLine)
                     sLine = ""
-               Else If FMain.iForm = 6 Then                                'liste des potentiellement corrompus
+               Else If FMain.iForm = 6 Then                                     'liste des potentiellement corrompus
                     File.Save(FMain.pil, sLine)
                     sLine = ""
                Endif
@@ -628,10 +628,10 @@ Public Sub btnQuarant_Click()                                                   
                     Message(("¡El archivo en cuestión no existe!"))
                Endif
 
-               fichier.Extract(myRow, 1)
-               virus.Extract(myRow, 1)
-               nameFile.Extract(myRow, 1)
-               GV1.Rows.Remove(myRow, 1)
+               fichier.Extract(myRow, 1)                                        'on efface le fichier
+               virus.Extract(myRow, 1)                                          'le virus
+               nameFile.Extract(myRow, 1)                                       'le nom du virus
+               GV1.Rows.Remove(myRow, 1)                                        'la ligne correspondante du GV1
 
                For i = 0 To GV1.Rows.Max
                     sLine &= fichier[i] & ": " & virus[i] & " FOUND" & gb.NewLine

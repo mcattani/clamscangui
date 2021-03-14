@@ -8,14 +8,15 @@
   Resizable = False
   SkipTaskbar = True
   { URL URLLabel
-    MoveScaled(26,22,57,4)
+    MoveScaled(0.7143,23,49,4)
     Font = Font["+3"]
     ToolTip = ("Click para acceder al blog")
-    Text = ("https://thenerdyapprentice.blogspot.com/")
+    Text = ("thenerdyapprentice.blogspot.com/")
     Link = "https://thenerdyapprentice.blogspot.com/"
   }
   { Panel1 Panel
     MoveScaled(89,1,18,21)
+    Arrangement = Arrange.Fill
     Border = Border.Raised
     { PictureBox2 PictureBox
       MoveScaled(1,1,16,19)
@@ -27,24 +28,31 @@
   }
   { txtAbout2 TextArea
     MoveScaled(26,1,62,21)
-    Text = ("Basado en una idea original de The Nerdy Apprentice :\nhttps://thenerdyapprentice.blogspot.com/\n\nPrograma modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com\n\n---- Original ----\n\nHobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que\nme hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! ")
+    Text = ("Basado en una idea original de The Nerdy Apprentice :\nhttps://thenerdyapprentice.blogspot.com/\n\nPrograma modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com\n\n---- Original ----\n\nHobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que me hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! ")
     ReadOnly = True
     Wrap = True
   }
   { btCerrar Button
-    MoveScaled(90,23,16.125,4)
+    MoveScaled(90,23,16.1429,4)
     Text = ("Cerrar")
     Picture = Picture["icon:/24/close"]
   }
   { Panel2 Panel
-    MoveScaled(1,1,24,24)
+    MoveScaled(0,1,26,21)
+    Arrangement = Arrange.Fill
     Border = Border.Raised
     { PictureBox1 PictureBox
-      MoveScaled(-2,-2,27,27)
+      MoveScaled(-2.5714,0,27,21)
       ToolTip = ("The Nerdy Apprentice")
       Picture = Picture["Logo_Oficial.png"]
       Alignment = Align.Center
       Mode = PictureBox.Contain
     }
+  }
+  { URLLabel1 URLLabel
+    MoveScaled(56,23,34,4)
+    Font = Font["+3"]
+    Text = ("pvacoustics.net/index.php")
+    Link = "http://www.pvacoustics.net/index.php"
   }
 }

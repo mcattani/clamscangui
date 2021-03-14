@@ -1,8 +1,40 @@
-* Fri Jan 29 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.68
--Búsqueda de actualizaciones en repositorio de GitHub
+* Sun Mar 14 2021 Ozymandias <marianocattani@gmail.com> 1.1.72
+- Ídem
 
-* Fri Jan 01 2021 Ozymandias <marianocattani@gmail.com> 1.1.67
--Recompilación
+* Sun Mar 14 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
+- longueur du texte en fonction de la langue
+
+* Sun Mar 14 2021 PilValaquarus <valaquarus@gmail.com> 1.1.71
+- deuxième terminal pour affichage travail en cours
+
+* Sun Feb 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
+- Bug affichage bouton langue
+
+* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
+
+* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
+- Vérification Russe
+
+* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
+- Ajout Russe
+
+* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
+- Ajout portugais
+
+* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
+- Ajout allemand et italien
+
+* Wed Feb 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.69
+- Bouton indicateur
+
+* Sat Jan 30 2021 PilValaquarus <valaquarus@gmail.com> 1.1.69
+- Tooltip sur limites
+
+* Fri Jan 29 2021 PilValaquarus <valaquarus@gmail.com> 1.1.69
+- Ajout des mises à jour de ClamScanGui sur github par Ozymandias
+
+* Fri Jan 08 2021 PilValaquarus <valaquarus@gmail.com> 1.1.68
+- Ajout json oublié
 
 * Thu Dec 31 2020 PilValaquarus <valaquarus@gmail.com> 1.1.67
 - Correction bug sur sudo

@@ -2,19 +2,19 @@ Format: 1.0
 Source: clamscangui
 Binary: clamscangui
 Architecture: all source
-Version: 1.1.68-0ubuntu1
+Version: 1.1.72-0ubuntu1
 Checksums-Md5:
- ccc436283547a273a21e210d1597ba58 1997 clamscangui_1.1.68-0ubuntu1.dsc
- c42aa2a9748469aa0b94db608fe2cdc5 901164 clamscangui_1.1.68-0ubuntu1_all.deb
+ 00d5dc6582163b5929b1bcc7e47378d1 1987 clamscangui_1.1.72-0ubuntu1.dsc
+ 48aaff54ad0807cc5fdc55ae168f954c 1936840 clamscangui_1.1.72-0ubuntu1_all.deb
 Checksums-Sha1:
- 3ee528bc076a37bcef1566f79957a72ec2765ad2 1997 clamscangui_1.1.68-0ubuntu1.dsc
- dc4954ff59adbb4e3aaf58183236e10e6f8e7c6a 901164 clamscangui_1.1.68-0ubuntu1_all.deb
+ f783140028d2074fadd1400f55305bcf4fbfc2aa 1987 clamscangui_1.1.72-0ubuntu1.dsc
+ d686c4602a18100095cc9ad0691d5f74bdc78639 1936840 clamscangui_1.1.72-0ubuntu1_all.deb
 Checksums-Sha256:
- 601348aee3b69c2f6e628e7447463f47b67f7782f96349058155b76181134937 1997 clamscangui_1.1.68-0ubuntu1.dsc
- d7f13e43fc24f10700ca7774b05d49b5c4d685b89a38cb03964c4d380157cf29 901164 clamscangui_1.1.68-0ubuntu1_all.deb
+ f67ea638c61c24833db65805c85b2860ff35688b8382aaee7ebc09b751ce6a6c 1987 clamscangui_1.1.72-0ubuntu1.dsc
+ 447711cd2446100fcaefc2681e2c62cb087e037ef9b8d6570e5ac93d0c899859 1936840 clamscangui_1.1.72-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Fri, 29 Jan 2021 10:07:23 -0300
+Build-Date: Sun, 14 Mar 2021 15:32:14 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs
@@ -93,7 +93,7 @@ Installed-Build-Depends:
  gettext-base (= 0.19.8.1-10build1),
  grep (= 3.4-1),
  groff-base (= 1.22.4-5),
- gzip (= 1.10-2ubuntu1),
+ gzip (= 1.10-2ubuntu1.1),
  hostname (= 3.23),
  init-system-helpers (= 1.58),
  install-info (= 6.7.0.dfsg.2-5),
@@ -169,7 +169,7 @@ Installed-Build-Depends:
  libgl1 (= 1.3.2-1),
  libgl1-mesa-dri (= 20.2.6-0ubuntu0.20.10.1),
  libglapi-mesa (= 20.2.6-0ubuntu0.20.10.1),
- libglib2.0-0 (= 2.66.1-2),
+ libglib2.0-0 (= 2.66.1-2ubuntu0.1),
  libglvnd0 (= 1.3.2-1),
  libglx-mesa0 (= 20.2.6-0ubuntu0.20.10.1),
  libglx0 (= 1.3.2-1),
@@ -204,7 +204,7 @@ Installed-Build-Depends:
  libkrb5-26-heimdal (= 7.7.0+dfsg-2),
  libkrb5-3 (= 1.17-10ubuntu0.1),
  libkrb5support0 (= 1.17-10ubuntu0.1),
- libldap-2.4-2 (= 2.4.53+dfsg-1ubuntu1.2),
+ libldap-2.4-2 (= 2.4.53+dfsg-1ubuntu1.4),
  libllvm11 (= 1:11.0.0-2),
  liblsan0 (= 10.2.0-13ubuntu1),
  libltdl7 (= 2.4.6-14),
@@ -265,9 +265,9 @@ Installed-Build-Depends:
  libsigsegv2 (= 2.12-2build1),
  libsm6 (= 2:1.2.3-1),
  libsmartcols1 (= 2.36-3ubuntu1),
- libsqlite3-0 (= 3.33.0-1),
+ libsqlite3-0 (= 3.33.0-1ubuntu0.1),
  libssh-4 (= 0.9.4-1ubuntu3),
- libssl1.1 (= 1.1.1f-1ubuntu4.1),
+ libssl1.1 (= 1.1.1f-1ubuntu4.2),
  libstdc++-10-dev (= 10.2.0-13ubuntu1),
  libstdc++6 (= 10.2.0-13ubuntu1),
  libsub-override-perl (= 0.09-2),
@@ -324,8 +324,8 @@ Installed-Build-Depends:
  libxshmfence1 (= 1.3-1),
  libxtst6 (= 2:1.2.3-1),
  libxxf86vm1 (= 1:1.1.4-1build1),
- libzstd1 (= 1.4.5+dfsg-4),
- linux-libc-dev (= 5.8.0-41.46),
+ libzstd1 (= 1.4.5+dfsg-4ubuntu0.1),
+ linux-libc-dev (= 5.8.0-44.50),
  login (= 1:4.8.1-1ubuntu6),
  logrotate (= 3.14.0-4ubuntu5),
  lsb-base (= 11.1.0ubuntu2),
@@ -364,4 +364,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_AR.UTF-8"
  LC_ALL="es_AR.UTF-8"
- SOURCE_DATE_EPOCH="1611921600"
+ SOURCE_DATE_EPOCH="1615723200"
