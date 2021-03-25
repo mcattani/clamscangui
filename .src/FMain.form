@@ -1,13 +1,14 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,124,91)
+  MoveScaled(0,0,125,91)
   Expand = True
   Text = ("// ClamAV GUI //")
   Icon = Picture["icon:/48/security"]
   Resizable = False
   Arrangement = Arrange.Horizontal
   AutoResize = True
+  Padding = 2
   { mnOpciones Menu
     Text = ("Opciones")
     { MnuEnreg Menu
@@ -415,8 +416,10 @@
   }
   { PanGauche Panel
     MoveScaled(1,0,79.8571,85.8571)
+    Padding = 2
     { TP TabPanel
-      MoveScaled(0,0,79,60)
+      MoveScaled(0,0,79.7143,60)
+      Padding = 2
       Count = 2
       Index = 0
       Text = ("Analizar un Archivo")
@@ -438,7 +441,7 @@
       Index = 0
     }
     { Panel2 Panel
-      MoveScaled(0,61,79.8571,24.8571)
+      MoveScaled(0,61,79.5714,24.8571)
       Arrangement = Arrange.Vertical
       { !txSalida TextArea
         MoveScaled(0,0,79,18)
@@ -451,53 +454,65 @@
         Wrap = True
         Border = False
       }
-      { !txSalida2 TextArea
-        MoveScaled(0,20,79,4)
-        #Public = True
-        Visible = False
-        Background = Color.Black
-        Foreground = Color.Green
-        ToolTip = ("Salida del escaneo")
-        ReadOnly = True
-        Wrap = True
-        Border = False
-        ScrollBar = Scroll.None
+      { Panel3 Panel
+        MoveScaled(0,22,79.5714,3)
+        Arrangement = Arrange.Horizontal
+        { !txSalida3 TextArea
+          MoveScaled(0,0,32,3)
+          #Public = True
+          Background = Color.Black
+          Foreground = Color.Green
+          ReadOnly = True
+          Border = False
+          ScrollBar = Scroll.None
+        }
+        { !txSalida2 TextArea
+          MoveScaled(36,0,40,3)
+          #Public = True
+          Background = Color.Black
+          Foreground = Color.Green
+          Expand = True
+          ReadOnly = True
+          Border = False
+          ScrollBar = Scroll.None
+        }
       }
     }
     { Panel1 Panel
-      MoveScaled(43,0,36,5)
+      MoveScaled(50,0,29,5)
       { TBKill ToolButton
-        MoveScaled(14.4286,0,4.5714,4)
+        MoveScaled(10.2857,0,4.5714,4)
         ToolTip = ("¡Mata el proceso en curso!")
         Picture = Picture["icon:/32/halt"]
       }
       { TBhProc ToolButton
-        MoveScaled(9.7143,0,4.5714,4)
+        MoveScaled(5.7143,0,4.5714,4)
         ToolTip = ("¡Ejecute el proceso!")
         Picture = Picture["icon:/32/exec"]
       }
       { TBeffacer ToolButton
-        MoveScaled(1,0,5,4)
+        MoveScaled(0.7143,0,5,4)
         ToolTip = ("Salida de texto claro")
         Picture = Picture["icon:/24/clear"]
       }
       { TBSudo ToolButton
-        MoveScaled(25,0,11,4)
+        MoveScaled(18.2857,0,10,4)
         ToolTip = ("Sudo")
         Text = ("Sudo")
         Picture = Picture["icon:/24/linux"]
         Toggle = True
       }
       { RB1 ToggleButton
-        MoveScaled(21,0.2857,3,3)
+        MoveScaled(15,0.5714,3,3)
         ToolTip = ("Verde = sin cuarentena automática\nRojo = cuarentena automática")
       }
     }
   }
   { PanLimit Panel
-    MoveScaled(82,0,41,86)
+    MoveScaled(83,0,41,86)
     Visible = False
     ToolTip = ("Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales.")
+    Padding = 2
     Border = Border.Plain
     { Label2 Label
       MoveScaled(1,6.1429,19,4)
@@ -763,5 +778,9 @@
       MoveScaled(23.4286,0,16,4)
       Text = ("Defecto")
     }
+  }
+  { !Timer1 #Timer
+    #MoveScaled(79,6)
+    #Public = True
   }
 }

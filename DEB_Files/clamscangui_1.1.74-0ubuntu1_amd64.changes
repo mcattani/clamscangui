@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Wed, 24 Mar 2021 12:00:00 +0000
+Source: clamscangui
+Binary: clamscangui
+Architecture: source all
+Version: 1.1.74-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: Ozymandias&PilValaquarus <marianocattani@gmail.com>
+Changed-By: Ozymandias&PilValaquarus <marianocattani@gmail.com>
+Description:
+ clamscangui - - Un sencillo GUI para el antivirus ClamAV. - Une interface grap.
+Changes:
+ clamscangui (1.1.74-0ubuntu1) unstable; urgency=low
+ .
+   * New release version
+Checksums-Sha1:
+ 8344dec4b90434b991ddfc29a6c984da601602f5 1998 clamscangui_1.1.74-0ubuntu1.dsc
+ ab6738a4f056308d3d199a23fa44563f25c2bb9f 3813 clamscangui_1.1.74-0ubuntu1.diff.gz
+ 636cde037761f697e9e9421e914cc1d5b90586af 275304 clamscangui_1.1.74-0ubuntu1_all.deb
+ 5b245692685b8d727b47a3c8abad96612283680c 11698 clamscangui_1.1.74-0ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ 237e39882a941be3275d168104d2b4fa1a8028997c5850361b40e4efaf70e06f 1998 clamscangui_1.1.74-0ubuntu1.dsc
+ 382f4258c593ad6cf32c209cb2b4d31227d0f9ebfbac98fe0d5ad2cedf6c64a7 3813 clamscangui_1.1.74-0ubuntu1.diff.gz
+ c9a878eb519871d90d55616b4aba5f98f66fa86f1e76ecea9595ed83ac042974 275304 clamscangui_1.1.74-0ubuntu1_all.deb
+ d9101126f6fbadc6faff32b10de2a001b0f6f9f92ff2aaca74978f5cf7c589dd 11698 clamscangui_1.1.74-0ubuntu1_amd64.buildinfo
+Files:
+ b77259fb47a5949218c02c4f18518907 1998 contrib/utils optional clamscangui_1.1.74-0ubuntu1.dsc
+ b5b964d0ebb9fdb27b69b2ff7951c735 3813 contrib/utils optional clamscangui_1.1.74-0ubuntu1.diff.gz
+ 82d648731d3fec5a3254e47b47ab4e5f 275304 contrib/utils optional clamscangui_1.1.74-0ubuntu1_all.deb
+ df0c7815446ebdbf2a313975972c4a94 11698 contrib/utils optional clamscangui_1.1.74-0ubuntu1_amd64.buildinfo

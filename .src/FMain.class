@@ -68,6 +68,7 @@ Public fListe As File                                                           
 Public fPil As File                                                             'fichier liste virus trouvés
 Public leFichier As File                                                        'fichier log
 Public histo As File                                                            'fichier historique
+Public dTemps As Date
 
 Public Sub Form_Open()                                                          'Form principale appelée par le Module1
 
@@ -497,6 +498,8 @@ Public Sub menuFaux()                                                           
      SlidScansize.Enabled = False
      SlidScriptNorm.Enabled = False
      SlidZipType.Enabled = False
+     Panel3.Visible = True
+     FMain.dTemps = Date(0, 0, 0, 0, 0, 0)
      Wait
 
 End
@@ -533,7 +536,15 @@ Public Sub menuVraix()                                                          
      SlidScansize.Enabled = True
      SlidScriptNorm.Enabled = True
      SlidZipType.Enabled = True
+     Panel3.Visible = False
+     FMain.dTemps = Date(0, 0, 0, 0, 0, 0)
      Wait
+
+End
+
+Public Sub Timer1_Timer()
+
+     dTemps += Date(0, 0, 0, 0, 0, 1)
 
 End
 
@@ -565,6 +576,7 @@ Public Sub TBKill_Click()                                                       
           Message(("¡El proceso ya se detuvo!"))
      Endif
      FMain.monTexte = ""
+     FMain.Timer1.Stop
 
 End
 
@@ -762,6 +774,7 @@ Public Sub Form_Close()                                                         
      If Not IsNull(clamscan.hProc) Then
           If clamscan.hProc.State = clamscan.hProc.Running Then
                clamscan.hProc.Kill
+               FMain.Timer1.Stop
                Wait 1                                                           'attente d'une seconde pour kill process
                FMain.txSalida2.Enabled = False
                clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur

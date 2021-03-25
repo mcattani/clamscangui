@@ -18,7 +18,7 @@ Public Function Version() As String
 
      Dim Salida As String
 
-     Shell ("clamscan --version") To Salida
+     Shell "clamscan --version" To Salida
      Return Salida
 
 End Function
@@ -76,11 +76,11 @@ Public Function ScanAction(Ruta As String)
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
                hProc = Shell (FMain.monTexte) & ajout For Read As "Scan"
-               TournProc
+               TournProc                                                        'affichage dans terminal
           Endif
      Else If FMain.bsudo = False
           hProc = Shell (Comm) & ajout For Read As "Scan"
-          TournProc
+          TournProc                                                             'affichage dans terminal
      Endif
 
      '************************************************************************** après le scan_read()
@@ -90,9 +90,62 @@ Public Function ScanAction(Ruta As String)
      Wait                                                                       'finir la sauvegarde
      '**************************************************************************
 
+     Mousedefault()
+     FMain.monTexte = ""
+
+End
+
+Public Sub Mousedefault()
+
      FMain.Mouse = Mouse.Default
      FMain.txSalida.Mouse = Mouse.Default
-     FMain.monTexte = ""
+     FMain.txSalida2.Mouse = Mouse.Default
+     FMain.txSalida3.Mouse = Mouse.Default
+
+End
+
+Public Sub MouseWait()
+
+     FMain.Mouse = Mouse.Wait
+     FMain.txSalida.Mouse = Mouse.Wait
+     FMain.txSalida2.Mouse = Mouse.Wait
+     FMain.txSalida3.Mouse = Mouse.Wait
+
+End
+
+Public Sub TournProc()                                                          'tant que tourne le process
+
+     Dim i As Integer
+
+     FMain.Timer1.Start
+     While hProc.state = hProc.Running
+          Wait 1
+          MouseWait()
+          FMain.txSalida.ScrollBar = Scroll.None
+
+          FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & CStr(FMain.dTemps) & " ] "
+          FMain.txSalida2.Text &= "#"
+          i += 1
+          If i > CInt(FMain.txSalida2.Width / 9) Then
+               ' If i > 38 Then
+               i = 0
+               FMain.txSalida2.Clear
+          Endif
+     Wend
+     FMain.Timer1.Stop
+     FMain.txSalida2.Clear
+     FMain.txSalida.ScrollBar = Scroll.Both
+
+End
+
+Public Sub Scan_read()                                                          'affichage dans terminal
+
+     Dim sLine As String
+
+     ' sline = Read #hProc, Lof(hProc)                                          ' ou suivant
+     Read #hProc, sline, Lof(Last)                                             ' ou précédent
+     FMain.txSalida.Text &= sLine
+     FMain.txSalida.EnsureVisible()
 
 End
 
@@ -116,50 +169,6 @@ Public Sub RecupVirus()
           Next
           File.Save(FMain.pil, sTexte)                                          'sauvegarde de la liste des fichiers et virus après scan
      Endif
-
-End
-
-Public Sub Scan_read()                                                          'affichage dans terminal
-
-     Dim sLine As String
-
-     sline = Read #hProc, Lof(hproc)
-     FMain.txSalida.Text &= sLine
-     FMain.txSalida.EnsureVisible()
-
-End
-
-Public Sub TournProc()                                                          'tant que tourne le process
-
-     Dim i, j As Integer
-
-     If FMain.langue = "es" Then j = 50
-     If FMain.langue = "fr" Then j = 50
-     If FMain.langue = "en" Then j = 50
-     If FMain.langue = "de" Then j = 57
-     If FMain.langue = "it" Then j = 51
-     If FMain.langue = "pt" Then j = 45
-     If FMain.langue = "ru" Then j = 49
-
-     FMain.txSalida2.Text = (" Trabajo en curso... ")
-     While hProc.state = hProc.Running
-          Wait 1
-          FMain.Mouse = Mouse.Wait
-          FMain.txSalida.Mouse = Mouse.Wait
-          FMain.txSalida.ScrollBar = Scroll.None
-          FMain.txSalida2.Visible = True
-          FMain.txSalida2.Text &= "#"
-          i = i + 1
-          If i > j Then
-               i = 0
-               FMain.txSalida2.Clear
-               FMain.txSalida2.Text = (" Trabajo en curso... ")
-               FMain.txSalida2.Text &= "#"
-          Endif
-     Wend
-     FMain.txSalida2.Clear
-     FMain.txSalida2.Visible = False
-     FMain.txSalida.ScrollBar = Scroll.Both
 
 End
 

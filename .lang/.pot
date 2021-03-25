@@ -3,67 +3,67 @@ msgid ""
 msgstr ""
 "#-#-#-#-#  #project.pot (ClamScanGui 3.15.2)  #-#-#-#-#\n"
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Authenticate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Cerf.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ClamScan.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FMain.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmGeneral.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmSoumission.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Impr1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Module1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmAbout.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmUpdate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-14 18:30 UTC\n"
+"POT-Creation-Date: 2021-03-25 02:03 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,341 +136,337 @@ msgstr ""
 msgid "Unus Ex Altera"
 msgstr ""
 
-#: ClamScan.module:21
-msgid "clamscan --version"
-msgstr ""
-
-#: ClamScan.module:144
+#: ClamScan.module:126
 msgid " Trabajo en curso... "
 msgstr ""
 
-#: ClamScan.module:170
+#: ClamScan.module:179
 msgid " Escaneo realizado : "
 msgstr ""
 
-#: FMain.form:139
+#: FMain.form:142
 msgid "// ClamAV GUI //"
 msgstr ""
 
-#: FMain.form:146
+#: FMain.form:150
 msgid "Opciones"
 msgstr ""
 
-#: FMain.form:149
+#: FMain.form:153
 msgid "Grabación de sesiones"
 msgstr ""
 
-#: FMain.form:154
+#: FMain.form:158
 msgid "--quiet"
 msgstr ""
 
-#: FMain.form:161
+#: FMain.form:165
 msgid "--infected"
 msgstr ""
 
-#: FMain.form:168
+#: FMain.form:172
 msgid "--no-summary"
 msgstr ""
 
-#: FMain.form:175
+#: FMain.form:179
 msgid "--suppress-ok-results"
 msgstr ""
 
-#: FMain.form:182
+#: FMain.form:186
 msgid "--bell"
 msgstr ""
 
-#: FMain.form:189
+#: FMain.form:193
 msgid "--verbose"
 msgstr ""
 
-#: FMain.form:196
+#: FMain.form:200
 msgid "--archive-verbose"
 msgstr ""
 
-#: FMain.form:203
+#: FMain.form:207
 msgid "--debug"
 msgstr ""
 
-#: FMain.form:210
+#: FMain.form:214
 msgid "--gen-json"
 msgstr ""
 
-#: FMain.form:220
+#: FMain.form:224
 msgid "Limitaciones  (con precaución)"
 msgstr ""
 
-#: FMain.form:228
+#: FMain.form:232
 msgid "Salir"
 msgstr ""
 
-#: FMain.form:234
+#: FMain.form:238
 msgid "Opciones Avanzadas"
 msgstr ""
 
-#: FMain.form:237
+#: FMain.form:241
 msgid "Actualización de la base de datos"
 msgstr ""
 
-#: FMain.form:241
+#: FMain.form:245
 msgid "Ver Log Freshclam"
 msgstr ""
 
-#: FMain.form:250
+#: FMain.form:254
 msgid "Actualización automática"
 msgstr ""
 
-#: FMain.form:258
+#: FMain.form:262
 msgid "Actualización manual"
 msgstr ""
 
-#: FMain.form:267
+#: FMain.form:271
 msgid "Actualización inmediata"
 msgstr ""
 
-#: FMain.form:276
+#: FMain.form:280
 msgid "Opciones no marcadas por defecto"
 msgstr ""
 
-#: FMain.form:281
+#: FMain.form:285
 msgid "--allmatch[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:288
+#: FMain.form:292
 msgid "--detect-pua[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:295
+#: FMain.form:299
 msgid "--detect-structured[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:302
+#: FMain.form:306
 msgid "--partition-intersection[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:309
+#: FMain.form:313
 msgid "--heuristic-scan-precedence[=yes/no*]"
 msgstr ""
 
-#: FMain.form:317
+#: FMain.form:321
 msgid "--phishing-ssl[=yes/no*]"
 msgstr ""
 
-#: FMain.form:325
+#: FMain.form:329
 msgid "--phishing-cloak[=yes/no*]"
 msgstr ""
 
-#: FMain.form:333
+#: FMain.form:337
 msgid "--detect-broken[=yes/no*]"
 msgstr ""
 
-#: FMain.form:341
+#: FMain.form:345
 msgid "--block-macros[=yes/no*]"
 msgstr ""
 
-#: FMain.form:352
+#: FMain.form:356
 msgid "--remove[=yes/no(*)]  ( ¡Atención! )"
 msgstr ""
 
-#: FMain.form:359
+#: FMain.form:363
 msgid "--move=CUARENTENA"
 msgstr ""
 
-#: FMain.form:369
+#: FMain.form:373
 msgid "--recursive[=yes/no(*)]"
 msgstr ""
 
-#: FMain.form:379
+#: FMain.form:383
 msgid "Opciones marcadas por defecto"
 msgstr ""
 
-#: FMain.form:384
+#: FMain.form:388
 msgid "--cross-fs[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:391
+#: FMain.form:395
 msgid "--scan-hwp3[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:398
+#: FMain.form:402
 msgid "--scan-html[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:405
+#: FMain.form:409
 msgid "--scan-swf[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:412
+#: FMain.form:416
 msgid "--scan-pdf[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:419
+#: FMain.form:423
 msgid "--scan-pe[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:426
+#: FMain.form:430
 msgid "--scan-elf[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:433
+#: FMain.form:437
 msgid "--scan-ole2[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:440
+#: FMain.form:444
 msgid "--scan-archive[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:447
+#: FMain.form:451
 msgid "--scan-mail[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:454
+#: FMain.form:458
 msgid "--algorithmic-detection[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:460
+#: FMain.form:464
 msgid "--phishing-sigs[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:466
+#: FMain.form:470
 msgid "--phishing-scan-urls[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:472
+#: FMain.form:476
 msgid "--bytecode[=yes(*)/no]"
 msgstr ""
 
-#: FMain.form:481
+#: FMain.form:485
 msgid "Acciones"
 msgstr ""
 
-#: FMain.form:484 FrmGeneral.form:86
+#: FMain.form:488 FrmGeneral.form:86
 msgid "Cuarentena"
 msgstr ""
 
-#: FMain.form:489
+#: FMain.form:493
 msgid "Archivos potencialmente infectados"
 msgstr ""
 
-#: FMain.form:497
+#: FMain.form:501
 msgid "Lectura del Log"
 msgstr ""
 
-#: FMain.form:502
+#: FMain.form:506
 msgid "Historial de lectura"
 msgstr ""
 
-#: FMain.form:510
+#: FMain.form:514
 msgid "Idiomas"
 msgstr ""
 
-#: FMain.form:515
+#: FMain.form:519
 msgid "Español"
 msgstr ""
 
-#: FMain.form:521
+#: FMain.form:525
 msgid "francés"
 msgstr ""
 
-#: FMain.form:527
+#: FMain.form:531
 msgid "Inglés"
 msgstr ""
 
-#: FMain.form:533
+#: FMain.form:537
 msgid "alemán"
 msgstr ""
 
-#: FMain.form:539
+#: FMain.form:543
 msgid "italiano"
 msgstr ""
 
-#: FMain.form:545
+#: FMain.form:549
 msgid "portugués"
 msgstr ""
 
-#: FMain.form:551
+#: FMain.form:555
 msgid "ruso"
 msgstr ""
 
-#: FMain.form:560
+#: FMain.form:564
 msgid "Archivos de configuración"
 msgstr ""
 
-#: FMain.form:565
+#: FMain.form:569
 msgid "Clamd.conf"
 msgstr ""
 
-#: FMain.form:573
+#: FMain.form:577
 msgid "Freshclam.conf"
 msgstr ""
 
-#: FMain.form:580
+#: FMain.form:584
 msgid "milter.conf"
 msgstr ""
 
-#: FMain.form:587
+#: FMain.form:591
 msgid "Ejemplos de configuraciones"
 msgstr ""
 
-#: FMain.form:592
+#: FMain.form:596
 msgid "clamd.conf"
 msgstr ""
 
-#: FMain.form:600
+#: FMain.form:604
 msgid "freshclam.conf"
 msgstr ""
 
-#: FMain.form:615
+#: FMain.form:619
 msgid "?"
 msgstr ""
 
-#: FMain.form:618 frmAbout.form:15
+#: FMain.form:622 frmAbout.form:15
 msgid "Acerca de"
 msgstr ""
 
-#: FMain.form:623
+#: FMain.form:627
 msgid "Ayuda"
 msgstr ""
 
-#: FMain.form:628
+#: FMain.form:632
 msgid "ClamScanGui actualizaciónes"
 msgstr ""
 
-#: FMain.form:640
+#: FMain.form:646
 msgid "Analizar un Archivo"
 msgstr ""
 
-#: FMain.form:650
+#: FMain.form:656
 msgid "Analizar Directorios"
 msgstr ""
 
-#: FMain.form:669
+#: FMain.form:675
 msgid "Salida del escaneo"
 msgstr ""
 
-#: FMain.form:694
+#: FMain.form:712
 msgid "¡Mata el proceso en curso!"
 msgstr ""
 
-#: FMain.form:700
+#: FMain.form:718
 msgid "¡Ejecute el proceso!"
 msgstr ""
 
-#: FMain.form:706
+#: FMain.form:724
 msgid "Salida de texto claro"
 msgstr ""
 
-#: FMain.form:712
+#: FMain.form:730
 msgid "Sudo"
 msgstr ""
 
-#: FMain.form:720
+#: FMain.form:738
 msgid ""
 "Verde = sin cuarentena automática\n"
 "Rojo = cuarentena automática"
 msgstr ""
 
-#: FMain.form:728
+#: FMain.form:746
 msgid ""
 "Según el sitio web de clamav:\n"
 "\n"
@@ -487,7 +483,7 @@ msgid ""
 "bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
 msgstr ""
 
-#: FMain.form:830
+#: FMain.form:849
 msgid ""
 "Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el "
 "valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde "
@@ -495,7 +491,7 @@ msgid ""
 "(predeterminado: 25 MB, máximo: <4 GB)"
 msgstr ""
 
-#: FMain.form:841
+#: FMain.form:860
 msgid ""
 "Extraiga y escanee como máximo #n bytes de cada archivo. El tamaño del "
 "archivo más la suma de los tamaños de todos los archivos dentro del archivo "
@@ -506,200 +502,200 @@ msgid ""
 "protege su sistema contra ataques DoS (predeterminado: 100 MB, máximo: <4 GB)"
 msgstr ""
 
-#: FMain.form:852
+#: FMain.form:871
 msgid ""
 "Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata "
 "de un archivo, un documento u otro tipo de contenedor). Esta opción protege "
 "su sistema contra ataques DoS (predeterminado: 10000)"
 msgstr ""
 
-#: FMain.form:863
+#: FMain.form:882
 msgid ""
 "Establecer límite de nivel de recursividad de archivo. Esta opción protege "
 "su sistema contra ataques DoS (predeterminado: 16)."
 msgstr ""
 
-#: FMain.form:874
+#: FMain.form:893
 msgid ""
 "Los directorios de profundidad máxima se escanean en (predeterminado: 15)."
 msgstr ""
 
-#: FMain.form:885
+#: FMain.form:904
 msgid ""
 "Archivo de tamaño máximo para comprobar si hay PE incrustado. Puede pasar el "
 "valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde "
 "x es un número (predeterminado: 10 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:896
+#: FMain.form:915
 msgid ""
 "Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en "
 "kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un "
 "número (predeterminado: 10 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:907
+#: FMain.form:926
 msgid ""
 "Tamaño máximo del archivo HTML normalizado para escanear. Puede pasar el "
 "valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde "
 "x es un número (predeterminado: 2 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:918
+#: FMain.form:937
 msgid ""
 "Tamaño máximo del archivo de script para normalizar. Puede pasar el valor en "
 "kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un "
 "número (predeterminado: 5 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:929
+#: FMain.form:948
 msgid ""
 "Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en "
 "kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un "
 "número (predeterminado: 1 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:939
+#: FMain.form:958
 msgid ""
 "Esta opción establece el número máximo de particiones de una imagen de disco "
 "sin procesar que se analizará. Debe ser un número entero positivo "
 "(predeterminado: 50)."
 msgstr ""
 
-#: FMain.form:950
+#: FMain.form:969
 msgid ""
 "Esta opción establece el número máximo de iconos dentro de un PE que se "
 "escanearán. Debe ser un número entero positivo (predeterminado: 100)."
 msgstr ""
 
-#: FMain.form:961
+#: FMain.form:980
 msgid ""
 "Esta opción establece el máximo de llamadas recursivas a la función de "
 "análisis de HWP3 (predeterminado: 16)."
 msgstr ""
 
-#: FMain.form:972
+#: FMain.form:991
 msgid ""
 "Número máximo de llamadas a la función de coincidencia de PCRE "
 "(predeterminado: 10000)."
 msgstr ""
 
-#: FMain.form:983
+#: FMain.form:1002
 msgid ""
 "Máximo de llamadas recursivas a la función de coincidencia de PCRE "
 "(predeterminado: 5000)."
 msgstr ""
 
-#: FMain.form:994
+#: FMain.form:1013
 msgid ""
 "Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE "
 "(predeterminado: 25 MB, máximo: <4 GB)."
 msgstr ""
 
-#: FMain.form:1005
+#: FMain.form:1024
 msgid "Limitaciones: (ver ayuda)"
 msgstr ""
 
-#: FMain.form:1010
+#: FMain.form:1029
 msgid "Defecto"
 msgstr ""
 
-#: FMain.class:77 Module1.module:22
+#: FMain.class:78 Module1.module:22
 msgid "¡Atención!"
 msgstr ""
 
-#: FMain.class:78
+#: FMain.class:79
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr ""
 
-#: FMain.class:81
+#: FMain.class:82
 msgid "Versión instalada: "
 msgstr ""
 
-#: FMain.class:85
+#: FMain.class:86
 msgid " ~ Instalación incompleta de Clamav"
 msgstr ""
 
-#: FMain.class:86
+#: FMain.class:87
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr ""
 
-#: FMain.class:86
+#: FMain.class:87
 msgid ""
 "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr ""
 
-#: FMain.class:316
+#: FMain.class:317
 msgid ""
 "¡Todos sus pedidos son \n"
 " del SuperUsuario!"
 msgstr ""
 
-#: FMain.class:403
+#: FMain.class:404
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr ""
 
-#: FMain.class:425
+#: FMain.class:426
 msgid "Elija el directorio para escanear"
 msgstr ""
 
-#: FMain.class:426
+#: FMain.class:427
 msgid "Elija el archivo para analizar"
 msgstr ""
 
-#: FMain.class:459
+#: FMain.class:460
 msgid ""
 "Seleccione \n"
 " an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:556 Module1.module:67
+#: FMain.class:567 Module1.module:74
 msgid ""
 "clamscan, todavía funciona, en segundo plano.\n"
 " Tendrá que borrar la memoria usted mismo."
 msgstr ""
 
-#: FMain.class:562
+#: FMain.class:573
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: FMain.class:562
+#: FMain.class:573
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: FMain.class:565
+#: FMain.class:576
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:795
+#: FMain.class:808
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:797
+#: FMain.class:810
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:797
+#: FMain.class:810
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:797 FrmGeneral.class:66
+#: FMain.class:810 FrmGeneral.class:66
 msgid "Si"
 msgstr ""
 
-#: FMain.class:797 FrmGeneral.class:66
+#: FMain.class:810 FrmGeneral.class:66
 msgid "No"
 msgstr ""
 
-#: FMain.class:988
+#: FMain.class:1001
 msgid "Max"
 msgstr ""
 
-#: FMain.class:1047
+#: FMain.class:1060
 msgid "Nueva versión encontrada!"
 msgstr ""
 
-#: FMain.class:1050
+#: FMain.class:1063
 msgid "No hay actualizaciones disponibles"
 msgstr ""
 

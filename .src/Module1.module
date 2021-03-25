@@ -36,18 +36,25 @@ Public Sub langues()
           Settings["General/LangInit"] = "en"
      Else If Settings["General/LangInit"] = "en" Then
           System.Language = "en_US.UTF-8"
+          FMain.txSalida3.Width = 198
      Else If Settings["General/LangInit"] = "fr" Then
           System.Language = "fr_FR.UTF-8"
+          FMain.txSalida3.Width = 198
      Else If Settings["General/LangInit"] = "es" Then
           System.Language = "es_ES.UTF-8"
+          FMain.txSalida3.Width = 198
      Else If Settings["General/LangInit"] = "it" Then
           System.Language = "it_IT.UTF-8"
+          FMain.txSalida3.Width = 190
      Else If Settings["General/LangInit"] = "pt" Then
           System.Language = "pt_PT.UTF-8"
+          FMain.txSalida3.Width = 227
      Else If Settings["General/LangInit"] = "de" Then
           System.Language = "de_DE.UTF-8"
+          FMain.txSalida3.Width = 150
      Else If Settings["General/LangInit"] = "ru" Then
           System.Language = "ru_RU.UTF-8"
+          FMain.txSalida3.Width = 220
      Endif
      Settings.Save()
 

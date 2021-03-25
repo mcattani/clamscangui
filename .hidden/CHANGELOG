@@ -1,5 +1,19 @@
-* Sun Mar 14 2021 Ozymandias <marianocattani@gmail.com> 1.1.72
-- Ídem
+* Wed Mar 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+
+* Wed Mar 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Amélioration affichage terminal 3
+
+* Sat Mar 20 2021 PilValaquarus <valaquarus@gmail.com> 1.1.73
+- Affichage terminal 3
+
+* Fri Mar 19 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
+-Amélioration affichage terminal 2
+
+* Fri Mar 19 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
+- Amélioration affichage terminal
+
+* Sun Mar 14 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
+- curseur d'attente sur deuxième terminal
 
 * Sun Mar 14 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
 - longueur du texte en fonction de la langue
