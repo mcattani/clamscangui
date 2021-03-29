@@ -14,6 +14,8 @@ Y por qué no?
 
 Dentro de la carpeta DEB_Files están el archivo .deb para su instalación en Debian y derivados.
 
+Si querés ver más proyectos, visitá: https://thenerdyapprentice.blogspot.com/
+
 Ver el archivo ChangeLog para ver los cambios realizados. 
 
 Gracias a Philippe Valarcher por los aportes realizados.
