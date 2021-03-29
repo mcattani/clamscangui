@@ -2,15 +2,11 @@ Module1
 ClamScanGui
 0
 0
-1.1.74
+1.1.75
 
 gb.image
 gb.qt5
 gb.form
-gb.data
-gb.db
-gb.db.form
-gb.db.sqlite3
 gb.dbus
 gb.desktop
 gb.eval

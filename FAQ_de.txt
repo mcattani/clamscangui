@@ -1,0 +1,50 @@
+Von Google gezogen und übersetzt von der Website http://www.clamav.net übersetzen
+
+Verschiedene FAQ
+Kann Phishing als eine Art von Spam angesehen werden? ClamAV sollte es nicht als Malware erkennen.
+
+Ab Version 0.90 können Sie mit ClamAV auswählen, ob Phish als Malware erkannt werden soll oder nicht. Dies sollte den endlosen Fäden auf unseren Mailinglisten ein Ende setzen. Bis dann und vielen Dank für all die Phish.
+Warum wird mein legitimer HTML-Newsletter / meine legitime HTML-E-Mail von ClamAV als Phishing.Heuristics.Email.SpoofedDomain erkannt?
+
+Wenn es Links in Form von href = "http: //yourdomain.example.tld"> otherdomain.tld enthält, wobei otherdomain.tld (ProtectedDomain) nicht zu Ihnen gehört und in der ClamAV-Datenbank aufgeführt ist (wie amazon.com) , ebay.com,…) dann erkennt ClamAV es als Phishing-Versuch.
+Meine legitimen E-Mails von yourdomain.tld werden als Phishing.Heuristics.Email.SpoofedDomain erkannt
+
+Bitte reichen Sie eine Probe ein und markieren Sie sie als falsch positiv, Phishing. Wenn es sich wirklich um ein falsches Positiv handelt, fügen wir einen Whitelist-Eintrag hinzu.
+Kann ich das neue Datenbankformat in das alte konvertieren?
+
+Ja, installieren Sie eine aktuelle Version von sigtool und führen Sie Folgendes aus:
+
+sigtool --unpack-current daily.cvd; sigtool --unpack-current main.cvd
+Wie lese ich in den CVD-Dateien?
+
+Siehe vorherige FAQ.
+Ich verwende ClamAV in einer Produktionsumgebung und ein brandneuer Virus wird von ClamAV nicht erkannt. Wie lange muss ich vor ClamAV warten?
+kann mit dem Filtern des Virus beginnen?
+
+Überhaupt keine Zeit! Suchen Sie eine Signatur für diesen Virus und ändern Sie Ihre Virendatenbank entsprechend (Einzelheiten finden Sie in unserer Dokumentation zum Schreiben von Signaturen). Denken Sie daran, das Beispiel an das virusdb-Team zu senden.
+Warum ruft ClamAV den XXX-Virus mit einem anderen Namen auf?
+
+Dies geschieht normalerweise, wenn wir vor anderen AV-Anbietern eine Signatur hinzufügen. Derzeit ist kein bekannter Name verfügbar, daher müssen wir einen erfinden. Das Umbenennen des Virus nach ein paar Tagen würde die Leute nur noch mehr verwirren, daher verwenden wir normalerweise weiterhin unseren Namen für diesen Virus. Die einzige Ausnahme ist, wenn kurz nach dem Hinzufügen der Signatur ein neuer Name festgelegt wird.
+
+Ich bekomme viele Fehlalarme von Oversized.zip
+
+Immer wenn eine Datei ArchiveMaxCompressionRatio überschreitet (siehe Manpage clamd.conf), wird sie als Logikbombe betrachtet und als Oversized.zip markiert. Versuchen Sie, Ihre ArchiveMaxCompressionRatio-Einstellung zu erhöhen.
+Was ist PUA? Ich bekomme viele Fehlalarme namens PUA.
+
+Mit der Veröffentlichung von ClamAV 0.91.2 wird die Option eingeführt, nach potenziell unerwünschten Anwendungen zu suchen.
+
+Die PUA-Datenbank enthält die Erkennung von Anwendungen, die an sich nicht bösartig sind, aber in einem böswilligen oder unerwünschten Kontext verwendet werden können. Als Beispiel: Ein Tool zum Abrufen von Kennwörtern aus einem System kann nützlich sein, solange die Person, die es verwendet, dazu berechtigt ist. Mit demselben Tool können jedoch Kennwörter aus einem System gestohlen werden. Um die PUA-Datenbank zu nutzen, können Sie den Schalter –detect-pua für clamscan verwenden oder ihn in der Konfigurationsdatei für clamd aktivieren (hinzufügen: DetectPUA yes).
+
+An dieser Stelle empfehlen wir NICHT, es in Produktionsumgebungen zu verwenden, da die Erkennung möglicherweise zu aggressiv ist und zu falsch positiven Ergebnissen führt. In einer der nächsten Versionen werden wir zusätzliche Funktionen zur Feinabstimmung bereitstellen, die eine bessere Anpassung an verschiedene Setups ermöglichen. HINWEIS: Eine Erkennung als PUA zeigt NICHT an, ob eine Anwendung gut oder schlecht ist. Alles, was darin steht, ist, dass eine Datei möglicherweise unerwünscht ist oder Ihre Systemsicherheit gefährden kann, und es kann eine gute Idee sein, sie zweimal zu überprüfen.
+Kann ClamAV Dateien desinfizieren?
+
+Nein, das kann es nicht. Wir werden Unterstützung für die Desinfektion von OLE2-Dateien in einer der nächsten stabilen Versionen hinzufügen. Es ist nicht geplant, andere Dateitypen zu desinfizieren. Dafür gibt es viele Gründe: Das Entfernen von Viren aus Dateien ist heutzutage praktisch sinnlos. Es ist sehr selten, dass nach der Reinigung noch etwas Nützliches übrig ist, und selbst wenn ja, würden Sie ihm vertrauen?
+Gibt es bei der Verwendung von Clamscan eine Möglichkeit, festzustellen, welche Nachricht in einer Mbox infiziert ist?
+
+Es gibt zwei Lösungen: Führen Sie clamscan --debug aus, suchen Sie nach Deal with email number xxx. Alternativ können Sie die mbox in das Maildir-Format konvertieren, clamscan darauf ausführen und sie dann wieder in das mbox-Format konvertieren. Es stehen viele Tools zur Verfügung, die in und aus dem Maildir-Format konvertiert werden können: formail, mbox2maildir und maildir2mbox
+Welche Plattformen werden unterstützt?
+
+Clam AntiVirus funktioniert mit Linux®, Solaris, FreeBSD, OpenBSD, NetBSD, AIX, Mac OS X und Cygwin B20 auf mehreren Architekturen wie Intel, Alpha, Sparc, Cobalt MIPS-Boxen, PowerPC, RISC 6000.
+Wo finde ich weitere Informationen zu ClamAV?
+
+Bitte lesen Sie die vollständige Dokumentation im PDF / PS-Format. Sie finden es im Paket oder im Dokumentationsbereich dieser Website. Sie können auch versuchen, die Mailinglistenarchive zu durchsuchen. Wenn Sie die Antwort nicht finden können, können Sie auf der Mailingliste der Clamav-Benutzer um Unterstützung bitten. Bevor Sie dies tun, durchsuchen Sie bitte die Archive! Stellen Sie außerdem sicher, dass Sie keine HTML-Nachrichten senden und keine Top-Beiträge verfassen: Diese verstoßen gegen die Netiquette und verringern die Wahrscheinlichkeit, beantwortet zu werden.

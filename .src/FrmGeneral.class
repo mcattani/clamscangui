@@ -292,7 +292,22 @@ Public Sub _New() 'Form_Open()
 
                TextArea1.Pos = 0
                TextArea1.Alignment = Align.Normal
-               TextArea1.Text = File.Load(FMain.clamLog)
+
+               Try Shell " cat " & FMain.clamLog & " | wc -l " To ceTexte      'combien de lignes dans le fichier?
+               lNbrLigne = Val(ceTexte)
+
+               If lNbrLigne > 3000 Then
+                    Message.Title = ("¡Atención, archivo muy grande!")
+                    If Message.Question(("¿Quieres ver el archivo completo? \n ¡Ten paciencia!"), ("Si"), ("¡Solo una parte!")) = 1 Then
+                         Try Shell " cat " & FMain.clamLog To TextArea1.Text   'affiche tout le fichier
+                    Else
+                         Try Shell " tail -n 2000 " & FMain.clamLog To TextArea1.Text    'affiche la queue du fichier 2000 lignes
+                    Endif
+               Else
+                    Try Shell " cat " & FMain.clamLog To TextArea1.Text        'affiche tout le fichier
+               Endif
+
+               ' TextArea1.Text = File.Load(FMain.clamLog)
                If TextArea1.Text = "" Then
                     TextArea1.Alignment = Align.Center
                     TextArea1.Text = (" -------- | Archivo vacío | -------- ")
@@ -425,6 +440,14 @@ Public Sub _New() 'Form_Open()
                     TextArea1.Text = TextArea1.Text & File.Load("FAQ_en.txt")
                Else If Settings["General/LangInit"] = "es" Then
                     TextArea1.Text = TextArea1.Text & File.Load("FAQ_es.txt")
+               Else If Settings["General/LangInit"] = "it" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("FAQ_it.txt")
+               Else If Settings["General/LangInit"] = "pt" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("FAQ_pt.txt")
+               Else If Settings["General/LangInit"] = "ru" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("FAQ_ru.txt")
+               Else If Settings["General/LangInit"] = "de" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("FAQ_de.txt")
                Endif
 
                TextArea1.Text = TextArea1.Text & gb.CrLf & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & (" Ayuda de ClamScanGui ") & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & gb.CrLf & gb.CrLf
@@ -435,6 +458,14 @@ Public Sub _New() 'Form_Open()
                     TextArea1.Text = TextArea1.Text & File.Load("Aide_en.txt")
                Else If Settings["General/LangInit"] = "es" Then
                     TextArea1.Text = TextArea1.Text & File.Load("Aide_es.txt")
+               Else If Settings["General/LangInit"] = "it" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("Aide_it.txt")
+               Else If Settings["General/LangInit"] = "pt" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("Aide_pt.txt")
+               Else If Settings["General/LangInit"] = "ru" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("Aide_ru.txt")
+               Else If Settings["General/LangInit"] = "de" Then
+                    TextArea1.Text = TextArea1.Text & File.Load("Aide_de.txt")
                Endif
 
                TextArea1.Text = TextArea1.Text & gb.CrLf & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & (" Fin del documento ") & "  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|  " & gb.CrLf

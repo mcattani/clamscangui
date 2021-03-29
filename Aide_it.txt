@@ -1,0 +1,67 @@
+Un antivirus, clamav, sotto Linux:
+- Quando installi un antivirus in Linux è per usarlo in un modo o nell'altro, qual è il punto?
+- clamav permette, soprattutto, di verificare che non si trasmetta né ritrasmetta ad amici un file contaminato, sia sotto forma di allegato di posta elettronica che tramite chiavetta USB.
+
+--- Menu software: ---
+
+--Le opzioni: -
+
+-Scelte:
+- utilizzato per visualizzare i risultati dell'analisi nell'area di testo della finestra principale con determinate scelte.
+Limitazioni:
+- consentono di impostare determinati limiti di dimensione del file da controllare
+
+--Opzioni avanzate:--
+
+- Opzioni non selezionate per impostazione predefinita: -
+- queste opzioni dovrebbero essere sempre deselezionate a meno che tu non sappia cosa stai facendo.
+Scansione ricorsiva:
+- L'opzione più importante perché consente di seguire il percorso completo del file analizzato. Questo rallenta (un po ') l'analisi.
+Elimina i file contaminati:
+- Opzione relativamente pericolosa se prendiamo in considerazione il numero di falsi positivi che l'antivirus può generare.
+Rileva applicazioni potenzialmente indesiderate (PUA):
+- L'antivirus è più aggressivo con questa opzione ma genera più falsi positivi (dipende da te)
+Sposta i file potenzialmente infetti in quarantena:
+- Fornisce un accesso più veloce ai file potenzialmente infetti; o per distruggerli o per ripristinarli in caso di falsi positivi.
+- Ancora una volta, fai attenzione al suo utilizzo, l'eliminazione di un file viene eseguita rapidamente e in modo permanente.
+
+- Aggiornamento database: -
+- clamav viene fornito con un programma di aggiornamento chiamato freshclam che può (per impostazione predefinita) eseguire aggiornamenti automaticamente o manualmente, è possibile modificare l'opzione.
+- È possibile verificarne lo stato leggendo il file di registro (in inglese).
+- Puoi controllare le impostazioni di freshclam nel suo file di configurazione, su: /etc/clamav/freshclam.conf
+- È possibile aumentare leggermente il tempo di ripristino dell'aggiornamento che è di 30 secondi per impostazione predefinita se si ottengono sistematicamente errori di download. Con una connessione ADSL 150 secondi sono più che sufficienti.
+
+- Opzioni selezionate per impostazione predefinita: -
+Non deselezionare queste opzioni.
+- Per scegliere se eseguire o meno la scansione di determinati tipi di file. (Per impostazione predefinita, tutti gli scanner)
+
+--Azioni: -
+
+- Quarantena: -
+- Ti consente di agire sui file messi in quarantena, automaticamente se l'opzione è stata selezionata o da te.
+- File potenzialmente infetti: -
+- Consente di visualizzare e quindi agire sui file che sono stati effettivamente spostati in quarantena (distruzione, ripristino o nessuna azione)
+- Registro di sessione: -
+- Consente di visualizzare le analisi eseguite durante la sessione.
+-Storia:-
+- Ti permette di vedere tutte le analisi eseguite prima fino a quando non le elimini.
+(Fai attenzione se l'opzione -verbose è selezionata, il file può diventare rapidamente molto grande.)
+-Lingue: -
+- Al momento puoi scegliere tra tre lingue in cui il software è stato tradotto (inglese, spagnolo o francese)
+-File di configurazione: -
+- I seguenti file possono essere visualizzati o modificati se si preme il pulsante sudo:
+clamd.conf
+freshclam.conf
+milter-clamav.conf
+
+- Il pulsante Sudo: -
+- ti permette di eseguire i tuoi comandi come super utente.
+
+Un punto sull'analisi:
+- Come indicato nelle FAQ, l'antivirus clamav non ripara i file infetti.
+- alcuni virus in Linux possono agire senza autorizzazione.
+- autorizzazione è la parola importante in Linux perché qualunque sia la tua distribuzione, sai che fino a quando non dai l'autorizzazione, un file non può agire da solo.
+- Cosa scansionare?
+essenzialmente le "cose" che si registra sulla propria macchina o su un altro supporto.
+per esempio, la sua intera directory home (home / utente) con i file nascosti (/.something).
+Per rassicurarti, puoi eseguire una scansione dell'intera macchina, ma puoi andare a prendere un caffè e portare fuori il cane poiché ci vorrà un po 'prima che finisca.

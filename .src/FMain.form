@@ -317,36 +317,43 @@
       { MnuEspagnol Menu langue
         Name = "MnuEspagnol"
         Text = ("Español")
+        Picture = Picture["Argentine.png"]
         Radio = True
       }
       { MnuFrancais Menu langue
         Name = "MnuFrancais"
         Text = ("francés")
+        Picture = Picture["France.png"]
         Radio = True
       }
       { MnuAnglais Menu langue
         Name = "MnuAnglais"
         Text = ("Inglés")
+        Picture = Picture["Angleterre.png"]
         Radio = True
       }
       { MnuAllemand Menu langue
         Name = "MnuAllemand"
         Text = ("alemán")
+        Picture = Picture["Allemagne.png"]
         Radio = True
       }
       { MnuItalien Menu langue
         Name = "MnuItalien"
         Text = ("italiano")
+        Picture = Picture["Italie.png"]
         Radio = True
       }
       { MnuPortugais Menu langue
         Name = "MnuPortugais"
         Text = ("portugués")
+        Picture = Picture["Portugal.png"]
         Radio = True
       }
       { MnuRusse Menu langue
         Name = "MnuRusse"
         Text = ("ruso")
+        Picture = Picture["Russie.png"]
         Radio = True
       }
     }
@@ -778,9 +785,5 @@
       MoveScaled(23.4286,0,16,4)
       Text = ("Defecto")
     }
-  }
-  { !Timer1 #Timer
-    #MoveScaled(79,6)
-    #Public = True
   }
 }

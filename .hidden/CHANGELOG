@@ -1,4 +1,27 @@
-* Wed Mar 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+* Sun Mar 28 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.75
+- Correciones varias hechas por PilValaquarus
+
+* Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Correction bug sur fichier Log de grande taille.
+
+* Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Réglage affichage du chrono
+
+* Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Abandon du Timer
+
+* Sat Mar 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Utilisation du Timer
+
+* Thu Mar 25 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- détails sur longueur affichage #
+
+* Thu Mar 25 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Ajout des traductions supplémentaires manquantes
+- Ajout des drapeaux des langues
+
+* Thu Mar 25 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- VERSION
 
 * Wed Mar 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
 - Amélioration affichage terminal 3

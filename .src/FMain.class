@@ -115,9 +115,10 @@ Public Sub Form_Open()                                                          
           fListe = Open liste For Create
      Endif
 
-     quarantaine = Shell$(quarantaine)
+     quarantaine = Shell$(quarantaine)                                          'Quote du nom du répertoire
 
      FMain.Text = Application.Name & " " & Application.Version
+     ' FMain.Text = Application.Version
 
      If Settings["First_Time", True] = True Then                                'démarrage première fois
           Settings["First_Time"] = False
@@ -176,7 +177,7 @@ Public Sub premiereFois()                                                       
 
 End
 
-Public Sub LoadSettings()                                                       'réglages enregistrés
+Public Sub LoadSettings()                                                       'réglages enregistrés en conf
 
      '************* Group Log1 *************************************************
      mnErrores.Value = Settings["Menu/Errores"]
@@ -323,7 +324,7 @@ Public Sub TBSudo_Click()                                                       
 
 End
 
-Public Sub SaveSettings()                                                       'sauvegarde des réglages
+Public Sub SaveSettings()                                                       'sauvegarde des réglages en conf
 
      '********** Group log1 ****************************************************
      Settings["Menu/Errores"] = mnErrores.Value
@@ -454,7 +455,7 @@ Public Sub DC_Change()                                                          
 
 End
 
-Public Sub TBhProc_Click()                                                  'execute hproc
+Public Sub TBhProc_Click()                                                      'execute hproc
 
      If maCle = 0 Then
           Message.Info(("Seleccione \n an objeto para escanear!"))
@@ -499,7 +500,7 @@ Public Sub menuFaux()                                                           
      SlidScriptNorm.Enabled = False
      SlidZipType.Enabled = False
      Panel3.Visible = True
-     FMain.dTemps = Date(0, 0, 0, 0, 0, 0)
+     FMain.txSalida3.Clear
      Wait
 
 End
@@ -537,14 +538,8 @@ Public Sub menuVraix()                                                          
      SlidScriptNorm.Enabled = True
      SlidZipType.Enabled = True
      Panel3.Visible = False
-     FMain.dTemps = Date(0, 0, 0, 0, 0, 0)
+     FMain.txSalida3.Clear
      Wait
-
-End
-
-Public Sub Timer1_Timer()
-
-     dTemps += Date(0, 0, 0, 0, 0, 1)
 
 End
 
@@ -569,14 +564,12 @@ Public Sub TBKill_Click()                                                       
           Else
                ClamScan.hProc.Kill                                              'on tue le processus
           Endif
-
           Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
           _new()
      Else
           Message(("¡El proceso ya se detuvo!"))
      Endif
      FMain.monTexte = ""
-     FMain.Timer1.Stop
 
 End
 
@@ -678,7 +671,7 @@ Public Sub MnuVirus_Click()                                                     
 
 End
 
-Public Sub MnuCorrompus_Click()                                                    'fichiers potentiellement corrompus
+Public Sub MnuCorrompus_Click()                                                 'fichiers potentiellement corrompus
 
      FMain.Mouse = Mouse.Wait
      Wait
@@ -774,7 +767,6 @@ Public Sub Form_Close()                                                         
      If Not IsNull(clamscan.hProc) Then
           If clamscan.hProc.State = clamscan.hProc.Running Then
                clamscan.hProc.Kill
-               FMain.Timer1.Stop
                Wait 1                                                           'attente d'une seconde pour kill process
                FMain.txSalida2.Enabled = False
                clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur

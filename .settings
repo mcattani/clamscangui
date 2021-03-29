@@ -1,6 +1,15 @@
 [Breakpoints]
 Count=0
 
+[DebugWindow]
+Count=0
+
 [OpenFile]
+Count=0
+
+[Package]
+Dir="~/Escritorio/"
+
+[Watches]
 Count=0
 

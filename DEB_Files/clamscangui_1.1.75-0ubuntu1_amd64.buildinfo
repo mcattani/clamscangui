@@ -2,19 +2,19 @@ Format: 1.0
 Source: clamscangui
 Binary: clamscangui
 Architecture: all source
-Version: 1.1.74-0ubuntu1
+Version: 1.1.75-0ubuntu1
 Checksums-Md5:
- b77259fb47a5949218c02c4f18518907 1998 clamscangui_1.1.74-0ubuntu1.dsc
- 82d648731d3fec5a3254e47b47ab4e5f 275304 clamscangui_1.1.74-0ubuntu1_all.deb
+ f2b3db94b42c76b5fe36f10f04cde35b 1756 clamscangui_1.1.75-0ubuntu1.dsc
+ d03ff271817893612214f3d79537a377 403692 clamscangui_1.1.75-0ubuntu1_all.deb
 Checksums-Sha1:
- 8344dec4b90434b991ddfc29a6c984da601602f5 1998 clamscangui_1.1.74-0ubuntu1.dsc
- 636cde037761f697e9e9421e914cc1d5b90586af 275304 clamscangui_1.1.74-0ubuntu1_all.deb
+ 563e3c86a0cb318e28e3316be9a370a233d07f3e 1756 clamscangui_1.1.75-0ubuntu1.dsc
+ b1962191dd78cb5e89699313ed23d457f02d4077 403692 clamscangui_1.1.75-0ubuntu1_all.deb
 Checksums-Sha256:
- 237e39882a941be3275d168104d2b4fa1a8028997c5850361b40e4efaf70e06f 1998 clamscangui_1.1.74-0ubuntu1.dsc
- c9a878eb519871d90d55616b4aba5f98f66fa86f1e76ecea9595ed83ac042974 275304 clamscangui_1.1.74-0ubuntu1_all.deb
+ bf2bc14e74ed79aef7c9fe586d84c6d7d0175162c0986bc85454adc0604fe341 1756 clamscangui_1.1.75-0ubuntu1.dsc
+ 0694378dadf205aaba6ac020974fa5b2e25f3388033a475f73086615233707a4 403692 clamscangui_1.1.75-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Wed, 24 Mar 2021 23:05:36 -0300
+Build-Date: Sun, 28 Mar 2021 23:15:35 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs
@@ -64,10 +64,6 @@ Installed-Build-Depends:
  g++ (= 4:10.2.0-1ubuntu1),
  g++-10 (= 10.2.0-13ubuntu1),
  gambas3-devel (= 3.15.2-1),
- gambas3-gb-data (= 3.15.2-1),
- gambas3-gb-db (= 3.15.2-1),
- gambas3-gb-db-form (= 3.15.2-1),
- gambas3-gb-db-sqlite3 (= 3.15.2-1),
  gambas3-gb-dbus (= 3.15.2-1),
  gambas3-gb-desktop (= 3.15.2-1),
  gambas3-gb-desktop-x11 (= 3.15.2-1),
@@ -267,7 +263,7 @@ Installed-Build-Depends:
  libsmartcols1 (= 2.36-3ubuntu1),
  libsqlite3-0 (= 3.33.0-1ubuntu0.1),
  libssh-4 (= 0.9.4-1ubuntu3),
- libssl1.1 (= 1.1.1f-1ubuntu4.2),
+ libssl1.1 (= 1.1.1f-1ubuntu4.3),
  libstdc++-10-dev (= 10.2.0-13ubuntu1),
  libstdc++6 (= 10.2.0-13ubuntu1),
  libsub-override-perl (= 0.09-2),
@@ -364,4 +360,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_AR.UTF-8"
  LC_ALL="es_AR.UTF-8"
- SOURCE_DATE_EPOCH="1616587200"
+ SOURCE_DATE_EPOCH="1616932800"

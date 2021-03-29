@@ -13,6 +13,7 @@
 
 Public hProc As Process
 Public sTexte As String
+Public Depart As Float
 
 Public Function Version() As String
 
@@ -88,53 +89,53 @@ Public Function ScanAction(Ruta As String)
      sTexte = ""                                                                'effacement de sTexte
      FichierLog()                                                               'sauvegarde des log et historique
      Wait                                                                       'finir la sauvegarde
-     '**************************************************************************
 
-     Mousedefault()
+     ' Mousedefault()
      FMain.monTexte = ""
 
 End
 
-Public Sub Mousedefault()
+Public Sub Mousedefault()                                                       'curseur par défaut
 
      FMain.Mouse = Mouse.Default
      FMain.txSalida.Mouse = Mouse.Default
      FMain.txSalida2.Mouse = Mouse.Default
      FMain.txSalida3.Mouse = Mouse.Default
+     FMain.txSalida2.Clear
+     FMain.txSalida.ScrollBar = Scroll.Both
 
 End
 
-Public Sub MouseWait()
+Public Sub MouseWait()                                                          'curseur d'attente
 
      FMain.Mouse = Mouse.Wait
      FMain.txSalida.Mouse = Mouse.Wait
      FMain.txSalida2.Mouse = Mouse.Wait
      FMain.txSalida3.Mouse = Mouse.Wait
+     FMain.txSalida.ScrollBar = Scroll.None
 
 End
 
 Public Sub TournProc()                                                          'tant que tourne le process
 
-     Dim i As Integer
+     Dim i, j As Integer
 
-     FMain.Timer1.Start
+     Depart = Timer
+     j = CInt(FMain.txSalida2.Width / 8.75)
      While hProc.state = hProc.Running
-          Wait 1
           MouseWait()
-          FMain.txSalida.ScrollBar = Scroll.None
-
-          FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & CStr(FMain.dTemps) & " ] "
-          FMain.txSalida2.Text &= "#"
+          FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)
+          FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
           i += 1
-          If i > CInt(FMain.txSalida2.Width / 9) Then
-               ' If i > 38 Then
+          If i > j Then
                i = 0
                FMain.txSalida2.Clear
           Endif
+          Wait 1                                                                'rappel du timer sinon ne marche pas
+          FMain.txSalida2.Text &= "#"
+          If hProc.State = hProc.Stopped Then Break
      Wend
-     FMain.Timer1.Stop
-     FMain.txSalida2.Clear
-     FMain.txSalida.ScrollBar = Scroll.Both
+     Mousedefault()
 
 End
 
@@ -142,8 +143,8 @@ Public Sub Scan_read()                                                          
 
      Dim sLine As String
 
-     ' sline = Read #hProc, Lof(hProc)                                          ' ou suivant
-     Read #hProc, sline, Lof(Last)                                             ' ou précédent
+     sline = Read #hProc, Lof(hProc)                                            ' ou suivant
+     ' Read #hProc, sline, Lof(Last)                                             ' ou précédent
      FMain.txSalida.Text &= sLine
      FMain.txSalida.EnsureVisible()
 
@@ -178,13 +179,13 @@ Public Sub FichierLog()                                                         
 
      TextDate = " ---------| " & (" Escaneo realizado : ") & Now() & " |--------- "
 
-     If Not Exist(FMain.clamLog) Then                                                 'fichier Log
+     If Not Exist(FMain.clamLog) Then                                           'fichier Log
           FMain.leFichier = Open FMain.clamLog For Create
      Else
           FMain.leFichier = Open FMain.clamLog For Input
      Endif
 
-     If Not Exist(FMain.historic) Then                                                'fichier historique
+     If Not Exist(FMain.historic) Then                                          'fichier historique
           FMain.histo = Open FMain.historic For Create
      Else
           FMain.histo = Open FMain.historic For Input
