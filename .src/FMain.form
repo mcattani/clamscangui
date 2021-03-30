@@ -510,7 +510,7 @@
         Toggle = True
       }
       { RB1 ToggleButton
-        MoveScaled(15,0.5714,3,3)
+        MoveScaled(15.7143,1.1429,2,2)
         ToolTip = ("Verde = sin cuarentena automática\nRojo = cuarentena automática")
       }
     }

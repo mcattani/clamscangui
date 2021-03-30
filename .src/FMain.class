@@ -545,30 +545,32 @@ End
 
 Public Sub TBKill_Click()                                                       'Bouton kill hproc
 
-     Wait
      If IsNull(ClamScan.hProc) Then
           _new()
           Message.Info(("Seleccione \n an objeto para escanear!"))
           Return
      Endif
+
      If ClamScan.hProc.State = ClamScan.hProc.Running Then
+          FMain.txSalida3.Clear
+          FMain.txSalida2.Clear
+          FMain.txSalida2.Text = ("Espere mientras se apaga el antivirus")
+          FMain.txSalida3.Text = (" Interrupción del trabajo ")
           If FMain.bSudo = True Then
                Authenticate.Command("sudo killall -u root -9 clamscan")         'montexte est affecté à la commande du process
                If FMain.bFlag = True Then
                     Shell FMain.monTexte
                Else
                     Shell "killall -u root -9 clamscan" & Application.Id
-                    Message.Title = ("¡Atención!")
-                    Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
                Endif
           Else
                ClamScan.hProc.Kill                                              'on tue le processus
           Endif
-          Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
           _new()
      Else
           Message(("¡El proceso ya se detuvo!"))
      Endif
+
      FMain.monTexte = ""
 
 End

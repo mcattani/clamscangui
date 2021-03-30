@@ -1,8 +1,8 @@
 # Gambas Project File 3.0
-Title=ClamScanGui
+Title=ClamScanGuiV0
 Startup=Module1
 Icon=chukablue2.png
-Version=1.1.75
+Version=1.1.76
 Component=gb.image
 Component=gb.qt5
 Component=gb.form
@@ -23,13 +23,13 @@ TabSize=5
 Translate=1
 Language=es_AR
 KeepDebugInfo=0
-Maintainer=The Nerdy Apprentice
+Maintainer=TheNerdyApprentice
 Vendor=PilValaquarus
 VendorPrefix=PVA
 Address=marianocattani@gmail.com
 Url=https://thenerdyapprentice.blogspot.com/
 License=General Public License
-PackageName=clamscangui-1.1.75
+PackageName=clamscangui-1.1.76
 CreateEachDirectory=1
 RuntimeVersion="3.15"
 Packager=1

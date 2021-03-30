@@ -5,7 +5,11 @@ Count=0
 Count=0
 
 [OpenFile]
-Count=0
+Count=3
+Active=1
+File[1]=".src/ClamScan.module:0.0"
+File[2]=".src/FMain.form"
+File[3]=".src/FMain.class:5.547"
 
 [Package]
 Dir="~/Escritorio/"

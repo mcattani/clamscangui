@@ -3,73 +3,73 @@ msgid ""
 msgstr ""
 "#-#-#-#-#  #project.pot (ClamScanGui 3.15.2)  #-#-#-#-#\n"
 "Project-Id-Version: ClamScanGui 3.15.2\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Authenticate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Cerf.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ClamScan.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FMain.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmGeneral.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FrmSoumission.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Impr1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  Module1.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmAbout.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  frmUpdate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-29 02:14 UTC\n"
+"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: .project:1
-msgid "ClamScanGui"
+msgid "ClamScanGuiV0"
 msgstr ""
 
 #: .project:2
@@ -136,11 +136,29 @@ msgstr ""
 msgid "Unus Ex Altera"
 msgstr ""
 
-#: ClamScan.module:128
+#: ClamScan.module:108 FMain.class:78 Module1.module:22
+msgid "¡Atención!"
+msgstr ""
+
+#: ClamScan.module:109 Module1.module:74
+msgid ""
+"clamscan, todavía funciona, en segundo plano.\n"
+" Tendrá que borrar la memoria usted mismo."
+msgstr ""
+
+#: ClamScan.module:112
+msgid "El proceso actual ha sido eliminado"
+msgstr ""
+
+#: ClamScan.module:112
+msgid "¡Puedes volver!"
+msgstr ""
+
+#: ClamScan.module:126
 msgid " Trabajo en curso... "
 msgstr ""
 
-#: ClamScan.module:180
+#: ClamScan.module:188
 msgid " Escaneo realizado : "
 msgstr ""
 
@@ -600,10 +618,6 @@ msgstr ""
 msgid "Defecto"
 msgstr ""
 
-#: FMain.class:78 Module1.module:22
-msgid "¡Atención!"
-msgstr ""
-
 #: FMain.class:79
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr ""
@@ -649,53 +663,47 @@ msgid ""
 " an objeto para escanear!"
 msgstr ""
 
-#: FMain.class:562 Module1.module:74
-msgid ""
-"clamscan, todavía funciona, en segundo plano.\n"
-" Tendrá que borrar la memoria usted mismo."
+#: FMain.class:557
+msgid "Espere mientras se apaga el antivirus"
 msgstr ""
 
-#: FMain.class:567
-msgid "El proceso actual ha sido eliminado"
+#: FMain.class:558
+msgid " Interrupción del trabajo "
 msgstr ""
 
-#: FMain.class:567
-msgid "¡Puedes volver!"
-msgstr ""
-
-#: FMain.class:570
+#: FMain.class:571
 msgid "¡El proceso ya se detuvo!"
 msgstr ""
 
-#: FMain.class:800
+#: FMain.class:802
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr ""
 
-#: FMain.class:802
+#: FMain.class:804
 msgid "¿Quieres renunciar?"
 msgstr ""
 
-#: FMain.class:802
+#: FMain.class:804
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr ""
 
-#: FMain.class:802 FrmGeneral.class:66
+#: FMain.class:804 FrmGeneral.class:66
 msgid "Si"
 msgstr ""
 
-#: FMain.class:802 FrmGeneral.class:66
+#: FMain.class:804 FrmGeneral.class:66
 msgid "No"
 msgstr ""
 
-#: FMain.class:993
+#: FMain.class:995
 msgid "Max"
 msgstr ""
 
-#: FMain.class:1052
+#: FMain.class:1054
 msgid "Nueva versión encontrada!"
 msgstr ""
 
-#: FMain.class:1055
+#: FMain.class:1057
 msgid "No hay actualizaciones disponibles"
 msgstr ""
 

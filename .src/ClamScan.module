@@ -77,21 +77,63 @@ Public Function ScanAction(Ruta As String)
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
                hProc = Shell (FMain.monTexte) & ajout For Read As "Scan"
-               TournProc                                                        'affichage dans terminal
           Endif
      Else If FMain.bsudo = False
           hProc = Shell (Comm) & ajout For Read As "Scan"
-          TournProc                                                             'affichage dans terminal
      Endif
-
+     TournProc                                                                  'affichage dans terminal
      '************************************************************************** après le scan_read()
      RecupVirus()                                                               'récupération des lignes virus
      sTexte = ""                                                                'effacement de sTexte
      FichierLog()                                                               'sauvegarde des log et historique
      Wait                                                                       'finir la sauvegarde
-
-     ' Mousedefault()
      FMain.monTexte = ""
+
+End
+
+Public Sub Scan_Read()                                                          'affichage dans terminal
+
+     Dim sLine As String
+
+     Read #hProc, sLine, Lof(hProc)
+     FMain.txSalida.Text &= sLine
+     FMain.txSalida.EnsureVisible()
+
+End
+
+Public Sub Scan_Kill()
+
+     If FMain.bSudo = True Then
+          If FMain.bFlag = False Then
+               Message.Title = ("¡Atención!")
+               Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
+          Endif
+     Else
+          Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
+     Endif
+
+End
+
+Public Sub TournProc()                                                          'tant que tourne le process
+
+     Dim i, j As Integer
+
+     Depart = Timer
+     j = CInt(FMain.txSalida2.Width / 8.75)
+     While hProc.state = hProc.Running
+          MouseWait()
+          FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)    'clic en millisecondes * 1000 = secondes
+          FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
+          i += 1
+          If i > j Then
+               i = 0
+               FMain.txSalida2.Clear
+          Endif
+          Wait 1                                                                'rappel du timer sinon ne marche pas
+          FMain.txSalida2.Text &= "#"
+          If hProc.State = hProc.Stopped Then Break
+     Wend
+     Mousedefault()
 
 End
 
@@ -113,40 +155,6 @@ Public Sub MouseWait()                                                          
      FMain.txSalida2.Mouse = Mouse.Wait
      FMain.txSalida3.Mouse = Mouse.Wait
      FMain.txSalida.ScrollBar = Scroll.None
-
-End
-
-Public Sub TournProc()                                                          'tant que tourne le process
-
-     Dim i, j As Integer
-
-     Depart = Timer
-     j = CInt(FMain.txSalida2.Width / 8.75)
-     While hProc.state = hProc.Running
-          MouseWait()
-          FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)
-          FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
-          i += 1
-          If i > j Then
-               i = 0
-               FMain.txSalida2.Clear
-          Endif
-          Wait 1                                                                'rappel du timer sinon ne marche pas
-          FMain.txSalida2.Text &= "#"
-          If hProc.State = hProc.Stopped Then Break
-     Wend
-     Mousedefault()
-
-End
-
-Public Sub Scan_read()                                                          'affichage dans terminal
-
-     Dim sLine As String
-
-     sline = Read #hProc, Lof(hProc)                                            ' ou suivant
-     ' Read #hProc, sline, Lof(Last)                                             ' ou précédent
-     FMain.txSalida.Text &= sLine
-     FMain.txSalida.EnsureVisible()
 
 End
 

@@ -1,5 +1,16 @@
-* Sun Mar 28 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.75
-- Correciones varias hechas por PilValaquarus
+* Tue Mar 30 2021 TheNerdyApprentice <marianocattani@gmail.com> 1.1.76
+
+* Tue Mar 30 2021 PilValaquarus <valaquarus@gmail.com> 1.1.76
+- Ajout de Scan_Kill et modification message terminal pendant hProc.kill
+
+* Tue Mar 30 2021 PilValaquarus <valaquarus@gmail.com> 1.1.75
+- Ajout de wait sur TBKill_click
+
+* Mon Mar 29 2021 PilValaquarus <valaquarus@gmail.com> 1.1.75
+- Temps de passer en 1.1.75
+
+* Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Amélioration TournProc
 
 * Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
 - Correction bug sur fichier Log de grande taille.
