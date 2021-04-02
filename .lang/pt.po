@@ -2,8 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGuiV0 3.15.2\n"
-"POT-Creation-Date: 2021-03-30 19:25 UTC\n"
-"PO-Revision-Date: 2021-03-30 19:21 UTC\n"
+"PO-Revision-Date: 2021-03-31 20:45 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -16,11 +15,7 @@ msgstr "ClamScanGuiV0"
 
 # gb-ignore
 #: .project:2
-msgid ""
-"- Un sencillo GUI para el antivirus ClamAV.\n"
-"- Une interface graphique simple pour l'antivirus ClamAV.\n"
-"- Simple graphical interface for the ClamAV antivirus.\n"
-"- Простой графический интерфейс для антивируса ClamAV."
+msgid "- Un sencillo GUI para el antivirus ClamAV.\n- Une interface graphique simple pour l'antivirus ClamAV.\n- Simple graphical interface for the ClamAV antivirus.\n- Простой графический интерфейс для антивируса ClamAV."
 msgstr ""
 
 #: Authenticate.class:47
@@ -56,12 +51,8 @@ msgid "Bloqueo de mayúsculas está activado"
 msgstr "Caps Lock está ativado"
 
 #: Authenticate.form:71
-msgid ""
-"Un comando o aplicación está intentando realizar una acción que requiere privilegios.\n"
-"Se requiere autenticación para realizar esta acción."
-msgstr ""
-"Um comando ou aplicativo está tentando realizar uma ação que requerprivilégios.\n"
-"A autenticação é necessária para executar esta ação."
+msgid "Un comando o aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para realizar esta acción."
+msgstr "Um comando ou aplicativo está tentando realizar uma ação que requerprivilégios.\nA autenticação é necessária para executar esta ação."
 
 #: Authenticate.form:82
 msgid "Contraseña:"
@@ -79,17 +70,13 @@ msgstr "Autenticar"
 msgid "Unus Ex Altera"
 msgstr "Unus Ex Altera"
 
-#: ClamScan.module:109 FMain.class:78 Module1.module:22
+#: ClamScan.module:109 FMain.class:79 Module1.module:22
 msgid "¡Atención!"
 msgstr "Atenção!"
 
 #: ClamScan.module:110 Module1.module:74
-msgid ""
-"clamscan, todavía funciona, en segundo plano.\n"
-" Tendrá que borrar la memoria usted mismo."
-msgstr ""
-"clamscan, ainda funciona, em segundo plano.\n"
-" Você terá que apagar a memória sozinho."
+msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
+msgstr "clamscan, ainda funciona, em segundo plano.\n Você terá que apagar a memória sozinho."
 
 #: ClamScan.module:113
 msgid "El proceso actual ha sido eliminado"
@@ -99,41 +86,41 @@ msgstr "O processo atual foi eliminado"
 msgid "¡Puedes volver!"
 msgstr "Você pode voltar!"
 
-#: ClamScan.module:127
+#: ClamScan.module:117
+msgid "Trabajo completado"
+msgstr "Trabalho feito"
+
+#: ClamScan.module:131
 msgid " Trabajo en curso... "
 msgstr " Trabalho em progresso... "
 
-#: ClamScan.module:189
+#: ClamScan.module:193
 msgid " Escaneo realizado : "
 msgstr "  Varredura realizada:"
 
-#: FMain.class:79
+#: FMain.class:80
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr "Você deve ter o antivírus ClamAv instalado para poder usar este aplicativo"
 
-#: FMain.class:82
+#: FMain.class:83
 msgid "Versión instalada: "
 msgstr "Versão instalada: "
 
-#: FMain.class:86
+#: FMain.class:87
 msgid " ~ Instalación incompleta de Clamav"
 msgstr " ~ Instalação incompleta do Clamav"
 
-#: FMain.class:87
+#: FMain.class:88
 msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr "Para reconfigurar o clamav-milter, execute sudo dpkg-reconfigure clamav-milter"
 
-#: FMain.class:87
+#: FMain.class:88
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr "Para reconfigurar o clamd, execute sudo dpkg-reconfigure clamav-daemon"
 
 #: FMain.class:318
-msgid ""
-"¡Todos sus pedidos son \n"
-" del SuperUsuario!"
-msgstr ""
-"Todos os seus pedidos são\n"
-" do SuperUser!"
+msgid "¡Todos sus pedidos son \n del SuperUsuario!"
+msgstr "Todos os seus pedidos são\n do SuperUser!"
 
 #: FMain.class:405
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
@@ -148,54 +135,50 @@ msgid "Elija el archivo para analizar"
 msgstr "Escolha o arquivo para analisar"
 
 #: FMain.class:461
-msgid ""
-"Seleccione \n"
-" an objeto para escanear!"
-msgstr ""
-"Selecione\n"
-" um objeto para escanear!"
+msgid "Seleccione \n an objeto para escanear!"
+msgstr "Selecione\n um objeto para escanear!"
 
-#: FMain.class:557
+#: FMain.class:558
 msgid "Espere mientras se apaga el antivirus"
 msgstr "Aguarde enquanto o antivírus é encerrado"
 
-#: FMain.class:558
+#: FMain.class:559
 msgid " Interrupción del trabajo "
 msgstr " Interrupção do trabalho"
 
-#: FMain.class:571
+#: FMain.class:574
 msgid "¡El proceso ya se detuvo!"
 msgstr "O processo já parou!"
 
-#: FMain.class:802
+#: FMain.class:805
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "O idioma escolhido será aplicado após o reinício"
 
-#: FMain.class:804
+#: FMain.class:807
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "O idioma escolhido será aplicado após o reinício do programa."
 
-#: FMain.class:804 FrmGeneral.class:66
+#: FMain.class:807 FrmGeneral.class:66
 msgid "No"
 msgstr "Não"
 
-#: FMain.class:804 FrmGeneral.class:66
+#: FMain.class:807 FrmGeneral.class:66
 msgid "Si"
 msgstr "sim"
 
-#: FMain.class:804
+#: FMain.class:807
 msgid "¿Quieres renunciar?"
 msgstr "Você quer sair?"
 
-#: FMain.class:995
+#: FMain.class:998
 msgid "Max"
 msgstr "Max"
 
-#: FMain.class:1054
+#: FMain.class:1057
 msgid "Nueva versión encontrada!"
 msgstr "Nova versão encontrada!"
 
-#: FMain.class:1057
+#: FMain.class:1060
 msgid "No hay actualizaciones disponibles"
 msgstr "Sem atualizações disponíveis"
 
@@ -516,26 +499,12 @@ msgid "Sudo"
 msgstr "Sudo"
 
 #: FMain.form:744
-msgid ""
-"Verde = sin cuarentena automática\n"
-"Rojo = cuarentena automática"
-msgstr ""
-"Verde = sem quarentena automática\n"
-"Vermelho = quarentena automática"
+msgid "Verde = sin cuarentena automática\nRojo = cuarentena automática"
+msgstr "Verde = sem quarentena automática\nVermelho = quarentena automática"
 
 #: FMain.form:752
-msgid ""
-"Según el sitio web de clamav:\n"
-"\n"
-"--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n"
-"\n"
-"Desactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
-msgstr ""
-"De acordo com o site do clamav:\n"
-"\n"
-"--max-filesize = 2000M --max-scansize = 2000M --max-files = 2000000 --max-recursion = 2000000 --max-embeddedpe = 2000M --max-htmlnormalize = 2000000 --max-htmlnotags = 2000000 --max-scriptnormalize = 2000000 --max-ziptypercg = 2000000 -max-partitions = 2000000 --max-iconspe = 2000000 --max-rechwp3 = 2000000 --pcre-match-limit = 2000000 --pcre-recmatch-limit = 2000000 --pcre-max-tamanho do arquivo = 2000M:\n"
-"\n"
-"Desativa efetivamente todos os limites e máximos de arquivos paraVarredura. Isso é útil se você quiser ter certeza de que todosarquivos em um conjunto e preferir que o Clam seja executado lentamente oubloquear em vez de pular um arquivo porque encontra um desses limites."
+msgid "Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
+msgstr "De acordo com o site do clamav:\n\n--max-filesize = 2000M --max-scansize = 2000M --max-files = 2000000 --max-recursion = 2000000 --max-embeddedpe = 2000M --max-htmlnormalize = 2000000 --max-htmlnotags = 2000000 --max-scriptnormalize = 2000000 --max-ziptypercg = 2000000 -max-partitions = 2000000 --max-iconspe = 2000000 --max-rechwp3 = 2000000 --pcre-match-limit = 2000000 --pcre-recmatch-limit = 2000000 --pcre-max-tamanho do arquivo = 2000M:\n\nDesativa efetivamente todos os limites e máximos de arquivos paraVarredura. Isso é útil se você quiser ter certeza de que todosarquivos em um conjunto e preferir que o Clam seja executado lentamente oubloquear em vez de pular um arquivo porque encontra um desses limites."
 
 #: FMain.form:855
 msgid "Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)"
@@ -670,12 +639,8 @@ msgid "¡Solo una parte!"
 msgstr "Apenas uma parte!"
 
 #: FrmGeneral.class:264
-msgid ""
-"¿Quieres ver el archivo completo? \n"
-" ¡Ten paciencia!"
-msgstr ""
-"Você quer ver o arquivo completo?\n"
-" Tenha paciência!"
+msgid "¿Quieres ver el archivo completo? \n ¡Ten paciencia!"
+msgstr "Você quer ver o arquivo completo?\n Tenha paciência!"
 
 #: FrmGeneral.class:275
 msgid " -------- | Archivo vacío | -------- "
@@ -689,149 +654,135 @@ msgstr "Gravação da sessão:"
 msgid " Registro de ClamScanGui "
 msgstr " Registro ClamScanGui"
 
-#: FrmGeneral.class:326
+#: FrmGeneral.class:325
 msgid "Viendo el archivo Freshclam.log:"
 msgstr "Visualizando o arquivo Freshclam.log:"
 
-#: FrmGeneral.class:349
+#: FrmGeneral.class:348
 msgid " Configuración de: "
 msgstr " Configuração de:"
 
-#: FrmGeneral.class:349
+#: FrmGeneral.class:348
 msgid "# Modo de edición # "
 msgstr "# Modo de edição #"
 
-#: FrmGeneral.class:351
+#: FrmGeneral.class:350
 msgid "Edición:"
 msgstr "Edição:"
 
-#: FrmGeneral.class:356
+#: FrmGeneral.class:355
 msgid "# Modo de consulta # "
 msgstr "# Modo de consulta #"
 
-#: FrmGeneral.class:358
+#: FrmGeneral.class:357
 msgid "Consulta:"
 msgstr "Consulta:"
 
-#: FrmGeneral.class:367
+#: FrmGeneral.class:366
 msgid "Su archivo de configuración clamd.conf"
 msgstr "Seu arquivo de configuração clamd.conf"
 
-#: FrmGeneral.class:373
+#: FrmGeneral.class:372
 msgid "Su archivo de configuración Freshclam.conf"
 msgstr "Seu arquivo de configuração Freshclam.conf"
 
-#: FrmGeneral.class:379
+#: FrmGeneral.class:378
 msgid "Su archivo de configuración clamav-milter.conf"
 msgstr "Seu arquivo de configuração clamav-milter.conf"
 
-#: FrmGeneral.class:384
+#: FrmGeneral.class:383
 msgid " Ejemplo de clamd.conf "
 msgstr " Exemplo de Clamd.conf"
 
-#: FrmGeneral.class:385
-msgid ""
-"Un ejemplo de un archivo de configuración con comentarios\n"
-" que puede encontrar en su disco en:\n"
-msgstr ""
-"Um exemplo de arquivo de configuração com comentários\n"
-" que você pode encontrar em seu disco em:\n"
+#: FrmGeneral.class:384
+msgid "Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n"
+msgstr "Um exemplo de arquivo de configuração com comentários\n que você pode encontrar em seu disco em:\n"
 
-#: FrmGeneral.class:391
+#: FrmGeneral.class:390
 msgid " Ejemplo de freshclam.conf "
 msgstr " Exemplo Freshclam.conf"
 
-#: FrmGeneral.class:398
+#: FrmGeneral.class:397
 msgid " Ejemplo de clamav-milter.conf "
 msgstr " Exemplo Clamav-milter.conf"
 
-#: FrmGeneral.class:407
+#: FrmGeneral.class:406
 msgid "Es la primera vez !"
 msgstr "É a primeira vez !"
 
-#: FrmGeneral.class:408
-msgid ""
-"Se acaba de realizar una copia de seguridad \n"
-"en caso de error, puede restaurarla"
-msgstr ""
-"Acabou de ser feito um backup\n"
-"em caso de erro, você pode restaurá-lo"
+#: FrmGeneral.class:407
+msgid "Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla"
+msgstr "Acabou de ser feito um backup\nem caso de erro, você pode restaurá-lo"
 
-#: FrmGeneral.class:414
-msgid ""
-"Se acaba de guardar un archivo de ejemplo \n"
-" en el siguiente directorio: \n"
-" "
-msgstr ""
-"Um arquivo de exemplo acabou de ser salvo\n"
-" no seguinte diretório:\n"
-" "
+#: FrmGeneral.class:413
+msgid "Se acaba de guardar un archivo de ejemplo \n en el siguiente directorio: \n "
+msgstr "Um arquivo de exemplo acabou de ser salvo\n no seguinte diretório:\n "
 
-#: FrmGeneral.class:428
+#: FrmGeneral.class:427
 msgid "Ayuda de ClamScanGui:"
 msgstr "Ajuda do ClamScanGui:"
 
-#: FrmGeneral.class:433
+#: FrmGeneral.class:432
 msgid " Inicio de archivo "
 msgstr " Arquivo Iniciar"
 
-#: FrmGeneral.class:435
+#: FrmGeneral.class:434
 msgid " FAQ : http://www.clamav.net"
 msgstr " FAQ: http://www.clamav.net"
 
-#: FrmGeneral.class:453
+#: FrmGeneral.class:452
 msgid " Ayuda de ClamScanGui "
 msgstr " Ajuda do ClamScanGui"
 
-#: FrmGeneral.class:471
+#: FrmGeneral.class:470
 msgid " Fin del documento "
 msgstr " Fim do documento"
 
-#: FrmGeneral.class:483
+#: FrmGeneral.class:482
 msgid "Cuarentena de ClamScanGui:"
 msgstr "Quarentena de ClamScanGui:"
 
-#: FrmGeneral.class:486
+#: FrmGeneral.class:485
 msgid "Cuarentena de ClamScanGui"
 msgstr "Quarentena ClamScanGui"
 
-#: FrmGeneral.class:487
+#: FrmGeneral.class:486
 msgid "Archivos infectados"
 msgstr "Arquivos infectados"
 
-#: FrmGeneral.class:488
+#: FrmGeneral.class:487
 msgid "Virus"
 msgstr "Vírus"
 
-#: FrmGeneral.class:489
+#: FrmGeneral.class:488
 msgid "Nombre"
 msgstr "Nome"
 
-#: FrmGeneral.class:500
+#: FrmGeneral.class:499
 msgid "Lista de virus encontrados"
 msgstr "Lista de vírus encontrados"
 
-#: FrmGeneral.class:563
+#: FrmGeneral.class:562
 msgid "No hay archivo para borrar"
 msgstr "Não há nenhum arquivo para deletar"
 
-#: FrmGeneral.class:566
+#: FrmGeneral.class:565
 msgid "¿Quieres destruir el archivo?"
 msgstr "Você quer destruir o arquivo?"
 
-#: FrmGeneral.class:583
+#: FrmGeneral.class:582
 msgid "¡El archivo ha sido destruido!"
 msgstr "O arquivo foi destruído!"
 
-#: FrmGeneral.class:618
+#: FrmGeneral.class:617
 msgid "No hay archivo para enviar"
 msgstr "Não há nenhum arquivo para enviar"
 
-#: FrmGeneral.class:645
+#: FrmGeneral.class:644
 msgid "¿Quieres poner el archivo en cuarentena?"
 msgstr "Você deseja colocar o arquivo em quarentena?"
 
-#: FrmGeneral.class:657
+#: FrmGeneral.class:656
 msgid "El archivo se ha movido a cuarentena"
 msgstr "O arquivo foi colocado em quarentena"
 
@@ -855,8 +806,7 @@ msgstr "Restaurar"
 msgid "Salvar"
 msgstr "Salve "
 
-#: FrmGeneral.form:135 FrmSoumission.form:137 frmAbout.form:52
-#: frmUpdate.form:26
+#: FrmGeneral.form:135 FrmSoumission.form:137 frmAbout.form:52 frmUpdate.form:26
 msgid "Cerrar"
 msgstr "Fechar"
 
@@ -873,16 +823,8 @@ msgid "Formulario de envío de falsos positivos"
 msgstr "Formulário de envio de falso positivo"
 
 #: FrmSoumission.form:36
-msgid ""
-"Porfavor complete todos los campos\n"
-"para que la presentación sea eficaz.\n"
-"Consulte la lista de archivos para enviar,\n"
-"así como los nombres de los virus."
-msgstr ""
-"Preencha todos os campos\n"
-"para uma apresentação eficaz.\n"
-"Verifique a lista de arquivos a enviar,\n"
-"bem como os nomes dos vírus."
+msgid "Porfavor complete todos los campos\npara que la presentación sea eficaz.\nConsulte la lista de archivos para enviar,\nasí como los nombres de los virus."
+msgstr "Preencha todos os campos\npara uma apresentação eficaz.\nVerifique a lista de arquivos a enviar,\nbem como os nomes dos vírus."
 
 #: FrmSoumission.form:65
 msgid "Lista de archivos para enviar:"
@@ -925,46 +867,8 @@ msgid "thenerdyapprentice.blogspot.com/"
 msgstr "thenerdyapprentice.blogspot.com/"
 
 #: frmAbout.form:45
-msgid ""
-"Basado en una idea original de The Nerdy Apprentice :\n"
-"https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Programa modificado por Pil Valaquarus.\n"
-"Octubre de 2020\n"
-"valaquarus@gmail.com\n"
-"\n"
-"---- Original ----\n"
-"\n"
-"Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que me hagan las cosas más fáciles. \n"
-"Tengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n"
-"\n"
-"https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Si encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n"
-"\n"
-"Este programa es de libre distribución.\n"
-"\n"
-"Saludos! "
-msgstr ""
-"Baseado em uma ideia original de O Aprendiz Nerdy:\n"
-"https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Programa modificado por Pil Valaquarus.\n"
-"Outubro de 2020\n"
-"valaquarus@gmail.com\n"
-"\n"
-"---- Original ----\n"
-"\n"
-"Hobbyist e nerd, gosto de experimentar e aprender fazendo aplicativos quetornar as coisas mais fáceis para mim.\n"
-"Tenho um blog onde envio meus projetos (incluindo fontes para esteprograma) e informações adicionais:\n"
-"\n"
-"https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Se você achou este programa útil: visite o blog! Deixe umcomente e divulgue!\n"
-"\n"
-"Este programa é distribuído gratuitamente.\n"
-"\n"
-"Saudações!"
+msgid "Basado en una idea original de The Nerdy Apprentice :\nhttps://thenerdyapprentice.blogspot.com/\n\nPrograma modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com\n\n---- Original ----\n\nHobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que me hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! "
+msgstr "Baseado em uma ideia original de O Aprendiz Nerdy:\nhttps://thenerdyapprentice.blogspot.com/\n\nPrograma modificado por Pil Valaquarus.\nOutubro de 2020\nvalaquarus@gmail.com\n\n---- Original ----\n\nHobbyist e nerd, gosto de experimentar e aprender fazendo aplicativos quetornar as coisas mais fáceis para mim.\nTenho um blog onde envio meus projetos (incluindo fontes para esteprograma) e informações adicionais:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSe você achou este programa útil: visite o blog! Deixe umcomente e divulgue!\n\nEste programa é distribuído gratuitamente.\n\nSaudações!"
 
 #: frmAbout.form:63
 msgid "The Nerdy Apprentice"
@@ -985,3 +889,4 @@ msgstr "Você pode baixar a versão mais recente do repositório GitHub:"
 #: frmUpdate.form:21
 msgid "https://github.com/mcattani/clamscangui"
 msgstr "https://github.com/mcattani/clamscangui"
+

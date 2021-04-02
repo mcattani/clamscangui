@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-03-30 20:23 UTC\n"
+"POT-Creation-Date: 2021-04-02 01:58 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +27,7 @@ msgid "Autenticar"
 msgstr ""
 
 #: Authenticate.class:47
-msgid "ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!"
+msgid "ClamScanGui debe matar el proceso actual, en poder de sudo!"
 msgstr ""
 
 #: Authenticate.class:75

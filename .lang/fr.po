@@ -2,8 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGuiV0 3.15.2\n"
-"POT-Creation-Date: 2021-03-30 19:25 UTC\n"
-"PO-Revision-Date: 2021-03-30 19:25 UTC\n"
+"PO-Revision-Date: 2021-03-31 20:45 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -17,11 +16,7 @@ msgstr ""
 
 # gb-ignore
 #: .project:2
-msgid ""
-"- Un sencillo GUI para el antivirus ClamAV.\n"
-"- Une interface graphique simple pour l'antivirus ClamAV.\n"
-"- Simple graphical interface for the ClamAV antivirus.\n"
-"- Простой графический интерфейс для антивируса ClamAV."
+msgid "- Un sencillo GUI para el antivirus ClamAV.\n- Une interface graphique simple pour l'antivirus ClamAV.\n- Simple graphical interface for the ClamAV antivirus.\n- Простой графический интерфейс для антивируса ClamAV."
 msgstr ""
 
 #: Authenticate.class:47
@@ -57,12 +52,8 @@ msgid "Bloqueo de mayúsculas está activado"
 msgstr "Touche Maj activée"
 
 #: Authenticate.form:71
-msgid ""
-"Un comando o aplicación está intentando realizar una acción que requiere privilegios.\n"
-"Se requiere autenticación para realizar esta acción."
-msgstr ""
-"Une commande ou une application tente d'exécuter une action qui nécessite des privilèges.\n"
-"Une authentification est requise pour effectuer cette action."
+msgid "Un comando o aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para realizar esta acción."
+msgstr "Une commande ou une application tente d'exécuter une action qui nécessite des privilèges.\nUne authentification est requise pour effectuer cette action."
 
 #: Authenticate.form:82
 msgid "Contraseña:"
@@ -81,17 +72,13 @@ msgstr "Authentifier"
 msgid "Unus Ex Altera"
 msgstr ""
 
-#: ClamScan.module:109 FMain.class:78 Module1.module:22
+#: ClamScan.module:109 FMain.class:79 Module1.module:22
 msgid "¡Atención!"
 msgstr "Attention!"
 
 #: ClamScan.module:110 Module1.module:74
-msgid ""
-"clamscan, todavía funciona, en segundo plano.\n"
-" Tendrá que borrar la memoria usted mismo."
-msgstr ""
-"Clamscan, fonctionne toujours, en arrière-plan.\n"
-"Vous devrez effacer la mémoire vous-même."
+msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
+msgstr "Clamscan, fonctionne toujours, en arrière-plan.\nVous devrez effacer la mémoire vous-même."
 
 #: ClamScan.module:113
 msgid "El proceso actual ha sido eliminado"
@@ -101,47 +88,45 @@ msgstr "Le processus actuel a été tué"
 msgid "¡Puedes volver!"
 msgstr "Vous pouvez revenir!"
 
-#: ClamScan.module:127
+#: ClamScan.module:117
+msgid "Trabajo completado"
+msgstr "Travail effectué"
+
+#: ClamScan.module:131
 msgid " Trabajo en curso... "
 msgstr " Travaux en cours ... "
 
-#: ClamScan.module:189
+#: ClamScan.module:193
 msgid " Escaneo realizado : "
 msgstr " Analyse effectuée : "
 
-#: FMain.class:79
+#: FMain.class:80
 msgid "Debe tener instalado el antivirus ClamAv para poder utilizar esta App"
 msgstr "Vous devez avoir installé l'antivirus ClamAv pour pouvoir utiliser cette application"
 
-#: FMain.class:82
+#: FMain.class:83
 msgid "Versión instalada: "
 msgstr "Version installée : "
 
-#: FMain.class:86
+#: FMain.class:87
 msgid " ~ Instalación incompleta de Clamav"
 msgstr "~ Installation incomplète de Clamav"
 
-#: FMain.class:87
+#: FMain.class:88
 msgid "Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"
 msgstr "Pour reconfigurer clamav-milter, exécutez sudo dpkg-reconfigure clamav-milter"
 
-#: FMain.class:87
+#: FMain.class:88
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr "Pour reconfigurer clamd, exécutez sudo dpkg-reconfigure clamav-daemon"
 
 #: FMain.class:318
-msgid ""
-"¡Todos sus pedidos son \n"
-" del SuperUsuario!"
-msgstr ""
-"Toutes vos commandes sont\n"
-"du SuperUser!"
+msgid "¡Todos sus pedidos son \n del SuperUsuario!"
+msgstr "Toutes vos commandes sont\ndu SuperUser!"
 
 #: FMain.class:405
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
-msgstr ""
-"Veuillez patienter quelques secondes\n"
-"pendant le démarrage de l'antivirus"
+msgstr "Veuillez patienter quelques secondes\npendant le démarrage de l'antivirus"
 
 #: FMain.class:427
 msgid "Elija el directorio para escanear"
@@ -152,55 +137,51 @@ msgid "Elija el archivo para analizar"
 msgstr "Choisissez le fichier à analyser"
 
 #: FMain.class:461
-msgid ""
-"Seleccione \n"
-" an objeto para escanear!"
-msgstr ""
-"Veuillez sélectionner\n"
-"un objet à scanner!"
+msgid "Seleccione \n an objeto para escanear!"
+msgstr "Veuillez sélectionner\nun objet à scanner!"
 
-#: FMain.class:557
+#: FMain.class:558
 msgid "Espere mientras se apaga el antivirus"
 msgstr "Veuillez patienter pendant que l'antivirus s'arrête"
 
-#: FMain.class:558
+#: FMain.class:559
 msgid " Interrupción del trabajo "
 msgstr " Interruption du travail"
 
-#: FMain.class:571
+#: FMain.class:574
 msgid "¡El proceso ya se detuvo!"
 msgstr "Le processus est déjà arrêté!"
 
-#: FMain.class:802
+#: FMain.class:805
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "La langue choisie sera appliquée après le redémarrage"
 
-#: FMain.class:804
+#: FMain.class:807
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "La langue choisie sera appliquée après le redémarrage du programme."
 
-#: FMain.class:804 FrmGeneral.class:66
+#: FMain.class:807 FrmGeneral.class:66
 msgid "No"
 msgstr "Non"
 
-#: FMain.class:804 FrmGeneral.class:66
+#: FMain.class:807 FrmGeneral.class:66
 msgid "Si"
 msgstr "Oui"
 
-#: FMain.class:804
+#: FMain.class:807
 msgid "¿Quieres renunciar?"
 msgstr "Voulez-vous quitter?"
 
 # gb-ignore
-#: FMain.class:995
+#: FMain.class:998
 msgid "Max"
 msgstr ""
 
-#: FMain.class:1054
+#: FMain.class:1057
 msgid "Nueva versión encontrada!"
 msgstr "Nouvelle version trouvée!"
 
-#: FMain.class:1057
+#: FMain.class:1060
 msgid "No hay actualizaciones disponibles"
 msgstr "Aucune mise à jour disponible"
 
@@ -562,123 +543,64 @@ msgid "Sudo"
 msgstr ""
 
 #: FMain.form:744
-msgid ""
-"Verde = sin cuarentena automática\n"
-"Rojo = cuarentena automática"
-msgstr ""
-"Vert = pas de quarantaine automatique\n"
-"Rouge = mise en quarantaine automatique"
+msgid "Verde = sin cuarentena automática\nRojo = cuarentena automática"
+msgstr "Vert = pas de quarantaine automatique\nRouge = mise en quarantaine automatique"
 
 #: FMain.form:752
-msgid ""
-"Según el sitio web de clamav:\n"
-"\n"
-"--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n"
-"\n"
-"Desactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
-msgstr ""
-"Selon le site de clamav :\n"
-"\n"
-"--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M\n"
-"\n"
-"Désactive effectivement toutes les limites et tous les maximums de fichiers pour l'analyse. Ceci est utile si vous souhaitez vous assurer que tous les fichiers d'un ensemble sont analysés et que vous préférez que clam s'exécute lentement ou plante plutôt que d'ignorer un fichier car il rencontre l'un de ces seuils"
+msgid "Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
+msgstr "Selon le site de clamav :\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M\n\nDésactive effectivement toutes les limites et tous les maximums de fichiers pour l'analyse. Ceci est utile si vous souhaitez vous assurer que tous les fichiers d'un ensemble sont analysés et que vous préférez que clam s'exécute lentement ou plante plutôt que d'ignorer un fichier car il rencontre l'un de ces seuils"
 
 #: FMain.form:855
 msgid "Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)"
-msgstr ""
-"Extrayez et analysez pas plus de #n octets de chaque fichier. Vous pouvez transmettre la valeur en\n"
-" kilo-octets au format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre. \n"
-"Cette option protège votre système contre les attaques DoS \n"
-"(par défaut: 25 Mo, maximum: <4 Go)"
+msgstr "Extrayez et analysez pas plus de #n octets de chaque fichier. Vous pouvez transmettre la valeur en\n kilo-octets au format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre. \nCette option protège votre système contre les attaques DoS \n(par défaut: 25 Mo, maximum: <4 Go)"
 
 #: FMain.form:866
 msgid "Extraiga y escanee como máximo #n bytes de cada archivo. El tamaño del archivo más la suma de los tamaños de todos los archivos dentro del archivo cuentan para el tamaño de escaneo. Por ejemplo, un archivo sin comprimir de 1 M que contiene un solo archivo interno de 1 M cuenta como 2 M para el tamaño máximo de escaneo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 100 MB, máximo: <4 GB)"
-msgstr ""
-"Extrayez et analysez pas plus de #n octets de chaque fichier. \n"
-"La taille du fichier plus la somme des tailles de tous les fichiers dans le fichier \n"
-"compte dans la taille de l'analyse. \n"
-"Par exemple, un fichier non compressé de 1 Mo contenant un seul fichier interne de 1 Mo compte \n"
-"pour 2 Mo vers la taille de numérisation maximale. \n"
-"Vous pouvez transmettre la valeur en kilo-octets au format xK ou xk, ou en mégaoctets au format xM \n"
-"ou xm, où x est un nombre. Cette option protège votre système contre les attaques DoS \n"
-"(par défaut: 100 Mo, maximum: <4 Go)"
+msgstr "Extrayez et analysez pas plus de #n octets de chaque fichier. \nLa taille du fichier plus la somme des tailles de tous les fichiers dans le fichier \ncompte dans la taille de l'analyse. \nPar exemple, un fichier non compressé de 1 Mo contenant un seul fichier interne de 1 Mo compte \npour 2 Mo vers la taille de numérisation maximale. \nVous pouvez transmettre la valeur en kilo-octets au format xK ou xk, ou en mégaoctets au format xM \nou xm, où x est un nombre. Cette option protège votre système contre les attaques DoS \n(par défaut: 100 Mo, maximum: <4 Go)"
 
 #: FMain.form:877
 msgid "Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata de un archivo, un documento u otro tipo de contenedor). Esta opción protege su sistema contra ataques DoS (predeterminado: 10000)"
-msgstr ""
-"N'extrayez pas plus de #n fichiers de chaque fichier numérisé \n"
-"(pour un fichier, un document ou un autre conteneur). \n"
-"Cette option protège votre système contre les attaques DoS \n"
-"(par défaut: 10000)"
+msgstr "N'extrayez pas plus de #n fichiers de chaque fichier numérisé \n(pour un fichier, un document ou un autre conteneur). \nCette option protège votre système contre les attaques DoS \n(par défaut: 10000)"
 
 #: FMain.form:888
 msgid "Establecer límite de nivel de recursividad de archivo. Esta opción protege su sistema contra ataques DoS (predeterminado: 16)."
-msgstr ""
-"Définit la limite du niveau de récursivité des fichiers. \n"
-"Cette option protège votre système contre les attaques DoS \n"
-"(par défaut: 16)."
+msgstr "Définit la limite du niveau de récursivité des fichiers. \nCette option protège votre système contre les attaques DoS \n(par défaut: 16)."
 
 #: FMain.form:899
 msgid "Los directorios de profundidad máxima se escanean en (predeterminado: 15)."
-msgstr ""
-"Les répertoires de profondeur maximale sont analysés \n"
-"(par défaut: 15)."
+msgstr "Les répertoires de profondeur maximale sont analysés \n(par défaut: 15)."
 
 #: FMain.form:910
 msgid "Archivo de tamaño máximo para comprobar si hay PE incrustado. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
-msgstr ""
-"Fichier de taille maximale pour vérifier le PE intégré. \n"
-"Vous pouvez transmettre la valeur en kilo-octets au format xK ou xk, \n"
-"ou en mégaoctets au format xM ou xm, où x est un nombre \n"
-"(par défaut: 10 Mo, maximum: <4 Go)."
+msgstr "Fichier de taille maximale pour vérifier le PE intégré. \nVous pouvez transmettre la valeur en kilo-octets au format xK ou xk, \nou en mégaoctets au format xM ou xm, où x est un nombre \n(par défaut: 10 Mo, maximum: <4 Go)."
 
 #: FMain.form:921
 msgid "Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
-msgstr ""
-"Taille maximale du fichier HTML à normaliser. Vous pouvez transmettre la valeur en kilo-octets au\n"
-" format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre\n"
-" (par défaut: 10 Mo, maximum: <4 Go)."
+msgstr "Taille maximale du fichier HTML à normaliser. Vous pouvez transmettre la valeur en kilo-octets au\n format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre\n (par défaut: 10 Mo, maximum: <4 Go)."
 
 #: FMain.form:932
 msgid "Tamaño máximo del archivo HTML normalizado para escanear. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 2 MB, máximo: <4 GB)."
-msgstr ""
-"Taille maximale du fichier HTML normalisé à analyser. Vous pouvez transmettre la valeur en kilo-octets \n"
-"au format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre \n"
-"(par défaut: 2 Mo, maximum: <4 Go)."
+msgstr "Taille maximale du fichier HTML normalisé à analyser. Vous pouvez transmettre la valeur en kilo-octets \nau format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre \n(par défaut: 2 Mo, maximum: <4 Go)."
 
 #: FMain.form:943
 msgid "Tamaño máximo del archivo de script para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 5 MB, máximo: <4 GB)."
-msgstr ""
-"Taille maximale du fichier de script à normaliser. Vous pouvez transmettre la valeur en kilo-octets \n"
-"au format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre \n"
-"(par défaut: 5 Mo, maximum: <4 Go)."
+msgstr "Taille maximale du fichier de script à normaliser. Vous pouvez transmettre la valeur en kilo-octets \nau format xK ou xk, ou en mégaoctets au format xM ou xm, où x est un nombre \n(par défaut: 5 Mo, maximum: <4 Go)."
 
 #: FMain.form:954
 msgid "Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 1 MB, máximo: <4 GB)."
-msgstr ""
-"Fermeture éclair de taille maximale pour une nouvelle numérisation. \n"
-"Vous pouvez transmettre la valeur en kilo-octets au format xK ou xk, \n"
-"ou en mégaoctets au format xM ou xm, où x est un nombre \n"
-"(par défaut: 1 Mo, maximum: <4 Go)."
+msgstr "Fermeture éclair de taille maximale pour une nouvelle numérisation. \nVous pouvez transmettre la valeur en kilo-octets au format xK ou xk, \nou en mégaoctets au format xM ou xm, où x est un nombre \n(par défaut: 1 Mo, maximum: <4 Go)."
 
 #: FMain.form:964
 msgid "Esta opción establece el número máximo de particiones de una imagen de disco sin procesar que se analizará. Debe ser un número entero positivo (predeterminado: 50)."
-msgstr ""
-"Cette option définit le nombre maximum de partitions d'une image \n"
-"disque brute qui seront analysées. \n"
-"Ce doit être un entier positif (par défaut: 50)."
+msgstr "Cette option définit le nombre maximum de partitions d'une image \ndisque brute qui seront analysées. \nCe doit être un entier positif (par défaut: 50)."
 
 #: FMain.form:975
 msgid "Esta opción establece el número máximo de iconos dentro de un PE que se escanearán. Debe ser un número entero positivo (predeterminado: 100)."
-msgstr ""
-"Cette option définit le nombre maximum d'icônes dans un PE qui seront analysées. \n"
-"Ce doit être un entier positif (par défaut: 100)."
+msgstr "Cette option définit le nombre maximum d'icônes dans un PE qui seront analysées. \nCe doit être un entier positif (par défaut: 100)."
 
 #: FMain.form:986
 msgid "Esta opción establece el máximo de llamadas recursivas a la función de análisis de HWP3 (predeterminado: 16)."
-msgstr ""
-"Cette option définit les appels récursifs maximum \n"
-"à la fonction d'analyse HWP3 (par défaut: 16)."
+msgstr "Cette option définit les appels récursifs maximum \nà la fonction d'analyse HWP3 (par défaut: 16)."
 
 #: FMain.form:997
 msgid "Número máximo de llamadas a la función de coincidencia de PCRE (predeterminado: 10000)."
@@ -686,15 +608,11 @@ msgstr "Nombre maximum d'appels à la fonction de correspondance PCRE (par défa
 
 #: FMain.form:1008
 msgid "Máximo de llamadas recursivas a la función de coincidencia de PCRE (predeterminado: 5000)."
-msgstr ""
-"Nombre maximum d'appels récursifs à la fonction de correspondance PCRE \n"
-"(par défaut: 5000)."
+msgstr "Nombre maximum d'appels récursifs à la fonction de correspondance PCRE \n(par défaut: 5000)."
 
 #: FMain.form:1019
 msgid "Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE (predeterminado: 25 MB, máximo: <4 GB)."
-msgstr ""
-"Taille de fichier maximale pour effectuer une correspondance \n"
-"de sous-classification PCRE (par défaut: 25 Mo, maximum: <4 Go)."
+msgstr "Taille de fichier maximale pour effectuer une correspondance \nde sous-classification PCRE (par défaut: 25 Mo, maximum: <4 Go)."
 
 #: FMain.form:1030
 msgid "Limitaciones: (ver ayuda)"
@@ -765,12 +683,8 @@ msgid "¡Solo una parte!"
 msgstr "Seulement une partie!"
 
 #: FrmGeneral.class:264
-msgid ""
-"¿Quieres ver el archivo completo? \n"
-" ¡Ten paciencia!"
-msgstr ""
-"Voulez-vous voir le fichier complet?\n"
-"Soyez patient!"
+msgid "¿Quieres ver el archivo completo? \n ¡Ten paciencia!"
+msgstr "Voulez-vous voir le fichier complet?\nSoyez patient!"
 
 #: FrmGeneral.class:275
 msgid " -------- | Archivo vacío | -------- "
@@ -784,150 +698,136 @@ msgstr "Enregistrement de session :"
 msgid " Registro de ClamScanGui "
 msgstr "Log de ClamScanGui : "
 
-#: FrmGeneral.class:326
+#: FrmGeneral.class:325
 msgid "Viendo el archivo Freshclam.log:"
 msgstr "Affichage du fichier Freshclam.log :"
 
-#: FrmGeneral.class:349
+#: FrmGeneral.class:348
 msgid " Configuración de: "
 msgstr " Configuration de : "
 
-#: FrmGeneral.class:349
+#: FrmGeneral.class:348
 msgid "# Modo de edición # "
 msgstr "# Mode Édition # "
 
-#: FrmGeneral.class:351
+#: FrmGeneral.class:350
 msgid "Edición:"
 msgstr "Édition :"
 
-#: FrmGeneral.class:356
+#: FrmGeneral.class:355
 msgid "# Modo de consulta # "
 msgstr "# Mode Consultation # "
 
-#: FrmGeneral.class:358
+#: FrmGeneral.class:357
 msgid "Consulta:"
 msgstr "Consultation :"
 
-#: FrmGeneral.class:367
+#: FrmGeneral.class:366
 msgid "Su archivo de configuración clamd.conf"
 msgstr "Votre fichier de configuration clamd.conf"
 
-#: FrmGeneral.class:373
+#: FrmGeneral.class:372
 msgid "Su archivo de configuración Freshclam.conf"
 msgstr "Votre fichier de configuration Freshclam.conf"
 
-#: FrmGeneral.class:379
+#: FrmGeneral.class:378
 msgid "Su archivo de configuración clamav-milter.conf"
 msgstr "Votre fichier de configuration clamav-milter.conf"
 
-#: FrmGeneral.class:384
+#: FrmGeneral.class:383
 msgid " Ejemplo de clamd.conf "
 msgstr "Exemple de clamd.conf"
 
-#: FrmGeneral.class:385
-msgid ""
-"Un ejemplo de un archivo de configuración con comentarios\n"
-" que puede encontrar en su disco en:\n"
-msgstr ""
-"Un exemple de fichier de configuration avec des commentaires\n"
-"que vous pouvez trouver sur votre disque à:\n"
+#: FrmGeneral.class:384
+msgid "Un ejemplo de un archivo de configuración con comentarios\n que puede encontrar en su disco en:\n"
+msgstr "Un exemple de fichier de configuration avec des commentaires\nque vous pouvez trouver sur votre disque à:\n"
 
-#: FrmGeneral.class:391
+#: FrmGeneral.class:390
 msgid " Ejemplo de freshclam.conf "
 msgstr "Exemple de Freshclam.conf"
 
-#: FrmGeneral.class:398
+#: FrmGeneral.class:397
 msgid " Ejemplo de clamav-milter.conf "
 msgstr "Exemple de clamav-milter.conf"
 
-#: FrmGeneral.class:407
+#: FrmGeneral.class:406
 msgid "Es la primera vez !"
 msgstr "C'est la première fois !"
 
-#: FrmGeneral.class:408
-msgid ""
-"Se acaba de realizar una copia de seguridad \n"
-"en caso de error, puede restaurarla"
-msgstr ""
-"Une sauvegarde de sécurité vient d'être faite\n"
-"en cas d'erreur, vous pourrez la restaurer"
+#: FrmGeneral.class:407
+msgid "Se acaba de realizar una copia de seguridad \nen caso de error, puede restaurarla"
+msgstr "Une sauvegarde de sécurité vient d'être faite\nen cas d'erreur, vous pourrez la restaurer"
 
-#: FrmGeneral.class:414
-msgid ""
-"Se acaba de guardar un archivo de ejemplo \n"
-" en el siguiente directorio: \n"
-" "
-msgstr ""
-"Un fichier d'exemple vient d'être enregistré\n"
-"dans le répertoire suivant :\n"
-" "
+#: FrmGeneral.class:413
+msgid "Se acaba de guardar un archivo de ejemplo \n en el siguiente directorio: \n "
+msgstr "Un fichier d'exemple vient d'être enregistré\ndans le répertoire suivant :\n "
 
-#: FrmGeneral.class:428
+#: FrmGeneral.class:427
 msgid "Ayuda de ClamScanGui:"
 msgstr "Aide ClamScanGui :"
 
-#: FrmGeneral.class:433
+#: FrmGeneral.class:432
 msgid " Inicio de archivo "
 msgstr "Début du fichier"
 
 # gb-ignore
-#: FrmGeneral.class:435
+#: FrmGeneral.class:434
 msgid " FAQ : http://www.clamav.net"
 msgstr ""
 
-#: FrmGeneral.class:453
+#: FrmGeneral.class:452
 msgid " Ayuda de ClamScanGui "
 msgstr "Aide ClamScanGui"
 
-#: FrmGeneral.class:471
+#: FrmGeneral.class:470
 msgid " Fin del documento "
 msgstr "Fin du document"
 
-#: FrmGeneral.class:483
+#: FrmGeneral.class:482
 msgid "Cuarentena de ClamScanGui:"
 msgstr "ClamScanGui Quarantaine :"
 
-#: FrmGeneral.class:486
+#: FrmGeneral.class:485
 msgid "Cuarentena de ClamScanGui"
 msgstr "ClamScanGui Quarantaine"
 
-#: FrmGeneral.class:487
+#: FrmGeneral.class:486
 msgid "Archivos infectados"
 msgstr "Fichiers infectés"
 
-#: FrmGeneral.class:488
+#: FrmGeneral.class:487
 msgid "Virus"
 msgstr "Virus"
 
-#: FrmGeneral.class:489
+#: FrmGeneral.class:488
 msgid "Nombre"
 msgstr "Nom"
 
-#: FrmGeneral.class:500
+#: FrmGeneral.class:499
 msgid "Lista de virus encontrados"
 msgstr "Liste des virus trouvés"
 
-#: FrmGeneral.class:563
+#: FrmGeneral.class:562
 msgid "No hay archivo para borrar"
 msgstr "Il n'y a aucun fichier à supprimer"
 
-#: FrmGeneral.class:566
+#: FrmGeneral.class:565
 msgid "¿Quieres destruir el archivo?"
 msgstr "Voulez-vous détruire le fichier?"
 
-#: FrmGeneral.class:583
+#: FrmGeneral.class:582
 msgid "¡El archivo ha sido destruido!"
 msgstr "Le fichier a été détruit!"
 
-#: FrmGeneral.class:618
+#: FrmGeneral.class:617
 msgid "No hay archivo para enviar"
 msgstr "Il n'y a pas de fichier à envoyer"
 
-#: FrmGeneral.class:645
+#: FrmGeneral.class:644
 msgid "¿Quieres poner el archivo en cuarentena?"
 msgstr "Voulez-vous mettre le fichier en quarantaine?"
 
-#: FrmGeneral.class:657
+#: FrmGeneral.class:656
 msgid "El archivo se ha movido a cuarentena"
 msgstr "Le fichier a été mis en quarantaine"
 
@@ -951,8 +851,7 @@ msgstr "Restaurer"
 msgid "Salvar"
 msgstr "Sauvegarder"
 
-#: FrmGeneral.form:135 FrmSoumission.form:137 frmAbout.form:52
-#: frmUpdate.form:26
+#: FrmGeneral.form:135 FrmSoumission.form:137 frmAbout.form:52 frmUpdate.form:26
 msgid "Cerrar"
 msgstr "Fermer"
 
@@ -969,16 +868,8 @@ msgid "Formulario de envío de falsos positivos"
 msgstr "Formulaire de soumission de faux positifs"
 
 #: FrmSoumission.form:36
-msgid ""
-"Porfavor complete todos los campos\n"
-"para que la presentación sea eficaz.\n"
-"Consulte la lista de archivos para enviar,\n"
-"así como los nombres de los virus."
-msgstr ""
-"Veuillez compléter tous les champs s'il vous plaît\n"
-"pour que la présentation soit efficace.\n"
-"Consultez la liste des fichiers à envoyer,\n"
-"ainsi que les noms des virus."
+msgid "Porfavor complete todos los campos\npara que la presentación sea eficaz.\nConsulte la lista de archivos para enviar,\nasí como los nombres de los virus."
+msgstr "Veuillez compléter tous les champs s'il vous plaît\npour que la présentation soit efficace.\nConsultez la liste des fichiers à envoyer,\nainsi que les noms des virus."
 
 #: FrmSoumission.form:65
 msgid "Lista de archivos para enviar:"
@@ -1022,46 +913,8 @@ msgid "thenerdyapprentice.blogspot.com/"
 msgstr ""
 
 #: frmAbout.form:45
-msgid ""
-"Basado en una idea original de The Nerdy Apprentice :\n"
-"https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Programa modificado por Pil Valaquarus.\n"
-"Octubre de 2020\n"
-"valaquarus@gmail.com\n"
-"\n"
-"---- Original ----\n"
-"\n"
-"Hobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que me hagan las cosas más fáciles. \n"
-"Tengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n"
-"\n"
-"https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Si encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n"
-"\n"
-"Este programa es de libre distribución.\n"
-"\n"
-"Saludos! "
-msgstr ""
-"Basé sur une idée originale de The Nerdy Apprentice:\n"
-"https://translate.google.com/translate?hl=fr&sl=es-AR&tl=fr&u=https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Programme modifié par Pil Valaquarus.\n"
-"Octobre 2020\n"
-"valaquarus@gmail.com\n"
-"\n"
-"---- Original ----\n"
-"\n"
-"Amateur et nerd, j'aime expérimenter et apprendre en créant des applications qui me facilitent les choses.\n"
-"J'ai un blog sur lequel je télécharge mes projets (y compris les sources de ce programme) et des informations supplémentaires:\n"
-"\n"
-"https://translate.google.com/translate?hl=fr&sl=es-AR&tl=fr&u=https://thenerdyapprentice.blogspot.com/\n"
-"\n"
-"Si vous avez trouvé ce programme utile: visitez le blog! Laissez un commentaire et faites passer le mot!\n"
-"\n"
-"Ce programme est distribué gratuitement.\n"
-"\n"
-"À votre santé!"
+msgid "Basado en una idea original de The Nerdy Apprentice :\nhttps://thenerdyapprentice.blogspot.com/\n\nPrograma modificado por Pil Valaquarus.\nOctubre de 2020\nvalaquarus@gmail.com\n\n---- Original ----\n\nHobbista y nerd, me gusta experimentar y aprender haciendo aplicaciones que me hagan las cosas más fáciles. \nTengo un blog donde subo mis proyectos (incluidas las fuentes de este programa) e información adicional:\n\nhttps://thenerdyapprentice.blogspot.com/\n\nSi encontraste útil este programa: por favor visita el blog!, dejá un comentario y difundí!\n\nEste programa es de libre distribución.\n\nSaludos! "
+msgstr "Basé sur une idée originale de The Nerdy Apprentice:\nhttps://translate.google.com/translate?hl=fr&sl=es-AR&tl=fr&u=https://thenerdyapprentice.blogspot.com/\n\nProgramme modifié par Pil Valaquarus.\nOctobre 2020\nvalaquarus@gmail.com\n\n---- Original ----\n\nAmateur et nerd, j'aime expérimenter et apprendre en créant des applications qui me facilitent les choses.\nJ'ai un blog sur lequel je télécharge mes projets (y compris les sources de ce programme) et des informations supplémentaires:\n\nhttps://translate.google.com/translate?hl=fr&sl=es-AR&tl=fr&u=https://thenerdyapprentice.blogspot.com/\n\nSi vous avez trouvé ce programme utile: visitez le blog! Laissez un commentaire et faites passer le mot!\n\nCe programme est distribué gratuitement.\n\nÀ votre santé!"
 
 # gb-ignore
 #: frmAbout.form:63
@@ -1085,3 +938,4 @@ msgstr "Vous pouvez télécharger la dernière version à partir du référentie
 #: frmUpdate.form:21
 msgid "https://github.com/mcattani/clamscangui"
 msgstr ""
+

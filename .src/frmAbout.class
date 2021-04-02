@@ -13,7 +13,7 @@
 
 Public Sub Form_Open()
 
-     txtAbout2.Pos = 0
+     txtAbout2.Pos = 0                                                          'affichage sur la première ligne
 
 End
 
@@ -37,6 +37,6 @@ End
 
 Public Sub PictureBox2_MouseUp()
 
-     Desktop.Open("mailto:valaquarus@gmail.com")
+     Desktop.Open("mailto:valaquarus@gmail.com")                                'ET maison
 
 End

@@ -10,7 +10,7 @@
 '' ' Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ;
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
-'' ' To Ceasar : Thanks to Cogier
+'' ' To Ceasar : Thanks to Cogier (Charlie Ogier)
 
 Create Static                                                                   'Store Class in memory
 
@@ -44,7 +44,7 @@ Public Sub Command(CommandLine As String) As String                             
      CheckCapsLock                                                              'Check if the Caps Lock is on
      If Module1.cloture = True Then
           ' ButtonCancel.Visible = False                                        'selon les besoins
-          Me.Title = ("ClamScanGui debe borrar la memoria del proceso actual, en poder de sudo!")
+          Me.Title = ("ClamScanGui debe matar el proceso actual, en poder de sudo!")
      Endif
      Me.ShowModal()                                                             'Show the Authentication Form
      Return sOutput                                                             'Return the Command's output

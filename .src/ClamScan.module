@@ -101,15 +101,20 @@ Public Sub Scan_Read()                                                          
 
 End
 
-Public Sub Scan_Kill()
+Public Sub Scan_Kill()                                                          'Fin du process hPro
 
-     If FMain.bSudo = True Then
-          If FMain.bFlag = False Then
-               Message.Title = ("¡Atención!")
-               Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
+     If FMain.bTBKill = True Then
+          If FMain.bSudo = True Then
+               If FMain.bFlag = False Then
+                    Message.Title = ("¡Atención!")
+                    Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que matar el proceso usted mismo."))
+               Endif
+          Else
+               Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
           Endif
+          FMain.bTBKill = False
      Else
-          Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
+          Message(("Trabajo completado") & ". " & ("¡Puedes volver!"))
      Endif
 
 End
@@ -125,13 +130,13 @@ Public Sub TournProc()                                                          
           FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)    'clic en millisecondes * 1000 = secondes
           FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
           i += 1
-          If i > j Then
+          If i > j Then                                                         'j=longueur de la ligne
                i = 0
                FMain.txSalida2.Clear
           Endif
           Wait 1                                                                'rappel du timer sinon ne marche pas
           FMain.txSalida2.Text &= "#"
-          If hProc.State = hProc.Stopped Then Break
+          If hProc.State = hProc.Stopped Then Break                             'garantie de sortie de boucle
      Wend
      Mousedefault()
 

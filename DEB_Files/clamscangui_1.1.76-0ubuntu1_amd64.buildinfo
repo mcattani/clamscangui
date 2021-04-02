@@ -4,17 +4,17 @@ Binary: clamscangui
 Architecture: all source
 Version: 1.1.76-0ubuntu1
 Checksums-Md5:
- efa854ada3ae78565e97835c8e89c409 1754 clamscangui_1.1.76-0ubuntu1.dsc
- 4c166b3b6b6c84cdc0937e53a76d4b5a 403720 clamscangui_1.1.76-0ubuntu1_all.deb
+ b193488f55c079cbd170f34b43ee2eab 1756 clamscangui_1.1.76-0ubuntu1.dsc
+ ba4645c67f687851319bcd04054f9ed1 404500 clamscangui_1.1.76-0ubuntu1_all.deb
 Checksums-Sha1:
- abce867481ee9c4d739e5ac4d57f5e2579be2e6f 1754 clamscangui_1.1.76-0ubuntu1.dsc
- 5552d3194b70c8f920feec2b74e44fb3af044dc5 403720 clamscangui_1.1.76-0ubuntu1_all.deb
+ c8906aecce0377317d3a7422d28db8e5286e5632 1756 clamscangui_1.1.76-0ubuntu1.dsc
+ c373b0bb876d2398e093433f7f028240054a31df 404500 clamscangui_1.1.76-0ubuntu1_all.deb
 Checksums-Sha256:
- 26efeb8e2caaf9ee55929ef31e6e115ff871393b1bddb993a6d8de46a447aa11 1754 clamscangui_1.1.76-0ubuntu1.dsc
- 732cf9f31ad5023275ebbf6655665f5e1a1922099cc44617d647a9d9e117b817 403720 clamscangui_1.1.76-0ubuntu1_all.deb
+ 5faa7a6e650057ba68f4ca7b866644d2b519b5c6ff16f2e80b157db027b9088d 1756 clamscangui_1.1.76-0ubuntu1.dsc
+ b886485e6abd771e9d3cac124948d74bd89648dbf9adcd27a635f9753d1b8969 404500 clamscangui_1.1.76-0ubuntu1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Tue, 30 Mar 2021 17:42:14 -0300
+Build-Date: Thu, 01 Apr 2021 23:00:05 -0300
 Build-Tainted-By:
  merged-usr-via-symlinks
  usr-local-has-programs
@@ -129,8 +129,8 @@ Installed-Build-Depends:
  libctf-nobfd0 (= 2.35.1-1ubuntu1),
  libctf0 (= 2.35.1-1ubuntu1),
  libcups2 (= 2.3.3-3ubuntu1),
- libcurl3-gnutls (= 7.68.0-1ubuntu4.2),
- libcurl4 (= 7.68.0-1ubuntu4.2),
+ libcurl3-gnutls (= 7.68.0-1ubuntu4.3),
+ libcurl4 (= 7.68.0-1ubuntu4.3),
  libdb5.3 (= 5.3.28+dfsg1-0.6ubuntu3),
  libdbus-1-3 (= 1.12.20-1ubuntu1),
  libdebconfclient0 (= 0.252ubuntu1),
@@ -360,4 +360,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_AR.UTF-8"
  LC_ALL="es_AR.UTF-8"
- SOURCE_DATE_EPOCH="1617105600"
+ SOURCE_DATE_EPOCH="1617278400"

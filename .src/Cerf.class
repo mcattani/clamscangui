@@ -22,10 +22,10 @@ Public Sub Timer1_Timer() '                                                     
           For i = 1 To 100 Step 2
                PictureBox1.Refresh()
                Wait
-               If Module1.cloture Then
+               If Module1.cloture Then                                          'on rembobine
                     PictureBox1.H = CInt(PH / p)
                     PictureBox1.W = CInt(PW / p)
-               Else
+               Else                                                             'on expose
                     PictureBox1.H = CInt(PH * p)
                     PictureBox1.W = CInt(PW * p)
                     PictureBox1.Visible = True

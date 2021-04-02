@@ -1,13 +1,13 @@
 Format: 1.8
-Date: Tue, 30 Mar 2021 12:00:00 +0000
+Date: Thu, 01 Apr 2021 12:00:00 +0000
 Source: clamscangui
 Binary: clamscangui
 Architecture: source all
 Version: 1.1.76-0ubuntu1
 Distribution: unstable
 Urgency: low
-Maintainer: TheNerdyApprentice <marianocattani@gmail.com>
-Changed-By: TheNerdyApprentice <marianocattani@gmail.com>
+Maintainer: The Nerdy Apprentice <marianocattani@gmail.com>
+Changed-By: The Nerdy Apprentice <marianocattani@gmail.com>
 Description:
  clamscangui - - Un sencillo GUI para el antivirus ClamAV. - Une interface grap.
 Changes:
@@ -15,17 +15,17 @@ Changes:
  .
    * New release version
 Checksums-Sha1:
- abce867481ee9c4d739e5ac4d57f5e2579be2e6f 1754 clamscangui_1.1.76-0ubuntu1.dsc
- 0b64f9bb2c1c645f7d840ea99b45f945219e2a9f 4017 clamscangui_1.1.76-0ubuntu1.diff.gz
- 5552d3194b70c8f920feec2b74e44fb3af044dc5 403720 clamscangui_1.1.76-0ubuntu1_all.deb
- 1c5cd1b6dc2c55794e01dc2333ec0d6f1fa6d125 11567 clamscangui_1.1.76-0ubuntu1_amd64.buildinfo
+ c8906aecce0377317d3a7422d28db8e5286e5632 1756 clamscangui_1.1.76-0ubuntu1.dsc
+ 149a0eb1405971f98e8fcfcdc85a7f634f5638de 4081 clamscangui_1.1.76-0ubuntu1.diff.gz
+ c373b0bb876d2398e093433f7f028240054a31df 404500 clamscangui_1.1.76-0ubuntu1_all.deb
+ d8754eee47360e76eb4e8345653722eb2b32af7b 11567 clamscangui_1.1.76-0ubuntu1_amd64.buildinfo
 Checksums-Sha256:
- 26efeb8e2caaf9ee55929ef31e6e115ff871393b1bddb993a6d8de46a447aa11 1754 clamscangui_1.1.76-0ubuntu1.dsc
- 64b92b4f8e28e6df841c2f04ae899c986d36eee58fd33fec158629cef71fa563 4017 clamscangui_1.1.76-0ubuntu1.diff.gz
- 732cf9f31ad5023275ebbf6655665f5e1a1922099cc44617d647a9d9e117b817 403720 clamscangui_1.1.76-0ubuntu1_all.deb
- 03a97836db9dbf2bb10dae1a921fba6fec24321f02915a078a5d32ecf3cdff13 11567 clamscangui_1.1.76-0ubuntu1_amd64.buildinfo
+ 5faa7a6e650057ba68f4ca7b866644d2b519b5c6ff16f2e80b157db027b9088d 1756 clamscangui_1.1.76-0ubuntu1.dsc
+ a1234b4552d74520ff2a42b8b3812eeecc45be7c1b6ece5beb6d5fee218b56dc 4081 clamscangui_1.1.76-0ubuntu1.diff.gz
+ b886485e6abd771e9d3cac124948d74bd89648dbf9adcd27a635f9753d1b8969 404500 clamscangui_1.1.76-0ubuntu1_all.deb
+ 45a41eeb22b5aee361b4943599141f2559209c5e886804275190c9fd82998465 11567 clamscangui_1.1.76-0ubuntu1_amd64.buildinfo
 Files:
- efa854ada3ae78565e97835c8e89c409 1754 contrib/utils optional clamscangui_1.1.76-0ubuntu1.dsc
- fa8906fa0f293de5a7d14ca7555849ca 4017 contrib/utils optional clamscangui_1.1.76-0ubuntu1.diff.gz
- 4c166b3b6b6c84cdc0937e53a76d4b5a 403720 contrib/utils optional clamscangui_1.1.76-0ubuntu1_all.deb
- 3f0f90626d90caea8959b78b60f42c49 11567 contrib/utils optional clamscangui_1.1.76-0ubuntu1_amd64.buildinfo
+ b193488f55c079cbd170f34b43ee2eab 1756 contrib/utils optional clamscangui_1.1.76-0ubuntu1.dsc
+ f0d877c76de5008a37416cb2b9ff9a00 4081 contrib/utils optional clamscangui_1.1.76-0ubuntu1.diff.gz
+ ba4645c67f687851319bcd04054f9ed1 404500 contrib/utils optional clamscangui_1.1.76-0ubuntu1_all.deb
+ 133e45c4b2a92fa2240257568cb42fad 11567 contrib/utils optional clamscangui_1.1.76-0ubuntu1_amd64.buildinfo

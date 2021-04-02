@@ -71,7 +71,7 @@ Public Sub sortie()
           Else
                Shell "killall -u root -9 clamscan" & Application.Id
                Message.Title = ("¡Atención!")
-               Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
+               Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que matar el proceso usted mismo."))
           Endif
      Else                                                                       'si pas sudo alors
           Shell "pgrep -if clamscan" To result

@@ -69,10 +69,11 @@ Public fPil As File                                                             
 Public leFichier As File                                                        'fichier log
 Public histo As File                                                            'fichier historique
 Public dTemps As Date
+Public bTBKill As Boolean                                                       'proc kill ou pas
 
 Public Sub Form_Open()                                                          'Form principale appelée par le Module1
 
-     PanLimit.Visible = False
+     PanLimit.Visible = False                                                   'panneau des limites, invisible
 
      If Not Exist("/usr/bin/clamscan") Then
           Message.Title = ("¡Atención!")
@@ -82,7 +83,7 @@ Public Sub Form_Open()                                                          
           txSalida.text = ("Versión instalada: ") & ClamScan.Version()
      Endif
 
-     If Not Exist("/etc/clamav/clamd.conf") Then
+     If Not Exist("/etc/clamav/clamd.conf") Then                                'test installation de clamav et de son deamon
           Message.Title = ("¡Atención!") & (" ~ Instalación incompleta de Clamav")
           Message(("Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon") & "\n" & ("Para reconfigurar clamav-milter, ejecute sudo dpkg-reconfigure clamav-milter"))
           Me.Close
@@ -117,12 +118,11 @@ Public Sub Form_Open()                                                          
 
      quarantaine = Shell$(quarantaine)                                          'Quote du nom du répertoire
 
-     FMain.Text = Application.Name & " " & Application.Version
-     ' FMain.Text = Application.Version
+     FMain.Text = Application.Name & " " & Application.Version                  'titre de la form
 
      If Settings["First_Time", True] = True Then                                'démarrage première fois
           Settings["First_Time"] = False
-          premiereFois
+          premiereFois                                                          'premier démarrage du prog
      Endif
      LoadSettings()                                                             'réglages enregistrés
      Cerf.ShowModal()                                                           'splash form
@@ -427,7 +427,7 @@ Public Sub _new()                                                               
           dc.Tooltip = ("Elija el directorio para escanear")
           fc.Tooltip = ("Elija el archivo para analizar")
      Endif
-     menuVraix()
+     menuVraix()                                                                'menus activés
 
 End
 
@@ -552,10 +552,13 @@ Public Sub TBKill_Click()                                                       
      Endif
 
      If ClamScan.hProc.State = ClamScan.hProc.Running Then
+
           FMain.txSalida3.Clear
           FMain.txSalida2.Clear
-          FMain.txSalida2.Text = ("Espere mientras se apaga el antivirus")
-          FMain.txSalida3.Text = (" Interrupción del trabajo ")
+          FMain.txSalida2.Text = ("Espere mientras se apaga el antivirus")      'affichage dans terminal du bas
+          FMain.txSalida3.Text = (" Interrupción del trabajo ")                 'affichage dans terminal du bas
+          Wait 0.1
+          bTBKill = True
           If FMain.bSudo = True Then
                Authenticate.Command("sudo killall -u root -9 clamscan")         'montexte est affecté à la commande du process
                If FMain.bFlag = True Then
@@ -564,7 +567,7 @@ Public Sub TBKill_Click()                                                       
                     Shell "killall -u root -9 clamscan" & Application.Id
                Endif
           Else
-               ClamScan.hProc.Kill                                              'on tue le processus
+               ClamScan.hProc.Kill                                              'on tue le processus voir le ClamScan.Scan_Kill()
           Endif
           _new()
      Else
@@ -600,8 +603,8 @@ Public Sub MnuLog_Click()                                                       
      FMain.Mouse = Mouse.Wait
      Wait
      iForm = 1
-     Me.Hide
      FrmGeneral.ShowModal()
+     Me.Hide
      FMain.Mouse = Mouse.Default
      FMain.Show()
 
@@ -611,9 +614,9 @@ Public Sub mnFreshclam_Click()                                                  
 
      FMain.Mouse = Mouse.Wait
      Wait
-     Me.Hide
      iForm = 2
      FrmGeneral.ShowModal()
+     Me.Hide
      FMain.Mouse = Mouse.Default
      FMain.Show()
 
@@ -806,10 +809,10 @@ Public Sub AppliLangues()                                                       
      Else
           Settings["General/LangInit"] = langue
           Settings.Save
-          '*** ATTENTION Cette ligne doit etre Décommenté lors du travail dans l'IDE  et être commenter avant de générer l'executable ***
+          '*** ATTENTION la ligne suivante doit etre Décommenté lors du travail dans l'IDE  et être commenter avant de générer l'executable ***
           ' Shell "gbx3 " & Application.Path
           Shell "kill -9 " & Application.id
-          '*** ATTENTION ligne à décommenter avant de générer l'executable ***
+          '*** ATTENTION ligne suivante à décommenter avant de générer l'executable ***
           Exec [Application.Path & "/" & Application.Name]
      Endif
 
@@ -973,7 +976,7 @@ End
 Public Sub BtnDefaut_Click()                                                    'valeurs par défaut dans les limites
 
      FMain.sCommande = ""
-     If BtnDefaut.value = False Then
+     If BtnDefaut.value = False Then                                            'Défaut
           BtnDefaut.Text = ("Defecto")
           SlidFilesize.value = SlidFilesize.DefaultValue
           SlidScansize.Value = SlidScansize.DefaultValue
@@ -991,7 +994,7 @@ Public Sub BtnDefaut_Click()                                                    
           SlidPcreRecLimit.Value = SlidPcreRecLimit.DefaultValue
           SlidPcreFilesize.Value = SlidPcreFilesize.DefaultValue
           SlidZipType.Value = SlidZipType.DefaultValue
-     Else
+     Else                                                                       'Max
           BtnDefaut.Text = ("Max")
           SlidFilesize.value = SlidFilesize.MaxValue
           SlidScansize.Value = SlidScansize.MaxValue
@@ -1011,7 +1014,7 @@ Public Sub BtnDefaut_Click()                                                    
           SlidZipType.Value = SlidZipType.MaxValue
      Endif
 
-     limit_Leave()
+     limit_Leave()                                                              'Application des limites
 
 End
 

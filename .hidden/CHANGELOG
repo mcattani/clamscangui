@@ -1,6 +1,10 @@
-* Tue Mar 30 2021 TheNerdyApprentice <marianocattani@gmail.com> 1.1.76
+* Thu Apr 01 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.76
 
-* Tue Mar 30 2021 PilValaquarus <valaquarus@gmail.com> 1.1.76
+* Wed Mar 31 2021 PilValaquarus <valaquarus@gmail.com> 1.1.76
+- Correction texte à afficher sur scan_kill si fin ou si kill du process
+
+* Wed Mar 31 2021 PilValaquarus <valaquarus@gmail.com> 1.1.76
+- Déplacement Me.hide dans MnuLog_click
 - Ajout de Scan_Kill et modification message terminal pendant hProc.kill
 
 * Tue Mar 30 2021 PilValaquarus <valaquarus@gmail.com> 1.1.75
@@ -133,13 +137,11 @@
 - Ajout Limitations
 
 * Thu Dec 03 2020 PilValaquarus <valaquarus@gmail.com> 1.1.56
-- Terminal, fond noir
-
-* Thu Dec 03 2020 PilValaquarus <valaquarus@gmail.com> 1.1.56
 - Ajout de clamsubmit pour soumission de faux positifs
 - correction d'un petit bug sur les champs email et nom
 - renommage menu actions
 - Ajout --gen-json
+- Terminal, fond noir
 
 * Mon Nov 30 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.55
 - Vérification des différents menus activés

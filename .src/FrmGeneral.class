@@ -306,7 +306,6 @@ Public Sub _New() 'Form_Open()
                Else
                     Try Shell " cat " & FMain.clamLog To TextArea1.Text        'affiche tout le fichier
                Endif
-
                ' TextArea1.Text = File.Load(FMain.clamLog)
                If TextArea1.Text = "" Then
                     TextArea1.Alignment = Align.Center
@@ -417,7 +416,7 @@ Public Sub _New() 'Form_Open()
                TextArea1.pos = 0
                TextArea1.EnsureVisible()
 
-          Case 4                                                                'Aide
+          Case 4                                                                'Aide de ClamScanGui
                btnSauve.Visible = False
                btnBorrar.Visible = False
                btnImpr.visible = True
