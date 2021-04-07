@@ -4,57 +4,57 @@ Un antivirus, clamav, bajo Linux:
 
 --- Menús de software: ---
 
---Las opciones :--
+	--Las opciones :--
 
--Las opciones :
+		-Las opciones :
 - utilizado para mostrar los resultados del análisis en el área de texto de la ventana principal con ciertas opciones.
 Limitaciones:
 - le permite establecer ciertos límites de tamaño de archivo para controlar
 
---Opciones avanzadas:--
+	--Opciones avanzadas:--
 
-- Opciones no marcadas por defecto: -
+		- Opciones no marcadas por defecto: -
 - estas opciones siempre deben estar desmarcadas a menos que sepa lo que está haciendo.
-Escaneo recursivo:
+		- Escaneo recursivo:
 - La opción más importante porque le permite seguir la ruta completa del archivo que se analiza. Esto ralentiza el análisis (un poco).
-Eliminar archivos contaminados:
+		- Eliminar archivos contaminados:
 - Opción relativamente peligrosa si tenemos en cuenta la cantidad de falsos positivos que puede generar el antivirus.
-Detecte aplicaciones potencialmente no deseadas (PUA):
+		- Detecte aplicaciones potencialmente no deseadas (PUA):
 - El antivirus es más agresivo con esta opción pero genera más falsos positivos (depende de ti)
-Mueva los archivos potencialmente infectados a la cuarentena:
+		- Mueva los archivos potencialmente infectados a la cuarentena:
 - Proporciona un acceso más rápido a archivos potencialmente infectados; ya sea para destruirlos o restaurarlos en caso de falsos positivos.
 - Nuevamente, tenga cuidado con su uso, la eliminación de un archivo se realiza de forma rápida y permanente.
 
-- Actualización de la base de datos: -
+		- Actualización de la base de datos: -
 - clamav viene con un actualizador llamado freshclam que puede (por defecto) realizar actualizaciones de forma automática o manual, puedes cambiar la opción.
 - Puede comprobar su estado leyendo el archivo de registro (en inglés).
 - Puede verificar la configuración de freshclam en su archivo de configuración, en: /etc/clamav/freshclam.conf
 - Puede aumentar ligeramente el tiempo de recuperación de la actualización que, por defecto, es de 30 segundos si recibe errores de descarga sistemáticamente. Con una conexión ADSL, 150 segundos es más que suficiente.
 
-- Opciones marcadas por defecto: -
+		- Opciones marcadas por defecto: -
 No debe desmarcar estas opciones.
 - Para elegir si se analizan o no determinados tipos de archivos. (Por defecto, todos los escáneres)
 
---Acciones: -
+	--Acciones: -
 
-- Cuarentena: -
+		- Cuarentena: -
 - Le permite actuar sobre los archivos puestos en cuarentena, ya sea automáticamente si la opción ha sido marcada, o por usted.
-- Archivos potencialmente infectados: -
+		- Archivos potencialmente infectados: -
 - Le permite ver y luego actuar sobre los archivos que realmente se han movido a cuarentena (destrucción, restauración o no acción)
-- Registro de sesión: -
+		- Registro de sesión: -
 - Le permite ver los análisis realizados durante la sesión.
--Historia:-
+		-Historia:-
 - Le permite ver todos los análisis realizados antes siempre que no los elimine.
 (Tenga cuidado si la opción -verbose está marcada, el archivo puede volverse muy grande rápidamente).
--Las lenguas :-
+		-Las lenguas :-
 - Actualmente puede elegir entre tres idiomas a los que se ha traducido el software (inglés, español o francés)
--Archivos de configuración: -
+		-Archivos de configuración: -
 - Los siguientes archivos se pueden ver o editar si se presiona el botón sudo:
-clamd.conf
-freshclam.conf
-milter-clamav.conf
+	clamd.conf
+	freshclam.conf
+	milter-clamav.conf
 
-- El botón Sudo: -
+		- El botón Sudo: -
 - le permite ejecutar sus comandos como superusuario.
 
 Un punto sobre el análisis:

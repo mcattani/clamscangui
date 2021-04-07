@@ -11,7 +11,7 @@
 '' ' si ce n 'est pas le cas, consultez <http://www.gnu.org/licenses>.
 '' ' *********************************************************************************************************
 
-'*************************** clés à transmettre à clamscan *********************
+'*************************** clés boolean à transmettre à clamscan *********************
 Public SalidaERR As Boolean
 Public SinINF As Boolean
 Public Recursive As Boolean
@@ -63,24 +63,23 @@ Public bSortie As Boolean                                                       
 Public bFlag As Boolean                                                         'drapeau boolean
 Public bSudo As Boolean                                                         'sudo appliqué
 Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
+Public bTBKill As Boolean                                                       'proc kill ou pas
 
 Public fListe As File                                                           'fichier liste virus en quarantaine
 Public fPil As File                                                             'fichier liste virus trouvés
 Public leFichier As File                                                        'fichier log
 Public histo As File                                                            'fichier historique
-Public dTemps As Date
-Public bTBKill As Boolean                                                       'proc kill ou pas
+
+Public dTemps As Date                                                           'temps écoulé du scan
 
 Public Sub Form_Open()                                                          'Form principale appelée par le Module1
 
      PanLimit.Visible = False                                                   'panneau des limites, invisible
 
-     If Not Exist("/usr/bin/clamscan") Then
+     If Not Exist("/usr/bin/clamscan") Then                                     'test installation de clamscan
           Message.Title = ("¡Atención!")
           Message.Warning(("Debe tener instalado el antivirus ClamAv para poder utilizar esta App"))
           Me.Close
-     Else
-          txSalida.text = ("Versión instalada: ") & ClamScan.Version()
      Endif
 
      If Not Exist("/etc/clamav/clamd.conf") Then                                'test installation de clamav et de son deamon
@@ -116,7 +115,7 @@ Public Sub Form_Open()                                                          
           fListe = Open liste For Create
      Endif
 
-     quarantaine = Shell$(quarantaine)                                          'Quote du nom du répertoire
+     quarantaine = Shell$(quarantaine)                                          'Quote du nom du répertoire de quarantaine
 
      FMain.Text = Application.Name & " " & Application.Version                  'titre de la form
 
@@ -189,13 +188,12 @@ Public Sub LoadSettings()                                                       
      MnuArchVerbose.Value = Settings["Menu/ArchVerbose"]
      MnuDebug.value = Settings["Menu/Debug"]
      MnuJson.Value = Settings["Menu/Json"]
-     '************* Group optionAvance *****************************************
+     '************* Group optionAvance par défaut OFF **************************
      mnRemover.Value = Settings["Menu/Remover"]
      mnDetectar.Value = Settings["Menu/Detectar"]
      MnuDeplacer.Value = Settings["Menu/Deplacer"]
      mnRecursivo.Value = Settings["Menu/Recursif"]
      MnuAllMatch.value = Settings["Menu/AllMatch"]
-     MnuCrossFs.value = Settings["Menu/CrossFs"]
      MnuIntersection.Value = Settings["Menu/Intersection"]
      MnuStructured.Value = Settings["Menu/Structured"]
      '**************************************************************************
@@ -206,7 +204,8 @@ Public Sub LoadSettings()                                                       
      langue = Settings["General/LangInit"]
      email = Settings["General/courriel"]
      nom = Settings["General/nom"]
-     '************* Group option1 **********************************************
+     BtnDefaut.Value = Settings["General/limites"]
+     '************* Group option1 par défaut ON ********************************
      mnuHWP3.Value = Settings["Menu/pHWP3"]
      mnuXML.Value = Settings["Menu/pXML"]
      mnuSWF.Value = Settings["Menu/pSWF"]
@@ -219,6 +218,7 @@ Public Sub LoadSettings()                                                       
      MnuPhishingSig.Value = Settings["Menu/PhishingSig"]
      MnuPhishingUrl.Value = Settings["Menu/PhishingUrl"]
      MnuAlgo.Value = Settings["Menu/Algo"]
+     MnuCrossFs.value = Settings["Menu/CrossFs"]
      '********** Toutes options transmises *************************************
      SalidaERR = mnErrores.Value
      infect = mnInfectados.Value
@@ -229,7 +229,7 @@ Public Sub LoadSettings()                                                       
      ArchVerbose = MnuArchVerbose.Value
      Adebug = MnuDebug.Value
      Json = MnuJson.Value
-     '**************************************************************************
+     '******************par défaut ON*******************************************
      mail = mnuMail.Value
      pdf = mnuPdf.Value
      Swf = mnuSWF.Value
@@ -242,8 +242,8 @@ Public Sub LoadSettings()                                                       
      PhishingSig = MnuPhishingSig.Value
      PhishingUrl = MnuPhishingUrl.Value
      Algo = MnuAlgo.Value
-     '**************************************************************************
      CrossFs = MnuCrossFs.Value
+     '*******************Par défaut OFF*****************************************
      AllMatch = MnuAllMatch.Value
      Remover = mnRemover.Value
      Quarant = MnuDeplacer.Value
@@ -251,27 +251,8 @@ Public Sub LoadSettings()                                                       
      AppsIndeseadas = mnDetectar.Value
      Intersection = MnuIntersection.Value
      Structured = MnuStructured.Value
-     '**************************************************************************
-     ''Voir si besoin de maintenir les choix des limites ou non dans les settings
-     ' If SlidFilesize.value <> SlidFilesize.DefaultValue Then sCommande = sCommande & " --max-filesize=" & CStr(SlidFilesize.Value) & "M"
-     ' If SlidScansize.Value <> SlidScansize.DefaultValue Then sCommande = sCommande & " --max-scansize=" & CStr(SlidScansize.Value) & "M"
-     ' If SlidFiles.Value <> SlidFiles.DefaultValue Then sCommande = sCommande & " --max-files=" & CStr(SlidFiles.Value)
-     ' If Slidrecursion.Value <> Slidrecursion.DefaultValue Then sCommande = sCommande & " --max-recursion=" & CStr(Slidrecursion.Value)
-     ' If SlidDirRecursion.value <> SlidDirRecursion.DefaultValue Then sCommande = sCommande & " --max-dir-recursion=" & CStr(SlidDirRecursion.Value)
-     ' If SlidEmbPE.Value <> SlidEmbPE.DefaultValue Then sCommande = sCommande & " --max-embeddedpe=" & CStr(SlidEmbPE.Value) & "M"
-     ' If SlidHtmlNorm.Value <> SlidHtmlNorm.DefaultValue Then sCommande = sCommande & " --max-htmlnormalize=" & CStr(SlidHtmlNorm.Value) & "M"
-     ' If SlidHtmlTags.Value <> SlidHtmlTags.DefaultValue Then sCommande = sCommande & " --max-htmlnotags=" & CStr(SlidHtmlTags.Value) & "M"
-     ' If SlidScriptNorm.Value <> SlidScriptNorm.DefaultValue Then sCommande = sCommande & " --max-scriptnormalize=" & CStr(SlidScriptNorm.Value) & "M"
-     ' If SlidPartitions.Value <> SlidPartitions.DefaultValue Then sCommande = sCommande & " --max-partitions=" & CStr(SlidPartitions.Value)
-     ' If SlidIconsPE.Value <> SlidIconsPE.DefaultValue Then sCommande = sCommande & " -- max-iconspe=" & CStr(SlidIconsPE.Value)
-     '
-     ' If SlidRechWP3.Value <> SlidRechWP3.DefaultValue Then sCommande = sCommande & "  --max-rechwp3=" & CStr(SlidRechWP3.Value)
-     ' If SlidPcreLimit.Value <> SlidPcreLimit.DefaultValue Then sCommande = sCommande & "  --pcre-match-limit=" & CStr(SlidPcreLimit.Value)
-     ' If SlidPcreRecLimit.Value <> SlidPcreRecLimit.DefaultValue Then sCommande = sCommande & " --pcre-recmatch-limit=" & CStr(SlidPcreRecLimit.Value)
-     ' If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
-     ' If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
 
-     If langue = "fr" Then
+     If langue = "fr" Then                                                      'langue dans menu
           MnuFrancais.Value = True
      Else If langue = "en" Then
           MnuAnglais.Value = True
@@ -307,13 +288,70 @@ Public Sub LoadSettings()                                                       
      MnuVirus.Enabled = True
      MnuCorrompus.Enabled = True
 
+     presentation()                                                             'présentation des informations de scan
+
+End
+
+Public Sub presentation()                                                       'présentation des informations de scan
+
+     txSalida.text = ("Versión instalada: ") & ClamScan.Version()
+     '********************** presente les choix de session *********************
+     txSalida.text &= ("Elección de sesión:") & gb.CrLf                         'session
+     txSalida.text &= gb.Tab
+     If mnErrores.Value = True Then txSalida.text &= "-quiet " & "ON ; "
+     If mnNoSummary.Value = True Then txSalida.text &= "-no Summary " & "ON ; "
+     If mnInfectados.Value = True Then txSalida.text &= "-infected " & "ON ; "
+     If MnuVerbose.value = True Then txSalida.text &= "-verbose " & "ON ; "
+     If mnSupressOK.value = True Then txSalida.text &= "-suppressOK " & "ON ; "
+     If mnBell.value = True Then txSalida.text &= "-bell " & "ON ; "
+     If MnuDebug.value = True Then txSalida.text &= "-debug " & "ON ; "
+     If MnuArchVerbose.value = True Then txSalida.text &= "-archVerbose " & "ON ; "
+     If MnuJson.value = True Then txSalida.text &= "-gen-json " & "ON ; "
+     If mnErrores.Value = False And mnNoSummary.Value = False And mnInfectados.Value = False And MnuVerbose.value = False And mnSupressOK.value = False And mnBell.value = False And MnuDebug.value = False And MnuArchVerbose.value = False And MnuJson.value = False Then txSalida.text &= ("Sin selección")
+     '********************** presente les limitations **************************
+     txSalida.text &= gb.CrLf & ("Limitaciones:") & gb.CrLf                     'limitations
+     txSalida.text &= gb.Tab
+     If BtnDefaut.value = False Then
+          txSalida.Text &= ("Defecto")
+     Else
+          txSalida.Text &= ("Max")
+     Endif
+     '********************** presente les options cochées **********************
+     txSalida.text &= gb.CrLf & ("Opciones no marcadas por defecto") & gb.CrLf  'options décochées par défaut
+     txSalida.text &= gb.Tab
+     If MnuAllMatch.Value = True Then txSalida.text &= "-allmatch " & "ON ; "
+     If mnDetectar.Value = True Then txSalida.text &= "-detect-pua " & "ON ; "
+     If mnRecursivo.Value = True Then txSalida.text &= "-recursive " & "ON ; "
+     If MnuStructured.Value = True Then txSalida.text &= "-detect-structured " & "ON ; "
+     If MnuIntersection.Value = True Then txSalida.text &= "-partition-intersection " & "ON ; "
+     If mnRemover.Value = True Then txSalida.text &= "-remove " & "ON ; "
+     If MnuDeplacer.Value = True Then txSalida.text &= "-move " & "ON ; "
+     If MnuAllMatch.Value = False And mnDetectar.Value = False And mnRecursivo.Value = False And MnuStructured.Value = False And MnuIntersection.Value = False And mnRemover.Value = False And MnuDeplacer.Value = False Then txSalida.text &= ("Todo es OFF")
+     '********************** presente les options non cochées ******************
+     txSalida.text &= gb.CrLf & ("Opciones marcadas por defecto") & gb.CrLf     'options cochées par défaut
+     txSalida.text &= gb.Tab
+     If MnuCrossFs.Value = False Then txSalida.text &= "-cross-fs " & "Off ; "
+     If mnuHWP3.Value = False Then txSalida.text &= "-scan-hwp3 " & "Off ; "
+     If mnuXML.Value = False Then txSalida.text &= "-scan-html " & "Off ; "
+     If mnuSWF.value = False Then txSalida.text &= "-scan-swf " & "Off ; "
+     If mnuPdf.value = False Then txSalida.text &= "-scan-pdf " & "Off ; "
+     If mnuPE.value = False Then txSalida.text &= "-scan-pe " & "Off ; "
+     If mnuELF.value = False Then txSalida.text &= "-scan-elf " & "Off ; "
+     If MnuARCH.value = False Then txSalida.text &= "-scan-archive " & "Off ; "
+     If mnuMail.value = False Then txSalida.text &= "-scan-mail " & "Off ; "
+     If MnuAlgo.value = False Then txSalida.text &= "-algorithmic-detection " & "Off ; "
+     If MnuPhishingSig.value = False Then txSalida.text &= "-phishing-sig " & "Off ; "
+     If MnuPhishingUrl.value = False Then txSalida.text &= "-phishing-scan-url " & "Off ; "
+     If MnuOLE2.value = False Then txSalida.text &= "-scan-OLE2 " & "Off ; "
+     If MnuCrossFs.Value = True And mnuHWP3.Value = True And mnuXML.Value = True And mnuSWF.value = True And mnuPdf.value = True And mnuPE.value = True And mnuELF.value = True And MnuARCH.value = True And mnuMail.value = True And MnuAlgo.value = True And MnuPhishingSig.value = True And MnuPhishingUrl.value = True And MnuOLE2.value = True Then txSalida.text &= ("Todo es ON")
+
 End
 
 Public Sub TBSudo_Click()                                                       'bouton sudo enfoncé
 
      If TBSudo.Value = True Then                                                'le bouton est enfoncé
-          bSudo = True
-          bTBSudo = True
+          bSudo = True                                                          'boolean
+          bTBSudo = True                                                        'boolean
           Message.Title = (("¡Atención!"))
           Message.Info(("¡Todos sus pedidos son \n del SuperUsuario!"))
      Endif
@@ -326,7 +364,7 @@ End
 
 Public Sub SaveSettings()                                                       'sauvegarde des réglages en conf
 
-     '********** Group log1 ****************************************************
+     '********** Group log1 ****************************************************'choix de session
      Settings["Menu/Errores"] = mnErrores.Value
      Settings["Menu/Infectes"] = mnInfectados.Value
      Settings["Menu/NoSummary"] = mnNoSummary.Value
@@ -336,7 +374,7 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/ArchVerbose"] = MnuArchVerbose.Value
      Settings["Menu/Debug"] = MnuDebug.value
      Settings["Menu/Json"] = MnuJson.Value
-     '******** Group optionAvance **********************************************
+     '******** Group optionAvance **********************************************'options pas par défaut
      Settings["Menu/Recursif"] = mnRecursivo.Value
      Settings["Menu/Remover"] = mnRemover.Value
      Settings["Menu/Detectar"] = mnDetectar.Value
@@ -350,7 +388,7 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/Manuel"] = MnuManuelle.Value
      Settings["Menu/Immediat"] = MnuImmediate.Enabled
      Settings["Menu/Virus"] = MnuVirus.Enabled
-     '********* Group option1 **************************************************
+     '********* Group option1 **************************************************'options par défaut
      Settings["Menu/pHWP3"] = mnuHWP3.Value
      Settings["Menu/pXML"] = mnuXML.Value
      Settings["Menu/pSWF"] = mnuSWF.Value
@@ -365,25 +403,7 @@ Public Sub SaveSettings()                                                       
      Settings["Menu/Algo"] = MnuAlgo.Value
      '**************************************************************************
      Settings["General/LangInit"] = langue
-
-     '' Voir si besoin de maintenir les choix des limites ou non dans les settings
-     ' If SlidFilesize.value <> SlidFilesize.DefaultValue Then sCommande = sCommande & " --max-filesize=" & CStr(SlidFilesize.Value) & "M"
-     ' If SlidScansize.Value <> SlidScansize.DefaultValue Then sCommande = sCommande & " --max-scansize=" & CStr(SlidScansize.Value) & "M"
-     ' If SlidFiles.Value <> SlidFiles.DefaultValue Then sCommande = sCommande & " --max-files=" & CStr(SlidFiles.Value)
-     ' If Slidrecursion.Value <> Slidrecursion.DefaultValue Then sCommande = sCommande & " --max-recursion=" & CStr(Slidrecursion.Value)
-     ' If SlidDirRecursion.value <> SlidDirRecursion.DefaultValue Then sCommande = sCommande & " --max-dir-recursion=" & CStr(SlidDirRecursion.Value)
-     ' If SlidEmbPE.Value <> SlidEmbPE.DefaultValue Then sCommande = sCommande & " --max-embeddedpe=" & CStr(SlidEmbPE.Value) & "M"
-     ' If SlidHtmlNorm.Value <> SlidHtmlNorm.DefaultValue Then sCommande = sCommande & " --max-htmlnormalize=" & CStr(SlidHtmlNorm.Value) & "M"
-     ' If SlidHtmlTags.Value <> SlidHtmlTags.DefaultValue Then sCommande = sCommande & " --max-htmlnotags=" & CStr(SlidHtmlTags.Value) & "M"
-     ' If SlidScriptNorm.Value <> SlidScriptNorm.DefaultValue Then sCommande = sCommande & " --max-scriptnormalize=" & CStr(SlidScriptNorm.Value) & "M"
-     ' If SlidPartitions.Value <> SlidPartitions.DefaultValue Then sCommande = sCommande & " --max-partitions=" & CStr(SlidPartitions.Value)
-     ' If SlidIconsPE.Value <> SlidIconsPE.DefaultValue Then sCommande = sCommande & " -- max-iconspe=" & CStr(SlidIconsPE.Value)
-     '
-     ' If SlidRechWP3.Value <> SlidRechWP3.DefaultValue Then sCommande = sCommande & "  --max-rechwp3=" & CStr(SlidRechWP3.Value)
-     ' If SlidPcreLimit.Value <> SlidPcreLimit.DefaultValue Then sCommande = sCommande & "  --pcre-match-limit=" & CStr(SlidPcreLimit.Value)
-     ' If SlidPcreRecLimit.Value <> SlidPcreRecLimit.DefaultValue Then sCommande = sCommande & " --pcre-recmatch-limit=" & CStr(SlidPcreRecLimit.Value)
-     ' If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
-     ' If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
+     Settings["General/limites"] = BtnDefaut.Value
 
 End
 
@@ -401,9 +421,10 @@ End
 
 Public Sub FC_Activate()
 
+     If Message.Question(("Por favor, espere unos segundos mientras inicia el antivirus"), ("Si"), ("No")) = 2 Then Return
      menuFaux()                                                                 'menus désactivés
-     Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(FC.SelectedPath)
+     txSalida.Clear
      ClamScan.ScanAction(Ruta)
      menuVraix()                                                                'menus activés
 
@@ -411,9 +432,10 @@ End
 
 Public Sub DC_Activate()
 
+     If Message.Question(("Por favor, espere unos segundos mientras inicia el antivirus"), ("Si"), ("No")) = 2 Then Return
      menuFaux()                                                                 'menus désactivés
-     Message.Info(("Por favor, espere unos segundos mientras inicia el antivirus"))
      Ruta = Shell$(DC.SelectedPath)
+     txSalida.Clear
      ClamScan.ScanAction(Ruta)
      menuVraix() '                                                              'menus activés
 
@@ -482,6 +504,7 @@ Public Sub menuFaux()                                                           
      TBhProc.Enabled = False
      TBeffacer.Enabled = False
      TBSudo.Enabled = False
+     TBPresent.Enabled = False
      BtnDefaut.Enabled = False
      SlidDirRecursion.Enabled = False
      SlidEmbPE.Enabled = False
@@ -520,6 +543,7 @@ Public Sub menuVraix()                                                          
      TBhProc.Enabled = True
      TBeffacer.Enabled = True
      TBSudo.Enabled = True
+     TBPresent.Enabled = True
      BtnDefaut.Enabled = True
      SlidDirRecursion.Enabled = True
      SlidEmbPE.Enabled = True
@@ -538,7 +562,6 @@ Public Sub menuVraix()                                                          
      SlidScriptNorm.Enabled = True
      SlidZipType.Enabled = True
      Panel3.Visible = False
-     FMain.txSalida3.Clear
      Wait
 
 End
@@ -551,16 +574,18 @@ Public Sub TBKill_Click()                                                       
           Return
      Endif
 
-     If ClamScan.hProc.State = ClamScan.hProc.Running Then
+     If ClamScan.hProc.State = ClamScan.hProc.Running Then                      'si le process tourne
 
           FMain.txSalida3.Clear
           FMain.txSalida2.Clear
           FMain.txSalida2.Text = ("Espere mientras se apaga el antivirus")      'affichage dans terminal du bas
           FMain.txSalida3.Text = (" Interrupción del trabajo ")                 'affichage dans terminal du bas
-          Wait 0.1
-          bTBKill = True
+
+          bTBKill = True                                                        'marque le fait de kill le process
+
           If FMain.bSudo = True Then
                Authenticate.Command("sudo killall -u root -9 clamscan")         'montexte est affecté à la commande du process
+               Wait                                                             'pour établissement de Authenticate
                If FMain.bFlag = True Then
                     Shell FMain.monTexte
                Else
@@ -570,7 +595,7 @@ Public Sub TBKill_Click()                                                       
                ClamScan.hProc.Kill                                              'on tue le processus voir le ClamScan.Scan_Kill()
           Endif
           _new()
-     Else
+     Else                                                                       'si le process ne tourne pas
           Message(("¡El proceso ya se detuvo!"))
      Endif
 
@@ -588,8 +613,8 @@ End
 
 Public Sub MnuHistoric_Click()                                                  'montre l'historique global
 
-     FMain.Mouse = Mouse.Wait                                                   'au cas où le fichier serait gros
-     Wait                                                                       'prévoir de réduire le fichier à un maximume de 1 mega
+     FMain.Mouse = Mouse.Wait
+     Wait
      iForm = 0
      FrmGeneral.ShowModal()
      Me.Hide
@@ -809,7 +834,7 @@ Public Sub AppliLangues()                                                       
      Else
           Settings["General/LangInit"] = langue
           Settings.Save
-          '*** ATTENTION la ligne suivante doit etre Décommenté lors du travail dans l'IDE  et être commenter avant de générer l'executable ***
+          '*** ATTENTION ligne suivante à Décommenté lors du travail dans l'IDE et à commenter avant de générer l'executable ***
           ' Shell "gbx3 " & Application.Path
           Shell "kill -9 " & Application.id
           '*** ATTENTION ligne suivante à décommenter avant de générer l'executable ***
@@ -820,11 +845,11 @@ End
 
 Public Sub TBeffacer_Click()                                                    'bouton effacer le texte du textarea1
 
-     FMain.txSalida.Text = ""
+     FMain.txSalida.Clear
 
 End
 
-Public Sub Log1_Click()                                                         'menu des enregistrements
+Public Sub Log1_Click()                                                         'menu des enregistrements de session
 
      Settings["Menu/Errores"] = mnErrores.Value
      Settings["Menu/Infectes"] = mnInfectados.Value
@@ -847,10 +872,11 @@ Public Sub Log1_Click()                                                         
      Json = MnuJson.Value
 
      SaveSettings()
+     presentation()
 
 End
 
-Public Sub option1_Click()                                                      'menu des options +
+Public Sub option1_Click()                                                      'menu des options + ou cochées par défaut
 
      Settings["Menu/pHWP3"] = mnuHWP3.Value
      Settings["Menu/pXML"] = mnuXML.Value
@@ -864,6 +890,7 @@ Public Sub option1_Click()                                                      
      Settings["Menu/PhishingSig"] = MnuPhishingSig.Value
      Settings["Menu/PhishingUrl"] = MnuPhishingUrl.Value
      Settings["Menu/Algo"] = MnuAlgo.Value
+     Settings["Menu/CrossFs"] = MnuCrossFs.Value
 
      mail = mnuMail.Value                                                       'valeurs transmises
      pdf = mnuPdf.Value
@@ -877,12 +904,14 @@ Public Sub option1_Click()                                                      
      PhishingSig = MnuPhishingSig.Value
      PhishingUrl = MnuPhishingUrl.Value
      Algo = MnuAlgo.Value
+     CrossFs = MnuCrossFs.Value
 
      SaveSettings()
+     presentation()
 
 End
 
-Public Sub optionAvance_Click()                                                 'menu des options avancées
+Public Sub optionAvance_Click()                                                 'menu des options avancées ou non cochées par défaut
 
      If MnuDeplacer.Value = True Then
           RB1.Background = Color.Red
@@ -898,7 +927,6 @@ Public Sub optionAvance_Click()                                                 
      Settings["Menu/Detectar"] = mnDetectar.Value
      Settings["Menu/Deplacer"] = MnuDeplacer.Value
      Settings["Menu/AllMatch"] = MnuAllMatch.value
-     Settings["Menu/CrossFs"] = MnuCrossFs.Value
      Settings["Menu/Intersection"] = MnuIntersection.Value
      Settings["Menu/Structured"] = MnuStructured.Value
 
@@ -907,11 +935,11 @@ Public Sub optionAvance_Click()                                                 
      Recursive = mnRecursivo.Value
      AppsIndeseadas = mnDetectar.Value
      AllMatch = MnuAllMatch.Value
-     CrossFs = MnuCrossFs.Value
      Intersection = MnuIntersection.Value
      Structured = MnuStructured.Value
 
      SaveSettings()
+     presentation()
 
 End
 
@@ -969,11 +997,11 @@ Public Sub limit_Leave()                                                        
      If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
      If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
 
-     SaveSettings()
+     ' SaveSettings()'avec BtnDefaut.value met tout les défaut à faux si décommenté, pas encore compris pourquoi?
 
 End
 
-Public Sub BtnDefaut_Click()                                                    'valeurs par défaut dans les limites
+Public Sub BtnDefaut_Click()                                                    'Changement état du Bouton défaut dans les limites
 
      FMain.sCommande = ""
      If BtnDefaut.value = False Then                                            'Défaut
@@ -1015,6 +1043,8 @@ Public Sub BtnDefaut_Click()                                                    
      Endif
 
      limit_Leave()                                                              'Application des limites
+
+     presentation()                                                             'affichage dans terminal des infos de scan
 
 End
 
@@ -1059,5 +1089,11 @@ Public Sub Menu18_Click()                                                       
      Else
           Message.Info(("No hay actualizaciones disponibles"))
      Endif
+
+End
+
+Public Sub TBPresent_Click()                                                    'bouton d'apparition de la présentation des infos de scan
+
+     presentation()
 
 End

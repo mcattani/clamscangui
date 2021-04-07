@@ -1,14 +1,14 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,108,28)
+  MoveScaled(0,0,108,30)
   ToolTip = ("Acerca de") & "..."
   Text = ("Acerca de") & "..."
   Icon = Picture["icon:/48/security"]
   Resizable = False
   SkipTaskbar = True
   { URL URLLabel
-    MoveScaled(0.7143,23,49,4)
+    MoveScaled(1,25,49,4)
     Font = Font["+3"]
     ToolTip = ("Click para acceder al blog")
     Text = ("thenerdyapprentice.blogspot.com/")
@@ -33,7 +33,7 @@
     Wrap = True
   }
   { btCerrar Button
-    MoveScaled(90,23,16.1429,4)
+    MoveScaled(51,25,16.1429,4)
     Text = ("Cerrar")
     Picture = Picture["icon:/24/close"]
   }
@@ -42,7 +42,7 @@
     Arrangement = Arrange.Fill
     Border = Border.Raised
     { PictureBox1 PictureBox
-      MoveScaled(-2.5714,0,27,21)
+      MoveScaled(-4.5714,0,27,21)
       ToolTip = ("The Nerdy Apprentice")
       Picture = Picture["Logo_Oficial.png"]
       Alignment = Align.Center
@@ -50,7 +50,7 @@
     }
   }
   { URLLabel1 URLLabel
-    MoveScaled(56,23,34,4)
+    MoveScaled(72,25,34,4)
     Font = Font["+3"]
     Text = ("pvacoustics.net/index.php")
     Link = "http://www.pvacoustics.net/index.php"

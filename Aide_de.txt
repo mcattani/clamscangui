@@ -4,20 +4,20 @@ Ein Antivirenprogramm, Clamav, unter Linux:
 
 --- Software-Menüs: ---
 
---Die Optionen :--
+	--Die Optionen :--
 
--Wahlen:
+		-Wahlen:
 - Wird verwendet, um die Ergebnisse der Analyse im Textbereich des Hauptfensters mit bestimmten Auswahlmöglichkeiten anzuzeigen.
 Einschränkungen:
 - Ermöglichen das Festlegen bestimmter zu steuernder Dateigrößenbeschränkungen
 
---Erweiterte Optionen:--
+	--Erweiterte Optionen:--
 
-- Optionen standardmäßig nicht aktiviert: -
+		- Optionen standardmäßig nicht aktiviert: -
 - Diese Optionen sollten immer deaktiviert sein, es sei denn, Sie wissen, was Sie tun.
 Rekursiver Scan:
 - Die wichtigste Option, da Sie damit den vollständigen Pfad der zu analysierenden Datei verfolgen können. Dies verlangsamt die Analyse (ein wenig).
-Kontaminierte Dateien löschen:
+		- Kontaminierte Dateien löschen:
 - Relativ gefährliche Option, wenn wir die Anzahl der Fehlalarme berücksichtigen, die das Antivirus generieren kann.
 Erkennen Sie potenziell unerwünschte Anwendungen (PUAs):
 - Das Antivirenprogramm ist mit dieser Option aggressiver, generiert jedoch mehr Fehlalarme (dies hängt von Ihnen ab).
@@ -25,36 +25,36 @@ Verschieben Sie potenziell infizierte Dateien in die Quarantäne:
 - Bietet schnelleren Zugriff auf potenziell infizierte Dateien; entweder um sie zu zerstören oder um sie im Falle von Fehlalarmen wiederherzustellen.
 - Seien Sie auch hier vorsichtig bei der Verwendung. Das Löschen einer Datei erfolgt schnell und dauerhaft.
 
-- Datenbank-Upgrade: -
+		- Datenbank-Upgrade: -
 - clamav wird mit einem Updater namens freshclam geliefert, der (standardmäßig) Updates automatisch oder manuell durchführen kann. Sie können die Option ändern.
 - Sie können den Status überprüfen, indem Sie die Protokolldatei (auf Englisch) lesen.
 - Sie können die Freshclam-Einstellungen in der Konfigurationsdatei unter /etc/clamav/freshclam.conf überprüfen
 - Sie können die Wiederherstellungszeit für Updates geringfügig erhöhen, die standardmäßig 30 Sekunden beträgt, wenn Sie systematisch Downloadfehler erhalten. Bei einer ADSL-Verbindung sind 150 Sekunden mehr als genug.
 
-- Standardmäßig aktivierte Optionen: -
+		- Standardmäßig aktivierte Optionen: -
 Sie sollten diese Optionen nicht deaktivieren.
 - Wählen Sie aus, ob bestimmte Dateitypen gescannt werden sollen oder nicht. (Standardmäßig alle Scanner)
 
---Aktionen: -
+	--Aktionen: -
 
-- Quarantäne: -
+		- Quarantäne: -
 - Ermöglicht es Ihnen, auf Dateien zu reagieren, die sich in Quarantäne befinden, entweder automatisch, wenn die Option aktiviert wurde, oder von Ihnen.
-- Potenziell infizierte Dateien: -
+		- Potenziell infizierte Dateien: -
 - Ermöglicht das Anzeigen und anschließende Bearbeiten der Dateien, die tatsächlich in die Quarantäne verschoben wurden (Zerstörung, Wiederherstellung oder keine Aktion).
-- Sitzungsprotokoll: -
+		- Sitzungsprotokoll: -
 - Ermöglicht das Anzeigen der während der Sitzung durchgeführten Analysen.
--Geschichte:-
+		-Geschichte:-
 - Ermöglicht es Ihnen, alle zuvor durchgeführten Analysen anzuzeigen, solange Sie sie nicht löschen.
 (Seien Sie vorsichtig, wenn die Option -verbose aktiviert ist. Die Datei kann schnell sehr groß werden.)
--Sprachen: -
+		-Sprachen: -
 - Sie können derzeit zwischen drei Sprachen wählen, in die die Software übersetzt wurde (Englisch, Spanisch oder Französisch).
--Konfigurationsdateien: -
+		-Konfigurationsdateien: -
 - Die folgenden Dateien können angezeigt oder bearbeitet werden, wenn die Sudo-Taste gedrückt wird:
-clamd.conf
-freshclam.conf
-milter-clamav.conf
+	clamd.conf
+	freshclam.conf
+	milter-clamav.conf
 
-- Die Sudo-Taste: -
+		- Die Sudo-Taste: -
 - Ermöglicht es Ihnen, Ihre Befehle als Superuser auszuführen.
 
 Ein Punkt zur Analyse:

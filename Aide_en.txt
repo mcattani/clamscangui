@@ -4,57 +4,57 @@ An antivirus, clamav, under Linux:
 
 --- Software menus: ---
 
---The options :--
+	--The options :--
 
--Choices :
+		-Choices :-
 - used to display the results of the analysis in the text area of ​​the main window with certain choices.
-Limitations:
+		-Limitations:
 - allow you to set certain file size limits to control
 
 --Advanced options:--
 
-- Options not checked by default: -
+		- Options not checked by default: -
 - these options should always be unchecked unless you know what you are doing.
-Recursive scan:
+		- Recursive scan:
 - The most important option because it allows you to follow the full path of the file being analyzed. This slows down the analysis (a little).
-Delete contaminated files:
+		- Delete contaminated files:
 - Relatively dangerous option if we take into account the number of false positives that the antivirus can generate.
-Detect potentially unwanted applications (PUAs):
+		- Detect potentially unwanted applications (PUAs):
 - The antivirus is more aggressive with this option but generates more false positives (it depends on you)
-Move potentially infected files to quarantine:
+		- Move potentially infected files to quarantine:
 - Provides faster access to potentially infected files; either to destroy them, or to restore them in the event of false positives.
 - Again, be careful with its use, deleting a file is done quickly and permanently.
 
-- Database upgrade: -
+		- Database upgrade: -
 - clamav comes with an updater called freshclam which can (by default) perform updates automatically or manually, you can change the option.
 - You can check its status by reading the log file (in English).
 - You can check freshclam settings in its configuration file, at: /etc/clamav/freshclam.conf
 - You can slightly increase the update recovery time which is by default 30 seconds if you systematically get download errors. With an ADSL connection, 150 seconds is more than enough.
 
-- Options checked by default: -
+		- Options checked by default: -
 You should not uncheck these options.
 - To choose whether certain types of files are scanned or not. (By default, all scanners)
 
---Actions: -
+	--Actions: -
 
-- Quarantine: -
+		- Quarantine: -
 - Allows you to act on files placed in quarantine, either automatically if the option has been checked, or by you.
-- Potentially infected files: -
+		- Potentially infected files: -
 - Allows you to view and then act on the files that have actually been moved to quarantine (destruction, restoration or no action)
-- Session log: -
+		- Session log: -
 - Allows you to view the analyzes performed during the session.
--History:-
+		-History:-
 - Allows you to see all the analyzes performed before as long as you do not delete them.
 (Be careful if the -verbose option is checked, the file can quickly become very large.)
--Languages ​​:-
+		-Languages ​​:-
 - You can currently choose between three languages ​​the software has been translated into (English, Spanish or French)
--Configuration files: -
+		-Configuration files: -
 - The following files can be viewed or edited if the sudo button is pressed:
-clamd.conf
-freshclam.conf
-milter-clamav.conf
+	clamd.conf
+	freshclam.conf
+	milter-clamav.conf
 
---The Sudo button: -
+	--The Sudo button: -
 - allows you to execute your commands as super user.
 
 A point on the analysis:

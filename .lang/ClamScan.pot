@@ -5,36 +5,40 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-02 01:58 UTC\n"
+"POT-Creation-Date: 2021-04-07 16:13 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ClamScan.module:109
+#: ClamScan.module:110
 msgid "¡Atención!"
 msgstr ""
 
-#: ClamScan.module:110
-msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que matar el proceso usted mismo."
+#: ClamScan.module:111
+msgid "clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."
 msgstr ""
 
-#: ClamScan.module:113
+#: ClamScan.module:114
 msgid "El proceso actual ha sido eliminado"
 msgstr ""
 
-#: ClamScan.module:113
+#: ClamScan.module:114
 msgid "¡Puedes volver!"
 msgstr ""
 
-#: ClamScan.module:117
+#: ClamScan.module:120
+msgid "Tiempo : "
+msgstr ""
+
+#: ClamScan.module:122
 msgid "Trabajo completado"
 msgstr ""
 
-#: ClamScan.module:131
+#: ClamScan.module:137
 msgid " Trabajo en curso... "
 msgstr ""
 
-#: ClamScan.module:193
+#: ClamScan.module:200
 msgid " Escaneo realizado : "
 msgstr ""
 

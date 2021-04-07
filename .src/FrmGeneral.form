@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,114,87)
+  MoveScaled(0,0,125,87)
   Icon = Picture["icon:/48/security"]
   Arrangement = Arrange.Vertical
   Spacing = True

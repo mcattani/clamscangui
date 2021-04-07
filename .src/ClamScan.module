@@ -81,8 +81,9 @@ Public Function ScanAction(Ruta As String)
      Else If FMain.bsudo = False
           hProc = Shell (Comm) & ajout For Read As "Scan"
      Endif
-     TournProc                                                                  'affichage dans terminal
-     '************************************************************************** après le scan_read()
+     '**************************************************************************'Scan_Read en cours
+     TournProc()                                                                'affichage dans terminal tant que tourne le process
+     '************************************************************************** après le Scan_Read()
      RecupVirus()                                                               'récupération des lignes virus
      sTexte = ""                                                                'effacement de sTexte
      FichierLog()                                                               'sauvegarde des log et historique
@@ -103,17 +104,21 @@ End
 
 Public Sub Scan_Kill()                                                          'Fin du process hPro
 
-     If FMain.bTBKill = True Then
-          If FMain.bSudo = True Then
+     If FMain.bTBKill = True Then                                               'le processus a été tué
+          If FMain.bSudo = True Then                                            'si bouton sudo enfoncé
                If FMain.bFlag = False Then
                     Message.Title = ("¡Atención!")
-                    Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que matar el proceso usted mismo."))
+                    Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
                Endif
           Else
                Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
           Endif
-          FMain.bTBKill = False
-     Else
+          FMain.bTBKill = False                                                 'drapeau Boolean à faux
+     Else                                                                       'le processus s'est terminé normalement
+          FMain.txSalida3.Clear
+          FMain.txSalida2.Clear
+          FMain.txSalida3.Text = ("Tiempo : ") & "[ " & FMain.dTemps & " ] "    'affichage des secondes
+          ' FMain.txSalida3.Text = ("Tiempo : ") & "[ " & Time(0, 0, 0, (Timer - ClamScan.Depart) * 1000) & " ] " 'des millisecondes
           Message(("Trabajo completado") & ". " & ("¡Puedes volver!"))
      Endif
 
@@ -123,21 +128,23 @@ Public Sub TournProc()                                                          
 
      Dim i, j As Integer
 
-     Depart = Timer
-     j = CInt(FMain.txSalida2.Width / 8.75)
+     Depart = Timer                                                             'temps de l'horloge interne
+     j = CInt(FMain.txSalida2.Width / 8.75)                                     'j=longueur de la ligne terminal 2
+
      While hProc.state = hProc.Running
           MouseWait()
           FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)    'clic en millisecondes * 1000 = secondes
           FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
           i += 1
-          If i > j Then                                                         'j=longueur de la ligne
+          If i > j Then                                                         'j=longueur de la ligne terminal 2
                i = 0
                FMain.txSalida2.Clear
           Endif
-          Wait 1                                                                'rappel du timer sinon ne marche pas
+          Wait 1                                                                'boucle évènement d'une seconde
           FMain.txSalida2.Text &= "#"
-          If hProc.State = hProc.Stopped Then Break                             'garantie de sortie de boucle
+          If hProc.State = hProc.Stopped Then Break                             'garantie de sortie de boucle (inutile)
      Wend
+
      Mousedefault()
 
 End
@@ -178,7 +185,7 @@ Public Sub RecupVirus()
      Else                                                                       'si quarantaine non automatique
           For i = 0 To sLigne.Max
                If sLigne[i] Ends " FOUND" Then
-                    sTexte &= sLigne[i] & gb.NewLine
+                    sTexte &= sLigne[i] & gb.NewLine                            'récupératin de la ligne en question
                Endif
           Next
           File.Save(FMain.pil, sTexte)                                          'sauvegarde de la liste des fichiers et virus après scan

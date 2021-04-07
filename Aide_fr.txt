@@ -3,58 +3,54 @@ Un antivirus, clamav, sous Linux:
 - clamav permet, avant tout, de vérifier que l'on ne transmet ni ne retransmet à des amis, un fichier contaminé, que ce soit sous forme de pièce jointe d'email ou via clé USB.
 
 ---Menus du logiciel:---
-
---Les options :--
-
--Les choix :
+	--Les options :--
+		-Les choix :
 - permettent d'afficher les résultats de l'analyse dans la zone de texte de la fenêtre principale avec certains choix.
 Limitations :
 - permettent de fixer certaines limites de taille de fichier à contrôler
 
---Options avancées:--
-
--Options non cochées par défaut :-
+	--Options avancées:--
+		-Options non cochées par défaut :-
 - ces options devraient toujours être décochées sauf si vous savez ce que vous faites.
-Balayage récursif:
+			Balayage récursif:
 - L'option la plus importante car elle permet de suivre le chemin complet du fichier en cours d'analyse. Ce qui ralentit (un peu) l'analyse.
-Supprimer les fichiers contaminés:
+			Supprimer les fichiers contaminés:
 - Option relativement dangereuse si l'on prend en compte le nombre de faux positifs que l'antivirus peut générer.
-Détectez les applications potentiellement indésirables (PUA):
+			Détectez les applications potentiellement indésirables (PUA):
 - L'antivirus est plus agressif avec cette option mais génère plus de faux positifs (cela dépend de vous)
-Déplacer les fichiers potentiellement infectés vers la quarantaine:
+			Déplacer les fichiers potentiellement infectés vers la quarantaine:
 - Fournit un accès plus rapide aux fichiers potentiellement infectés; soit pour les détruire, soit pour les restaurer en cas de faux positifs.
 - Là encore, soyez prudent avec son utilisation, la suppression d'un fichier se fait rapidement et définitivement.
 
--Mise à niveau de la base de données:-
+		-Mise à niveau de la base de données:-
 - clamav est livré avec un programme de mise à jour appelé freshclam qui peut (par défaut) effectuer des mises à jour automatiquement ou manuellement, vous pouvez modifier l'option.
 - Vous pouvez vérifier son état en lisant le fichier journal (en anglais).
 - Vous pouvez vérifier les réglages de freshclam dans son fichier de configuration, à l'adresse : /etc/clamav/freshclam.conf
 - Vous pouvez augmenter légèrement le temps de récupération des mises à jour qui est par défaut de 30 secondes si vous obtenez systématiquement des erreurs de téléchargement. Avec une connexion ADSL un temps de 150 secondes est plus que suffisant.
 
--Options cochées par défaut :-
+		-Options cochées par défaut :-
 Vous ne devriez pas décocher ces options.
 - Pour choisir si certains types de fichiers sont analysés ou non. (Par défaut, tous les scanners)
 
---Actions :--
-
--Quarantaine :-
+	--Actions :--
+		-Quarantaine :-
 - Vous permet d'agir sur les fichiers placés en quarantaine, soit automatiquement si l'option a été cochée, soit par vous.
--Fichiers potentiellement infectés :-
+		-Fichiers potentiellement infectés :-
 - Vous permet de visualiser puis d'agir sur les fichiers qui ont été réellement déplacés en quarantaine (destruction, restauration ou aucune action)
--Log de la session :-
+		-Log de la session :-
 - Permet de visualiser les analyses effectuées lors de la session.
--Histoire:-
+		-Histoire:-
 - Permet de voir toutes les analyses effectuées auparavant tant que vous ne les supprimez pas.
 (Attention si l'option -verbose est cochée le fichier peut devenir rapidement très grand.)
--Les langues :-
+		-Les langues :-
 - Vous pouvez actuellement choisir entre trois langues dans lesquelles le logiciel a été traduit (anglais, espagnol ou français)
--Fichiers de configuration :-
+		-Fichiers de configuration :-
 - Les fichiers suivant peuvent être consultés ou modifiés si le bouton sudo est enfoncé :
 	clamd.conf
 	freshclam.conf
 	milter-clamav.conf
 
---Le bouton Sudo :--
+	--Le bouton Sudo :--
 - permet d'exécuter vos commandes en tant que super utilisateur.
 
 Un point sur l'analyse:

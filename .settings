@@ -7,8 +7,8 @@ Count=0
 [OpenFile]
 File[1]=".src/FMain.form"
 File[2]=".src/Cerf.form"
-File[3]=".src/ClamScan.module:105.109"
-File[4]=".src/FMain.class:5.75"
+File[3]=".src/ClamScan.module:50.109"
+File[4]=".src/FMain.class:0.75"
 Active=5
 File[5]=".src/Authenticate.class:49.46"
 File[6]=".src/Module1.module:100.73"

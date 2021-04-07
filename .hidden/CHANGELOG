@@ -1,88 +1,80 @@
-* Thu Apr 01 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.76
+* Wed Apr 07 2021 PilValaquarus <valaquarus@gmail.com> 1.1.80
 
-* Wed Mar 31 2021 PilValaquarus <valaquarus@gmail.com> 1.1.76
+* Tue Apr 06 2021 PilValaquarus <valaquarus@gmail.com> 1.1.80
+- Nouvelle version
+- Tout est OFF à la place de pas de choix
+
+* Sun Apr 04 2021 PilValaquarus <valaquarus@gmail.com> 1.1.79
+- Choix de lancer ou non l'antivirus
+- Correction du code
+- Nettoyage du code
+- Correction d'un bug sur 3 menus défaut
+- Intégration de BtnDefaut.Value dans les settings
+
+* Sat Apr 03 2021 PilValaquarus <valaquarus@gmail.com> 1.1.78
+- Présentation des options dans le terminal
+- Correction d'un petit bug d'affichage
+- Inversion de lignes de code pour un meilleur affichage
+- Enlèvement de l'effacement du terminal après retour de l'historique
+- TBPresent dans menuvraix et menufaux
+
+* Fri Apr 02 2021 PilValaquarus <valaquarus@gmail.com> 1.1.77
+- Affichage du temps écoulé dans terminal3
+- FMain.txSalida3.Clear commenté dans menuvraix
+- Wait pour établissement de Authenticate en mode sudo
+- Correction traduction espagnol par Ozymandias
+- 1500 lignes au lieu de 2000 en affichage de l'historique et du log de session
+- Affichage en millisecondes au lieu de secondes dans le terminal3
+- Affichage en secondes au lieu de millisecondes dans le terminal3
+- cat -n à tous les fichiers pour affichage des numéros de ligne
+- Largeur de FrmGeneral pour qu'elle contienne freshclam
+- Reformatage de l'Aide
+
+* Thu Apr 01 2021 PilValaquarus <valaquarus@gmail.com> 1.1.76
+- Amélioration affihage sur stop process
+- Traduction finie
 - Correction texte à afficher sur scan_kill si fin ou si kill du process
-
-* Wed Mar 31 2021 PilValaquarus <valaquarus@gmail.com> 1.1.76
 - Déplacement Me.hide dans MnuLog_click
 - Ajout de Scan_Kill et modification message terminal pendant hProc.kill
 
 * Tue Mar 30 2021 PilValaquarus <valaquarus@gmail.com> 1.1.75
 - Ajout de wait sur TBKill_click
-
-* Mon Mar 29 2021 PilValaquarus <valaquarus@gmail.com> 1.1.75
 - Temps de passer en 1.1.75
 
 * Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
 - Amélioration TournProc
-
-* Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
 - Correction bug sur fichier Log de grande taille.
-
-* Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
 - Réglage affichage du chrono
-
-* Sun Mar 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
-- Abandon du Timer
-
-* Sat Mar 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Abandon du Time
 - Utilisation du Timer
-
-* Thu Mar 25 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
-- détails sur longueur affichage #
-
-* Thu Mar 25 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
+- Détails sur longueur affichage #
 - Ajout des traductions supplémentaires manquantes
 - Ajout des drapeaux des langues
-
-* Thu Mar 25 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
 - VERSION
-
-* Wed Mar 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.74
 - Amélioration affichage terminal 3
 
 * Sat Mar 20 2021 PilValaquarus <valaquarus@gmail.com> 1.1.73
 - Affichage terminal 3
 
 * Fri Mar 19 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
--Amélioration affichage terminal 2
-
-* Fri Mar 19 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
+- Amélioration affichage terminal 2
 - Amélioration affichage terminal
-
-* Sun Mar 14 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
-- curseur d'attente sur deuxième terminal
-
-* Sun Mar 14 2021 PilValaquarus <valaquarus@gmail.com> 1.1.72
-- longueur du texte en fonction de la langue
+- Curseur d'attente sur deuxième terminal
+- Longueur du texte en fonction de la langue
 
 * Sun Mar 14 2021 PilValaquarus <valaquarus@gmail.com> 1.1.71
-- deuxième terminal pour affichage travail en cours
+- Deuxième terminal pour affichage travail en cours
 
 * Sun Feb 28 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
 - Bug affichage bouton langue
-
-* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
-
-* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
 - Vérification Russe
-
-* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
 - Ajout Russe
-
-* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
 - Ajout portugais
-
-* Sat Feb 27 2021 PilValaquarus <valaquarus@gmail.com> 1.1.70
 - Ajout allemand et italien
 
 * Wed Feb 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.69
 - Bouton indicateur
-
-* Sat Jan 30 2021 PilValaquarus <valaquarus@gmail.com> 1.1.69
 - Tooltip sur limites
-
-* Fri Jan 29 2021 PilValaquarus <valaquarus@gmail.com> 1.1.69
 - Ajout des mises à jour de ClamScanGui sur github par Ozymandias
 
 * Fri Jan 08 2021 PilValaquarus <valaquarus@gmail.com> 1.1.68
@@ -93,13 +85,9 @@
 
 * Tue Dec 29 2020 PilValaquarus <valaquarus@gmail.com> 1.1.66
 - Correction Bug sur effacement
-
-* Tue Dec 29 2020 PilValaquarus <valaquarus@gmail.com> 1.1.66
 - Recompilation
-
-* Mon Dec 28 2020 PilValaquarus <valaquarus@gmail.com> 1.1.66
 - Nettoyage à la fermeture
-- récupération nom de virus sur quarantaine auto
+- Récupération nom de virus sur quarantaine auto
 
 * Mon Dec 28 2020 PilValaquarus <valaquarus@gmail.com> 1.1.65
 - Même nom de virus corrigé
@@ -147,7 +135,7 @@
 - Vérification des différents menus activés
 - Allègement du code
 - Ajout de toutes les options de base
-- changement texte des menus
+- Changement texte des menus
 - Commande options par défaut
 - Version 2
 - Ajout commandes
@@ -162,8 +150,6 @@
 
 * Fri Nov 27 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
 - Décorations
-
-* Thu Nov 26 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.52
 - Allègement du code
 - Form_KeyPress()
 - Code plus propre
@@ -176,36 +162,34 @@
 
 * Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.49
 - Reconfiguration de clamd demandée si fichier absent.
-
-* Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.49
 - Réduction de plusieurs bugs
 
 * Wed Nov 25 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.48
 - Fichiers exemple en lecture
--Copie des exemples dans ~/Clamav/
+- Copie des exemples dans ~/Clamav/
 - Détails d'affichage
 - Traductions
 
 * Sat Nov 21 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.47
-- réduction du bug sur fermeture
-- message sur fermeture non validée
-- correction TBKill en sudo
+- Réduction du bug sur fermeture
+- Message sur fermeture non validée
+- Correction TBKill en sudo
 - Affichage Authenticate modifié
 
 * Fri Nov 20 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.46
 - Bug non corrigé sur menu option +
-- correction kill clamscan
+- Correction kill clamscan
 - Correction du bug sur menu option+
 - Correction affichage authenticate
 
 * Wed Nov 18 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.45
 - Ajout des fichiers de configuration clamav en lecture et modification
-- correction bug sur application langues
+- Correction bug sur application langues
 - bug sur TBKill
 - Commentaires lignes de programmation
-- déplacement boutons
+- Déplacement boutons
 - Impression Log et Historique
-- bug sur langue corrigé
+- Bug sur langue corrigé
 
 * Mon Nov 16 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.44
 - Version allégée de la précédente
@@ -219,11 +203,11 @@
 - Modification de l'aide et traductions
 - Fichiers à restaurer envoyés dans un répertoire du home
 - Fichiers à restaurer envoyés dans un répertoire au choix de l'utilisateur.
- Traduction améliorée sous la houlette d'Ozymandias pour l'espagnol
+- Traduction améliorée sous la houlette d'Ozymandias pour l'espagnol
 
 * Fri Nov 13 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.41
 - Arrangement différent de l'aide
-- préparation du texte d'une future aide
+- Préparation du texte d'une future aide
 
 * Fri Nov 13 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.40
 - Quasi Final
@@ -235,7 +219,7 @@
 
 * Wed Nov 11 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.38
 - Traduction anglais espagnol français
-- bug corrigé sur clamscan
+- Bug corrigé sur clamscan
 
 * Mon Nov 09 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.37
 - Resize des Formulaires possible
@@ -259,24 +243,24 @@
 - Quitter sur scan
 
 * Fri Nov 06 2020 Ozymandias & PilValaquarus <manu@fibertel.com.ar valaquarus@gmail.com> 1.1.31
-- log automatique avec effacement possible
+- Log automatique avec effacement possible
 
 * Tue Oct 20 2020 Ozymandias <manu@fibertel.com.ar> 1.1.30
--traduction en français et en espagnol
--création de l'aide de base
--Choix de l'actualisation de la base de données, auto ou manuelle
--action sur les virus, éliminer ou restaurer
--settings pour les réglages
--déplacement des fichiers potentiellement contaminés vers répertoire caché /.clamscangui/virus
+- Traduction en français et en espagnol
+- Création de l'aide de base
+- Choix de l'actualisation de la base de données, auto ou manuelle
+- Action sur les virus, éliminer ou restaurer
+- Settings pour les réglages
+- Déplacement des fichiers potentiellement contaminés vers répertoire caché /.clamscangui/virus
 
 * Wed Mar 22 2017 Ozymandias <manu@fibertel.com.ar> 1.1.5
--Agregado el visor del LOG de Freshclam
--Agregado Icono en la barra (todavía en desarrollo)
+- Agregado el visor del LOG de Freshclam
+- Agregado Icono en la barra (todavía en desarrollo)
 
 * Sun Feb 12 2017 Ozymandias <manu@fibertel.com.ar> 1.1.3
--Corrección de errores
--Agregado menu "?"
--Agregadas más opciones de escaneo.
+- Corrección de errores
+- Agregado menu "?"
+- Agregadas más opciones de escaneo.
 
 * Fri Feb 03 2017 Ozymandias <manu@fibertel.com.ar> 1.1.2
 - Lanzamiento inicial

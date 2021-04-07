@@ -205,7 +205,7 @@
     { Escaneo Menu
       Text = ("Opciones marcadas por defecto")
       Picture = Picture["icon:/22/ok"]
-      { MnuCrossFs Menu optionAvance
+      { MnuCrossFs Menu option1
         Name = "MnuCrossFs"
         Text = ("--cross-fs[=yes(*)/no]")
         Picture = Picture["icon:/22/linux"]
@@ -271,17 +271,20 @@
         Picture = Picture["icon:/22/file"]
         Toggle = True
       }
-      { MnuPhishingSig Menu
+      { MnuPhishingSig Menu option1
+        Name = "MnuPhishingSig"
         Text = ("--phishing-sigs[=yes(*)/no]")
         Picture = Picture["icon:/22/file"]
         Toggle = True
       }
-      { MnuPhishingUrl Menu
+      { MnuPhishingUrl Menu option1
+        Name = "MnuPhishingUrl"
         Text = ("--phishing-scan-urls[=yes(*)/no]")
         Picture = Picture["icon:/22/file"]
         Toggle = True
       }
-      { Menu17 Menu
+      { Menu17 Menu option1
+        Name = "Menu17"
         Text = ("--bytecode[=yes(*)/no]")
         Picture = Picture["icon:/24/new"]
         Toggle = True
@@ -488,30 +491,34 @@
     { Panel1 Panel
       MoveScaled(50,0,29,5)
       { TBKill ToolButton
-        MoveScaled(10.2857,0,4.5714,4)
+        MoveScaled(15,0,4.5714,4)
         ToolTip = ("¡Mata el proceso en curso!")
         Picture = Picture["icon:/32/halt"]
       }
       { TBhProc ToolButton
-        MoveScaled(5.7143,0,4.5714,4)
+        MoveScaled(10.4286,0,4.5714,4)
         ToolTip = ("¡Ejecute el proceso!")
         Picture = Picture["icon:/32/exec"]
       }
       { TBeffacer ToolButton
-        MoveScaled(0.7143,0,5,4)
+        MoveScaled(0.2857,0,5,4)
         ToolTip = ("Salida de texto claro")
         Picture = Picture["icon:/24/clear"]
       }
       { TBSudo ToolButton
-        MoveScaled(18.2857,0,10,4)
+        MoveScaled(20,0,5,4)
         ToolTip = ("Sudo")
-        Text = ("Sudo")
-        Picture = Picture["icon:/24/linux"]
+        Picture = Picture["icon:/32/linux"]
         Toggle = True
       }
       { RB1 ToggleButton
-        MoveScaled(15.7143,1.1429,2,2)
+        MoveScaled(26,1,2,2)
         ToolTip = ("Verde = sin cuarentena automática\nRojo = cuarentena automática")
+      }
+      { TBPresent ToolButton
+        MoveScaled(5.4286,0,4.5714,4)
+        ToolTip = ("Presentación")
+        Picture = Picture["icon:/24/edit"]
       }
     }
   }
@@ -782,7 +789,7 @@
       Text = ("Limitaciones: (ver ayuda)")
     }
     { BtnDefaut ToggleButton
-      MoveScaled(23.4286,0,16,4)
+      MoveScaled(23.4286,0.8571,16,4)
       Text = ("Defecto")
     }
   }

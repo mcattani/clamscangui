@@ -4,57 +4,57 @@ Un antivirus, clamav, sotto Linux:
 
 --- Menu software: ---
 
---Le opzioni: -
+	--Le opzioni: -
 
--Scelte:
+		-Scelte:
 - utilizzato per visualizzare i risultati dell'analisi nell'area di testo della finestra principale con determinate scelte.
-Limitazioni:
+		- Limitazioni:
 - consentono di impostare determinati limiti di dimensione del file da controllare
 
---Opzioni avanzate:--
+	--Opzioni avanzate:--
 
-- Opzioni non selezionate per impostazione predefinita: -
+		- Opzioni non selezionate per impostazione predefinita: -
 - queste opzioni dovrebbero essere sempre deselezionate a meno che tu non sappia cosa stai facendo.
-Scansione ricorsiva:
+		- Scansione ricorsiva:
 - L'opzione più importante perché consente di seguire il percorso completo del file analizzato. Questo rallenta (un po ') l'analisi.
-Elimina i file contaminati:
+		- Elimina i file contaminati:
 - Opzione relativamente pericolosa se prendiamo in considerazione il numero di falsi positivi che l'antivirus può generare.
-Rileva applicazioni potenzialmente indesiderate (PUA):
+		- Rileva applicazioni potenzialmente indesiderate (PUA):
 - L'antivirus è più aggressivo con questa opzione ma genera più falsi positivi (dipende da te)
-Sposta i file potenzialmente infetti in quarantena:
+		- Sposta i file potenzialmente infetti in quarantena:
 - Fornisce un accesso più veloce ai file potenzialmente infetti; o per distruggerli o per ripristinarli in caso di falsi positivi.
 - Ancora una volta, fai attenzione al suo utilizzo, l'eliminazione di un file viene eseguita rapidamente e in modo permanente.
 
-- Aggiornamento database: -
+		- Aggiornamento database: -
 - clamav viene fornito con un programma di aggiornamento chiamato freshclam che può (per impostazione predefinita) eseguire aggiornamenti automaticamente o manualmente, è possibile modificare l'opzione.
 - È possibile verificarne lo stato leggendo il file di registro (in inglese).
 - Puoi controllare le impostazioni di freshclam nel suo file di configurazione, su: /etc/clamav/freshclam.conf
 - È possibile aumentare leggermente il tempo di ripristino dell'aggiornamento che è di 30 secondi per impostazione predefinita se si ottengono sistematicamente errori di download. Con una connessione ADSL 150 secondi sono più che sufficienti.
 
-- Opzioni selezionate per impostazione predefinita: -
+		- Opzioni selezionate per impostazione predefinita: -
 Non deselezionare queste opzioni.
 - Per scegliere se eseguire o meno la scansione di determinati tipi di file. (Per impostazione predefinita, tutti gli scanner)
 
---Azioni: -
+	--Azioni: -
 
-- Quarantena: -
+		- Quarantena: -
 - Ti consente di agire sui file messi in quarantena, automaticamente se l'opzione è stata selezionata o da te.
-- File potenzialmente infetti: -
+		- File potenzialmente infetti: -
 - Consente di visualizzare e quindi agire sui file che sono stati effettivamente spostati in quarantena (distruzione, ripristino o nessuna azione)
-- Registro di sessione: -
+		- Registro di sessione: -
 - Consente di visualizzare le analisi eseguite durante la sessione.
--Storia:-
+		-Storia:-
 - Ti permette di vedere tutte le analisi eseguite prima fino a quando non le elimini.
 (Fai attenzione se l'opzione -verbose è selezionata, il file può diventare rapidamente molto grande.)
--Lingue: -
+		-Lingue: -
 - Al momento puoi scegliere tra tre lingue in cui il software è stato tradotto (inglese, spagnolo o francese)
 -File di configurazione: -
 - I seguenti file possono essere visualizzati o modificati se si preme il pulsante sudo:
-clamd.conf
-freshclam.conf
-milter-clamav.conf
+	clamd.conf
+	freshclam.conf
+	milter-clamav.conf
 
-- Il pulsante Sudo: -
+		- Il pulsante Sudo: -
 - ti permette di eseguire i tuoi comandi come super utente.
 
 Un punto sull'analisi:

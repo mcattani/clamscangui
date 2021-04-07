@@ -66,8 +66,7 @@ Public Sub Scan_read()                                                          
 
      Dim sLine As String
 
-     ' sline = Read #Last, Lof(Last)                                            'j'aime pas LAST
-     sline = Read #hProc, Lof(hproc)
+     Read #hProc, sline, Lof(hproc)
      TextArea3.Text &= sLine
      TextArea3.EnsureVisible()
 
