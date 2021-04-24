@@ -1,8 +1,23 @@
-* Wed Apr 07 2021 PilValaquarus <valaquarus@gmail.com> 1.1.80
+* Wed Apr 21 2021 PilValaquarus <valaquarus@gmail.com> 1.1.86
+- Ajout de sons
+
+* Wed Apr 21 2021 PilValaquarus <valaquarus@gmail.com> 1.1.85
+- Ajout voir clamav.log et clamav-milter.log
+
+* Tue Apr 20 2021 PilValaquarus <valaquarus@gmail.com> 1.1.84
+- Modification des droits sur fichiers de clamav
+
+* Tue Apr 20 2021 PilValaquarus <valaquarus@gmail.com> 1.1.82
+- Inversion ordre des boutons par défaut dans message
+
+* Fri Apr 16 2021 PilValaquarus <valaquarus@gmail.com> 1.1.81
+- Petites modifications sur Scan_Activation
+- Vérification du code
 
 * Tue Apr 06 2021 PilValaquarus <valaquarus@gmail.com> 1.1.80
 - Nouvelle version
 - Tout est OFF à la place de pas de choix
+- Modification de la présentation des options choisies
 
 * Sun Apr 04 2021 PilValaquarus <valaquarus@gmail.com> 1.1.79
 - Choix de lancer ou non l'antivirus

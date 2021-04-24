@@ -150,7 +150,7 @@ Public Sub CheckCapsLock()                                                      
      If siCap Then                                                              'If siCap is not 0 then..
           LabelCaps.text = ("Bloqueo de mayúsculas está activado")              'Add a message to the Form indicating the Caps Lock is on
      Else                                                                       'siCap must be 0
-          LabelCaps.text = ""                                                   'Clear the Caps Lock message
+          LabelCaps.text = ("")                                                 'Clear the Caps Lock message
      Endif
 
 End

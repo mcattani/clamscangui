@@ -13,6 +13,7 @@
 
 Public Sub Form_Open()
 
+     Module1.son(Module1.OpenApp)
      txtAbout2.Pos = 0                                                          'affichage sur la première ligne
 
 End
@@ -37,6 +38,12 @@ End
 
 Public Sub PictureBox2_MouseUp()
 
-     Desktop.Open("mailto:valaquarus@gmail.com")                                'ET maison
+     Desktop.Open("mailto:valaquarus@gmail.com")                                'E.T. maison
+
+End
+
+Public Sub Form_Close()
+
+     Module1.son(Module1.Warning)
 
 End

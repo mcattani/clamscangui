@@ -5,17 +5,14 @@ Count=0
 Count=0
 
 [OpenFile]
-File[1]=".src/FMain.form"
-File[2]=".src/Cerf.form"
-File[3]=".src/ClamScan.module:50.109"
-File[4]=".src/FMain.class:0.75"
+File[1]=".src/Authenticate.form"
+File[2]=".src/FrmGeneral.form"
+File[3]=".src/FrmSoumission.form"
+File[4]=".src/FMain.form"
 Active=5
-File[5]=".src/Authenticate.class:49.46"
-File[6]=".src/Module1.module:100.73"
+File[5]=".src/FMain.class:33.458"
+File[6]=".src/ClamScan.module:0.0"
 Count=6
-
-[Package]
-Dir="~/Escritorio/"
 
 [Watches]
 Count=0

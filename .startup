@@ -2,7 +2,7 @@ Module1
 ClamScanGuiV0
 0
 0
-1.1.80
+1.1.86
 
 gb.image
 gb.qt5
@@ -18,4 +18,5 @@ gb.net
 gb.net.curl
 gb.qt5.ext
 gb.report2
+gb.sdl2.audio
 

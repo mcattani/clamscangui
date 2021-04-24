@@ -21,6 +21,7 @@ End
 
 Public Sub Form_Open()
 
+     Module1.son(Module1.OpenApp)
      TAFichier.Text = FrmGeneral.fichier[FrmGeneral.myRow]                      'fichier sélectionné
      TAVirus.Text = FrmGeneral.virus[FrmGeneral.myRow]                          'virus afférant
 
@@ -105,5 +106,11 @@ End
 Public Sub btnCerrar_Click()
 
      Me.Close(True)
+
+End
+
+Public Sub Form_Close()
+
+     Module1.son(Module1.Warning)
 
 End

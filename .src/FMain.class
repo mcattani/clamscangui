@@ -64,6 +64,7 @@ Public bFlag As Boolean                                                         
 Public bSudo As Boolean                                                         'sudo appliqué
 Public bTBSudo As Boolean                                                       'si bouton sudo enfoncé
 Public bTBKill As Boolean                                                       'proc kill ou pas
+Public SonOn As Boolean
 
 Public fListe As File                                                           'fichier liste virus en quarantaine
 Public fPil As File                                                             'fichier liste virus trouvés
@@ -136,6 +137,7 @@ Public Sub premiereFois()                                                       
      MnuDeplacer.Value = False
      MnuVirus.Enabled = False
      MnuCorrompus.Enabled = False
+     mnuSon.Value = True
 
      Settings["Menu/Auto"] = MnuAuto.Value
      Settings["Menu/Manuel"] = MnuManuelle.Value
@@ -145,6 +147,7 @@ Public Sub premiereFois()                                                       
      Settings["General/LangInit"] = Left(System.Language, 2)
      Settings["General/courriel"] = ""
      Settings["General/nom"] = ""
+     Settings["General/sons"] = mnuSon.Value
 
      mnuHWP3.Value = True
      mnuXML.Value = True
@@ -178,6 +181,12 @@ End
 
 Public Sub LoadSettings()                                                       'réglages enregistrés en conf
 
+     mnuSon.Value = Settings["General/sons"]
+     If mnuSon.Value = True Then
+          SonOn = True
+     Else
+          SonOn = False
+     Endif
      '************* Group Log1 *************************************************
      mnErrores.Value = Settings["Menu/Errores"]
      mnInfectados.Value = Settings["Menu/Infectes"]
@@ -277,11 +286,11 @@ Public Sub LoadSettings()                                                       
           bTBSudo = False
      Endif
 
-     If MnuDeplacer.Value = True Then
+     If MnuDeplacer.Value = True Then                                           'voyant vert
           RB1.Background = Color.Red
           RB1.Enabled = False
      Else
-          MnuDeplacer.Value = False
+          MnuDeplacer.Value = False                                             'voyant rouge
           RB1.Background = Color.Green
           RB1.Enabled = False
      Endif
@@ -294,7 +303,24 @@ End
 
 Public Sub presentation()                                                       'présentation des informations de scan
 
+     ' Module1.son(Module1.Message2)
      txSalida.text = ("Versión instalada: ") & ClamScan.Version()
+     '********************** presente les limitations **************************
+     txSalida.text &= ("Limitaciones:")                                         'limitations'
+     txSalida.text &= gb.Tab
+     If BtnDefaut.value = False Then
+          txSalida.Text &= ("Defecto")
+     Else
+          txSalida.Text &= ("Max")
+     Endif
+     '********************** presente l'actualisation base *********************
+     txSalida.text &= gb.Tab
+     txSalida.text &= ("Actualización de la base de datos : ")                  'actualisation'gb.CrLf &
+     If MnuAuto.Checked = True Then
+          txSalida.Text &= ("automática") & gb.CrLf
+     Else
+          txSalida.Text &= ("manual") & gb.CrLf
+     Endif
      '********************** presente les choix de session *********************
      txSalida.text &= ("Elección de sesión:") & gb.CrLf                         'session
      txSalida.text &= gb.Tab
@@ -308,16 +334,9 @@ Public Sub presentation()                                                       
      If MnuArchVerbose.value = True Then txSalida.text &= "-archVerbose " & "ON ; "
      If MnuJson.value = True Then txSalida.text &= "-gen-json " & "ON ; "
      If mnErrores.Value = False And mnNoSummary.Value = False And mnInfectados.Value = False And MnuVerbose.value = False And mnSupressOK.value = False And mnBell.value = False And MnuDebug.value = False And MnuArchVerbose.value = False And MnuJson.value = False Then txSalida.text &= ("Sin selección")
-     '********************** presente les limitations **************************
-     txSalida.text &= gb.CrLf & ("Limitaciones:") & gb.CrLf                     'limitations
-     txSalida.text &= gb.Tab
-     If BtnDefaut.value = False Then
-          txSalida.Text &= ("Defecto")
-     Else
-          txSalida.Text &= ("Max")
-     Endif
+
      '********************** presente les options cochées **********************
-     txSalida.text &= gb.CrLf & ("Opciones no marcadas por defecto") & gb.CrLf  'options décochées par défaut
+     txSalida.text &= gb.CrLf & ("Opciones no marcadas por defecto :") & gb.CrLf  'options décochées par défaut
      txSalida.text &= gb.Tab
      If MnuAllMatch.Value = True Then txSalida.text &= "-allmatch " & "ON ; "
      If mnDetectar.Value = True Then txSalida.text &= "-detect-pua " & "ON ; "
@@ -328,7 +347,7 @@ Public Sub presentation()                                                       
      If MnuDeplacer.Value = True Then txSalida.text &= "-move " & "ON ; "
      If MnuAllMatch.Value = False And mnDetectar.Value = False And mnRecursivo.Value = False And MnuStructured.Value = False And MnuIntersection.Value = False And mnRemover.Value = False And MnuDeplacer.Value = False Then txSalida.text &= ("Todo es OFF")
      '********************** presente les options non cochées ******************
-     txSalida.text &= gb.CrLf & ("Opciones marcadas por defecto") & gb.CrLf     'options cochées par défaut
+     txSalida.text &= gb.CrLf & ("Opciones marcadas por defecto :") & gb.CrLf     'options cochées par défaut
      txSalida.text &= gb.Tab
      If MnuCrossFs.Value = False Then txSalida.text &= "-cross-fs " & "Off ; "
      If mnuHWP3.Value = False Then txSalida.text &= "-scan-hwp3 " & "Off ; "
@@ -349,6 +368,7 @@ End
 
 Public Sub TBSudo_Click()                                                       'bouton sudo enfoncé
 
+     Module1.son(Module1.camera1)
      If TBSudo.Value = True Then                                                'le bouton est enfoncé
           bSudo = True                                                          'boolean
           bTBSudo = True                                                        'boolean
@@ -404,6 +424,7 @@ Public Sub SaveSettings()                                                       
      '**************************************************************************
      Settings["General/LangInit"] = langue
      Settings["General/limites"] = BtnDefaut.Value
+     Settings["General/sons"] = mnuSon.Value
 
 End
 
@@ -421,22 +442,25 @@ End
 
 Public Sub FC_Activate()
 
-     If Message.Question(("Por favor, espere unos segundos mientras inicia el antivirus"), ("Si"), ("No")) = 2 Then Return
-     menuFaux()                                                                 'menus désactivés
      Ruta = Shell$(FC.SelectedPath)
-     txSalida.Clear
-     ClamScan.ScanAction(Ruta)
-     menuVraix()                                                                'menus activés
+     Scan_Activation()
 
 End
 
 Public Sub DC_Activate()
 
-     If Message.Question(("Por favor, espere unos segundos mientras inicia el antivirus"), ("Si"), ("No")) = 2 Then Return
-     menuFaux()                                                                 'menus désactivés
      Ruta = Shell$(DC.SelectedPath)
-     txSalida.Clear
-     ClamScan.ScanAction(Ruta)
+     Scan_Activation()
+
+End
+
+Public Sub Scan_Activation()
+
+     Module1.son(Module1.Message1)
+     If Message.Question(("Por favor, espere unos segundos mientras inicia el antivirus"), ("No"), ("Si")) = 1 Then Return
+     menuFaux()                                                                 'menus désactivés
+     txSalida.Clear                                                             'effacement Terminal
+     ClamScan.ScanAction(Ruta)                                                  'module de scan activé
      menuVraix() '                                                              'menus activés
 
 End
@@ -480,6 +504,7 @@ End
 Public Sub TBhProc_Click()                                                      'execute hproc
 
      If maCle = 0 Then
+          Module1.son(Module1.beep)
           Message.Info(("Seleccione \n an objeto para escanear!"))
      Else If maCle = 1 Then
           FC_Activate
@@ -568,14 +593,16 @@ End
 
 Public Sub TBKill_Click()                                                       'Bouton kill hproc
 
-     If IsNull(ClamScan.hProc) Then
+     If IsNull(ClamScan.hProc) Then                                             'pas de processus à tuer
           _new()
+          Module1.son(Module1.beep)
           Message.Info(("Seleccione \n an objeto para escanear!"))
           Return
      Endif
 
      If ClamScan.hProc.State = ClamScan.hProc.Running Then                      'si le process tourne
 
+          Module1.son(Module1.shade)
           FMain.txSalida3.Clear
           FMain.txSalida2.Clear
           FMain.txSalida2.Text = ("Espere mientras se apaga el antivirus")      'affichage dans terminal du bas
@@ -596,10 +623,11 @@ Public Sub TBKill_Click()                                                       
           Endif
           _new()
      Else                                                                       'si le process ne tourne pas
+          Module1.son(Module1.OpenApp)
           Message(("¡El proceso ya se detuvo!"))
      Endif
 
-     FMain.monTexte = ""
+     FMain.monTexte = ""                                                        'pour être sûr!
 
 End
 
@@ -640,6 +668,30 @@ Public Sub mnFreshclam_Click()                                                  
      FMain.Mouse = Mouse.Wait
      Wait
      iForm = 2
+     FrmGeneral.ShowModal()
+     Me.Hide
+     FMain.Mouse = Mouse.Default
+     FMain.Show()
+
+End
+
+Public Sub mnClamav_Click()                                                  'montre le fichier freshclam Log
+
+     FMain.Mouse = Mouse.Wait
+     Wait
+     iForm = 7
+     FrmGeneral.ShowModal()
+     Me.Hide
+     FMain.Mouse = Mouse.Default
+     FMain.Show()
+
+End
+
+Public Sub mnClamavmilter_Click()                                                  'montre le fichier freshclam Log
+
+     FMain.Mouse = Mouse.Wait
+     Wait
+     iForm = 8
      FrmGeneral.ShowModal()
      Me.Hide
      FMain.Mouse = Mouse.Default
@@ -720,9 +772,9 @@ Public Sub MnuCorrompus_Click()                                                 
 
 End
 
-Public Sub mnu_click()                                                          'group mnu
+Public Sub mnu_click()                                                          'group mnu Mise à jour Freshclam
 
-     If MnuManuelle.Checked = False Then
+     If MnuManuelle.Checked = False Then                                        'mise à jour automatique
           sMot = "/etc/init.d/clamav-freshclam start"
           Authenticate.Command("sudo " & sMot)
           Wait
@@ -730,37 +782,36 @@ Public Sub mnu_click()                                                          
                MnuAuto.Checked = True
                MnuManuelle.Checked = False
                MnuImmediate.Enabled = False
-          Else
+          Else                                                                  'bFlag=True si manuelle validée dans Authenticate
                MnuManuelle.Checked = True
                MnuImmediate.Enabled = True
                MnuAuto.Checked = False
                mnu_click
           Endif
-
-     Else If MnuAuto.Checked = False Then
+     Else If MnuAuto.Checked = False Then                                        'mise à jour manuelle
           sMot = "/etc/init.d/clamav-freshclam stop"
           Authenticate.Command("sudo " & sMot)
           Wait
-          If bFlag = True Then
+          If bFlag = True Then                                                  'bFlag=True si manuelle validée dans Authenticate
                MnuManuelle.Checked = True
                MnuImmediate.Enabled = True
                MnuAuto.Checked = False
           Else
-               MnuAuto.Checked = True
+               MnuAuto.Checked = True                                           'bFlag=True si Auto validée dans Authenticate
                MnuManuelle.Checked = False
                MnuImmediate.Enabled = False
                mnu_click
           Endif
-
-     Else If MnuAuto.Checked = True Then
+     Else If MnuAuto.Checked = True Then                                        'mise à jour automatique
           MnuManuelle.Checked = False
           MnuImmediate.Enabled = False
-
-     Else If MnuManuelle.Checked = True Then
+     Else If MnuManuelle.Checked = True Then                                    'mise à jour manuelle
           MnuImmediate.Enabled = True
           MnuAuto.Checked = False
-
      Endif
+
+     Module1.son(Module1.Message2)
+     presentation()                                                             'des informations de scan
 
 End
 
@@ -807,11 +858,11 @@ Public Sub Form_Close()                                                         
 
      Me.Hide()
 
-     Module1.quitAppli()                                                        'fermeture par le Module1
+     Module1.quitAppli()                                                        'fermeture application par le Module1
 
 End
 
-Public Sub langue_Click()                                                       'choix de la langue
+Public Sub langue_Click()                                                       'choix de la langue et affichage du menu checked
 
      If MnuEspagnol.Checked = True Then langue = "es"
      If MnuFrancais.Checked = True Then langue = "fr"
@@ -846,6 +897,7 @@ End
 Public Sub TBeffacer_Click()                                                    'bouton effacer le texte du textarea1
 
      FMain.txSalida.Clear
+     Module1.son(Module1.Message2)
 
 End
 
@@ -871,8 +923,9 @@ Public Sub Log1_Click()                                                         
      Adebug = MnuDebug.Value
      Json = MnuJson.Value
 
+     Module1.son(Module1.camera1)
      SaveSettings()
-     presentation()
+     presentation()                                                             'affichage des changements dans terminal
 
 End
 
@@ -906,8 +959,9 @@ Public Sub option1_Click()                                                      
      Algo = MnuAlgo.Value
      CrossFs = MnuCrossFs.Value
 
+     Module1.son(Module1.camera1)
      SaveSettings()
-     presentation()
+     presentation()                                                             'affichage des changements dans terminal
 
 End
 
@@ -938,8 +992,9 @@ Public Sub optionAvance_Click()                                                 
      Intersection = MnuIntersection.Value
      Structured = MnuStructured.Value
 
+     Module1.son(Module1.camera1)
      SaveSettings()
-     presentation()
+     presentation()                                                             'affichage des changements dans terminal
 
 End
 
@@ -997,8 +1052,6 @@ Public Sub limit_Leave()                                                        
      If SlidPcreFilesize.Value <> SlidPcreFilesize.DefaultValue Then sCommande = sCommande & " --pcre-max-filesize=" & CStr(SlidPcreFilesize.Value) & "M"
      If SlidZipType.Value <> SlidZipType.DefaultValue Then sCommande = sCommande & " --max-ziptypercg=" & CStr(SlidZipType.Value) & "M"
 
-     ' SaveSettings()'avec BtnDefaut.value met tout les défaut à faux si décommenté, pas encore compris pourquoi?
-
 End
 
 Public Sub BtnDefaut_Click()                                                    'Changement état du Bouton défaut dans les limites
@@ -1042,9 +1095,9 @@ Public Sub BtnDefaut_Click()                                                    
           SlidZipType.Value = SlidZipType.MaxValue
      Endif
 
+     Module1.son(Module1.camera1)
      limit_Leave()                                                              'Application des limites
-
-     presentation()                                                             'affichage dans terminal des infos de scan
+     presentation()                                                             'affichage des changements dans terminal
 
 End
 
@@ -1077,7 +1130,7 @@ Public Function GitVersion(raw As String) As String                             
 
 End
 
-Public Sub Menu18_Click()                                                       'menu mise à jour sur github
+Public Sub mnuMiseAJour_Click()                                                 'menu mise à jour sur github
 
      Dim vChk As String
 
@@ -1087,6 +1140,7 @@ Public Sub Menu18_Click()                                                       
           Message.Info(("Nueva versión encontrada!") & ": " & "v" & vChk)
           frmUpdate.Show
      Else
+          Module1.son(Module1.beep)
           Message.Info(("No hay actualizaciones disponibles"))
      Endif
 
@@ -1094,6 +1148,17 @@ End
 
 Public Sub TBPresent_Click()                                                    'bouton d'apparition de la présentation des infos de scan
 
-     presentation()
+     Module1.son(Module1.Message2)
+     presentation()                                                             'affichage des changements dans terminal
+
+End
+
+Public Sub mnuSon_Click()
+
+     If mnuSon.Value = True Then
+          SonOn = True
+     Else
+          SonOn = False
+     Endif
 
 End

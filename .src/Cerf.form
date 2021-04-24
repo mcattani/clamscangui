@@ -15,10 +15,10 @@
   }
   { Label9 Label
     Move(35,434,329,35)
-    Font = Font["Bold,+6"]
+    Font = Font["Bold,+10"]
     Foreground = &H0F6380&
-    Text = ("Unus Ex Altera")
     Alignment = Align.Center
+    Text = ("Unus Ex Altera")
   }
   { Timer1 #Timer
     #Move(0,420)

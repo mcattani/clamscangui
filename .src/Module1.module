@@ -15,6 +15,20 @@ Fast                                                                            
 Public hLock As Stream                                                          'pour locker un fichier de contrôle
 Public cloture As Boolean                                                       'cloture voulue ou non
 
+Public MonSon As Sound
+Public ouverture3 As String = "ouverture3"
+Public beep As String = "beep"
+Public bell As String = "bell"
+Public Contact As String = "Contact"
+Public Message2 As String = "Message2"
+Public Message1 As String = "Message1"
+Public OpenApp As String = "OpenApp"
+Public powerunplug As String = "power-unplug"
+Public shade As String = "shade"
+Public Warning As String = "Warning"
+Public powerplug As String = "power-plug"
+Public camera1 As String = "camera1"
+
 Public Sub Main()
 
      Try hLock = Lock User.home & "/.ClamScanGui-lock"                           'pour éviter plusieurs instance du programme
@@ -28,9 +42,46 @@ Public Sub Main()
 
 End
 
+Public Sub son($son As String)
+
+     If FMain.SonOn = True Then
+          Select Case $son
+               Case beep
+                    Try MonSon = Sound.Load("beep.ogg")
+               Case ouverture3
+                    Try MonSon = Sound.Load("ouverture3.ogg")
+               Case bell
+                    Try MonSon = Sound.Load("bell.oga")
+               Case Contact
+                    Try MonSon = Sound.Load("Contact.ogg")
+               Case Message1
+                    Try MonSon = Sound.Load("Message1.ogg")
+               Case Message2
+                    Try MonSon = Sound.Load("Message2.ogg")
+               Case OpenApp
+                    Try MonSon = Sound.Load("OpenApp.ogg")
+               Case shade
+                    Try MonSon = Sound.Load("shade.ogg")
+               Case powerunplug
+                    Try MonSon = Sound.Load("power-unplug.oga")
+               Case Warning
+                    Try MonSon = Sound.Load("Warning.ogg")
+               Case powerplug
+                    Try MonSon = Sound.Load("power-plug.oga")
+               Case camera1
+                    Try MonSon = Sound.Load("camera1.ogg")
+          End Select
+          Try MonSon.Play()
+     Endif
+
+Catch
+     Message(("An error : ") & "son " & Error.Text)
+
+End
+
 Public Sub langues()
 
-     Dim cLangues As String[] = ["en", "fr", "es", "it", "de", "pt", "ru"]
+     Dim cLangues As String[] = ["en", "fr", "es", "it", "de", "pt", "ru"]      'liste des langues actuelles
 
      If Not cLangues.Exist(Left(System.Language, 2)) Then                       'anglais si langue pas dans cLangues
           Settings["General/LangInit"] = "en"

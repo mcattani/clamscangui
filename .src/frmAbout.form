@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,108,30)
+  MoveScaled(0,0,108,34)
   ToolTip = ("Acerca de") & "..."
   Text = ("Acerca de") & "..."
   Icon = Picture["icon:/48/security"]
@@ -17,7 +17,6 @@
   { Panel1 Panel
     MoveScaled(89,1,18,21)
     Arrangement = Arrange.Fill
-    Border = Border.Raised
     { PictureBox2 PictureBox
       MoveScaled(1,1,16,19)
       ToolTip = ("Unus Ex Altera")
@@ -33,16 +32,15 @@
     Wrap = True
   }
   { btCerrar Button
-    MoveScaled(51,25,16.1429,4)
+    MoveScaled(50.4286,29.1429,16.1429,4)
     Text = ("Cerrar")
     Picture = Picture["icon:/24/close"]
   }
   { Panel2 Panel
     MoveScaled(0,1,26,21)
     Arrangement = Arrange.Fill
-    Border = Border.Raised
     { PictureBox1 PictureBox
-      MoveScaled(-4.5714,0,27,21)
+      MoveScaled(-1,-1,27,21)
       ToolTip = ("The Nerdy Apprentice")
       Picture = Picture["Logo_Oficial.png"]
       Alignment = Align.Center

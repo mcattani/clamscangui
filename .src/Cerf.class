@@ -39,6 +39,7 @@ End
 
 Public Sub Form_Open() '                                                        'ouverture du splash form avec animation
 
+     Module1.son(Module1.ouverture3)
      If Module1.cloture Then
           PH = PictureBox1.H
           PW = PictureBox1.W

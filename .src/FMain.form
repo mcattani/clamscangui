@@ -362,6 +362,16 @@
     }
     { Menu8 Menu
     }
+    { mnClamav Menu
+      Text = ("Ver clamav.log")
+      Picture = Picture["icon:/22/book"]
+    }
+    { mnClamavmilter Menu
+      Text = ("Ver clamav-milter.log")
+      Picture = Picture["icon:/22/book"]
+    }
+    { Menu20 Menu
+    }
     { MnuConf Menu
       Text = ("Archivos de configuración")
       Picture = Picture["icon:/24/info"]
@@ -419,9 +429,14 @@
       Text = ("Ayuda")
       Picture = Picture["icon:/48/help"]
     }
-    { Menu18 Menu
+    { mnuMiseAJour Menu
       Text = ("ClamScanGui actualizaciónes")
       Picture = Picture["icon:/48/development"]
+    }
+    { mnuSon Menu
+      Text = ("Sonidos")
+      Picture = Picture["icon:/22/muted"]
+      Toggle = True
     }
   }
   { PanGauche Panel
@@ -490,6 +505,7 @@
     }
     { Panel1 Panel
       MoveScaled(50,0,29,5)
+      AutoResize = True
       { TBKill ToolButton
         MoveScaled(15,0,4.5714,4)
         ToolTip = ("¡Mata el proceso en curso!")
@@ -531,98 +547,98 @@
     { Label2 Label
       MoveScaled(1,6.1429,19,4)
       #Translate = False
-      Text = "max-filesize"
       Alignment = Align.Right
+      Text = "max-filesize"
     }
     { Label3 Label
       MoveScaled(1,10.8571,19,4)
       #Translate = False
-      Text = "max-scansize"
       Alignment = Align.Right
+      Text = "max-scansize"
     }
     { Label4 Label
       MoveScaled(1,16.1429,19,4)
       #Translate = False
-      Text = "max-files"
       Alignment = Align.Right
+      Text = "max-files"
     }
     { Label5 Label
       MoveScaled(1,21.1429,19,4)
       #Translate = False
-      Text = "max-recursion"
       Alignment = Align.Right
+      Text = "max-recursion"
     }
     { Label6 Label
       MoveScaled(1,25.8571,19,4)
       #Translate = False
-      Text = "max-dir-recursion"
       Alignment = Align.Right
+      Text = "max-dir-recursion"
     }
     { Label7 Label
       MoveScaled(1,30.7143,19,4)
       #Translate = False
-      Text = "max-embeddedpe"
       Alignment = Align.Right
+      Text = "max-embeddedpe"
     }
     { Label8 Label
       MoveScaled(1,35.7143,19,4)
       #Translate = False
-      Text = "max-htmlnormalize"
       Alignment = Align.Right
+      Text = "max-htmlnormalize"
     }
     { Label9 Label
       MoveScaled(1,40.5714,19,4)
       #Translate = False
-      Text = "max-htmlnotags"
       Alignment = Align.Right
+      Text = "max-htmlnotags"
     }
     { Label11 Label
       MoveScaled(1,50.5714,19,4)
       #Translate = False
-      Text = "max-ziptypercq"
       Alignment = Align.Right
+      Text = "max-ziptypercq"
     }
     { Label12 Label
       MoveScaled(1,55.8571,19,4)
       #Translate = False
-      Text = "max-partitions"
       Alignment = Align.Right
+      Text = "max-partitions"
     }
     { Label13 Label
       MoveScaled(1,61.1429,19,4)
       #Translate = False
-      Text = "max-iconspe"
       Alignment = Align.Right
+      Text = "max-iconspe"
     }
     { Label14 Label
       MoveScaled(1,66.1429,19,4)
       #Translate = False
-      Text = "max-rechwp3"
       Alignment = Align.Right
+      Text = "max-rechwp3"
     }
     { Label15 Label
       MoveScaled(1,71.1429,19,4)
       #Translate = False
-      Text = "pcre-match-limit"
       Alignment = Align.Right
+      Text = "pcre-match-limit"
     }
     { Label16 Label
       MoveScaled(1,76.1429,19,4)
       #Translate = False
-      Text = "pcre-recmatch-limit"
       Alignment = Align.Right
+      Text = "pcre-recmatch-limit"
     }
     { Label17 Label
       MoveScaled(1,81.1429,19,4)
       #Translate = False
-      Text = "pcre-max-filesize"
       Alignment = Align.Right
+      Text = "pcre-max-filesize"
     }
     { Label10 Label
       MoveScaled(1.1429,45.7143,19,4)
       #Translate = False
-      Text = "max-scriptnormalize"
       Alignment = Align.Right
+      Text = "max-scriptnormalize"
     }
     { SlidFilesize SliderBox Limit
       Name = "SlidFilesize"

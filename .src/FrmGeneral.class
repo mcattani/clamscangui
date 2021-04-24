@@ -19,6 +19,7 @@ Public fichier As String[] = New String[]                                       
 Public virus As String[] = New String[]                                         'nom du virus
 Public nameFile As String[] = New String[]                                      'nom du fichier
 Public lNbrLigne As Long                                                        'nombre de ligne du fichier historique
+Private hProc As Process
 
 Public Sub Run() As Boolean
 
@@ -62,7 +63,7 @@ Public Sub btnSauve_Click()                                                     
      Dim nomFich As String
 
      Message.Title = ("¡Proceda con cuidado!")
-     If Message.Question(("¿Quieres guardar tus cambios?"), ("Si"), ("No")) = 2 Then
+     If Message.Question(("¿Quieres guardar tus cambios?"), ("No"), ("Si")) = 1 Then
           Me.Close(True)
      Else
           Select Case FMain.iFlag                                               'en fonction du drapeau integer voir appel
@@ -129,7 +130,7 @@ Public Sub btnRestaurar_Click()                                                 
                Dim nomFich As String
 
                Message.Title = ("¡Proceda con cuidado!")
-               If Message.Question(("¿Quiere restaurar el archivo respaldado?"), ("Si"), ("No")) = 2 Then
+               If Message.Question(("¿Quiere restaurar el archivo respaldado?"), ("No"), ("Si")) = 1 Then
                     Me.Close(True)
                Else
                     Select Case FMain.iFlag                                     'en fonction du drapeau integer voir appel
@@ -183,11 +184,13 @@ Public Sub btnRestaurar_Click()                                                 
 
           Case 5                                                                'liste des fichiers en quarantaine
                If GV1.Rows.Selection.Max < 0 Then
+                    Module1.son(Module1.beep)
                     Message(("No hay archivo para restaurar"))
                     Return
                Endif
 
-               If Message.Warning(("¿Quieres restaurar el archivo de la cuarentena?"), ("Si"), ("No")) = 2 Then
+               If Message.Warning(("¿Quieres restaurar el archivo de la cuarentena?"), ("No"), ("Si")) = 1 Then
+                    Module1.son(Module1.beep)
                     Return
                Endif
 
@@ -200,8 +203,10 @@ Public Sub btnRestaurar_Click()                                                 
                Wait
 
                If Not Error Then
+                    Module1.son(Module1.bell)
                     Message(("El archivo ha sido restaurado"))
                Else
+                    Module1.son(Module1.beep)
                     Message(("¡El archivo en cuestión no existe!"))
                Endif
 
@@ -231,8 +236,12 @@ End
 Public Sub _New() 'Form_Open()
 
      Dim ceTexte As String
+     Dim maCom As String
+
+     Module1.son(Module1.OpenApp)
 
      Select Case FMain.iform
+
           Case 0                                                                'FrmHistoric
                btnSauve.Visible = False
                btnBorrar.Visible = True
@@ -297,6 +306,7 @@ Public Sub _New() 'Form_Open()
 
                If lNbrLigne > 3000 Then
                     Message.Title = ("¡Atención, archivo muy grande!")
+                    Module1.son(Module1.Warning)
                     If Message.Question(("¿Quieres ver el archivo completo? \n ¡Ten paciencia!"), ("Si"), ("¡Solo una parte!")) = 1 Then
                          Try Shell " cat -n " & FMain.clamLog To TextArea1.Text   'affiche tout le fichier
                     Else
@@ -311,7 +321,7 @@ Public Sub _New() 'Form_Open()
                     TextArea1.Text = (" -------- | Archivo vacío | -------- ")
                Endif
 
-          Case 2                                                                'frmFresh
+          Case 2                                                                'frmFresh, fichier freshclam.log
 
                btnSauve.Visible = False
                btnBorrar.Visible = False
@@ -323,8 +333,9 @@ Public Sub _New() 'Form_Open()
                Label1.Text = ("Viendo el archivo Freshclam.log:") & " /var/log/clamav/freshclam.log"
                TextArea1.Visible = True
                GV1.Visible = False
-
-               Try Shell " cat -n " & "/var/log/clamav/freshclam.log" To TextArea1.Text  'affichage de fresclam.log
+               ' Try Shell " cat -n " & "/var/log/clamav/freshclam.log" To TextArea1.Text  'affichage de fresclam.log si pas sudo
+               maCom = " cat -n " & "/var/log/clamav/freshclam.log"             'à cause du changement de droit sur log
+               CommSudo(maCom)                                                  'authentification
 
           Case 3                                                                'Config
                Dim nomFich As String
@@ -508,9 +519,56 @@ Public Sub _New() 'Form_Open()
                GV1.AddColumn(("Nombre"), -1, Align.Center)
                miseAjour(FMain.pil)                                             'mise à jour de la liste des virus
 
+          Case 7                                                                'fichier clamav.log
+               btnSauve.Visible = False
+               btnBorrar.Visible = False
+               btnImpr.visible = True
+               btnRestaurar.Visible = False
+               btnCerrar.Visible = True
+               btnSubmission.Visible = False
+               btnQuarant.Visible = False
+               Label1.Text = ("Viendo el archivo Freshclam.log:") & " /var/log/clamav/clamav.log"
+               TextArea1.Visible = True
+               GV1.Visible = False
+               maCom = " cat -n " & "/var/log/clamav/clamav.log"                'à cause du changement de droit sur log
+               CommSudo(maCom)                                                  'authentification
+
+          Case 8                                                                'fichier clamav-milter.log
+               btnSauve.Visible = False
+               btnBorrar.Visible = False
+               btnImpr.visible = True
+               btnRestaurar.Visible = False
+               btnCerrar.Visible = True
+               btnSubmission.Visible = False
+               btnQuarant.Visible = False
+               Label1.Text = ("Viendo el archivo Freshclam.log:") & " /var/log/clamav/clamav-milter.log"
+               TextArea1.Visible = True
+               GV1.Visible = False
+               maCom = " cat -n " & "/var/log/clamav/clamav-milter.log"         'à cause du changement de droit sur log
+               CommSudo(maCom)                                                  'authentification
+
      End Select
 Catch
      Message.Info((Error.Text))
+
+End
+
+Public Sub CommSudo(maCom As String)                                            'envoi sudo pour fichiers Log de clamav
+
+     FMain.bSudo = True
+     Authenticate.Command("sudo " & maCom)
+     hProc = Shell FMain.monTexte For Read As "Scan"
+     FMain.bSudo = False
+
+End
+
+Public Sub Scan_Read()                                                          'affichage dans terminal
+
+     Dim sLine As String
+
+     Read #hProc, sLine, Lof(hProc)
+     TextArea1.Text &= sLine
+     TextArea1.EnsureVisible()
 
 End
 
@@ -562,10 +620,12 @@ Public Sub btnBorrar_Click()                                                    
 
           Case 5, 6                                                             'quarantaine ou liste des virus trouvés
                If GV1.Rows.Selection.Max < 0 Then
+                    Module1.son(Module1.beep)
                     Message(("No hay archivo para borrar"))
                     Return
                Endif
-               If Message.Warning(("¿Quieres destruir el archivo?"), ("Si"), ("No")) = 2 Then
+               If Message.Warning(("¿Quieres destruir el archivo?"), ("No"), ("Si")) = 1 Then
+                    Module1.son(Module1.Warning)
                     Return
                Endif
 
@@ -582,8 +642,10 @@ Public Sub btnBorrar_Click()                                                    
                Endif
 
                If Not Error Then
+                    Module1.son(Module1.Warning)
                     Message(("¡El archivo ha sido destruido!"))
                Else
+                    Module1.son(Module1.beep)
                     Message(("¡El archivo en cuestión no existe!"))
                Endif
 
@@ -617,6 +679,7 @@ Public Sub btnSubmission_Click()                                                
      FMain.nom = Settings["General/nom"]
 
      If GV1.Rows.Selection.Max < 0 Then
+          Module1.son(Module1.beep)
           Message(("No hay archivo para enviar"))
           Return
      Endif
@@ -641,10 +704,12 @@ Public Sub btnQuarant_Click()                                                   
      Select Case FMain.iForm
           Case 6
                If GV1.Rows.Selection.Max < 0 Then
+                    Module1.son(Module1.beep)
                     Message(("No hay archivo para borrar"))
                     Return
                Endif
-               If Message.Warning(("¿Quieres poner el archivo en cuarentena?"), ("Si"), ("No")) = 2 Then
+               If Message.Warning(("¿Quieres poner el archivo en cuarentena?"), ("No"), ("Si")) = 1 Then
+                    Module1.son(Module1.Warning)
                     Return
                Endif
 
@@ -656,8 +721,10 @@ Public Sub btnQuarant_Click()                                                   
                Wait
                Try Kill fichier[myRow]
                If Not Error Then
+                    Module1.son(Module1.Warning)
                     Message(("El archivo se ha movido a cuarentena"))
                Else
+                    Module1.son(Module1.beep)
                     Message(("¡El archivo en cuestión no existe!"))
                Endif
 
@@ -676,5 +743,11 @@ Public Sub btnQuarant_Click()                                                   
 
 Catch
      Message.Info((Error.Text))
+
+End
+
+Public Sub Form_Close()
+
+     Module1.son(Module1.Warning)
 
 End

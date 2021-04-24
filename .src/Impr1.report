@@ -2,8 +2,12 @@
 
 { Report Report
   #MoveScaled(0,0,107,91)
+  #Translate = False
+  Index = 0
+  Text = "Section 1"
   { RVBox ReportVBox
     #MoveScaled(1,1,105,84)
     Border = ReportBorder["Top:10mm #FFFFFF;Bottom:10mm #FFFFFF;Left:10mm #FFFFFF;Right:10mm #FFFFFF"]
   }
+  Index = 0
 }

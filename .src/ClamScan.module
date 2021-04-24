@@ -76,14 +76,14 @@ Public Function ScanAction(Ruta As String)
      If FMain.bSudo = True Then
           Authenticate.Command("sudo " & Comm)
           If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) & ajout For Read As "Scan"
+               hProc = Shell FMain.monTexte & ajout For Read As "Scan"
           Endif
      Else If FMain.bsudo = False
-          hProc = Shell (Comm) & ajout For Read As "Scan"
+          hProc = Shell Comm & ajout For Read As "Scan"
      Endif
      '**************************************************************************'Scan_Read en cours
      TournProc()                                                                'affichage dans terminal tant que tourne le process
-     '************************************************************************** après le Scan_Read()
+     '************************************************************************** après le Scan_Read() et le Scan_Kill()
      RecupVirus()                                                               'récupération des lignes virus
      sTexte = ""                                                                'effacement de sTexte
      FichierLog()                                                               'sauvegarde des log et historique
@@ -104,7 +104,8 @@ End
 
 Public Sub Scan_Kill()                                                          'Fin du process hPro
 
-     If FMain.bTBKill = True Then                                               'le processus a été tué
+     If FMain.bTBKill = True Then '¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤'le processus a été tué
+          Module1.son(Module1.beep)
           If FMain.bSudo = True Then                                            'si bouton sudo enfoncé
                If FMain.bFlag = False Then
                     Message.Title = ("¡Atención!")
@@ -114,11 +115,12 @@ Public Sub Scan_Kill()                                                          
                Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
           Endif
           FMain.bTBKill = False                                                 'drapeau Boolean à faux
-     Else                                                                       'le processus s'est terminé normalement
+     Else '¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤'le processus s'est terminé normalement
           FMain.txSalida3.Clear
           FMain.txSalida2.Clear
           FMain.txSalida3.Text = ("Tiempo : ") & "[ " & FMain.dTemps & " ] "    'affichage des secondes
           ' FMain.txSalida3.Text = ("Tiempo : ") & "[ " & Time(0, 0, 0, (Timer - ClamScan.Depart) * 1000) & " ] " 'des millisecondes
+          Module1.son(Module1.Warning)
           Message(("Trabajo completado") & ". " & ("¡Puedes volver!"))
      Endif
 
@@ -135,14 +137,14 @@ Public Sub TournProc()                                                          
           MouseWait()
           FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)    'clic en millisecondes * 1000 = secondes
           FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
-          i += 1
+          i += 1                                                                'incrément de i
           If i > j Then                                                         'j=longueur de la ligne terminal 2
-               i = 0
+               i = 0                                                            'remise à zéro de i
                FMain.txSalida2.Clear
           Endif
           Wait 1                                                                'boucle évènement d'une seconde
           FMain.txSalida2.Text &= "#"
-          If hProc.State = hProc.Stopped Then Break                             'garantie de sortie de boucle (inutile)
+          If hProc.State = hProc.Stopped Then Break                             'garantie de sortie de boucle (inutile?)
      Wend
 
      Mousedefault()
