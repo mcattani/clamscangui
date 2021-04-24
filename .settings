@@ -14,6 +14,9 @@ File[5]=".src/FMain.class:33.458"
 File[6]=".src/ClamScan.module:0.0"
 Count=6
 
+[Package]
+Dir="~/Escritorio/"
+
 [Watches]
 Count=0
 
