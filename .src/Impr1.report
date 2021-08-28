@@ -3,6 +3,7 @@
 { Report Report
   #MoveScaled(0,0,107,91)
   #Translate = False
+  Font = Font["10"]
   Index = 0
   Text = "Section 1"
   { RVBox ReportVBox

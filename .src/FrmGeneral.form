@@ -1,97 +1,103 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,125,87)
+  Move(0,0,875,609)
+  #Scaled = False
+  Font = Font["10"]
   Icon = Picture["icon:/48/security"]
   Arrangement = Arrange.Vertical
   Spacing = True
   Margin = True
   { HBox2 HBox
-    MoveScaled(1,0,112,5)
+    Move(7,0,784,35)
+    Font = Font["10"]
     AutoResize = True
     { Label1 Label
-      MoveScaled(2,1,93,3)
-      Font = Font["Bold"]
+      Move(14,7,651,21)
+      Font = Font["Bold,10"]
       AutoResize = True
     }
     { Panel4 Panel
-      MoveScaled(99,1,11,3)
+      Move(693,7,77,21)
     }
   }
   { Panel3 Panel
-    MoveScaled(1,6,112,76)
+    Move(7,42,784,532)
     Expand = True
     Arrangement = Arrange.Horizontal
     { TextArea1 TextArea
-      MoveScaled(2,2,37,68)
+      Move(14,14,259,476)
+      Font = Font["10"]
       Expand = True
       ReadOnly = True
       Wrap = True
     }
     { GV1 GridView
-      MoveScaled(70,2,36,67)
+      Move(490,14,252,469)
+      Font = Font["10"]
       Expand = True
       Mode = Select.Single
       Header = GridView.Both
     }
   }
   { HBox1 HBox
-    MoveScaled(1,82.4286,112,4)
+    Move(7,577,784,28)
+    Font = Font["10"]
     Spacing = True
     { btnImpr Button
-      MoveScaled(0,0,17.1429,4)
+      Move(0,0,120,28)
       Text = ("Imprimir")
       Picture = Picture["icon:/24/print"]
     }
     { btnQuarant Button
-      MoveScaled(1,0,17.1429,4)
+      Move(7,0,120,28)
       Visible = False
       Text = ("Cuarentena")
       Picture = Picture["icon:/24/security"]
     }
     { Panel5 Panel
-      MoveScaled(17,0,2,4)
+      Move(119,0,14,28)
       Expand = True
     }
     { btnSubmission Button
-      MoveScaled(19,0,17.1429,4)
+      Move(133,0,120,28)
       Text = ("Sumisión")
       Picture = Picture["icon:/24/mail"]
     }
     { Panel7 Panel
-      MoveScaled(36,0,2,4)
+      Move(252,0,14,28)
       Expand = True
     }
     { btnBorrar Button
-      MoveScaled(38,0,17.1429,4)
+      Move(266,0,120,28)
       Text = ("Borrar")
       Picture = Picture["icon:/24/clear"]
     }
     { Panel2 Panel
-      MoveScaled(55,0,2,4)
+      Move(385,0,14,28)
       Expand = True
     }
     { btnRestaurar Button
-      MoveScaled(57,0,17.1429,4)
+      Move(399,0,120,28)
       Text = ("Restaurar")
       Picture = Picture["icon:/24/redo"]
       Cancel = True
     }
     { Panel1 Panel
-      MoveScaled(74,0,2,4)
+      Move(518,0,14,28)
       Expand = True
     }
     { btnSauve Button
-      MoveScaled(76,0,17.1429,4)
+      Move(532,0,120,28)
       Text = ("Salvar")
       Picture = Picture["icon:/24/floppy"]
     }
     { Panel6 Panel
-      MoveScaled(93,0,2,4)
+      Move(651,0,14,28)
       Expand = True
     }
     { btnCerrar Button
-      MoveScaled(94.2857,0,17.1429,4)
+      Move(660,0,120,28)
       Text = ("Cerrar")
       Picture = Picture["icon:/24/close"]
     }

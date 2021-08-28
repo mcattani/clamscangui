@@ -1,8 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,108,34)
-  ToolTip = ("Acerca de") & "..."
+  MoveScaled(0,0,108,30)
   Text = ("Acerca de") & "..."
   Icon = Picture["icon:/48/security"]
   Resizable = False
@@ -32,7 +31,7 @@
     Wrap = True
   }
   { btCerrar Button
-    MoveScaled(50.4286,29.1429,16.1429,4)
+    MoveScaled(51,25,16.1429,4)
     Text = ("Cerrar")
     Picture = Picture["icon:/24/close"]
   }

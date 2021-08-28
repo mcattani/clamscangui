@@ -1,6 +1,28 @@
-* Sat Apr 24 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.86
+* Sat Aug 28 2021 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.89
 
-* Wed Apr 21 2021 PilValaquarus <valaquarus@gmail.com> 1.1.86
+* Wed Aug 04 2021 PilValaquarus <valaquarus@gmail.com> 1.1.89
+
+* Tue Jun 15 2021 PilValaquarus <valaquarus@gmail.com> 1.1.88
+
+* Tue Jun 15 2021 PilValaquarus <valaquarus@gmail.com> 1.1.88
+
+* Sat Jun 12 2021 PilValaquarus <valaquarus@gmail.com> 1.1.88
+
+* Mon May 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.88
+
+* Mon May 24 2021 PilValaquarus <valaquarus@gmail.com> 1.1.88
+- Déplacement des sons dans menu Actions
+
+* Sun May 16 2021 PilValaquarus <valaquarus@gmail.com> 1.1.87
+- scaled à false partout et font non relatif
+
+* Wed May 12 2021 PilValaquarus <valaquarus@gmail.com> 1.1.87
+- _New en Open pour modification sur Authenticate
+
+* Sun Apr 25 2021 PilValaquarus <valaquarus@gmail.com> 1.1.86
+- sons ajoutés et correction d'un bug sur son au démarrage
+- changement de mouse sur toolbutton
+- Ajout de la présentation du sudo
 - Ajout de sons
 
 * Wed Apr 21 2021 PilValaquarus <valaquarus@gmail.com> 1.1.85

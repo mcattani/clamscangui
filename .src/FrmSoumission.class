@@ -105,7 +105,7 @@ End
 
 Public Sub btnCerrar_Click()
 
-     Me.Close(True)
+     Me.Close()
 
 End
 

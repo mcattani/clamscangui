@@ -5,14 +5,7 @@ Count=0
 Count=0
 
 [OpenFile]
-File[1]=".src/Authenticate.form"
-File[2]=".src/FrmGeneral.form"
-File[3]=".src/FrmSoumission.form"
-File[4]=".src/FMain.form"
-Active=5
-File[5]=".src/FMain.class:33.458"
-File[6]=".src/ClamScan.module:0.0"
-Count=6
+Count=0
 
 [Package]
 Dir="~/Escritorio/"

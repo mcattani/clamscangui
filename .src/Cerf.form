@@ -3,6 +3,7 @@
 { Form Form
   Move(0,0,406,476)
   #Scaled = False
+  Font = Font["10"]
   Resizable = False
   Border = False
   Stacking = Window.Above
@@ -15,7 +16,7 @@
   }
   { Label9 Label
     Move(35,434,329,35)
-    Font = Font["Bold,+10"]
+    Font = Font["Bold,32"]
     Foreground = &H0F6380&
     Alignment = Align.Center
     Text = ("Unus Ex Altera")

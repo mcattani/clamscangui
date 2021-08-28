@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ClamScanGuiV0 3.16.0\n"
-"PO-Revision-Date: 2021-04-21 17:40 UTC\n"
+"PO-Revision-Date: 2021-04-22 10:44 UTC\n"
 "Last-Translator: PilValaquarus <valaquarus@gmail.com>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -122,111 +122,115 @@ msgstr "Чтобы перенастроить clamav-milter, запустите 
 msgid "Para reconfigurar clamd, ejecute sudo dpkg-reconfigure clamav-daemon"
 msgstr "Чтобы перенастроить clamd, запустите sudo dpkg-reconfigure clamav-daemon"
 
-#: FMain.class:307
+#: FMain.class:306
 msgid "Versión instalada: "
 msgstr "Установленная версия: "
 
-#: FMain.class:309
+#: FMain.class:308
 msgid "Limitaciones:"
 msgstr "Ограничения:"
 
-#: FMain.class:314
+#: FMain.class:313
 msgid "Max"
 msgstr "Максимум"
 
-#: FMain.class:318
+#: FMain.class:317
 msgid "Actualización de la base de datos : "
 msgstr "Обновление базы данных: "
 
-#: FMain.class:320
+#: FMain.class:319
 msgid "automática"
 msgstr "автоматический"
 
-#: FMain.class:322
+#: FMain.class:321
 msgid "manual"
 msgstr "справочник"
 
-#: FMain.class:325
+#: FMain.class:324
 msgid "Elección de sesión:"
 msgstr "Выбор сеанса:"
 
-#: FMain.class:336
+#: FMain.class:335
 msgid "Sin selección"
 msgstr "Нет выбора"
 
-#: FMain.class:339
+#: FMain.class:338
 msgid "Opciones no marcadas por defecto :"
 msgstr "Параметры, не отмеченные по умолчанию:"
 
-#: FMain.class:348
+#: FMain.class:347
 msgid "Todo es OFF"
 msgstr "Все выключено"
 
-#: FMain.class:350
+#: FMain.class:349
 msgid "Opciones marcadas por defecto :"
 msgstr "Параметры отмечены по умолчанию :"
 
-#: FMain.class:365
+#: FMain.class:364
 msgid "Todo es ON"
 msgstr "Все включено"
 
-#: FMain.class:376
+#: FMain.class:366
+msgid "Sudo : "
+msgstr "Судо :"
+
+#: FMain.class:381
 msgid "¡Todos sus pedidos son \n del SuperUsuario!"
 msgstr "Все ваши заказы\n от Суперпользователя!"
 
-#: FMain.class:460 FrmGeneral.class:66
+#: FMain.class:466 FrmGeneral.class:66
 msgid "No"
 msgstr "Не"
 
-#: FMain.class:460
+#: FMain.class:466
 msgid "Por favor, espere unos segundos mientras inicia el antivirus"
 msgstr "Подождите несколько секунд, пока \nзапустится антивирус"
 
-#: FMain.class:460 FrmGeneral.class:66
+#: FMain.class:466 FrmGeneral.class:66
 msgid "Si"
 msgstr "да"
 
-#: FMain.class:473
+#: FMain.class:479
 msgid "Elija el directorio para escanear"
 msgstr "Выберите каталог для сканирования"
 
-#: FMain.class:474
+#: FMain.class:480
 msgid "Elija el archivo para analizar"
 msgstr "Выберите файл для анализа"
 
-#: FMain.class:508
+#: FMain.class:514
 msgid "Seleccione \n an objeto para escanear!"
 msgstr "Выберите\n объект для сканирования!"
 
-#: FMain.class:608
+#: FMain.class:614
 msgid "Espere mientras se apaga el antivirus"
 msgstr "Подождите, пока антивирус выключится"
 
-#: FMain.class:609
+#: FMain.class:615
 msgid " Interrupción del trabajo "
 msgstr " Перерыв в работе"
 
-#: FMain.class:627
+#: FMain.class:633
 msgid "¡El proceso ya se detuvo!"
 msgstr "Процесс уже остановлен!"
 
-#: FMain.class:881
+#: FMain.class:887
 msgid "El idioma elegido se aplicará después del reinicio"
 msgstr "Выбранный язык будет применен после перезапуска"
 
-#: FMain.class:883
+#: FMain.class:889
 msgid "El idioma elegido se aplicará después de reiniciar el programa."
 msgstr "Выбранный язык будет применен после перезапуска программы."
 
-#: FMain.class:883
+#: FMain.class:889
 msgid "¿Quieres renunciar?"
 msgstr "Вы хотите бросить курить?"
 
-#: FMain.class:1140
+#: FMain.class:1146
 msgid "Nueva versión encontrada!"
 msgstr "Найдена новая версия!"
 
-#: FMain.class:1144
+#: FMain.class:1150
 msgid "No hay actualizaciones disponibles"
 msgstr "Нет доступных обновлений"
 
@@ -530,115 +534,115 @@ msgstr "Обновления ClamScanGui"
 msgid "Sonidos"
 msgstr "Звуки"
 
-#: FMain.form:678
+#: FMain.form:679
 msgid "Analizar un Archivo"
 msgstr "Анализировать файл"
 
-#: FMain.form:688
+#: FMain.form:689
 msgid "Analizar Directorios"
 msgstr "Анализировать каталоги"
 
-#: FMain.form:707
+#: FMain.form:708
 msgid "Salida del escaneo"
 msgstr "Вывод сканирования"
 
-#: FMain.form:745
+#: FMain.form:746
 msgid "¡Mata el proceso en curso!"
 msgstr "Убейте идущий процесс!"
 
-#: FMain.form:751
+#: FMain.form:752
 msgid "¡Ejecute el proceso!"
 msgstr "Запускаем процесс!"
 
-#: FMain.form:757
+#: FMain.form:758
 msgid "Salida de texto claro"
 msgstr "Вывод чистого текста"
 
-#: FMain.form:763
+#: FMain.form:764
 msgid "Sudo"
 msgstr "Судо"
 
-#: FMain.form:770
+#: FMain.form:771
 msgid "Verde = sin cuarentena automática\nRojo = cuarentena automática"
 msgstr "Зеленый = без автоматического карантина\nКрасный = автоматический карантин"
 
-#: FMain.form:775
+#: FMain.form:776
 msgid "Presentación"
 msgstr "Презентация"
 
-#: FMain.form:784
+#: FMain.form:785
 msgid "Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales."
 msgstr "Согласно сайту clamav:\n\n--max-sizes u003d 2000M --max-scansize u003d 2000M --max-files u003d 2000000 --max-recursion u003d 2000000 --max-embeddedpe u003d 2000M --max-htmlnormalize u003d 2000000 --max-htmlnotags u003d 2000000 - -max-scriptnormalize u003d 2000000 --max-ziptypercg u003d 2000000 --max-partitions u003d 2000000 --max-iconspe u003d 2000000 --max-rechwp3 u003d 2000000 --pcre-match-limit u003d 2000000 --pcre-recmatch-limit u003d 2000000 --pcre-max-sizes u003d 2000M:\n\nОн эффективно отключает все ограничения и максимумы файлов для сканирования. Это полезно, если вы хотите убедиться, что все файлы в наборе просканированы, и вы предпочитаете, чтобы Clam работал медленно или зависал, а не пропускал файл из-за одного из этих пороговых значений."
 
-#: FMain.form:887
+#: FMain.form:888
 msgid "Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)"
 msgstr "Извлеките и просканируйте не более #n байт из каждого файла. Вы можете передать значение в килобайтах в формате xK или xk или в мегабайтах в формате xM или xm, где x - это число. Этот параметр защищает вашу систему от DoS-атак (по умолчанию: 25 МБ, максимум: <4 ГБ)"
 
-#: FMain.form:898
+#: FMain.form:899
 msgid "Extraiga y escanee como máximo #n bytes de cada archivo. El tamaño del archivo más la suma de los tamaños de todos los archivos dentro del archivo cuentan para el tamaño de escaneo. Por ejemplo, un archivo sin comprimir de 1 M que contiene un solo archivo interno de 1 M cuenta como 2 M para el tamaño máximo de escaneo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 100 MB, máximo: <4 GB)"
 msgstr "Извлеките и просканируйте не более #n байтов из каждого файла. Размерфайл плюс сумма размеров всех файлов в файлеони учитываются в размере отсканированного изображения. Например, несжатый файл1M, содержащий один внутренний файл размером 1M, считается как 2M длямаксимальный размер сканирования. Вы можете передать значение в килобайтах в формате xK илиxk или мегабайты в формате xM или xm, где x - число. Этот вариантзащищает вашу систему от DoS-атак (по умолчанию: 100 МБ, максимум: <4 ГБ)"
 
-#: FMain.form:909
+#: FMain.form:910
 msgid "Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata de un archivo, un documento u otro tipo de contenedor). Esta opción protege su sistema contra ataques DoS (predeterminado: 10000)"
 msgstr "Извлеките максимум #n файлов из каждого отсканированного файла (когда онфайла, документа или другого типа контейнера). Эта опция защищаетваша система против DoS-атак (по умолчанию: 10000)"
 
-#: FMain.form:920
+#: FMain.form:921
 msgid "Establecer límite de nivel de recursividad de archivo. Esta opción protege su sistema contra ataques DoS (predeterminado: 16)."
 msgstr "Установить ограничение уровня рекурсии файлов. Эта опция защищаетваша система от DoS-атак (по умолчанию: 16)."
 
-#: FMain.form:931
+#: FMain.form:932
 msgid "Los directorios de profundidad máxima se escanean en (predeterminado: 15)."
 msgstr "Сканируются каталоги с максимальной глубиной (по умолчанию: 15)."
 
-#: FMain.form:942
+#: FMain.form:943
 msgid "Archivo de tamaño máximo para comprobar si hay PE incrustado. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
 msgstr "Файл максимального размера для проверки наличия встроенного PE. Может пройтизначение в килобайтах в формате xK или xk или мегабайтах в формате xM или xm, гдеx - это число (по умолчанию: 10 МБ, максимум: <4 ГБ)."
 
-#: FMain.form:953
+#: FMain.form:954
 msgid "Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB)."
 msgstr "Максимальный размер файла HTML для нормализации. Вы можете передать значение вкилобайты в формате xK или xk или мегабайты в формате xM или xm, где x - этономер (по умолчанию: 10 МБ, максимум: <4 ГБ)."
 
-#: FMain.form:964
+#: FMain.form:965
 msgid "Tamaño máximo del archivo HTML normalizado para escanear. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 2 MB, máximo: <4 GB)."
 msgstr "Максимальный размер нормализованного файла HTML для сканирования. Может пройтизначение в килобайтах в формате xK или xk или мегабайтах в формате xM или xm, гдеx - это число (по умолчанию: 2 МБ, максимум: <4 ГБ)."
 
-#: FMain.form:975
+#: FMain.form:976
 msgid "Tamaño máximo del archivo de script para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 5 MB, máximo: <4 GB)."
 msgstr "Максимальный размер файла сценария для нормализации. Вы можете передать значение вкилобайты в формате xK или xk или мегабайты в формате xM или xm, где x - этономер (по умолчанию: 5 МБ, максимум: <4 ГБ)."
 
-#: FMain.form:986
+#: FMain.form:987
 msgid "Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 1 MB, máximo: <4 GB)."
 msgstr "Застежка-молния максимального размера для повторного сканирования. Вы можете передать значение вкилобайты в формате xK или xk или мегабайты в формате xM или xm, где x - этономер (по умолчанию: 1 МБ, максимум: <4 ГБ)."
 
-#: FMain.form:996
+#: FMain.form:997
 msgid "Esta opción establece el número máximo de particiones de una imagen de disco sin procesar que se analizará. Debe ser un número entero positivo (predeterminado: 50)."
 msgstr "Этот параметр устанавливает максимальное количество разделов необработанного образа диска, которые будут сканироваться. Это должно быть положительное целое число (по умолчанию: 50)."
 
-#: FMain.form:1007
+#: FMain.form:1008
 msgid "Esta opción establece el número máximo de iconos dentro de un PE que se escanearán. Debe ser un número entero positivo (predeterminado: 100)."
 msgstr "Этот параметр устанавливает максимальное количество значков в PE, которое может бытьбудет сканировать. Это должно быть положительное целое число (по умолчанию: 100)."
 
-#: FMain.form:1018
+#: FMain.form:1019
 msgid "Esta opción establece el máximo de llamadas recursivas a la función de análisis de HWP3 (predeterminado: 16)."
 msgstr "Эта опция устанавливает максимальное количество рекурсивных вызовов функцииРазбор HWP3 (по умолчанию: 16)."
 
-#: FMain.form:1029
+#: FMain.form:1030
 msgid "Número máximo de llamadas a la función de coincidencia de PCRE (predeterminado: 10000)."
 msgstr "Максимальное количество вызовов функции сопоставления PCRE(по умолчанию: 10000)."
 
-#: FMain.form:1040
+#: FMain.form:1041
 msgid "Máximo de llamadas recursivas a la función de coincidencia de PCRE (predeterminado: 5000)."
 msgstr "Максимальное количество рекурсивных вызовов функции сопоставления PCRE(по умолчанию: 5000)."
 
-#: FMain.form:1051
+#: FMain.form:1052
 msgid "Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE (predeterminado: 25 MB, máximo: <4 GB)."
 msgstr "Максимальный размер файла для сопоставления с подпиской PCRE(по умолчанию: 25 МБ, максимум: <4 ГБ)."
 
-#: FMain.form:1062
+#: FMain.form:1063
 msgid "Limitaciones: (ver ayuda)"
 msgstr "Ограничения: (см. Справку)"
 
-#: FMain.form:1067
+#: FMain.form:1068
 msgid "Defecto"
 msgstr "Дефолт"
 

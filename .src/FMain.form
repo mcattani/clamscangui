@@ -1,7 +1,9 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,125,91)
+  Move(0,0,875,637)
+  #Scaled = False
+  Font = Font["10"]
   Expand = True
   Text = ("// ClamAV GUI //")
   Icon = Picture["icon:/48/security"]
@@ -418,6 +420,13 @@
         Radio = True
       }
     }
+    { Menu18 Menu
+    }
+    { MenuSon Menu
+      Text = ("Sonidos")
+      Picture = Picture["icon:/22/muted"]
+      Toggle = True
+    }
   }
   { mnAbout Menu
     Text = ("?")
@@ -433,23 +442,18 @@
       Text = ("ClamScanGui actualizaciónes")
       Picture = Picture["icon:/48/development"]
     }
-    { mnuSon Menu
-      Text = ("Sonidos")
-      Picture = Picture["icon:/22/muted"]
-      Toggle = True
-    }
   }
   { PanGauche Panel
-    MoveScaled(1,0,79.8571,85.8571)
+    Move(7,0,559,601)
     Padding = 2
     { TP TabPanel
-      MoveScaled(0,0,79.7143,60)
+      Move(0,0,558,420)
       Padding = 2
       Count = 2
       Index = 0
       Text = ("Analizar un Archivo")
       { FC FileChooser
-        MoveScaled(1,1,77,54)
+        Move(7,7,539,378)
         Expand = True
         Border = False
         Root = "/"
@@ -458,7 +462,7 @@
       Index = 1
       Text = ("Analizar Directorios")
       { DC DirChooser
-        MoveScaled(1,1,77,53)
+        Move(7,7,539,371)
         Border = False
         Root = "/"
         ShowHidden = True
@@ -466,11 +470,12 @@
       Index = 0
     }
     { Panel2 Panel
-      MoveScaled(0,61,79.5714,24.8571)
+      Move(0,427,557,174)
       Arrangement = Arrange.Vertical
       { !txSalida TextArea
-        MoveScaled(0,0,79,18)
+        Move(0,0,553,126)
         #Public = True
+        Font = Font["10"]
         Background = Color.Black
         Foreground = Color.White
         ToolTip = ("Salida del escaneo")
@@ -480,11 +485,12 @@
         Border = False
       }
       { Panel3 Panel
-        MoveScaled(0,22,79.5714,3)
+        Move(0,154,557,21)
         Arrangement = Arrange.Horizontal
         { !txSalida3 TextArea
-          MoveScaled(0,0,32,3)
+          Move(0,0,224,21)
           #Public = True
+          Font = Font["10"]
           Background = Color.Black
           Foreground = Color.Green
           ReadOnly = True
@@ -492,8 +498,9 @@
           ScrollBar = Scroll.None
         }
         { !txSalida2 TextArea
-          MoveScaled(36,0,40,3)
+          Move(252,0,280,21)
           #Public = True
+          Font = Font["10"]
           Background = Color.Black
           Foreground = Color.Green
           Expand = True
@@ -504,145 +511,150 @@
       }
     }
     { Panel1 Panel
-      MoveScaled(50,0,29,5)
+      Move(350,0,203,35)
       AutoResize = True
       { TBKill ToolButton
-        MoveScaled(15,0,4.5714,4)
+        Move(105,0,32,28)
+        Mouse = Mouse.Pointing
         ToolTip = ("¡Mata el proceso en curso!")
         Picture = Picture["icon:/32/halt"]
       }
       { TBhProc ToolButton
-        MoveScaled(10.4286,0,4.5714,4)
+        Move(73,0,32,28)
+        Mouse = Mouse.Pointing
         ToolTip = ("¡Ejecute el proceso!")
         Picture = Picture["icon:/32/exec"]
       }
       { TBeffacer ToolButton
-        MoveScaled(0.2857,0,5,4)
+        Move(2,0,35,28)
+        Mouse = Mouse.Pointing
         ToolTip = ("Salida de texto claro")
         Picture = Picture["icon:/24/clear"]
       }
       { TBSudo ToolButton
-        MoveScaled(20,0,5,4)
+        Move(140,0,35,28)
+        Mouse = Mouse.Pointing
         ToolTip = ("Sudo")
         Picture = Picture["icon:/32/linux"]
         Toggle = True
       }
       { RB1 ToggleButton
-        MoveScaled(26,1,2,2)
+        Move(182,7,14,14)
         ToolTip = ("Verde = sin cuarentena automática\nRojo = cuarentena automática")
       }
       { TBPresent ToolButton
-        MoveScaled(5.4286,0,4.5714,4)
+        Move(38,0,32,28)
+        Mouse = Mouse.Pointing
         ToolTip = ("Presentación")
         Picture = Picture["icon:/24/edit"]
       }
     }
   }
   { PanLimit Panel
-    MoveScaled(83,0,41,86)
+    Move(581,0,287,602)
     Visible = False
     ToolTip = ("Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales.")
     Padding = 2
     Border = Border.Plain
     { Label2 Label
-      MoveScaled(1,6.1429,19,4)
+      Move(7,43,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-filesize"
     }
     { Label3 Label
-      MoveScaled(1,10.8571,19,4)
+      Move(7,76,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-scansize"
     }
     { Label4 Label
-      MoveScaled(1,16.1429,19,4)
+      Move(7,113,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-files"
     }
     { Label5 Label
-      MoveScaled(1,21.1429,19,4)
+      Move(7,148,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-recursion"
     }
     { Label6 Label
-      MoveScaled(1,25.8571,19,4)
+      Move(7,181,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-dir-recursion"
     }
     { Label7 Label
-      MoveScaled(1,30.7143,19,4)
+      Move(7,215,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-embeddedpe"
     }
     { Label8 Label
-      MoveScaled(1,35.7143,19,4)
+      Move(7,250,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-htmlnormalize"
     }
     { Label9 Label
-      MoveScaled(1,40.5714,19,4)
+      Move(7,284,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-htmlnotags"
     }
     { Label11 Label
-      MoveScaled(1,50.5714,19,4)
+      Move(7,354,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-ziptypercq"
     }
     { Label12 Label
-      MoveScaled(1,55.8571,19,4)
+      Move(7,391,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-partitions"
     }
     { Label13 Label
-      MoveScaled(1,61.1429,19,4)
+      Move(7,428,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-iconspe"
     }
     { Label14 Label
-      MoveScaled(1,66.1429,19,4)
+      Move(7,463,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-rechwp3"
     }
     { Label15 Label
-      MoveScaled(1,71.1429,19,4)
+      Move(7,498,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "pcre-match-limit"
     }
     { Label16 Label
-      MoveScaled(1,76.1429,19,4)
+      Move(7,533,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "pcre-recmatch-limit"
     }
     { Label17 Label
-      MoveScaled(1,81.1429,19,4)
+      Move(7,568,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "pcre-max-filesize"
     }
     { Label10 Label
-      MoveScaled(1.1429,45.7143,19,4)
+      Move(8,320,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-scriptnormalize"
     }
     { SlidFilesize SliderBox Limit
       Name = "SlidFilesize"
-      MoveScaled(20.8571,6.2857,19,4)
+      Move(146,44,133,28)
       ToolTip = ("Extraiga y escanee como máximo #n bytes de cada archivo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 25 MB, máximo: <4 GB)")
       MinValue = 25
       MaxValue = 2000
@@ -652,7 +664,7 @@
     }
     { SlidScansize SliderBox Limit
       Name = "SlidScansize"
-      MoveScaled(21,11,19,4)
+      Move(147,77,133,28)
       ToolTip = ("Extraiga y escanee como máximo #n bytes de cada archivo. El tamaño del archivo más la suma de los tamaños de todos los archivos dentro del archivo cuentan para el tamaño de escaneo. Por ejemplo, un archivo sin comprimir de 1 M que contiene un solo archivo interno de 1 M cuenta como 2 M para el tamaño máximo de escaneo. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número. Esta opción protege su sistema contra ataques DoS (predeterminado: 100 MB, máximo: <4 GB)")
       MinValue = 100
       MaxValue = 2000
@@ -662,7 +674,7 @@
     }
     { SlidFiles SliderBox Limit
       Name = "SlidFiles"
-      MoveScaled(20.8571,16.2857,19,4)
+      Move(146,114,133,28)
       ToolTip = ("Extraiga como máximo #n archivos de cada archivo escaneado (cuando se trata de un archivo, un documento u otro tipo de contenedor). Esta opción protege su sistema contra ataques DoS (predeterminado: 10000)")
       MinValue = 10000
       MaxValue = 2000000
@@ -672,7 +684,7 @@
     }
     { Slidrecursion SliderBox Limit
       Name = "Slidrecursion"
-      MoveScaled(20.8571,21.2857,19,4)
+      Move(146,149,133,28)
       ToolTip = ("Establecer límite de nivel de recursividad de archivo. Esta opción protege su sistema contra ataques DoS (predeterminado: 16).")
       MinValue = 16
       MaxValue = 2000000
@@ -682,7 +694,7 @@
     }
     { SlidDirRecursion SliderBox Limit
       Name = "SlidDirRecursion"
-      MoveScaled(21,26,19,4)
+      Move(147,182,133,28)
       ToolTip = ("Los directorios de profundidad máxima se escanean en (predeterminado: 15).")
       MinValue = 15
       MaxValue = 2000000
@@ -692,7 +704,7 @@
     }
     { SlidEmbPE SliderBox Limit
       Name = "SlidEmbPE"
-      MoveScaled(21,31,19,4)
+      Move(147,217,133,28)
       ToolTip = ("Archivo de tamaño máximo para comprobar si hay PE incrustado. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB).")
       MinValue = 10
       MaxValue = 2000
@@ -702,7 +714,7 @@
     }
     { SlidHtmlNorm SliderBox Limit
       Name = "SlidHtmlNorm"
-      MoveScaled(20.8571,35.8571,19,4)
+      Move(146,251,133,28)
       ToolTip = ("Tamaño máximo de archivo HTML para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 10 MB, máximo: <4 GB).")
       MinValue = 10
       MaxValue = 2000
@@ -712,7 +724,7 @@
     }
     { SlidHtmlTags SliderBox Limit
       Name = "SlidHtmlTags"
-      MoveScaled(21,41,19,4)
+      Move(147,287,133,28)
       ToolTip = ("Tamaño máximo del archivo HTML normalizado para escanear. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 2 MB, máximo: <4 GB).")
       MinValue = 2
       MaxValue = 2000
@@ -722,7 +734,7 @@
     }
     { SlidScriptNorm SliderBox Limit
       Name = "SlidScriptNorm"
-      MoveScaled(21,46,19,4)
+      Move(147,322,133,28)
       ToolTip = ("Tamaño máximo del archivo de script para normalizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 5 MB, máximo: <4 GB).")
       MinValue = 5
       MaxValue = 2000
@@ -732,7 +744,7 @@
     }
     { SlidZipType SliderBox Limit
       Name = "SlidZipType"
-      MoveScaled(20.8571,50.8571,19,4)
+      Move(146,356,133,28)
       ToolTip = ("Cremallera de tamaño máximo para volver a analizar. Puede pasar el valor en kilobytes en formato xK o xk, o megabytes en formato xM o xm, donde x es un número (predeterminado: 1 MB, máximo: <4 GB).")
       MinValue = 1
       MaxValue = 2000
@@ -741,7 +753,7 @@
     }
     { SlidPartitions SliderBox Limit
       Name = "SlidPartitions"
-      MoveScaled(20.8571,55.8571,19,4)
+      Move(146,391,133,28)
       ToolTip = ("Esta opción establece el número máximo de particiones de una imagen de disco sin procesar que se analizará. Debe ser un número entero positivo (predeterminado: 50).")
       MinValue = 50
       MaxValue = 2000000
@@ -751,7 +763,7 @@
     }
     { SlidIconsPE SliderBox Limit
       Name = "SlidIconsPE"
-      MoveScaled(20.8571,61.2857,19,4)
+      Move(146,429,133,28)
       ToolTip = ("Esta opción establece el número máximo de iconos dentro de un PE que se escanearán. Debe ser un número entero positivo (predeterminado: 100).")
       MinValue = 100
       MaxValue = 2000000
@@ -761,7 +773,7 @@
     }
     { SlidRechWP3 SliderBox Limit
       Name = "SlidRechWP3"
-      MoveScaled(20.8571,66.1429,19,4)
+      Move(146,463,133,28)
       ToolTip = ("Esta opción establece el máximo de llamadas recursivas a la función de análisis de HWP3 (predeterminado: 16).")
       MinValue = 16
       MaxValue = 2000000
@@ -771,7 +783,7 @@
     }
     { SlidPcreLimit SliderBox Limit
       Name = "SlidPcreLimit"
-      MoveScaled(20.8571,71.2857,19,4)
+      Move(146,499,133,28)
       ToolTip = ("Número máximo de llamadas a la función de coincidencia de PCRE (predeterminado: 10000).")
       MinValue = 10000
       MaxValue = 2000000
@@ -781,7 +793,7 @@
     }
     { SlidPcreRecLimit SliderBox Limit
       Name = "SlidPcreRecLimit"
-      MoveScaled(20.8571,76.5714,19,4)
+      Move(146,536,133,28)
       ToolTip = ("Máximo de llamadas recursivas a la función de coincidencia de PCRE (predeterminado: 5000).")
       MinValue = 2000
       MaxValue = 2000000
@@ -791,7 +803,7 @@
     }
     { SlidPcreFilesize SliderBox Limit
       Name = "SlidPcreFilesize"
-      MoveScaled(20.8571,81.2857,19,4)
+      Move(146,569,133,28)
       ToolTip = ("Archivo de tamaño máximo para realizar la coincidencia de subsig de PCRE (predeterminado: 25 MB, máximo: <4 GB).")
       MinValue = 25
       MaxValue = 2000
@@ -800,12 +812,12 @@
       Value = 25
     }
     { Label1 TextLabel
-      MoveScaled(0.4286,0,15,5)
+      Move(3,0,105,35)
       Font = Font["Bold,Underline"]
       Text = ("Limitaciones: (ver ayuda)")
     }
     { BtnDefaut ToggleButton
-      MoveScaled(23.4286,0.8571,16,4)
+      Move(164,6,112,28)
       Text = ("Defecto")
     }
   }

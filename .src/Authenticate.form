@@ -1,106 +1,112 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,88,55)
-  Font = Font["Noto Sans,10"]
+  Move(0,0,616,385)
+  #Scaled = False
+  Font = Font["10"]
   Icon = Picture["icon:/48/security"]
   Resizable = False
   Arrangement = Arrange.Horizontal
   AutoResize = True
   { VBox1 VBox
-    MoveScaled(0,8,8,11)
+    Move(0,56,56,77)
     { PictureBox1 PictureBox
-      MoveScaled(0,0,8,10)
+      Move(0,0,56,70)
+      Font = Font["10"]
       Expand = True
       Picture = Picture["icon:/48/lock"]
     }
   }
   { Panel6 VBox
-    MoveScaled(8,0,79,50)
+    Move(56,0,553,350)
+    Font = Font["10"]
     Expand = True
     AutoResize = True
     { HBox1 HBox
-      MoveScaled(2,1,75,6)
+      Move(14,7,525,42)
+      Font = Font["10"]
       AutoResize = True
       { LabelHeader TextLabel
-        MoveScaled(1,1,58,3)
-        Font = Font["Bold,+1"]
+        Move(7,7,406,21)
+        Font = Font["Bold,11"]
         Expand = True
         AutoResize = True
       }
     }
     { HBox2 HBox
-      MoveScaled(0,8,79,7)
+      Move(0,56,553,49)
       Font = Font["Noto Sans,10"]
       { Label2 Label
-        MoveScaled(2,0,73,6)
-        Font = Font["Noto Sans,10"]
+        Move(14,0,511,42)
+        Font = Font["10"]
         Expand = True
         Text = ("Un comando o aplicación está intentando realizar una acción que requiere privilegios.\nSe requiere autenticación para realizar esta acción.")
       }
     }
     { Panel1 HBox
-      MoveScaled(0,16,79,5)
+      Move(0,112,553,35)
       Font = Font["Noto Sans,10"]
       { Label3 Label
-        MoveScaled(0,1,31,3)
+        Move(0,7,217,21)
+        Font = Font["10"]
         AutoResize = True
         Alignment = Align.Right
         Text = ("Contraseña:")
       }
       { Panel3 Panel
-        MoveScaled(33,0,2,4)
+        Move(231,0,14,28)
       }
       { TextBoxPassword TextBox
-        MoveScaled(38,0.4286,17,4)
+        Move(266,3,119,28)
         Font = Font["Noto Sans,10"]
         Expand = True
         Password = True
       }
       { Panel7 Panel
-        MoveScaled(66,0.4286,2,4)
+        Move(462,3,14,28)
       }
     }
     { Panel5 Panel
-      MoveScaled(32.4286,21.5714,10,1)
+      Move(227,151,70,7)
     }
     { Panel2 HBox
-      MoveScaled(0,23,79,4.5714)
+      Move(0,161,553,32)
       Font = Font["Noto Sans,10"]
       { LabelCaps Label
-        MoveScaled(1,0.1429,27,4)
+        Move(7,1,189,28)
         Font = Font["Bold,11"]
         Foreground = Color.Red
         Expand = True
       }
       { ButtonCancel Button
-        MoveScaled(30,0.2857,19,4)
+        Move(210,2,133,28)
         Font = Font["Noto Sans,10"]
         Text = ("Cancelar")
         Picture = Picture["icon:/22/cancel"]
       }
       { Panel4 Panel
-        MoveScaled(50.4286,0,2,4)
+        Move(353,0,14,28)
       }
       { ButtonAuthenticate Button
-        MoveScaled(54,0.2857,19,4)
+        Move(378,2,133,28)
         Font = Font["Noto Sans,10"]
         Text = ("Autenticar")
         Picture = Picture["icon:/22/security"]
       }
       { Panel8 Panel
-        MoveScaled(74,0,2,4)
+        Move(518,0,14,28)
       }
     }
     { Panel9 Panel
-      MoveScaled(33,29,10,1)
+      Move(231,203,70,7)
     }
     { VBox2 HBox
-      MoveScaled(0,31,79,17)
+      Move(0,217,553,119)
       Font = Font["Noto Sans,10"]
       Padding = 5
       { TextAreaTerminal TextArea
-        MoveScaled(1,1,74,15)
+        Move(7,7,518,105)
+        Font = Font["10"]
         Background = Color.TextForeground
         Foreground = Color.TextBackground
         Expand = True

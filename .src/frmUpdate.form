@@ -2,15 +2,18 @@
 
 { Form Form
   MoveScaled(0,0,66,13)
+  Font = Font["10"]
   Text = ("Actualización disponible:")
   Icon = Picture["icon:/24/warning"]
   Resizable = False
   { Label1 Label
     MoveScaled(1,1,64,4)
+    Font = Font["10"]
     Text = ("Puede descargar la última versión desde el repositorio de GitHub:")
   }
   { urlGitHub URLLabel
     MoveScaled(1,4,38,5)
+    Font = Font["10"]
     Text = ("https://github.com/mcattani/clamscangui")
   }
   { btCerrar Button

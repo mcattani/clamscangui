@@ -72,10 +72,70 @@ Public leFichier As File                                                        
 Public histo As File                                                            'fichier historique
 
 Public dTemps As Date                                                           'temps écoulé du scan
+Public Entree As Boolean                                                        'entrée dans prog
+
+Public Sub Exit()
+
+     SalidaERR = Null
+     SinINF = Null
+     Recursive = Null
+     SuprimirOK = Null
+     Infect = Null
+     Bell = Null
+     Remover = Null
+     AppsIndeseadas = Null
+     Mail = Null
+     PDF = Null
+     SWF = Null
+     HTML = Null
+     HWP3 = Null
+     PE = Null
+     ELF = Null
+     OLE2 = Null
+     ARCH = Null
+     PhishingSig = Null
+     PhishingUrl = Null
+     Algo = Null
+     AllMatch = Null
+     CrossFs = Null
+     Intersection = Null
+     Structured = Null
+     Verbose = Null
+     ArchVerbose = Null
+     Adebug = Null
+     Json = Null
+     Ruta = Null                                                        'endroit ou fichier à scanner
+     sMot = Null                                                        'string à transmettre en commande shell
+     quarantaine = Null                                                   'nom du dossier de quarantaine
+     historic = Null                                                     'nom du fichier historque
+     clamLog = Null                                                      'nom du ficier log de session
+     pil = Null                                                       'liste des fichiers vérolés
+     liste = Null                                                        'liste des fichiers en quarantaine
+     langue = Null                                                        'langue
+     sCommande = Null                                                    'commande à transmettre
+     email = Null                                                       'mail pour soumission
+     nom = Null                                                          'nom pour soumission
+     monTexte = Null                                                      'texte pour commande à transmettre
+     Quarant = Null                                                       'drapeau pour quarantaine
+     bSortie = Null                                                      'drapeau de sortie de programme
+     bFlag = Null                                                      'drapeau boolean
+     bSudo = Null                                                        'sudo appliqué
+     bTBSudo = Null                                                       'si bouton sudo enfoncé
+     bTBKill = Null                                                      'proc kill ou pas
+     SonOn = Null
+     fListe = Null                                                         'fichier liste virus en quarantaine
+     fPil = Null                                                           'fichier liste virus trouvés
+     leFichier = Null                                                      'fichier log
+     histo = Null                                                         'fichier historique
+     dTemps = Null                                                         'temps écoulé du scan
+     Entree = Null                                                       'entrée dans prog
+
+End
 
 Public Sub Form_Open()                                                          'Form principale appelée par le Module1
 
      PanLimit.Visible = False                                                   'panneau des limites, invisible
+     Entree = True
 
      If Not Exist("/usr/bin/clamscan") Then                                     'test installation de clamscan
           Message.Title = ("¡Atención!")
@@ -125,7 +185,89 @@ Public Sub Form_Open()                                                          
           premiereFois                                                          'premier démarrage du prog
      Endif
      LoadSettings()                                                             'réglages enregistrés
-     Cerf.ShowModal()                                                           'splash form
+     Cerf.ShowModal()                                                           'splash form après loadsettings à cause du son
+     Entree = False
+
+End
+
+Public Sub sortie()
+
+     While fc.Children.Count
+          fc.Children.Clear
+     Wend
+     fc.Delete
+     While dc.Children.Count
+          dc.Children.Clear
+     Wend
+     dc.Delete
+     While tp.Children.Count
+          tp.Children.Clear
+     Wend
+     tp.Delete
+     txSalida.Delete
+     txSalida2.Delete
+     txSalida3.Delete
+     While PanGauche.Children.Count
+          PanGauche.Children.Clear
+     Wend
+     PanGauche.Delete
+     While PanLimit.Children.Count
+          PanLimit.Children.Clear
+     Wend
+     PanLimit.Delete
+
+     fc = Null
+     dc = Null
+     tp = Null
+     txSalida = Null
+     txSalida2 = Null
+     txSalida3 = Null
+     PanGauche = Null
+     PanLimit = Null
+
+End
+
+Public Sub Form_Close()                                                         'fermeture de la Form principale
+
+     Dim oFichier As String
+
+     If Exist(User.Home &/ ".clamscangui/ClamScanGui_Log.txt") Then             'effacement du fichier Log à la fermeture
+          File.Save(User.Home &/ ".clamscangui/ClamScanGui_Log.txt", "")        'par enregistrement d'un fichier vide
+     Endif
+
+     If Exist(User.Home &/ ".clamscangui/pil.txt") Then
+          Kill User.Home &/ ".clamscangui/pil.txt"
+     Endif
+
+     If Stat(liste).Size = 0 Then                                               'si fichier liste vide alors on vide le répertoire
+          For Each oFichier In Dir(User.Home &/ ".clamscangui/viruses", "*", gb.File)
+               Kill User.Home &/ ".clamscangui/viruses/" & oFichier
+          Next
+     Endif
+
+     SaveSettings()                                                             'sauvegarde des réglages avant sortie programme
+
+     If Not IsNull(clamscan.hProc) Then
+          If clamscan.hProc.State = clamscan.hProc.Running Then
+               clamscan.hProc.Kill
+               Wait 1                                                           'attente d'une seconde pour kill process
+               FMain.txSalida2.Enabled = False
+               clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
+               Module1.cloture = True
+               Module1.sortie()
+          Endif
+     Endif
+
+     Me.Hide()
+     sortie()
+     FMain.Exit
+     Module1.quitAppli()                                                        'fermeture application par le Module1
+
+End
+
+Public Sub mnSalir_Click()
+
+     Me.Close
 
 End
 
@@ -137,7 +279,7 @@ Public Sub premiereFois()                                                       
      MnuDeplacer.Value = False
      MnuVirus.Enabled = False
      MnuCorrompus.Enabled = False
-     mnuSon.Value = True
+     MenuSon.Value = True
 
      Settings["Menu/Auto"] = MnuAuto.Value
      Settings["Menu/Manuel"] = MnuManuelle.Value
@@ -147,7 +289,7 @@ Public Sub premiereFois()                                                       
      Settings["General/LangInit"] = Left(System.Language, 2)
      Settings["General/courriel"] = ""
      Settings["General/nom"] = ""
-     Settings["General/sons"] = mnuSon.Value
+     Settings["General/sons"] = MenuSon.Value
 
      mnuHWP3.Value = True
      mnuXML.Value = True
@@ -181,8 +323,8 @@ End
 
 Public Sub LoadSettings()                                                       'réglages enregistrés en conf
 
-     mnuSon.Value = Settings["General/sons"]
-     If mnuSon.Value = True Then
+     MenuSon.Value = Settings["General/sons"]
+     If MenuSon.Value = True Then
           SonOn = True
      Else
           SonOn = False
@@ -303,7 +445,6 @@ End
 
 Public Sub presentation()                                                       'présentation des informations de scan
 
-     ' Module1.son(Module1.Message2)
      txSalida.text = ("Versión instalada: ") & ClamScan.Version()
      '********************** presente les limitations **************************
      txSalida.text &= ("Limitaciones:")                                         'limitations'
@@ -363,6 +504,11 @@ Public Sub presentation()                                                       
      If MnuPhishingUrl.value = False Then txSalida.text &= "-phishing-scan-url " & "Off ; "
      If MnuOLE2.value = False Then txSalida.text &= "-scan-OLE2 " & "Off ; "
      If MnuCrossFs.Value = True And mnuHWP3.Value = True And mnuXML.Value = True And mnuSWF.value = True And mnuPdf.value = True And mnuPE.value = True And mnuELF.value = True And MnuARCH.value = True And mnuMail.value = True And MnuAlgo.value = True And MnuPhishingSig.value = True And MnuPhishingUrl.value = True And MnuOLE2.value = True Then txSalida.text &= ("Todo es ON")
+     '**************************************************************************
+     txSalida.text &= gb.CrLf & ("Sudo : ")
+     txSalida.text &= gb.Tab
+     If TBSudo.Value = True Then txSalida.text &= "ON"
+     If TBSudo.Value = False Then txSalida.text &= "OFF"
 
 End
 
@@ -372,12 +518,14 @@ Public Sub TBSudo_Click()                                                       
      If TBSudo.Value = True Then                                                'le bouton est enfoncé
           bSudo = True                                                          'boolean
           bTBSudo = True                                                        'boolean
+          presentation
           Message.Title = (("¡Atención!"))
           Message.Info(("¡Todos sus pedidos son \n del SuperUsuario!"))
      Endif
      If TBSudo.Value = False Then                                               'le bouton n'est pas enfoncé
           bSudo = False
           bTBSudo = False
+          presentation
      Endif
 
 End
@@ -424,13 +572,7 @@ Public Sub SaveSettings()                                                       
      '**************************************************************************
      Settings["General/LangInit"] = langue
      Settings["General/limites"] = BtnDefaut.Value
-     Settings["General/sons"] = mnuSon.Value
-
-End
-
-Public Sub mnSalir_Click()
-
-     Me.Close
+     Settings["General/sons"] = MenuSon.Value
 
 End
 
@@ -825,45 +967,9 @@ Public Sub MnuImmediate_Click()                                                 
 
 End
 
-Public Sub Form_Close()                                                         'fermeture de la Form principale
-
-     Dim oFichier As String
-
-     If Exist(User.Home &/ ".clamscangui/ClamScanGui_Log.txt") Then             'effacement du fichier Log à la fermeture
-          File.Save(User.Home &/ ".clamscangui/ClamScanGui_Log.txt", "")        'par enregistrement d'un fichier vide
-     Endif
-
-     If Exist(User.Home &/ ".clamscangui/pil.txt") Then
-          Kill User.Home &/ ".clamscangui/pil.txt"
-     Endif
-
-     If Stat(liste).Size = 0 Then                                               'si fichier liste vide alors on vide le répertoire
-          For Each oFichier In Dir(User.Home &/ ".clamscangui/viruses", "*", gb.File)
-               Kill User.Home &/ ".clamscangui/viruses/" & oFichier
-          Next
-     Endif
-
-     SaveSettings()                                                             'sauvegarde des réglages avant sortie programme
-
-     If Not IsNull(clamscan.hProc) Then
-          If clamscan.hProc.State = clamscan.hProc.Running Then
-               clamscan.hProc.Kill
-               Wait 1                                                           'attente d'une seconde pour kill process
-               FMain.txSalida2.Enabled = False
-               clamscan.hProc.Ignore = True                                     'fermeture de tout process en cours sans erreur
-               Module1.cloture = True
-               Module1.sortie()
-          Endif
-     Endif
-
-     Me.Hide()
-
-     Module1.quitAppli()                                                        'fermeture application par le Module1
-
-End
-
 Public Sub langue_Click()                                                       'choix de la langue et affichage du menu checked
 
+     Module1.son(Module1.camera1)
      If MnuEspagnol.Checked = True Then langue = "es"
      If MnuFrancais.Checked = True Then langue = "fr"
      If MnuAnglais.Checked = True Then langue = "en"
@@ -871,7 +977,6 @@ Public Sub langue_Click()                                                       
      If MnuItalien.checked = True Then langue = "it"
      If MnuPortugais.checked = True Then langue = "pt"
      If MnuRusse.Checked = True Then langue = "ru"
-
      AppliLangues()
 
 End
@@ -882,7 +987,9 @@ Public Sub AppliLangues()                                                       
      If Message.Question(("¿Quieres renunciar?") & gb.CrLf &
                ("El idioma elegido se aplicará después de reiniciar el programa."), ("Si"), ("No")) = 2 Then
           loadSettings()
+          Module1.son(Module1.shade)
      Else
+          Module1.son(Module1.powerplug)
           Settings["General/LangInit"] = langue
           Settings.Save
           '*** ATTENTION ligne suivante à Décommenté lors du travail dans l'IDE et à commenter avant de générer l'executable ***
@@ -896,8 +1003,8 @@ End
 
 Public Sub TBeffacer_Click()                                                    'bouton effacer le texte du textarea1
 
-     FMain.txSalida.Clear
      Module1.son(Module1.Message2)
+     FMain.txSalida.Clear
 
 End
 
@@ -1094,8 +1201,9 @@ Public Sub BtnDefaut_Click()                                                    
           SlidPcreFilesize.Value = SlidPcreFilesize.MaxValue
           SlidZipType.Value = SlidZipType.MaxValue
      Endif
-
-     Module1.son(Module1.camera1)
+     If Entree = False Then
+          Module1.son(Module1.camera1)                                          'pour éviter ce son au démarrage du prog
+     Endif
      limit_Leave()                                                              'Application des limites
      presentation()                                                             'affichage des changements dans terminal
 
@@ -1153,9 +1261,9 @@ Public Sub TBPresent_Click()                                                    
 
 End
 
-Public Sub mnuSon_Click()
+Public Sub MenuSon_Click()
 
-     If mnuSon.Value = True Then
+     If MenuSon.Value = True Then
           SonOn = True
      Else
           SonOn = False

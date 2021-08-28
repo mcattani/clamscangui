@@ -233,7 +233,7 @@ Catch
 
 End
 
-Public Sub _New() 'Form_Open()
+Public Sub Form_Open() '_New()
 
      Dim ceTexte As String
      Dim maCom As String
@@ -275,7 +275,7 @@ Public Sub _New() 'Form_Open()
                          Try Shell " tail -n 1500 " & FMain.historic & " | cat -n" To TextArea1.Text    'affiche la queue du fichier 1500 lignes
                     Endif
                Else
-                    Try Shell " cat -n " & FMain.historic To TextArea1.Text        'affiche tout le fichier
+                    Try Shell " cat -n " & FMain.historic To TextArea1.Text     'affiche tout le fichier
                Endif
 
                If TextArea1.Text = "" Then
@@ -308,7 +308,7 @@ Public Sub _New() 'Form_Open()
                     Message.Title = ("¡Atención, archivo muy grande!")
                     Module1.son(Module1.Warning)
                     If Message.Question(("¿Quieres ver el archivo completo? \n ¡Ten paciencia!"), ("Si"), ("¡Solo una parte!")) = 1 Then
-                         Try Shell " cat -n " & FMain.clamLog To TextArea1.Text   'affiche tout le fichier
+                         Try Shell " cat -n " & FMain.clamLog To TextArea1.Text 'affiche tout le fichier
                     Else
                          Try Shell " tail -n 1500 " & FMain.clamLog & " | cat -n" To TextArea1.Text    'affiche la queue du fichier 1500 lignes
                     Endif
@@ -557,8 +557,13 @@ Public Sub CommSudo(maCom As String)                                            
 
      FMain.bSudo = True
      Authenticate.Command("sudo " & maCom)
-     hProc = Shell FMain.monTexte For Read As "Scan"
-     FMain.bSudo = False
+     If FMain.bFlag = True Then
+          hProc = Shell FMain.monTexte For Read As "Scan"
+          FMain.bSudo = False
+     Else
+          FMain.bSudo = False
+          Me.Close
+     Endif
 
 End
 
@@ -749,5 +754,11 @@ End
 Public Sub Form_Close()
 
      Module1.son(Module1.Warning)
+
+End
+
+Public Sub btnBorrar_KeyPress()
+
+     btnBorrar_Click()
 
 End

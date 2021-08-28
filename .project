@@ -2,7 +2,7 @@
 Title=ClamScanGuiV0
 Startup=Module1
 Icon=chukablue2.png
-Version=1.1.86
+Version=1.1.89
 Component=gb.image
 Component=gb.qt5
 Component=gb.form
@@ -30,7 +30,7 @@ VendorPrefix=TNA
 Address=marianocattani@gmail.com
 Url=https://thenerdyapprentice.blogspot.com
 License=General Public License
-PackageName=clamscangui-1.1.86
+PackageName=clamscangui-1.1.89
 CreateEachDirectory=1
 RuntimeVersion="3.15"
 Packager=1

@@ -29,6 +29,27 @@ Public Warning As String = "Warning"
 Public powerplug As String = "power-plug"
 Public camera1 As String = "camera1"
 
+Public Sub Exit()
+
+     hLock = Null                                                         'pour locker un fichier de contrôle
+     cloture = Null                                                      'cloture voulue ou non
+
+     MonSon = Null
+     ouverture3 = Null
+     beep = Null
+     bell = Null
+     Contact = Null
+     Message2 = Null
+     Message1 = Null
+     OpenApp = Null
+     powerunplug = Null
+     shade = Null
+     Warning = Null
+     powerplug = Null
+     camera1 = Null
+
+End
+
 Public Sub Main()
 
      Try hLock = Lock User.home & "/.ClamScanGui-lock"                           'pour éviter plusieurs instance du programme
@@ -137,8 +158,10 @@ Public Sub quitAppli()   '                                                      
           Try Unlock Module1.hLock
           Try Kill (User.home & "/.ClamScanGui-lock")
      Endif
-
+     ClamScan.Exit
      cloture = True                                                             'non affichage bouton cancel dans Authenticate et sortie
      Cerf.ShowModal()                                                           'splashform
+     Module1.Exit
+     ' If Not IsNull(FMain) Then Quit
 
 End

@@ -15,6 +15,13 @@ Public hProc As Process
 Public sTexte As String
 Public Depart As Float
 
+Public Sub Exit()
+
+     hProc = Null
+     sTexte = Null
+
+End
+
 Public Function Version() As String
 
      Dim Salida As String
