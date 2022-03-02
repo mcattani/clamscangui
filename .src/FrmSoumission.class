@@ -15,102 +15,102 @@ Private hProc As Process
 
 Public Sub Run() As Boolean
 
-     Return Not Me.ShowModal()
+    Return Not Me.ShowModal()
 
 End
 
 Public Sub Form_Open()
 
-     Module1.son(Module1.OpenApp)
-     TAFichier.Text = FrmGeneral.fichier[FrmGeneral.myRow]                      'fichier sélectionné
-     TAVirus.Text = FrmGeneral.virus[FrmGeneral.myRow]                          'virus afférant
+    Module1.son(Module1.OpenApp)
+    TAFichier.Text = FrmGeneral.fichier[FrmGeneral.myRow]                      'fichier sélectionné
+    TAVirus.Text = FrmGeneral.virus[FrmGeneral.myRow]                          'virus afférant
 
-     TBCourriel.Text = FMain.email
-     TBNom.Text = FMain.nom
+    TBCourriel.Text = FMain.email
+    TBNom.Text = FMain.nom
 
 End
 
 Public Sub btnEnviar_Click()
 
-     Dim Comm As String
+    Dim Comm As String
 
-     If TBCourriel.Text = "" Or TBNom.Text = "" Then
-          Message(("¡llena todos los campos!"))
-          Return
-     Endif
+    If TBCourriel.Text = "" Or TBNom.Text = "" Then
+        Message(("¡llena todos los campos!"))
+        Return
+    Endif
 
-     If TAFichier.Text = "" Or TAVirus.Text = "" Then
-          Message(("¡no tienes que enviar nada! "))
-          Return
-     Endif
-     'commande clamsubmit pour envoyer une soumission de faux positif au serveur de clamav
-     Comm = "clamsubmit -e " & FMain.email & " -N " & FMain.nom & " -p " & TAFichier.Text & " -V " & TAVirus.Text
+    If TAFichier.Text = "" Or TAVirus.Text = "" Then
+        Message(("¡no tienes que enviar nada! "))
+        Return
+    Endif
+    'commande clamsubmit pour envoyer une soumission de faux positif au serveur de clamav
+    Comm = "clamsubmit -e " & FMain.email & " -N " & FMain.nom & " -p " & TAFichier.Text & " -V " & TAVirus.Text
 
-     If FMain.bSudo = True Then
-          Authenticate.Command("sudo " & Comm)
-          If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell (FMain.monTexte) & " 2>&1" For Read As "Scan"
-               TournProc
-          Endif
-     Else If FMain.bsudo = False
-          hProc = Shell (Comm) & " 2>&1" For Read As "Scan"
-          TournProc
-     Endif
-     Wait
-     Me.Mouse = Mouse.Default
-     TextArea3.Mouse = Mouse.Default
-     FMain.monTexte = ""
+    If FMain.bSudo = True Then
+        Authenticate.Command("sudo " & Comm)
+        If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
+            hProc = Shell (FMain.monTexte) & " 2>&1" For Read As "Scan"
+            TournProc
+        Endif
+    Else If FMain.bsudo = False
+        hProc = Shell (Comm) & " 2>&1" For Read As "Scan"
+        TournProc
+    Endif
+    Wait
+    Me.Mouse = Mouse.Default
+    TextArea3.Mouse = Mouse.Default
+    FMain.monTexte = ""
 
 End
 
 Public Sub Scan_read()                                                          'affichage dans terminal
 
-     Dim sLine As String
+    Dim sLine As String
 
-     Read #hProc, sline, Lof(hproc)
-     TextArea3.Text &= sLine
-     TextArea3.EnsureVisible()
+    Read #hProc, sline, Lof(hproc)
+    TextArea3.Text &= sLine
+    TextArea3.EnsureVisible()
 
 End
 
 Public Sub TournProc()                                                          'tant que tourne le process
 
-     While hProc.state = hProc.Running
-          Wait 1
-          Me.Mouse = Mouse.Wait
-          TextArea3.Mouse = Mouse.Wait
-     Wend
+    While hProc.state = hProc.Running
+        Wait 1
+        Me.Mouse = Mouse.Wait
+        TextArea3.Mouse = Mouse.Wait
+    Wend
 
 End
 
 Public Sub btnCancel_Click()
 
-     Me.Close
+    Me.Close
 
 End
 
 Public Sub TBCourriel_Leave()                                                   'enregistrement de l'adresse mail pour l'envoi
 
-     Settings["General/courriel"] = TBCourriel.Text
-     Settings.Save
+    Settings["General/courriel"] = TBCourriel.Text
+    Settings.Save
 
 End
 
 Public Sub TBNom_Leave()                                                        'enregistrement du nom pour l'envoi
 
-     Settings["General/nom"] = TBNom.Text
-     Settings.Save
+    Settings["General/nom"] = TBNom.Text
+    Settings.Save
 
 End
 
 Public Sub btnCerrar_Click()
 
-     Me.Close()
+    Me.Close()
 
 End
 
 Public Sub Form_Close()
 
-     Module1.son(Module1.Warning)
+    Module1.son(Module1.Warning)
 
 End

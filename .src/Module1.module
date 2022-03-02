@@ -31,137 +31,165 @@ Public camera1 As String = "camera1"
 
 Public Sub Exit()
 
-     hLock = Null                                                         'pour locker un fichier de contrôle
-     cloture = Null                                                      'cloture voulue ou non
+    hLock = Null                                                                'pour locker un fichier de contrôle
+    cloture = Null                                                              'cloture voulue ou non
 
-     MonSon = Null
-     ouverture3 = Null
-     beep = Null
-     bell = Null
-     Contact = Null
-     Message2 = Null
-     Message1 = Null
-     OpenApp = Null
-     powerunplug = Null
-     shade = Null
-     Warning = Null
-     powerplug = Null
-     camera1 = Null
+    MonSon = Null
+    ouverture3 = Null
+    beep = Null
+    bell = Null
+    Contact = Null
+    Message2 = Null
+    Message1 = Null
+    OpenApp = Null
+    powerunplug = Null
+    shade = Null
+    Warning = Null
+    powerplug = Null
+    camera1 = Null
 
 End
 
 Public Sub Main()
 
-     Try hLock = Lock User.home & "/.ClamScanGui-lock"                           'pour éviter plusieurs instance du programme
-     If Error Then
-          Message.Title = (("¡Atención!") & ("para ClamScanGui"))
-          Message(("Solo es posible una instancia del Programa."))
-          Quit
-     Endif
-     langues                                                                    'langues en fonction du système
-     FMain.Show()                                                               'démarrage formulaire principal, pour démarrage par module.
+    Try hLock = Lock User.home & "/.ClamScanGui-lock"                           'pour éviter plusieurs instance du programme
+    If Error Then
+        Message.Title = (("¡Atención!") & ("para ClamScanGui"))
+        Message(("Solo es posible una instancia del Programa."))
+        Quit
+    Endif
+    langues                                                                     'langues en fonction du système
+    FMain.Show()                                                                'démarrage formulaire principal, pour démarrage par module.
 
 End
 
 Public Sub son($son As String)
 
-     If FMain.SonOn = True Then
-          Select Case $son
-               Case beep
-                    Try MonSon = Sound.Load("beep.ogg")
-               Case ouverture3
-                    Try MonSon = Sound.Load("ouverture3.ogg")
-               Case bell
-                    Try MonSon = Sound.Load("bell.oga")
-               Case Contact
-                    Try MonSon = Sound.Load("Contact.ogg")
-               Case Message1
-                    Try MonSon = Sound.Load("Message1.ogg")
-               Case Message2
-                    Try MonSon = Sound.Load("Message2.ogg")
-               Case OpenApp
-                    Try MonSon = Sound.Load("OpenApp.ogg")
-               Case shade
-                    Try MonSon = Sound.Load("shade.ogg")
-               Case powerunplug
-                    Try MonSon = Sound.Load("power-unplug.oga")
-               Case Warning
-                    Try MonSon = Sound.Load("Warning.ogg")
-               Case powerplug
-                    Try MonSon = Sound.Load("power-plug.oga")
-               Case camera1
-                    Try MonSon = Sound.Load("camera1.ogg")
-          End Select
-          Try MonSon.Play()
-     Endif
+    If FMain.SonOn = True Then
+        Select Case $son
+            Case beep
+                Try MonSon = Sound.Load("beep.ogg")
+            Case ouverture3
+                Try MonSon = Sound.Load("ouverture3.ogg")
+            Case bell
+                Try MonSon = Sound.Load("bell.oga")
+            Case Contact
+                Try MonSon = Sound.Load("Contact.ogg")
+            Case Message1
+                Try MonSon = Sound.Load("Message1.ogg")
+            Case Message2
+                Try MonSon = Sound.Load("Message2.ogg")
+            Case OpenApp
+                Try MonSon = Sound.Load("OpenApp.ogg")
+            Case shade
+                Try MonSon = Sound.Load("shade.ogg")
+            Case powerunplug
+                Try MonSon = Sound.Load("power-unplug.oga")
+            Case Warning
+                Try MonSon = Sound.Load("Warning.ogg")
+            Case powerplug
+                Try MonSon = Sound.Load("power-plug.oga")
+            Case camera1
+                Try MonSon = Sound.Load("camera1.ogg")
+        End Select
+        Try MonSon.Play()
+    Endif
 
 Catch
-     Message(("An error : ") & "son " & Error.Text)
+    Message(("An error : ") & "son " & Error.Text)
 
 End
 
 Public Sub langues()
 
-     Dim cLangues As String[] = ["en", "fr", "es", "it", "de", "pt", "ru"]      'liste des langues actuelles
+    Dim cLangues As String[] = ["en", "fr", "es", "it", "de", "pt", "ru"]       'liste des langues actuelles
 
-     If Not cLangues.Exist(Left(System.Language, 2)) Then                       'anglais si langue pas dans cLangues
-          Settings["General/LangInit"] = "en"
-     Else If Settings["General/LangInit"] = "en" Then
-          System.Language = "en_US.UTF-8"
-          FMain.txSalida3.Width = 198
-     Else If Settings["General/LangInit"] = "fr" Then
-          System.Language = "fr_FR.UTF-8"
-          FMain.txSalida3.Width = 198
-     Else If Settings["General/LangInit"] = "es" Then
-          System.Language = "es_ES.UTF-8"
-          FMain.txSalida3.Width = 198
-     Else If Settings["General/LangInit"] = "it" Then
-          System.Language = "it_IT.UTF-8"
-          FMain.txSalida3.Width = 190
-     Else If Settings["General/LangInit"] = "pt" Then
-          System.Language = "pt_PT.UTF-8"
-          FMain.txSalida3.Width = 227
-     Else If Settings["General/LangInit"] = "de" Then
-          System.Language = "de_DE.UTF-8"
-          FMain.txSalida3.Width = 150
-     Else If Settings["General/LangInit"] = "ru" Then
-          System.Language = "ru_RU.UTF-8"
-          FMain.txSalida3.Width = 220
-     Endif
-     Settings.Save()
+    If Not cLangues.Exist(Left(System.Language, 2)) Then                        'anglais si langue pas dans cLangues
+        Settings["General/LangInit"] = "en"
+    Else If Settings["General/LangInit"] = "en" Then
+        System.Language = "en_US.UTF-8"
+        FMain.txSalida3.Width = 198
+    Else If Settings["General/LangInit"] = "fr" Then
+        System.Language = "fr_FR.UTF-8"
+        FMain.txSalida3.Width = 198
+    Else If Settings["General/LangInit"] = "es" Then
+        System.Language = "es_ES.UTF-8"
+        FMain.txSalida3.Width = 198
+    Else If Settings["General/LangInit"] = "it" Then
+        System.Language = "it_IT.UTF-8"
+        FMain.txSalida3.Width = 190
+    Else If Settings["General/LangInit"] = "pt" Then
+        System.Language = "pt_PT.UTF-8"
+        FMain.txSalida3.Width = 227
+    Else If Settings["General/LangInit"] = "de" Then
+        System.Language = "de_DE.UTF-8"
+        FMain.txSalida3.Width = 150
+    Else If Settings["General/LangInit"] = "ru" Then
+        System.Language = "ru_RU.UTF-8"
+        FMain.txSalida3.Width = 220
+    Endif
+    Settings.Save()
 
 End
 
 Public Sub sortie()
 
-     Dim result As String
+    Dim result As String
 
-     If FMain.bSudo = True Then                                                 'si sudo alors ...
-          Authenticate.Command("sudo killall -u root -9 clamscan")              'montexte est affecté à la commande du process
-          If FMain.bFlag = True Then
-               Shell FMain.monTexte
-          Else
-               Shell "killall -u root -9 clamscan" & Application.Id
-               Message.Title = ("¡Atención!")
-               Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
-          Endif
-     Else                                                                       'si pas sudo alors
-          Shell "pgrep -if clamscan" To result
-          Shell "kill -9 " & result
-     Endif
+    If FMain.bSudo = True Then                                                  'si sudo alors ...
+        Authenticate.Command("sudo killall -u root -9 clamscan")                'montexte est affecté à la commande du process
+        If FMain.bFlag = True Then
+            Shell FMain.monTexte
+        Else
+            Shell "killall -u root -9 clamscan" & Application.Id
+            Message.Title = ("¡Atención!")
+            Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
+        Endif
+    Else                                                                        'si pas sudo alors
+        Shell "pgrep -if clamscan" To result
+        Shell "kill -9 " & result
+    Endif
 
 End
 
 Public Sub quitAppli()   '                                                      'procédure de fin et de cloture de programme
 
-     If Not IsNull(Module1.hLock) Then  '                                       'libération du fichier de contrôle hLock
-          Try Unlock Module1.hLock
-          Try Kill (User.home & "/.ClamScanGui-lock")
-     Endif
-     ClamScan.Exit
-     cloture = True                                                             'non affichage bouton cancel dans Authenticate et sortie
-     Cerf.ShowModal()                                                           'splashform
-     Module1.Exit
-     ' If Not IsNull(FMain) Then Quit
+    Dim oFichier As String
+
+    If Not IsNull(Module1.hLock) Then  '                                        'libération du fichier de contrôle hLock
+        Try Unlock Module1.hLock
+        Try Kill (User.home & "/.ClamScanGui-lock")
+    Endif
+    ClamScan.Exit
+    '***************************************************************************
+    If Exist(User.Home &/ ".clamscangui/ClamScanGui_Log.txt") Then              'effacement du fichier Log à la fermeture
+        File.Save(User.Home &/ ".clamscangui/ClamScanGui_Log.txt", "")          'par enregistrement d'un fichier vide
+    Endif
+
+    If Exist(User.Home &/ ".clamscangui/pil.txt") Then
+        Kill User.Home &/ ".clamscangui/pil.txt"
+    Endif
+
+    If Stat(FMain.liste).Size = 0 Then                                          'si fichier liste vide alors on vide le répertoire
+        For Each oFichier In Dir(User.Home &/ ".clamscangui/viruses", "*", gb.File)
+            Kill User.Home &/ ".clamscangui/viruses/" & oFichier
+        Next
+    Endif
+
+    If Not IsNull(clamscan.hProc) Then
+        If clamscan.hProc.State = clamscan.hProc.Running Then
+            clamscan.hProc.Kill
+            Wait 1                                                              'attente d'une seconde pour kill process
+            FMain.txSalida2.Enabled = False
+            clamscan.hProc.Ignore = True                                        'fermeture de tout process en cours sans erreur
+            Module1.cloture = True
+            Module1.sortie()
+        Endif
+    Endif
+    '***************************************************************************
+    cloture = True                                                              'non affichage bouton cancel dans Authenticate et sortie
+    Cerf.ShowModal()                                                            'splashform
+    Module1.Exit
+    ' Quit
 
 End

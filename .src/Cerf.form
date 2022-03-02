@@ -4,11 +4,13 @@
   Move(0,0,406,476)
   #Scaled = False
   Font = Font["10"]
+  Background = Color.Transparent
   Resizable = False
   Border = False
   Stacking = Window.Above
   SkipTaskbar = True
   Transparent = True
+  Centered = True
   { PictureBox1 PictureBox
     Move(35,14,329,420)
     Picture = Picture["pil2.png"]

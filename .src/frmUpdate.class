@@ -13,32 +13,32 @@
 
 Public Sub urlGitHub_Click()
 
-     Desktop.Open(urlGitHub.Text)
+    Desktop.Open(urlGitHub.Text)
 
 End
 
 Public Sub btCerrar_Click()
 
-     Me.Close
+    Me.Close
 
 End
 
 Public Sub Form_KeyPress()
 
-     If Key.code = Key.esc Then Me.Close
+    If Key.code = Key.esc Then Me.Close
 
 End
 
 Public Sub Form_Open()
 
-     Module1.son(Module1.OpenApp)
-     Label1.Text = ("Puede descargar la última versión desde el repositorio de GitHub:")
-     Me.Text = ("Actualización disponible:")
+    Module1.son(Module1.OpenApp)
+    Label1.Text = ("Puede descargar la última versión desde el repositorio de GitHub:")
+    Me.Text = ("Actualización disponible:")
 
 End
 
 Public Sub Form_Close()
 
-     Module1.son(Module1.Warning)
+    Module1.son(Module1.Warning)
 
 End

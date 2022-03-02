@@ -17,210 +17,210 @@ Public Depart As Float
 
 Public Sub Exit()
 
-     hProc = Null
-     sTexte = Null
+    hProc = Null
+    sTexte = Null
 
 End
 
 Public Function Version() As String
 
-     Dim Salida As String
+    Dim Salida As String
 
-     Shell "clamscan --version" To Salida
-     Return Salida
+    Shell "clamscan --version" To Salida
+    Return Salida
 
 End Function
 
 Public Function ScanAction(Ruta As String)
 
-     Dim Comm As String
-     Dim ajout As String
+    Dim Comm As String
+    Dim ajout As String
 
-     FMain.txSalida.Text = ""
-     sTexte = ""
+    FMain.txSalida.Text = ""
+    sTexte = ""
 
-     Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
+    Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
 
-     'Menu choix de session ****************************************************
-     If FMain.SalidaErr = True Then Comm = Comm & " --quiet"
-     If FMain.SinINF = True Then comm = comm & " --no-summary"
-     If FMain.SuprimirOK = True Then Comm = comm & " -o"
-     If FMain.Infect = True Then comm = comm & " -i"
-     If FMain.bell = True Then comm = comm & " --bell"
-     If FMain.Verbose = True Then comm = comm & " --verbose"
-     If FMain.ArchVerbose = True Then comm = comm & " --archive-verbose"
-     If FMain.Adebug = True Then comm = comm & " --debug"
-     If FMain.Json = True Then comm = comm & " --gen-json"
-     'Menu options décochées par défaut ****************************************
-     If FMain.Recursive = True Then comm = comm & " -r"
-     If FMain.Remover = True Then comm = comm & " --remove=yes"
-     If FMain.AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
-     If FMain.AllMatch = True Then comm = comm & " -z" '" --allmatch=yes"
-     If FMain.Quarant = True Then comm = comm & " --move=" & FMain.quarantaine  'déplacement des fichiers virus en quarantaine
-     If FMain.Intersection = True Then comm = comm & " --partition-intersection=yes"
-     If FMain.Structured = True Then comm = comm & " --detect-structured=yes"
-     'Menu options cochées par défaut ******************************************
-     If FMain.CrossFs = False Then comm = comm & " --cross-fs=no"
-     If FMain.PDF = False Then comm = comm & " --scan-pdf=no"
-     If FMain.Mail = False Then comm = comm & " --scan-mail=no"
-     If FMain.SWF = False Then comm = comm & " --scan-swf=no"
-     If FMain.HTML = False Then comm = comm & " --scan-html=no --scan-xmldocs=no"
-     If FMain.HWP3 = False Then comm = comm & " --scan-hwp3=no"
-     If FMain.PE = False Then comm = comm & " --scan-pe=no"
-     If FMain.ELF = False Then comm = comm & " --scan-elf=no"
-     If FMain.OLE2 = False Then comm = comm & " --scan-ole2=no"
-     If FMain.ARCH = False Then comm = comm & " --scan-archive=no"
-     If FMain.PhishingSig = False Then comm = comm & " --phishing-sigs=no"
-     If FMain.PhishingUrl = False Then comm = comm & " --phishing-scan-urls=no"
-     If FMain.Algo = False Then comm = comm & " --algorithmic-detection=no"
-     '**************************************************************************
+    'Menu choix de session ****************************************************
+    If FMain.SalidaErr = True Then Comm = Comm & " --quiet"
+    If FMain.SinINF = True Then comm = comm & " --no-summary"
+    If FMain.SuprimirOK = True Then Comm = comm & " -o"
+    If FMain.Infect = True Then comm = comm & " -i"
+    If FMain.bell = True Then comm = comm & " --bell"
+    If FMain.Verbose = True Then comm = comm & " --verbose"
+    If FMain.ArchVerbose = True Then comm = comm & " --archive-verbose"
+    If FMain.Adebug = True Then comm = comm & " --debug"
+    If FMain.Json = True Then comm = comm & " --gen-json"
+    'Menu options décochées par défaut ****************************************
+    If FMain.Recursive = True Then comm = comm & " -r"
+    If FMain.Remover = True Then comm = comm & " --remove=yes"
+    If FMain.AppsIndeseadas = True Then comm = comm & " --detect-pua=yes"
+    If FMain.AllMatch = True Then comm = comm & " -z" '" --allmatch=yes"
+    If FMain.Quarant = True Then comm = comm & " --move=" & FMain.quarantaine  'déplacement des fichiers virus en quarantaine
+    If FMain.Intersection = True Then comm = comm & " --partition-intersection=yes"
+    If FMain.Structured = True Then comm = comm & " --detect-structured=yes"
+    'Menu options cochées par défaut ******************************************
+    If FMain.CrossFs = False Then comm = comm & " --cross-fs=no"
+    If FMain.PDF = False Then comm = comm & " --scan-pdf=no"
+    If FMain.Mail = False Then comm = comm & " --scan-mail=no"
+    If FMain.SWF = False Then comm = comm & " --scan-swf=no"
+    If FMain.HTML = False Then comm = comm & " --scan-html=no --scan-xmldocs=no"
+    If FMain.HWP3 = False Then comm = comm & " --scan-hwp3=no"
+    If FMain.PE = False Then comm = comm & " --scan-pe=no"
+    If FMain.ELF = False Then comm = comm & " --scan-elf=no"
+    If FMain.OLE2 = False Then comm = comm & " --scan-ole2=no"
+    If FMain.ARCH = False Then comm = comm & " --scan-archive=no"
+    If FMain.PhishingSig = False Then comm = comm & " --phishing-sigs=no"
+    If FMain.PhishingUrl = False Then comm = comm & " --phishing-scan-urls=no"
+    If FMain.Algo = False Then comm = comm & " --algorithmic-detection=no"
+    '**************************************************************************
 
-     ajout = ajout & " --exclude-dir=" & FMain.quarantaine                      'exclude quarantaine
-     ajout = ajout & " --exclude-dir=^/proc"
-     ajout = ajout & " --exclude-dir=^/sys"
-     comm = comm & FMain.sCommande                                              'sCommande issue des limites
+    ajout = ajout & " --exclude-dir=" & FMain.quarantaine                       'exclude quarantaine
+    ajout = ajout & " --exclude-dir=^/proc"
+    ajout = ajout & " --exclude-dir=^/sys"
+    comm = comm & FMain.sCommande                                               'sCommande issue des limites
 
-     If FMain.bSudo = True Then
-          Authenticate.Command("sudo " & Comm)
-          If FMain.bFlag = True Then                                            'montexte est affecté à la commande du process
-               hProc = Shell FMain.monTexte & ajout For Read As "Scan"
-          Endif
-     Else If FMain.bsudo = False
-          hProc = Shell Comm & ajout For Read As "Scan"
-     Endif
-     '**************************************************************************'Scan_Read en cours
-     TournProc()                                                                'affichage dans terminal tant que tourne le process
-     '************************************************************************** après le Scan_Read() et le Scan_Kill()
-     RecupVirus()                                                               'récupération des lignes virus
-     sTexte = ""                                                                'effacement de sTexte
-     FichierLog()                                                               'sauvegarde des log et historique
-     Wait                                                                       'finir la sauvegarde
-     FMain.monTexte = ""
+    If FMain.bSudo = True Then
+        Authenticate.Command("sudo " & Comm)
+        If FMain.bFlag = True Then                                              'montexte est affecté à la commande du process
+            hProc = Shell FMain.monTexte & ajout For Read As "Scan"
+        Endif
+    Else If FMain.bsudo = False
+        hProc = Shell Comm & ajout For Read As "Scan"
+    Endif
+    '************************************************************************** 'Scan_Read en cours
+    TournProc()                                                                 'affichage dans terminal tant que tourne le process
+    '************************************************************************** 'après le Scan_Read() et le Scan_Kill()
+    RecupVirus()                                                                'récupération des lignes virus
+    sTexte = ""                                                                 'effacement de sTexte
+    FichierLog()                                                                'sauvegarde des log et historique
+    Wait                                                                        'finir la sauvegarde
+    FMain.monTexte = ""
 
 End
 
 Public Sub Scan_Read()                                                          'affichage dans terminal
 
-     Dim sLine As String
+    Dim sLine As String
 
-     Read #hProc, sLine, Lof(hProc)
-     FMain.txSalida.Text &= sLine
-     FMain.txSalida.EnsureVisible()
+    Read #hProc, sLine, Lof(hProc)
+    FMain.txSalida.Text &= sLine
+    FMain.txSalida.EnsureVisible()
 
 End
 
 Public Sub Scan_Kill()                                                          'Fin du process hPro
 
-     If FMain.bTBKill = True Then '¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤'le processus a été tué
-          Module1.son(Module1.beep)
-          If FMain.bSudo = True Then                                            'si bouton sudo enfoncé
-               If FMain.bFlag = False Then
-                    Message.Title = ("¡Atención!")
-                    Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
-               Endif
-          Else
-               Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
-          Endif
-          FMain.bTBKill = False                                                 'drapeau Boolean à faux
-     Else '¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤'le processus s'est terminé normalement
-          FMain.txSalida3.Clear
-          FMain.txSalida2.Clear
-          FMain.txSalida3.Text = ("Tiempo : ") & "[ " & FMain.dTemps & " ] "    'affichage des secondes
-          ' FMain.txSalida3.Text = ("Tiempo : ") & "[ " & Time(0, 0, 0, (Timer - ClamScan.Depart) * 1000) & " ] " 'des millisecondes
-          Module1.son(Module1.Warning)
-          Message(("Trabajo completado") & ". " & ("¡Puedes volver!"))
-     Endif
+    If FMain.bTBKill = True Then '¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤'le processus a été tué
+        Module1.son(Module1.beep)
+        If FMain.bSudo = True Then                                              'si bouton sudo enfoncé
+            If FMain.bFlag = False Then
+                Message.Title = ("¡Atención!")
+                Message(("clamscan, todavía funciona, en segundo plano.\n Tendrá que borrar la memoria usted mismo."))
+            Endif
+        Else
+            Message(("El proceso actual ha sido eliminado") & ". " & ("¡Puedes volver!"))
+        Endif
+        FMain.bTBKill = False                                                   'drapeau Boolean à faux
+    Else '¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤'le processus s'est terminé normalement
+        FMain.txSalida3.Clear
+        FMain.txSalida2.Clear
+        FMain.txSalida3.Text = ("Tiempo : ") & "[ " & FMain.dTemps & " ] "      'affichage des secondes
+        ' FMain.txSalida3.Text = ("Tiempo : ") & "[ " & Time(0, 0, 0, (Timer - ClamScan.Depart) * 1000) & " ] " 'des millisecondes
+        Module1.son(Module1.Warning)
+        Message(("Trabajo completado") & ". " & ("¡Puedes volver!"))
+    Endif
 
 End
 
 Public Sub TournProc()                                                          'tant que tourne le process
 
-     Dim i, j As Integer
+    Dim i, j As Integer
 
-     Depart = Timer                                                             'temps de l'horloge interne
-     j = CInt(FMain.txSalida2.Width / 8.75)                                     'j=longueur de la ligne terminal 2
+    Depart = Timer                                                              'temps de l'horloge interne
+    j = CInt(FMain.txSalida2.Width / 8.75)                                      'j=longueur de la ligne terminal 2
 
-     While hProc.state = hProc.Running
-          MouseWait()
-          FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)    'clic en millisecondes * 1000 = secondes
-          FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
-          i += 1                                                                'incrément de i
-          If i > j Then                                                         'j=longueur de la ligne terminal 2
-               i = 0                                                            'remise à zéro de i
-               FMain.txSalida2.Clear
-          Endif
-          Wait 1                                                                'boucle évènement d'une seconde
-          FMain.txSalida2.Text &= "#"
-          If hProc.State = hProc.Stopped Then Break                             'garantie de sortie de boucle (inutile?)
-     Wend
+    While hProc.state = hProc.Running
+        MouseWait()
+        FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)      'clic en millisecondes * 1000 = secondes
+        FMain.txSalida3.Text = (" Trabajo en curso... ") & "[ " & FMain.dTemps & " ] "
+        i += 1                                                                  'incrément de i
+        If i > j Then                                                           'j=longueur de la ligne terminal 2
+            i = 0                                                               'remise à zéro de i
+            FMain.txSalida2.Clear
+        Endif
+        Wait 1                                                                  'boucle évènement d'une seconde
+        FMain.txSalida2.Text &= "#"
+        If hProc.State = hProc.Stopped Then Break                               'garantie de sortie de boucle (inutile?)
+    Wend
 
-     Mousedefault()
+    Mousedefault()
 
 End
 
 Public Sub Mousedefault()                                                       'curseur par défaut
 
-     FMain.Mouse = Mouse.Default
-     FMain.txSalida.Mouse = Mouse.Default
-     FMain.txSalida2.Mouse = Mouse.Default
-     FMain.txSalida3.Mouse = Mouse.Default
-     FMain.txSalida2.Clear
-     FMain.txSalida.ScrollBar = Scroll.Both
+    FMain.Mouse = Mouse.Default
+    FMain.txSalida.Mouse = Mouse.Default
+    FMain.txSalida2.Mouse = Mouse.Default
+    FMain.txSalida3.Mouse = Mouse.Default
+    FMain.txSalida2.Clear
+    FMain.txSalida.ScrollBar = Scroll.Both
 
 End
 
 Public Sub MouseWait()                                                          'curseur d'attente
 
-     FMain.Mouse = Mouse.Wait
-     FMain.txSalida.Mouse = Mouse.Wait
-     FMain.txSalida2.Mouse = Mouse.Wait
-     FMain.txSalida3.Mouse = Mouse.Wait
-     FMain.txSalida.ScrollBar = Scroll.None
+    FMain.Mouse = Mouse.Wait
+    FMain.txSalida.Mouse = Mouse.Wait
+    FMain.txSalida2.Mouse = Mouse.Wait
+    FMain.txSalida3.Mouse = Mouse.Wait
+    FMain.txSalida.ScrollBar = Scroll.None
 
 End
 
 Public Sub RecupVirus()
 
-     Dim sLigne As String[] = Split(FMain.txSalida.Text, gb.NewLine, "", True)
-     Dim i As Integer
+    Dim sLigne As String[] = Split(FMain.txSalida.Text, gb.NewLine, "", True)
+    Dim i As Integer
 
-     If FMain.Quarant = True Then                                               'si quarantaine automatique
-          For i = 0 To sLigne.Max
-               If sLigne[i] Ends " FOUND" Then
-                    sTexte &= sLigne[i + 1] & gb.NewLine                        'récupération de la ligne suivante (move to )
-               Endif
-          Next
-          File.Save(FMain.liste, sTexte)                                        'sauvegarde de la liste des fichiers en quarantaine
-     Else                                                                       'si quarantaine non automatique
-          For i = 0 To sLigne.Max
-               If sLigne[i] Ends " FOUND" Then
-                    sTexte &= sLigne[i] & gb.NewLine                            'récupératin de la ligne en question
-               Endif
-          Next
-          File.Save(FMain.pil, sTexte)                                          'sauvegarde de la liste des fichiers et virus après scan
-     Endif
+    If FMain.Quarant = True Then                                                'si quarantaine automatique
+        For i = 0 To sLigne.Max
+            If sLigne[i] Ends " FOUND" Then
+                sTexte &= sLigne[i + 1] & gb.NewLine                            'récupération de la ligne suivante (move to )
+            Endif
+        Next
+        File.Save(FMain.liste, sTexte)                                          'sauvegarde de la liste des fichiers en quarantaine
+    Else                                                                        'si quarantaine non automatique
+        For i = 0 To sLigne.Max
+            If sLigne[i] Ends " FOUND" Then
+                sTexte &= sLigne[i] & gb.NewLine                                'récupératin de la ligne en question
+            Endif
+        Next
+        File.Save(FMain.pil, sTexte)                                            'sauvegarde de la liste des fichiers et virus après scan
+    Endif
 
 End
 
 Public Sub FichierLog()                                                         'sauvegarde des Log et de l'Historique
 
-     Dim TextDate As String
+    Dim TextDate As String
 
-     TextDate = " ---------| " & (" Escaneo realizado : ") & Now() & " |--------- "
+    TextDate = " ---------| " & (" Escaneo realizado : ") & Now() & " |--------- "
 
-     If Not Exist(FMain.clamLog) Then                                           'fichier Log
-          FMain.leFichier = Open FMain.clamLog For Create
-     Else
-          FMain.leFichier = Open FMain.clamLog For Input
-     Endif
+    If Not Exist(FMain.clamLog) Then                                            'fichier Log
+        FMain.leFichier = Open FMain.clamLog For Create
+    Else
+        FMain.leFichier = Open FMain.clamLog For Input
+    Endif
 
-     If Not Exist(FMain.historic) Then                                          'fichier historique
-          FMain.histo = Open FMain.historic For Create
-     Else
-          FMain.histo = Open FMain.historic For Input
-     Endif
+    If Not Exist(FMain.historic) Then                                           'fichier historique
+        FMain.histo = Open FMain.historic For Create
+    Else
+        FMain.histo = Open FMain.historic For Input
+    Endif
 
-     File.Save(FMain.clamLog, FMain.leFichier.Load(FMain.clamLog) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)   'Logs
-     File.Save(FMain.historic, FMain.histo.Load(FMain.historic) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text) 'Historique
+    File.Save(FMain.clamLog, FMain.leFichier.Load(FMain.clamLog) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)   'Logs
+    File.Save(FMain.historic, FMain.histo.Load(FMain.historic) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text) 'Historique
 
 End

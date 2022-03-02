@@ -16,41 +16,41 @@ Private PW As Integer
 
 Public Sub Timer1_Timer() '                                                     'timer controlant la durée de l'animation du splash form
 
-     Dim i, p As Single
+    Dim i, p As Single
 
-     For p = 1 To 6 Step 1
-          For i = 1 To 100 Step 2
-               PictureBox1.Refresh()
-               Wait
-               If Module1.cloture Then                                          'on rembobine
-                    PictureBox1.H = CInt(PH / p)
-                    PictureBox1.W = CInt(PW / p)
-               Else                                                             'on expose
-                    PictureBox1.H = CInt(PH * p)
-                    PictureBox1.W = CInt(PW * p)
-                    PictureBox1.Visible = True
-               Endif
-          Next
-     Next
-     Timer1.Stop
-     Timer1 = Null
-     Me.Close
+    For p = 1 To 6 Step 1
+        For i = 1 To 100 Step 2
+            PictureBox1.Refresh()
+            Wait
+            If Module1.cloture Then                                          'on rembobine
+                PictureBox1.H = CInt(PH / p)
+                PictureBox1.W = CInt(PW / p)
+            Else                                                             'on expose
+                PictureBox1.H = CInt(PH * p)
+                PictureBox1.W = CInt(PW * p)
+                PictureBox1.Visible = True
+            Endif
+        Next
+    Next
+    Timer1.Stop
+    Timer1 = Null
+    Me.Close
 
 End
 
 Public Sub Form_Open() '                                                        'ouverture du splash form avec animation
 
-     Module1.son(Module1.ouverture3)                                            'sons sur Module1 pour éviter problèmes clôture
-     If Module1.cloture Then
-          PH = PictureBox1.H
-          PW = PictureBox1.W
-     Else
-          PictureBox1.Visible = False
-          PH = PictureBox1.H / 6
-          PW = PictureBox1.W / 6
-          PictureBox1.H = PH
-          PictureBox1.W = PW
-     Endif
-     Timer1.Start
+    Module1.son(Module1.ouverture3)                                            'sons sur Module1 pour éviter problèmes clôture
+    If Module1.cloture Then
+        PH = PictureBox1.H
+        PW = PictureBox1.W
+    Else
+        PictureBox1.Visible = False
+        PH = PictureBox1.H / 6
+        PW = PictureBox1.W / 6
+        PictureBox1.H = PH
+        PictureBox1.W = PW
+    Endif
+    Timer1.Start
 
 End

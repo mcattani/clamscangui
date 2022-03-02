@@ -427,6 +427,18 @@
       Picture = Picture["icon:/22/muted"]
       Toggle = True
     }
+    { Menu19 Menu
+    }
+    { MnuLynis Menu
+      Text = ("Lynis")
+      Picture = Picture["icon:/32/component"]
+      Visible = False
+    }
+    { MnuTiger Menu
+      Text = ("Tiger")
+      Picture = Picture["icon:/32/component"]
+      Visible = False
+    }
   }
   { mnAbout Menu
     Text = ("?")
@@ -511,7 +523,7 @@
       }
     }
     { Panel1 Panel
-      Move(350,0,203,35)
+      Move(315,0,238,35)
       AutoResize = True
       { TBKill ToolButton
         Move(105,0,32,28)
@@ -548,6 +560,13 @@
         ToolTip = ("Presentación")
         Picture = Picture["icon:/24/edit"]
       }
+      { TBSudo2 ToolButton
+        Move(201,0,35,28)
+        Mouse = Mouse.Pointing
+        ToolTip = ("Limitaciones")
+        Picture = Picture["icon:/32/flag"]
+        Toggle = True
+      }
     }
   }
   { PanLimit Panel
@@ -555,102 +574,20 @@
     Visible = False
     ToolTip = ("Según el sitio web de clamav:\n\n--max-filesize=2000M --max-scansize=2000M --max-files=2000000 --max-recursion=2000000 --max-embeddedpe=2000M --max-htmlnormalize=2000000 --max-htmlnotags=2000000 --max-scriptnormalize=2000000 --max-ziptypercg=2000000 --max-partitions=2000000 --max-iconspe=2000000 --max-rechwp3=2000000 --pcre-match-limit=2000000 --pcre-recmatch-limit=2000000 --pcre-max-filesize=2000M:\n\nDesactiva efectivamente todos los límites y máximos de archivos para escanear. Esto es útil si desea asegurarse de que se escaneen todos los archivos de un conjunto y prefiere que Clam se ejecute lentamente o se bloquee en lugar de omitir un archivo porque encuentra uno de estos umbrales.")
     Padding = 2
-    Border = Border.Plain
+    { Label1 TextLabel
+      Move(18,0,98,35)
+      Font = Font["Bold,Underline"]
+      Text = ("Limitaciones: (ver ayuda)")
+    }
+    { BtnDefaut ToggleButton
+      Move(167,6,112,28)
+      Text = ("Defecto")
+    }
     { Label2 Label
       Move(7,43,133,28)
       #Translate = False
       Alignment = Align.Right
       Text = "max-filesize"
-    }
-    { Label3 Label
-      Move(7,76,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-scansize"
-    }
-    { Label4 Label
-      Move(7,113,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-files"
-    }
-    { Label5 Label
-      Move(7,148,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-recursion"
-    }
-    { Label6 Label
-      Move(7,181,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-dir-recursion"
-    }
-    { Label7 Label
-      Move(7,215,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-embeddedpe"
-    }
-    { Label8 Label
-      Move(7,250,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-htmlnormalize"
-    }
-    { Label9 Label
-      Move(7,284,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-htmlnotags"
-    }
-    { Label11 Label
-      Move(7,354,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-ziptypercq"
-    }
-    { Label12 Label
-      Move(7,391,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-partitions"
-    }
-    { Label13 Label
-      Move(7,428,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-iconspe"
-    }
-    { Label14 Label
-      Move(7,463,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-rechwp3"
-    }
-    { Label15 Label
-      Move(7,498,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "pcre-match-limit"
-    }
-    { Label16 Label
-      Move(7,533,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "pcre-recmatch-limit"
-    }
-    { Label17 Label
-      Move(7,568,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "pcre-max-filesize"
-    }
-    { Label10 Label
-      Move(8,320,133,28)
-      #Translate = False
-      Alignment = Align.Right
-      Text = "max-scriptnormalize"
     }
     { SlidFilesize SliderBox Limit
       Name = "SlidFilesize"
@@ -662,6 +599,12 @@
       DefaultValue = 25
       Value = 25
     }
+    { Label3 Label
+      Move(7,77,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-scansize"
+    }
     { SlidScansize SliderBox Limit
       Name = "SlidScansize"
       Move(147,77,133,28)
@@ -671,6 +614,12 @@
       Step = 100
       DefaultValue = 100
       Value = 100
+    }
+    { Label4 Label
+      Move(7,113,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-files"
     }
     { SlidFiles SliderBox Limit
       Name = "SlidFiles"
@@ -682,6 +631,12 @@
       DefaultValue = 10000
       Value = 10000
     }
+    { Label5 Label
+      Move(7,148,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-recursion"
+    }
     { Slidrecursion SliderBox Limit
       Name = "Slidrecursion"
       Move(146,149,133,28)
@@ -691,6 +646,12 @@
       Step = 16
       DefaultValue = 16
       Value = 16
+    }
+    { Label6 Label
+      Move(7,181,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-dir-recursion"
     }
     { SlidDirRecursion SliderBox Limit
       Name = "SlidDirRecursion"
@@ -702,6 +663,12 @@
       DefaultValue = 15
       Value = 15
     }
+    { Label7 Label
+      Move(7,215,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-embeddedpe"
+    }
     { SlidEmbPE SliderBox Limit
       Name = "SlidEmbPE"
       Move(147,217,133,28)
@@ -711,6 +678,12 @@
       Step = 10
       DefaultValue = 10
       Value = 10
+    }
+    { Label8 Label
+      Move(7,250,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-htmlnormalize"
     }
     { SlidHtmlNorm SliderBox Limit
       Name = "SlidHtmlNorm"
@@ -722,6 +695,12 @@
       DefaultValue = 10
       Value = 10
     }
+    { Label9 Label
+      Move(7,284,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-htmlnotags"
+    }
     { SlidHtmlTags SliderBox Limit
       Name = "SlidHtmlTags"
       Move(147,287,133,28)
@@ -731,6 +710,12 @@
       Step = 2
       DefaultValue = 2
       Value = 2
+    }
+    { Label10 Label
+      Move(8,320,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-scriptnormalize"
     }
     { SlidScriptNorm SliderBox Limit
       Name = "SlidScriptNorm"
@@ -742,6 +727,12 @@
       DefaultValue = 5
       Value = 5
     }
+    { Label11 Label
+      Move(7,354,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-ziptypercq"
+    }
     { SlidZipType SliderBox Limit
       Name = "SlidZipType"
       Move(146,356,133,28)
@@ -750,6 +741,12 @@
       MaxValue = 2000
       DefaultValue = 1
       Value = 1
+    }
+    { Label12 Label
+      Move(7,391,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-partitions"
     }
     { SlidPartitions SliderBox Limit
       Name = "SlidPartitions"
@@ -761,6 +758,12 @@
       DefaultValue = 50
       Value = 50
     }
+    { Label13 Label
+      Move(7,428,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-iconspe"
+    }
     { SlidIconsPE SliderBox Limit
       Name = "SlidIconsPE"
       Move(146,429,133,28)
@@ -770,6 +773,12 @@
       Step = 100
       DefaultValue = 100
       Value = 100
+    }
+    { Label14 Label
+      Move(7,463,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "max-rechwp3"
     }
     { SlidRechWP3 SliderBox Limit
       Name = "SlidRechWP3"
@@ -781,6 +790,12 @@
       DefaultValue = 16
       Value = 16
     }
+    { Label15 Label
+      Move(7,498,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "pcre-match-limit"
+    }
     { SlidPcreLimit SliderBox Limit
       Name = "SlidPcreLimit"
       Move(146,499,133,28)
@@ -790,6 +805,12 @@
       Step = 10000
       DefaultValue = 10000
       Value = 10000
+    }
+    { Label16 Label
+      Move(7,533,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "pcre-recmatch-limit"
     }
     { SlidPcreRecLimit SliderBox Limit
       Name = "SlidPcreRecLimit"
@@ -801,6 +822,12 @@
       DefaultValue = 5000
       Value = 5000
     }
+    { Label17 Label
+      Move(7,568,133,28)
+      #Translate = False
+      Alignment = Align.Right
+      Text = "pcre-max-filesize"
+    }
     { SlidPcreFilesize SliderBox Limit
       Name = "SlidPcreFilesize"
       Move(146,569,133,28)
@@ -810,15 +837,6 @@
       Step = 25
       DefaultValue = 25
       Value = 25
-    }
-    { Label1 TextLabel
-      Move(3,0,105,35)
-      Font = Font["Bold,Underline"]
-      Text = ("Limitaciones: (ver ayuda)")
-    }
-    { BtnDefaut ToggleButton
-      Move(164,6,112,28)
-      Text = ("Defecto")
     }
   }
 }
