@@ -5,10 +5,11 @@ Count=0
 Count=0
 
 [OpenFile]
-Active=1
-File[1]=".src/FMain.class:0.236"
-Count=2
+Active=2
+File[1]=".src/FMain.class:4.236"
+Count=3
 File[2]=".hidden/CHANGELOG:0.0"
+File[3]=".src/FMain.form"
 
 [Package]
 Dir="~/Escritorio/"

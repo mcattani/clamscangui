@@ -234,7 +234,7 @@ Public Sub Form_Close()                                                         
 
     SaveSettings()                                                              'sauvegarde des réglages avant sortie programme
     Me.Hide()
-    Module1.quitAppli()
+    Module1.quitAppli
     sortie()
 
 End
