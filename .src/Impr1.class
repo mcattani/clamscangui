@@ -14,20 +14,20 @@
 Private Xtexto As String[]
 
 Public Sub _new(parrafos As String[])
-
+    
     Xtexto = parrafos
-
+    
 End
 
 Public Sub Report_Open()
-
+    
     Dim EsteParrafo As String
     Dim LabelParrafo As ReportLabel
-
+    
     For Each EsteParrafo In Xtexto
         LabelParrafo = New ReportLabel(RVBox)
         LabelParrafo.Visible = True
         LabelParrafo.Text = EsteParrafo
     Next
-
+    
 End

@@ -30,10 +30,10 @@ Public powerplug As String = "power-plug"
 Public camera1 As String = "camera1"
 
 Public Sub Exit()
-
+    
     hLock = Null                                                                'pour locker un fichier de contrôle
     cloture = Null                                                              'cloture voulue ou non
-
+    
     MonSon = Null
     ouverture3 = Null
     beep = Null
@@ -47,11 +47,11 @@ Public Sub Exit()
     Warning = Null
     powerplug = Null
     camera1 = Null
-
+    
 End
 
 Public Sub Main()
-
+    
     Try hLock = Lock User.home & "/.ClamScanGui-lock"                           'pour éviter plusieurs instance du programme
     If Error Then
         Message.Title = (("¡Atención!") & ("para ClamScanGui"))
@@ -60,11 +60,11 @@ Public Sub Main()
     Endif
     langues                                                                     'langues en fonction du système
     FMain.Show()                                                                'démarrage formulaire principal, pour démarrage par module.
-
+    
 End
 
 Public Sub son($son As String)
-
+    
     If FMain.SonOn = True Then
         Select Case $son
             Case beep
@@ -94,16 +94,16 @@ Public Sub son($son As String)
         End Select
         Try MonSon.Play()
     Endif
-
+    
 Catch
     Message(("An error : ") & "son " & Error.Text)
-
+    
 End
 
 Public Sub langues()
-
+    
     Dim cLangues As String[] = ["en", "fr", "es", "it", "de", "pt", "ru"]       'liste des langues actuelles
-
+    
     If Not cLangues.Exist(Left(System.Language, 2)) Then                        'anglais si langue pas dans cLangues
         Settings["General/LangInit"] = "en"
     Else If Settings["General/LangInit"] = "en" Then
@@ -129,13 +129,13 @@ Public Sub langues()
         FMain.txSalida3.Width = 220
     Endif
     Settings.Save()
-
+    
 End
 
 Public Sub sortie()
-
+    
     Dim result As String
-
+    
     If FMain.bSudo = True Then                                                  'si sudo alors ...
         Authenticate.Command("sudo killall -u root -9 clamscan")                'montexte est affecté à la commande du process
         If FMain.bFlag = True Then
@@ -149,13 +149,13 @@ Public Sub sortie()
         Shell "pgrep -if clamscan" To result
         Shell "kill -9 " & result
     Endif
-
+    
 End
 
 Public Sub quitAppli()   '                                                      'procédure de fin et de cloture de programme
-
+    
     Dim oFichier As String
-
+    
     If Not IsNull(Module1.hLock) Then  '                                        'libération du fichier de contrôle hLock
         Try Unlock Module1.hLock
         Try Kill (User.home & "/.ClamScanGui-lock")
@@ -165,17 +165,17 @@ Public Sub quitAppli()   '                                                      
     If Exist(User.Home &/ ".clamscangui/ClamScanGui_Log.txt") Then              'effacement du fichier Log à la fermeture
         File.Save(User.Home &/ ".clamscangui/ClamScanGui_Log.txt", "")          'par enregistrement d'un fichier vide
     Endif
-
+    
     If Exist(User.Home &/ ".clamscangui/pil.txt") Then
         Kill User.Home &/ ".clamscangui/pil.txt"
     Endif
-
+    
     If Stat(FMain.liste).Size = 0 Then                                          'si fichier liste vide alors on vide le répertoire
         For Each oFichier In Dir(User.Home &/ ".clamscangui/viruses", "*", gb.File)
             Kill User.Home &/ ".clamscangui/viruses/" & oFichier
         Next
     Endif
-
+    
     If Not IsNull(clamscan.hProc) Then
         If clamscan.hProc.State = clamscan.hProc.Running Then
             clamscan.hProc.Kill
@@ -191,5 +191,5 @@ Public Sub quitAppli()   '                                                      
     Cerf.ShowModal()                                                            'splashform
     Module1.Exit
     ' Quit
-
+    
 End

@@ -1,15 +1,34 @@
-[Breakpoints]
-Count=0
+[Debug]
+Breakpoints={}
 
 [DebugWindow]
 Count=0
 
+[Executable]
+DoNotIncrementVersion=False
+NoTestModule=False
+NoPublicDirectory=False
+Path="/home/ozymandias/Escritorio/ClamScanGui.gambas"
+
+[FImageProperty/Grid]
+Resolution=64
+Snap=0
+SnapResolution=8
+Diagonals=0
+Lock=False
+
 [OpenFile]
-Active=2
-File[1]=".src/FMain.class:4.236"
-Count=3
+Active=1
+File[1]=".src/FMain.class:4.598"
+Count=9
 File[2]=".hidden/CHANGELOG:0.0"
 File[3]=".src/FMain.form"
+File[4]=".src/ClamScan.module:0.179"
+File[5]=".src/Cerf.form"
+File[6]=".src/FrmGeneral.form"
+File[7]=".src/Impr1.report"
+File[8]=".src/Impr1.class:4.23"
+File[9]=".src/Module1.module:28.82"
 
 [Package]
 Dir="~/Escritorio/"

@@ -16,31 +16,31 @@ Public sTexte As String
 Public Depart As Float
 
 Public Sub Exit()
-
+    
     hProc = Null
     sTexte = Null
-
+    
 End
 
 Public Function Version() As String
-
+    
     Dim Salida As String
-
+    
     Shell "clamscan --version" To Salida
     Return Salida
-
+    
 End Function
 
 Public Function ScanAction(Ruta As String)
-
+    
     Dim Comm As String
     Dim ajout As String
-
+    
     FMain.txSalida.Text = ""
     sTexte = ""
-
+    
     Comm = "clamscan " & Ruta                                                  'commande clamscan toutes les options modifiables ici
-
+    
     'Menu choix de session ****************************************************
     If FMain.SalidaErr = True Then Comm = Comm & " --quiet"
     If FMain.SinINF = True Then comm = comm & " --no-summary"
@@ -74,12 +74,12 @@ Public Function ScanAction(Ruta As String)
     If FMain.PhishingUrl = False Then comm = comm & " --phishing-scan-urls=no"
     If FMain.Algo = False Then comm = comm & " --algorithmic-detection=no"
     '**************************************************************************
-
+    
     ajout = ajout & " --exclude-dir=" & FMain.quarantaine                       'exclude quarantaine
     ajout = ajout & " --exclude-dir=^/proc"
     ajout = ajout & " --exclude-dir=^/sys"
     comm = comm & FMain.sCommande                                               'sCommande issue des limites
-
+    
     If FMain.bSudo = True Then
         Authenticate.Command("sudo " & Comm)
         If FMain.bFlag = True Then                                              'montexte est affecté à la commande du process
@@ -96,21 +96,21 @@ Public Function ScanAction(Ruta As String)
     FichierLog()                                                                'sauvegarde des log et historique
     Wait                                                                        'finir la sauvegarde
     FMain.monTexte = ""
-
+    
 End
 
 Public Sub Scan_Read()                                                          'affichage dans terminal
-
+    
     Dim sLine As String
-
+    
     Read #hProc, sLine, Lof(hProc)
     FMain.txSalida.Text &= sLine
     FMain.txSalida.EnsureVisible()
-
+    
 End
 
 Public Sub Scan_Kill()                                                          'Fin du process hPro
-
+    
     If FMain.bTBKill = True Then '¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤'le processus a été tué
         Module1.son(Module1.beep)
         If FMain.bSudo = True Then                                              'si bouton sudo enfoncé
@@ -130,16 +130,16 @@ Public Sub Scan_Kill()                                                          
         Module1.son(Module1.Warning)
         Message(("Trabajo completado") & ". " & ("¡Puedes volver!"))
     Endif
-
+    
 End
 
 Public Sub TournProc()                                                          'tant que tourne le process
-
+    
     Dim i, j As Integer
-
+    
     Depart = Timer                                                              'temps de l'horloge interne
     j = CInt(FMain.txSalida2.Width / 8.75)                                      'j=longueur de la ligne terminal 2
-
+    
     While hProc.state = hProc.Running
         MouseWait()
         FMain.dTemps = Time(0, 0, 0, CInt(Timer - ClamScan.Depart) * 1000)      'clic en millisecondes * 1000 = secondes
@@ -153,37 +153,37 @@ Public Sub TournProc()                                                          
         FMain.txSalida2.Text &= "#"
         If hProc.State = hProc.Stopped Then Break                               'garantie de sortie de boucle (inutile?)
     Wend
-
+    
     Mousedefault()
-
+    
 End
 
 Public Sub Mousedefault()                                                       'curseur par défaut
-
+    
     FMain.Mouse = Mouse.Default
     FMain.txSalida.Mouse = Mouse.Default
     FMain.txSalida2.Mouse = Mouse.Default
     FMain.txSalida3.Mouse = Mouse.Default
     FMain.txSalida2.Clear
     FMain.txSalida.ScrollBar = Scroll.Both
-
+    
 End
 
 Public Sub MouseWait()                                                          'curseur d'attente
-
+    
     FMain.Mouse = Mouse.Wait
     FMain.txSalida.Mouse = Mouse.Wait
     FMain.txSalida2.Mouse = Mouse.Wait
     FMain.txSalida3.Mouse = Mouse.Wait
     FMain.txSalida.ScrollBar = Scroll.None
-
+    
 End
 
 Public Sub RecupVirus()
-
+    
     Dim sLigne As String[] = Split(FMain.txSalida.Text, gb.NewLine, "", True)
     Dim i As Integer
-
+    
     If FMain.Quarant = True Then                                                'si quarantaine automatique
         For i = 0 To sLigne.Max
             If sLigne[i] Ends " FOUND" Then
@@ -199,28 +199,28 @@ Public Sub RecupVirus()
         Next
         File.Save(FMain.pil, sTexte)                                            'sauvegarde de la liste des fichiers et virus après scan
     Endif
-
+    
 End
 
 Public Sub FichierLog()                                                         'sauvegarde des Log et de l'Historique
-
+    
     Dim TextDate As String
-
+    
     TextDate = " ---------| " & (" Escaneo realizado : ") & Now() & " |--------- "
-
+    
     If Not Exist(FMain.clamLog) Then                                            'fichier Log
         FMain.leFichier = Open FMain.clamLog For Create
     Else
         FMain.leFichier = Open FMain.clamLog For Input
     Endif
-
+    
     If Not Exist(FMain.historic) Then                                           'fichier historique
         FMain.histo = Open FMain.historic For Create
     Else
         FMain.histo = Open FMain.historic For Input
     Endif
-
+    
     File.Save(FMain.clamLog, FMain.leFichier.Load(FMain.clamLog) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text)   'Logs
     File.Save(FMain.historic, FMain.histo.Load(FMain.historic) & gb.CrLf & TextDate & gb.CrLf & gb.CrLf & FMain.txSalida.Text) 'Historique
-
+    
 End

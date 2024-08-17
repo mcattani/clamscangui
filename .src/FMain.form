@@ -1,13 +1,11 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,875,637)
+  Move(0,0,873,648)
   #Scaled = False
   Font = Font["10"]
-  Expand = True
   Text = ("// ClamAV GUI //")
   Icon = Picture["icon:/48/security"]
-  Resizable = False
   Arrangement = Arrange.Horizontal
   AutoResize = True
   Padding = 2
@@ -456,16 +454,16 @@
     }
   }
   { PanGauche Panel
-    Move(7,0,559,601)
+    Move(7,0,567,621)
     Padding = 2
     { TP TabPanel
-      Move(0,0,558,420)
+      Move(0,0,558,432)
       Padding = 2
       Count = 2
       Index = 0
       Text = ("Analizar un Archivo")
       { FC FileChooser
-        Move(7,7,539,378)
+        Move(9,9,540,378)
         Expand = True
         Border = False
         Root = "/"
@@ -482,10 +480,10 @@
       Index = 0
     }
     { Panel2 Panel
-      Move(0,427,557,174)
+      Move(9,441,558,180)
       Arrangement = Arrange.Vertical
       { !txSalida TextArea
-        Move(0,0,553,126)
+        Move(0,9,549,126)
         #Public = True
         Font = Font["10"]
         Background = Color.Black
@@ -497,7 +495,7 @@
         Border = False
       }
       { Panel3 Panel
-        Move(0,154,557,21)
+        Move(0,144,558,27)
         Arrangement = Arrange.Horizontal
         { !txSalida3 TextArea
           Move(0,0,224,21)
@@ -510,7 +508,7 @@
           ScrollBar = Scroll.None
         }
         { !txSalida2 TextArea
-          Move(252,0,280,21)
+          Move(261,0,280,21)
           #Public = True
           Font = Font["10"]
           Background = Color.Black
@@ -527,25 +525,25 @@
       AutoResize = True
       { TBKill ToolButton
         Move(105,0,32,28)
-        Mouse = Mouse.Pointing
+        Mouse = Cursor.Pointing
         ToolTip = ("¡Mata el proceso en curso!")
         Picture = Picture["icon:/32/halt"]
       }
       { TBhProc ToolButton
         Move(73,0,32,28)
-        Mouse = Mouse.Pointing
+        Mouse = Cursor.Pointing
         ToolTip = ("¡Ejecute el proceso!")
         Picture = Picture["icon:/32/exec"]
       }
       { TBeffacer ToolButton
         Move(2,0,35,28)
-        Mouse = Mouse.Pointing
+        Mouse = Cursor.Pointing
         ToolTip = ("Salida de texto claro")
         Picture = Picture["icon:/24/clear"]
       }
       { TBSudo ToolButton
         Move(140,0,35,28)
-        Mouse = Mouse.Pointing
+        Mouse = Cursor.Pointing
         ToolTip = ("Sudo")
         Picture = Picture["icon:/32/linux"]
         Toggle = True
@@ -556,13 +554,13 @@
       }
       { TBPresent ToolButton
         Move(38,0,32,28)
-        Mouse = Mouse.Pointing
+        Mouse = Cursor.Pointing
         ToolTip = ("Presentación")
         Picture = Picture["icon:/24/edit"]
       }
       { TBSudo2 ToolButton
         Move(201,0,35,28)
-        Mouse = Mouse.Pointing
+        Mouse = Cursor.Pointing
         ToolTip = ("Limitaciones")
         Picture = Picture["icon:/32/flag"]
         Toggle = True

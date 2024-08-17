@@ -1,3 +1,9 @@
+* Sat Aug 17 2024 The Nerdy Apprentice <marianoctt@gmail.com> 1.2.93
+- Corrección en la función para buscar actualizaciones
+- Corrección al mostrar la versión del programa
+- Corrección de paquete de instalación para Debian
+- Instalador para Arch
+
 * Fri Mar 04 2022 The Nerdy Apprentice <marianocattani@gmail.com> 1.1.92
 - Corregido problema de inicio
 

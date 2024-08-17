@@ -1,11 +1,11 @@
 Module1
 ClamScanGui
+#ClamScanGui
 0
-0
-1.1.92
+1.2.93
 
 gb.image
-gb.qt5
+gb.gui
 gb.form
 gb.dbus
 gb.desktop
@@ -16,7 +16,6 @@ gb.settings
 gb.form.stock
 gb.net
 gb.net.curl
-gb.qt5.ext
 gb.report2
 gb.sdl2.audio
 

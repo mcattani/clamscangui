@@ -1,23 +1,18 @@
-# clamscangui
-Última versión: 1.1.92
+# Clam Scan Gui 
 
-Repositorio de la interfaz gráfica para el antivirus ClamAV hecho en Gambas.
+Interfaz gráfica hecha en Gambas para el antivirus ClamAV.
 
 El ClamAV es un poderoso antivirus open source que detecta: troyanos, virus, malware y otros amenazas.
 
-    ClamAV® is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
+>ClamAV® is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
 
 Pueden descargarlo desde su página oficial: https://www.clamav.net/
 
 Antiguamente estaba utilizando una interfaz gráfica bastante conocida: ClamTK (excelente programa). Pero me parecía que había posibilidades de hacerlo de otra manera. 
-Y por qué no?
+¿Y por qué no?
 
-Dentro de la carpeta DEB_Files están el archivo .deb para su instalación en Debian y derivados.
+Para más información y ver todos mis proyectos visita: [https://thenerdyapprentice.blogspot.com/](https://thenerdyapprentice.blogspot.com/)
 
-Si querés ver más proyectos, visitá: https://thenerdyapprentice.blogspot.com/
-
-Ver el archivo ChangeLog para ver los cambios realizados. 
-
-Gracias a Philippe Valarcher por los aportes realizados.
+**Gracias a Philippe Valarcher por los aportes realizados.**
 
 
